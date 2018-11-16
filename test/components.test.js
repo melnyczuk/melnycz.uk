@@ -17,8 +17,20 @@ describe('App', () => {
 });
 
 describe('Nav', () => {
-  it('renders', () => {
-    const navBar = shallow(<Nav />);
-    expect(navBar);
+  it('renders with className "navbar"', () => {
+    const className = 'nav-bar';
+    const navBar = shallow(<Nav className={className} />);
+    expect(navBar.hasClass(className)).toBe(true);
+  });
+
+  it('renders with buttons with id and relative href', () => {
+    const buttons = [ 'art', 'coding' ];
+    const navButtons = shallow(<Nav buttons={buttons} />).find('.nav-button');
+    expect(navButtons).toHaveLength(2);
+    buttons.forEach(button => {
+      const selector = `#${button}`;
+      expect(navButtons.find(selector)).toHaveLength(1);
+      expect(navButtons.find(`[href="${selector}"]`)).toHaveLength(1);
+    });
   });
 });
