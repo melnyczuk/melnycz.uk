@@ -1,0 +1,28 @@
+# Folders:
+**/node_modules/**
+**/__pycache__/**
+cthulhubot/
+
+# Node:
+package.json
+package-lock.json
+
+# VSCode:
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Filetypes:
+*.jpg
+*.png
+*.gif
+*.pdf
+*.indd
+*.psd
+*.avi
+*.mp3
+*.mp4
+*.wav
+*.txt
