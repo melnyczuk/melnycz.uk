@@ -1,7 +1,6 @@
 # Folders:
-**/node_modules/**
-**/__pycache__/**
-cthulhubot/
+node_modules/
+__pycache__/
 
 # Node:
 package-lock.json
