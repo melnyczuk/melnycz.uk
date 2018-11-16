@@ -4,7 +4,6 @@
 cthulhubot/
 
 # Node:
-package.json
 package-lock.json
 
 # VSCode:
