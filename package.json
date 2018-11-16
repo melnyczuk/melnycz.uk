@@ -1,9 +1,12 @@
 {
   "name": "melnycz.uk",
   "version": "0.1.0",
+  "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "test": "jest test/*"
+    "test": "jest test/*",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,17 +27,23 @@
     }
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "node-sass": "^4.10.0",
     "react-test-renderer": "^16.6.3",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "react": "^16.6.3",
