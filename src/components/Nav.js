@@ -1,27 +1,30 @@
-import React, { PureComponent } from 'react';
-import '../style/App.css';
+import React from 'react';
 
-class Nav extends PureComponent {
-  render() {
-    const { 
-      className,
-      buttons = []
-    } = this.props;
-
+function generateButtons(buttons) {
+  return buttons.map((button, i) => {
     return (
-      <Nav className={className} >
-        {
-          buttons.map((button, i) => {
-            return(
-              <div key={i} className="nav-button" id={button} >
-                <a href={`#${button}`} />
-              </div> 
-            );
-          })
-        }
-      </Nav>
+      <div key={i} className="nav-button" id={button} >
+        <a href={button}>
+          {button}
+        </a>
+      </div>
     );
-  }
+  })
 }
 
-export default Nav;
+function NavBar(props){
+  const {
+    className = 'nav-bar',
+    title,
+    buttons = []
+  } = props;
+
+  return (
+    <div className={className} id={title} >
+      { title }
+      { generateButtons(buttons) }
+    </div>
+  );
+}
+
+export default NavBar;
