@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../src/components/App';
 import NavBar from '../src/components/Nav';
+import Viewer from '../src/components/Viewer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -18,6 +19,11 @@ describe('App', () => {
   it('renders with NavBar component', () => {
     const app = shallow(<App />);
     expect(!!app.find(NavBar)).toBe(true);
+  });
+
+  it('renders with Viewer component', () => {
+    const app = shallow(<App />);
+    expect(!!app.find(Viewer)).toBe(true);
   });
 });
 
@@ -40,7 +46,6 @@ describe('Nav', () => {
     expect(navTitle.exists()).toBe(true);
   });
 
-
   it('renders with buttons with id and relative href', () => {
     const buttons = [ 'art', 'coding' ];
     const navButtons = shallow(<NavBar buttons={buttons} />).find('.nav-button');
@@ -53,3 +58,5 @@ describe('Nav', () => {
     });
   });
 });
+
+describe('Viewer', () =>{});
