@@ -23,17 +23,23 @@ describe('App', () => {
 
 describe('Nav', () => {
   it('renders with className "navbar"', () => {
-    const className = 'navigation';
-    const navBar = shallow(<NavBar className={className} />);
-    expect(navBar.hasClass(className)).toBe(true);
+    const classes = ['navigation'];
+    const navBar = shallow(<NavBar classes={classes} />);
+    expect(navBar.hasClass(classes[0])).toBe(true);
+  });
+
+  it('renders an id', () => {
+    const id = 'howard-melnyczuk';
+    const navBar = shallow(<NavBar id={id} />);
+    expect(!!navBar.find(`#${id}`)).toBe(true);
   });
 
   it('renders a title', () => {
     const title = 'howard-melnyczuk';
-    const navBar = shallow(<NavBar title={title} />);
-    expect(navBar.text()).toBe(title);
-    expect(!!navBar.find(`#${title}`)).toBe(true);
+    const navTitle = shallow(<NavBar title={title} />).find(`#${title}`);
+    expect(navTitle.exists()).toBe(true);
   });
+
 
   it('renders with buttons with id and relative href', () => {
     const buttons = [ 'art', 'coding' ];

@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar buttons={navButtons} />
+        <NavBar id={'nav-main'} title={'hello world'} buttons={navButtons} />
       </div>
     );
   }
