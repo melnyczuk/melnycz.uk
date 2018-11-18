@@ -1,12 +1,37 @@
 {
-  "info": {},
+  "info": {
+    "name": "Howard Melnyczuk"
+  },
   "projects": [
     {}
   ],
   "works": [
-    {}
+    {
+      "title": "Rrosetta",
+      "year": 2017,
+      "type": ["installation"],
+      "materials": [
+        "webserver",
+        "commercial printer",
+        "paper",
+        "found images",
+        "found text"
+      ],
+      "description": {
+        "long": "",
+        "short": ""
+      },
+      "images": [
+        {
+          "alt": "",
+          "src": "",
+          "rank": 0
+        }
+      ],
+      "video": [],
+      "exhibitions": []
+    }
   ],
-  "zines": [
-    {}
-  ]
+  "writing": [],
+  "zines": []
 }
