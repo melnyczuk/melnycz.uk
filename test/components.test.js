@@ -28,9 +28,10 @@ describe('App', () => {
 });
 
 describe('Nav', () => {
-  it('renders with className "navbar"', () => {
+  it('renders with class "nav-bar" & additional classes', () => {
     const classes = ['navigation'];
     const navBar = shallow(<NavBar classes={classes} />);
+    expect(navBar.hasClass('nav-bar')).toBe(true);
     expect(navBar.hasClass(classes[0])).toBe(true);
   });
 
@@ -59,4 +60,11 @@ describe('Nav', () => {
   });
 });
 
-describe('Viewer', () =>{});
+describe('Viewer', () =>{
+  it('renders with a className "viewer" & additional classes', () => {
+    const classes = ['port'];
+    const viewer = shallow(<Viewer classes={classes} />);
+    expect(viewer.hasClass('viewer')).toBe(true);
+    expect(viewer.hasClass(classes[0])).toBe(true);
+  });
+});
