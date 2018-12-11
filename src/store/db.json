@@ -1,15 +1,21 @@
 {
   "info": {
-    "name": "Howard Melnyczuk"
+    "name": "Howard Melnyczuk",
+    "email": "h.melnyczuk@gmail.com",
+    "handle": "@melnyczuk"
   },
-  "projects": [
-    {}
-  ],
-  "works": [
-    {
+  "works": {
+    "rrosetta": {
+      "live": false,
+      "href": "",
       "title": "Rrosetta",
-      "year": 2017,
-      "type": ["installation"],
+      "year": [
+        2017
+      ],
+      "type": [
+        "installation",
+        "webart"
+      ],
       "materials": [
         "webserver",
         "commercial printer",
@@ -21,17 +27,149 @@
         "long": "",
         "short": ""
       },
-      "images": [
+      "media": {
+        "images": [
+          {
+            "alt": "",
+            "src": "",
+            "rank": 0
+          }
+        ],
+        "video": []
+      },
+      "exhibitions": [
         {
-          "alt": "",
-          "src": "",
-          "rank": 0
+          "name": "Overlap",
+          "curator": "Howard Melnyczuk",
+          "location": "St James Hatcham Building, New Cross, London",
+          "city": "London",
+          "country": "United Kingdom",
+          "geo": "",
+          "date": [
+            "20170907",
+            "20170908",
+            "20170909",
+            "20170910"
+          ],
+          "video": [
+            "https://vimeo.com/239667082"
+          ],
+          "links": [
+            "http://www.overlap.show"
+          ]
+        },
+        {
+          "name": "Virtuality Mortality",
+          "curator": "XAP",
+          "location": "Ugly Duck, 47/49 Tanner Street, Bermondsey, London",
+          "city": "London",
+          "country": "United Kingdom",
+          "date": [
+            "20171014",
+            "20171015"
+          ],
+          "links": [
+            "http://uglyduck.org.uk/portfolio_page/virtuality-mortality/"
+          ]
         }
       ],
-      "video": [],
-      "exhibitions": []
+      "links": []
+    },
+    "ahirespngofarock": {
+      "live": true,
+      "year": [
+        2017
+      ],
+      "type": [
+        "website"
+      ],
+      "materials": [],
+      "name": "ahirespngofarock",
+      "href": "http://melnycz.uk/ahirespngofarock/"
+    },
+    "justwatchedandfelt": {
+      "live": true,
+      "year": [
+        2017
+      ],
+      "type": [
+        "website"
+      ],
+      "name": "Just Watched And Felt",
+      "href": "http://melnycz.uk/just_watched_and_felt/"
+    },
+    "likethedawningofanewday": {
+      "live": true,
+      "year": [
+        2017
+      ],
+      "type": [
+        "website"
+      ],
+      "name": "Like The Dawning Of A New Day",
+      "href": "http://melnycz.uk/like_the_dawning_of_a_new_day/"
+    },
+    "westantarcticicesheet": {
+      "live": false,
+      "year": [
+        2016
+      ],
+      "type": [
+        "website",
+        "pdf"
+      ],
+      "name": "West Antarctic Ice Sheet",
+      "href": "http://melnycz.uk/west_antarctic_ice_sheet/"
+    },
+    "endlessscrollingenduringlove": {
+      "live": false,
+      "year": [
+        2013
+      ],
+      "type": [
+        "website"
+      ],
+      "name": "Endless Scrolling / Enduring Love",
+      "href": "http://melnycz.uk/endless_scrolling_enduring_love/",
+      "exhibitions": [
+        "yes"
+      ]
+    },
+    "texturecache": {
+      "live": false,
+      "year": [
+        2016
+      ],
+      "type": [
+        "website",
+        "rendering"
+      ],
+      "name": "Texture Cache",
+      "href": "http://melnycz.uk/texturecache/"
+    },
+    "everythingisathingassoonasyouthinkitathing": {
+      "live": true,
+      "year": [
+        2016
+      ],
+      "type": [
+        "pdf"
+      ],
+      "name": "Everything Is A Thing As Soon As You Think It A Thing",
+      "href": "http://melnycz.uk/e-v-e-r-y-t-h-i-n-g-i-s-a-t-h-i-n-g-a-s-s-o-o-n-a-s-y-o-u-t-h-i-n-k-i-t-a-t-h-i-n-g.pdf"
+    },
+    "everytimeirepeatmistakesidislikemyselfalittlemore": {
+      "live": false,
+      "year": [
+        2016
+      ],
+      "type": [
+        "video"
+      ],
+      "name": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
+      "href": "http://melnycz.uk/everytime_i_repeat_mistakes_i_dislike_myself_a_little_more/"
     }
-  ],
+  },
   "writing": [],
-  "zines": []
+  "photos": []
 }
