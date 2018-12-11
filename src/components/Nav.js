@@ -1,5 +1,5 @@
 import React from 'react';
-import makeClassesClassName from './utils';
+import makeClassesClassName from '../utils';
 
 const DEFAULT_NAVBAR_CLASS = 'nav-bar';
 
@@ -27,9 +27,9 @@ function NavBar(props) {
     title,
     buttons = []
   } = props;
-  
+
   const className = makeClassesClassName(classes, DEFAULT_NAVBAR_CLASS);
-  
+
   return (
     <div className={className} >
       <NavTitle id={String(title).replace(' ', '-')} title={title} />
