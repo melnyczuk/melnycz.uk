@@ -18,11 +18,6 @@ describe('Viewer', () =>{
 
   describe('Interactive Media', () => {});
 
-  describe('Modals', () => {
-    it.only('renders a viewer with a modal if a modal is present', () => {
-      const classes = ['port'];
-      const viewer = shallow(<Viewer classes={classes} />);
-    });
-  });
+  describe('Modals', () => {});
 });
 
