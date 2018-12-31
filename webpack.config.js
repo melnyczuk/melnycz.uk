@@ -7,8 +7,12 @@ module.exports = {
     filename: 'build.js',
     path: path.join(__dirname, '/dist')
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
   module: {
-    rules: [{
+    rules: [
+    {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
