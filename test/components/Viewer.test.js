@@ -13,5 +13,16 @@ describe('Viewer', () =>{
     expect(viewer.hasClass('viewer')).toBe(true);
     expect(viewer.hasClass(classes[0])).toBe(true);
   });
+
+  describe('Background Media', () => {});
+
+  describe('Interactive Media', () => {});
+
+  describe('Modals', () => {
+    it.only('renders a viewer with a modal if a modal is present', () => {
+      const classes = ['port'];
+      const viewer = shallow(<Viewer classes={classes} />);
+    });
+  });
 });
 
