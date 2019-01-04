@@ -1,20 +1,15 @@
 import React from 'react';
-import makeClassesClassName from '../utils';
 
-export const DEFAULT_MODAL_CLASS = 'modal';
-
-export default function Modal(props) {
+export default function Modal(props = {}) {
   const {
-    classes = [],
     visible = false,
+    classes = [],
     children = []
   } = props;
-  console.log('modal', visible);
-  const className = makeClassesClassName(classes, DEFAULT_MODAL_CLASS);
 
   if (visible) {
     return (
-      <div className={className} >
+      <div className={[ 'modal', ...classes ].join(' ')} >
         {children}
       </div>
     );

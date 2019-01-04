@@ -1,14 +1,17 @@
-import React, { PureComponent } from 'react';
-import makeClassesClassName from '../utils';
+import React from 'react';
 
-export const DEFAULT_VIEWER_CLASS = 'viewer';
+export default function Viewer(props) {
+  const {
+    classes = [],
+    children = []
+  } = props;
 
-class Viewer extends PureComponent {
-  render() {
-    const { classes = [], children = [] } = this.props;
-    const viewerClasses = makeClassesClassName(classes, DEFAULT_VIEWER_CLASS);
-    return <div className={viewerClasses}>{ children }</div>;
-  }
+  const className = ['viewer', ...classes].join(' ');
+
+  return (
+    <div className={className}>
+      {children}
+    </div>
+  );
+
 }
-
-export default Viewer;

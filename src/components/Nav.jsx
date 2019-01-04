@@ -1,10 +1,6 @@
 import React from 'react';
-import makeClassesClassName from '../utils';
 
-export const DEFAULT_NAVBAR_CLASS = 'nav-bar';
-
-function NavButtons(props) {
-  const { buttons } = props;
+function NavButtons(buttons = []) {
   return buttons.map((button, i) => {
     return (
       <div key={i} className="nav-button" id={button} >
@@ -16,24 +12,20 @@ function NavButtons(props) {
   });
 }
 
-function NavTitle(props) {
-  const { id, title } = props;
-  return <h1 id={id}>{ title }</h1>;
-}
-
 function NavBar(props) {
   const {
-    classes = [],
     title,
-    buttons = []
+    buttons,
+    classes = []
   } = props;
 
-  const className = makeClassesClassName(classes, DEFAULT_NAVBAR_CLASS);
+  const id = String(title).replace(' ', '-');
+  const className = ['nav-bar', ...classes].join(' ');
 
   return (
     <div className={className} >
-      <NavTitle id={String(title).replace(' ', '-')} title={title} />
-      { NavButtons({buttons}) }
+      <h1 id={id} >{title}</h1>
+      { NavButtons(buttons) }
     </div>
   );
 }

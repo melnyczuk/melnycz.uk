@@ -4,7 +4,7 @@ import {
   modalInitialState,
   setModalVisibility,
   modalReducer
-} from '../../src/store/modal.store';
+} from '../../../src/store/modal.store';
 
 describe('Modal Action Creators', () => {
   describe('setModalVisibility', () => {

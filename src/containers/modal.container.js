@@ -9,5 +9,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-connect(mapDispatchToProps)(Modal);
-export default Modal;
+export default connect(mapDispatchToProps)(Modal);
