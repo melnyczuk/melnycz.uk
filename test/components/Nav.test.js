@@ -7,6 +7,11 @@ import NavBar from '../../src/components/Nav';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Nav', () => {
+  it('renders', () => {
+    const navBar = shallow(<NavBar />);
+    expect(navBar.exists()).toBe(true);
+  });
+
   it('renders with class "nav-bar" & additional classes', () => {
     const classes = ['navigation'];
     const navBar = shallow(<NavBar classes={classes} />);

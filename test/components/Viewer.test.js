@@ -7,6 +7,11 @@ import Viewer from '../../src/components/Viewer';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Viewer', () =>{
+  it('renders', () => {
+    const viewer = shallow(<Viewer />);
+    expect(viewer.exists()).toBe(true);
+  });
+
   it('renders with a className "viewer" & additional classes', () => {
     const classes = ['port'];
     const viewer = shallow(<Viewer classes={classes} />);
