@@ -1,5 +1,5 @@
-import { SET_VISIBILITY } from './modals.constants';
-import { modalInitialState } from './modals.state';
+import { SET_VISIBILITY } from './modal.constants';
+import { modalInitialState } from './modal.state';
 
 export function modalReducer(state = modalInitialState, action) {
 

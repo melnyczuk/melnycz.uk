@@ -1,6 +1,6 @@
-import { SET_VISIBILITY } from './modals.constants';
+import { SET_VISIBILITY } from './modal.constants';
 
-export function setModalVisibility(payload) {
+export function setModalVisibility(payload = false) {
   if (payload === false) {
     return { type: SET_VISIBILITY, payload: false };
   }
