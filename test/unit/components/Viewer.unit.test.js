@@ -13,10 +13,9 @@ describe('Viewer', () =>{
   });
 
   it('renders with a className "viewer" & additional classes', () => {
-    const classes = ['port'];
+    const classes = ['port', 'viewer'];
     const viewer = shallow(<Viewer classes={classes} />);
-    expect(viewer.hasClass('viewer')).toBe(true);
-    expect(viewer.hasClass(classes[0])).toBe(true);
+    classes.forEach(c => expect(viewer.hasClass(c)).toBe(true));
   });
 
   describe('Background Media', () => {});

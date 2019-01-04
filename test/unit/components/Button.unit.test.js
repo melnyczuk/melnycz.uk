@@ -14,8 +14,8 @@ describe('Button', () => {
 
   it('renders with custom classes', () => {
     const classes = ['clickme', 'button'];
-    const modal = shallow(<Button classes={classes} />);
-    classes.forEach(c => expect(modal.hasClass(c)).toBe(true));
+    const button = shallow(<Button classes={classes} />);
+    classes.forEach(c => expect(button.hasClass(c)).toBe(true));
   });
 
   it('handles being clicked', () => {});

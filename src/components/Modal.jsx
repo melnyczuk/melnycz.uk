@@ -1,15 +1,9 @@
 import React from 'react';
 
-export default function Modal(props = {}) {
-  const {
-    visible = false,
-    classes = [],
-    children = []
-  } = props;
-
+export default function Modal({ visible = false, classes, children = []}) {
   if (visible) {
     return (
-      <div className={[ 'modal', ...classes ].join(' ')} >
+      <div className={[...classes].join(' ')} >
         {children}
       </div>
     );

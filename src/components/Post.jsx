@@ -1,14 +1,8 @@
 import React from 'react';
 
-export default function Post(props) {
-  const {
-    title,
-    classes = [],
-    children = []
-  } = props;
-
+export default function Post({ title, classes = [], children = [] }) {
   return (
-    <div className={['documentation', ...classes].join(' ')} >
+    <div className={classes.join(' ')} >
       <h2 key="title">{title}</h2>
       {children}
     </div>

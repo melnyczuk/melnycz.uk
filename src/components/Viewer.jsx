@@ -1,15 +1,8 @@
 import React from 'react';
 
-export default function Viewer(props) {
-  const {
-    classes = [],
-    children = []
-  } = props;
-
-  const className = ['viewer', ...classes].join(' ');
-
+export default function Viewer({classes = [], children = []}) {
   return (
-    <div className={className}>
+    <div className={classes.join(' ')}>
       {children}
     </div>
   );

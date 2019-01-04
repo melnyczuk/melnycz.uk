@@ -15,8 +15,7 @@ describe('Nav', () => {
   it('renders with class "nav-bar" & additional classes', () => {
     const classes = ['navigation'];
     const navBar = shallow(<NavBar classes={classes} />);
-    expect(navBar.hasClass('nav-bar')).toBe(true);
-    expect(navBar.hasClass(classes[0])).toBe(true);
+    classes.forEach(c => expect(navBar.hasClass(c)).toBe(true));
   });
 
   it('renders an id', () => {

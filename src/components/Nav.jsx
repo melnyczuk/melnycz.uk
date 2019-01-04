@@ -12,18 +12,11 @@ function NavButtons(buttons = []) {
   });
 }
 
-function NavBar(props) {
-  const {
-    title,
-    buttons,
-    classes = []
-  } = props;
-
+function NavBar({ title, buttons, classes = [] }) {
   const id = String(title).replace(' ', '-');
-  const className = ['nav-bar', ...classes].join(' ');
 
   return (
-    <div className={className} >
+    <div className={classes.join(' ')} >
       <h1 id={id} >{title}</h1>
       { NavButtons(buttons) }
     </div>
