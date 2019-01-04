@@ -1,5 +1,6 @@
 import assert from 'assert';
-import { setModalVisibility, SET_VISIBILITY } from '../../src/store/modals.actions';
+import { setModalVisibility } from '../../src/store/modal.actions';
+import { SET_VISIBILITY } from '../../src/store/modal.constants';
 
 describe('Modal Action Creators', () => {
   describe('setModalVisibility', () => {

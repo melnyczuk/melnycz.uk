@@ -1,7 +1,7 @@
 import assert from 'assert';
-import { modalReducer } from '../../src/store/modals.reducers';
-import { setModalVisibility } from '../../src/store/modals.actions';
-import { modalInitialState } from '../../src/store/modals.state';
+import { modalReducer } from '../../src/store/modal.reducers';
+import { setModalVisibility } from '../../src/store/modal.actions';
+import { modalInitialState } from '../../src/store/modal.state';
 
 describe('Modal Reducers', () => {
 
