@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import NavBar from '../../src/components/Nav';
+import NavBar, { DEFAULT_NAVBAR_CLASS } from '../../src/components/Nav';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -15,7 +15,7 @@ describe('Nav', () => {
   it('renders with class "nav-bar" & additional classes', () => {
     const classes = ['navigation'];
     const navBar = shallow(<NavBar classes={classes} />);
-    expect(navBar.hasClass('nav-bar')).toBe(true);
+    expect(navBar.hasClass(DEFAULT_NAVBAR_CLASS)).toBe(true);
     expect(navBar.hasClass(classes[0])).toBe(true);
   });
 
