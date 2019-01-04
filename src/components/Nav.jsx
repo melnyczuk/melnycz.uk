@@ -1,7 +1,7 @@
 import React from 'react';
 import makeClassesClassName from '../utils';
 
-const DEFAULT_NAVBAR_CLASS = 'nav-bar';
+export const DEFAULT_NAVBAR_CLASS = 'nav-bar';
 
 function NavButtons(props) {
   const { buttons } = props;

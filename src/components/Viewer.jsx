@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import makeClassesClassName from '../utils';
 
-const DEFAULT_VIEWER_CLASS = 'viewer';
+export const DEFAULT_VIEWER_CLASS = 'viewer';
 
 class Viewer extends PureComponent {
   render() {
