@@ -1,6 +1,10 @@
 import assert from 'assert';
-import { setModalVisibility } from '../../src/store/modal.actions';
-import { SET_VISIBILITY } from '../../src/store/modal.constants';
+import {
+  SET_VISIBILITY,
+  modalInitialState,
+  setModalVisibility,
+  modalReducer
+} from '../../src/store/modal.store';
 
 describe('Modal Action Creators', () => {
   describe('setModalVisibility', () => {
@@ -22,3 +26,19 @@ describe('Modal Action Creators', () => {
     });
   });
 });
+
+describe('Modal Reducers', () => {
+
+  it('returns the correct default state', () => {
+    const data = modalReducer(undefined, {});
+    assert.deepStrictEqual(data, modalInitialState);
+  });
+
+  describe('modalVisibilityReducer', () => {
+    it('reduces SET_VISIBILITY action', () => {
+      const data = modalReducer(undefined, setModalVisibility(true));
+      assert.strictEqual(data.visible, true);
+    });
+  });
+});
+
