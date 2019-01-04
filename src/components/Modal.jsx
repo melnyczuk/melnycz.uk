@@ -1,37 +1,22 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import makeClassesClassName from '../utils';
 
-const DEFAULT_MODAL_CLASS = 'modal';
+export const DEFAULT_MODAL_CLASS = 'modal';
 
-class Modal extends PureComponent {
-  constructor(props) {
-    super();
-    const {
-      classes = [],
-      visible = false
-    } = props;
+export default function Modal(props) {
+  const {
+    classes = [],
+    visible = false,
+    children = []
+  } = props;
+  console.log('modal', visible);
+  const className = makeClassesClassName(classes, DEFAULT_MODAL_CLASS);
 
-    this.handleShow = this.handleShow.bind(this);
-    this.handleHide = this.handleHide.bind(this);
-
-    this.state = {
-      visible: visible
-    };
-
-    this.className = makeClassesClassName(classes, DEFAULT_MODAL_CLASS);
-  }
-
-  handleShow(){ this.setState({ visible: true }); }
-  handleHide(){ this.setState({ visible: false }); }
-
-  render() {
-    if (this.state.visible) {
-      return (
-        <div className={this.className} >
-        </div>
-      );
-    }
+  if (visible) {
+    return (
+      <div className={className} >
+        {children}
+      </div>
+    );
   }
 }
-
-export default Modal;

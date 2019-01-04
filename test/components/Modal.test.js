@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../src/components/Modal';
+import Modal, { DEFAULT_MODAL_CLASS } from '../../src/components/Modal';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,8 +14,8 @@ describe('Modals', () => {
 
   it('renders with class "modal" & additional classes', () => {
     const classes = ['basic'];
-    const modal = shallow(<Modal classes={classes} />);
-    expect(modal.hasClass('modal')).toBe(true);
+    const modal = shallow(<Modal classes={classes} visible={true} />);
+    expect(modal.hasClass(DEFAULT_MODAL_CLASS)).toBe(true);
     expect(modal.hasClass(classes[0])).toBe(true);
   });
 
@@ -27,14 +27,15 @@ describe('Modals', () => {
     expect(hiddenModal.exists('.hidden')).toBe(false);
   });
 
-  it.only('visibility changes when hidden', () => {
-    const modal = shallow(<Modal classes={['div']} visible={true} />);
-    expect(modal.exists('.div')).toBe(true);
-    modal.find('div').simulate('hide');
-    expect(modal.exists('.div')).toBe(false);
-  });
+    // it('visibility changes when clicked', () => {
+    //   const modal = shallow(<ModalContainer />);
+    //   expect(modal.exists('.modal')).toBe(true);
+    //   modal.find('.modal').simulate('click');
+    //   expect(modal.exists('.modal')).toBe(false);
+    // });
 
-  it.only('shows the internal div when visibility changes', () => {});
+
+  it('shows the internal div when visibility changes', () => {});
 
   describe('Post Modal', () => { });
 
