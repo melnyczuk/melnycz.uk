@@ -7,7 +7,16 @@ import Button from '../../../src/components/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Button', () => {
-  it('renders with class "button" & additional classes', () => {});
+  it('renders', () => {
+    const button = shallow(<Button />);
+    expect(button.exists()).toBe(true);
+  });
+
+  it('renders with custom classes', () => {
+    const classes = ['clickme', 'button'];
+    const modal = shallow(<Button classes={classes} />);
+    classes.forEach(c => expect(modal.hasClass(c)).toBe(true));
+  });
 
   it('handles being clicked', () => {});
 
