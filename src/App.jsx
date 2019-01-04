@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../style/App.css';
 
-import NavBar from './Nav';
-import Viewer from './Viewer';
+import NavBar from './components/Nav';
+import Viewer from './components/Viewer';
 
 const navButtons = ['art', 'code'];
 
