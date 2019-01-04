@@ -1,0 +1,1 @@
+export const SET_VISIBILITY = 'SET_VISIBILITY';
