@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function Modal({ visible = false, classes, children = []}) {
-  if (visible) {
-    return (
-      <div className={[...classes].join(' ')} >
-        {children}
-      </div>
-    );
+export default class Modal extends Component {
+  constructor({ visible = false, classes = [], children = []}) {
+    super();
+
+    this.className = [...classes].join(' ');
+    this.children = children;
+
+    this.setState(() => ({ visible }));
+  }
+
+  render() {
+    if (this.state.visible) {
+      return (
+        <div className={this.className} >
+          {this.children}
+        </div>
+      );
+    }
   }
 }

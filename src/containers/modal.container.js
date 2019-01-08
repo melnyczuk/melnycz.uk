@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
 
 import Modal from '../components/Modal';
-import { setModalVisiblity } from '../store/modal.store';
+import { setModalVisiblity, selectModalVisibility } from '../store/modal.store';
 
-function mapDispatchToProps(dispatch) {
+const mapStateToProps = state => {
+  return {
+    visible: selectModalVisibility(state)
+  }
+}
+
+const mapDispatchToProps = dispatch => {
   return {
     onClick: (visibility) => dispatch(setModalVisiblity(visibility))
   }
 }
 
-export default connect(mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
