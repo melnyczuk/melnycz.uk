@@ -1,22 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Modal extends Component {
-  constructor({ visible = false, classes = [], children = []}) {
-    super();
+import { 
+  setModalVisiblity, 
+  selectModalVisibility 
+} from '../store/modal.store';
 
-    this.className = [...classes].join(' ');
-    this.children = children;
 
-    this.setState(() => ({ visible }));
-  }
-
-  render() {
-    if (this.state.visible) {
-      return (
-        <div className={this.className} >
-          {this.children}
-        </div>
-      );
-    }
+export function Modal ({ visible = false, classes = [], children = [] }) {
+  if (visible) {
+    return (
+      <div className={[...classes].join(' ')} >
+        {children}
+      </div>
+    );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    visible: selectModalVisibility(state),
+    classes: state.classes,
+    children: state.children
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onHide: () => dispatch(setModalVisiblity(false)),
+    onShow: () => dispatch(setModalVisiblity(true))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
