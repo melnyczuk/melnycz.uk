@@ -14,9 +14,9 @@ function NavButtons(buttons = []) {
 
 function NavBar({ title, buttons, classes = [] }) {
   const id = String(title).replace(' ', '-');
-
+  const className = [...classes].join(' ') || null;
   return (
-    <div className={classes.join(' ')} >
+    <div className={className} >
       <h1 id={id} >{title}</h1>
       { NavButtons(buttons) }
     </div>
