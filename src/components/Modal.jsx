@@ -7,28 +7,31 @@ import {
 } from '../store/modal.store';
 
 
-export function Modal ({ visible = false, classes = [], children = [] }) {
+function Modal ({ visible, classes = [], children = []}) {
   if (visible) {
+    const className = [...classes].join(' ') || null;
     return (
-      <div className={[...classes].join(' ')} >
+      <div className={className} >
         {children}
       </div>
     );
   }
+  return null;
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
+  const { namespace } = props;
   return {
-    visible: selectModalVisibility(state),
-    classes: state.classes,
-    children: state.children
+    ...props,
+    visible: selectModalVisibility(state, namespace),
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, props) => {
+  const { namespace } = props;
   return {
-    onHide: () => dispatch(setModalVisiblity(false)),
-    onShow: () => dispatch(setModalVisiblity(true))
+    onHide: () => dispatch(setModalVisiblity({ key: namespace, value: false })),
+    onShow: () => dispatch(setModalVisiblity({ key: namespace, value: true }))
   }
 }
 

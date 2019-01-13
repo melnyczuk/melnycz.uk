@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -9,17 +11,29 @@ import Post from '../../src/components/Post';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe.only('App', () => {
+  const key = 'intTestModal'
+  const value = { visible: true };
+  const testStore = configureStore()({ [key]: value })
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Modal visible={true} />, div);
+    ReactDOM.render(
+      <Provider store={testStore} >
+        <Modal id={'intTestModal'} >
+          <Post />
+        </Modal>
+      </Provider>, 
+    div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders with NavBar component', () => {
     const app = shallow(
-      <Modal visible={true}>
-        <Post />
-      </Modal>
+      <Provider store={testStore} >
+        <Modal id={'intTestModal'} >
+          <Post />
+        </Modal>
+      </Provider>
     );
     expect(!!app.find(Post)).toBe(true);
   });

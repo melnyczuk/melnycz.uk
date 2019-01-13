@@ -1,39 +1,38 @@
 export const SET_VISIBILITY = 'SET_VISIBILITY';
 
-export const modalInitialState = {
-  visible: false
-}
+export const modalInitialState = {}
 
 // ACTION CREATORS
 
-export function setModalVisibility(payload = false) {
-  if (payload === true) {
-    return { type: SET_VISIBILITY, payload: true }
+export function setModalVisibility(payload) {
+  if (payload.key){
+    if (payload.value === false) {
+      return { type: SET_VISIBILITY, payload };
+    }
+    if (payload.value === true) {
+      return { type: SET_VISIBILITY, payload }
+    }
   }
-  return { type: SET_VISIBILITY, payload: false };
 }
 
 // REDUCERS
-export function modalReducer(state = modalInitialState, action) {
+export function reduceModal(state = modalInitialState, action) {
   if (action.type === SET_VISIBILITY) {
-    if (action.payload === undefined) {
-      return {
-        ...state,
-        visible: !state.visible
-      }
-    }
     return {
       ...state,
-      visible: action.payload
+      [action.payload.key]: {
+        visible: action.payload.value
+      }
     }
   }
   return state;
 }
 
 // SELECTORS
-export function selectModalVisibility(state, hash) {
-  if (hash) {
-    return state[hash].visible;
-  }
-  return state.visible
+export function selectModalVisibility(state, key) {
+  if (state && state.hasOwnProperty(key)){
+    const { visible } = state[key];
+    return visible;
+  };
+  return false;
 }

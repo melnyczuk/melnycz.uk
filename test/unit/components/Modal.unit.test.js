@@ -1,44 +1,52 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store' //ES6 modules
+import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import ConnectedModal, { Modal } from '../../../src/components/Modal';
+import Modal from '../../../src/components/Modal';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal', () => {
   it('renders', () => {
-    const modal = shallow(<Modal />);
+    const store = configureStore()({ test: { visible: false } });
+    const modal = shallow(
+      <Provider store={store}>
+        <Modal namespace={'test'} />
+      </Provider>
+    );
     expect(modal.exists()).toBe(true);
-    expect(modal.length).toBe(1);
+    expect(mount(modal.get(0)).length).toBe(1);
   });
 
   it('renders with additional classes', () => {
     const classes = ['basic', 'modal'];
-    const modal = shallow(<Modal classes={classes} visible={true} />);
-    classes.forEach(c => expect(modal.hasClass(c)).toBe(true));
+    const store = configureStore()({ test: { visible: true } });
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Modal namespace={'test'} classes={classes} />
+      </Provider>
+    );
+    const modal = mount(wrapper.get(0));
+    classes.forEach(c => expect(modal.exists(`.${c}`)).toBe(true));
+    expect(modal.html()).toStrictEqual('<div class="basic modal"></div>');
   });
 
   it('renders internal div only when visible', () => {
-    const shownModal = shallow(<Modal classes={['shown']} visible={true} />);
-    const hiddenModal = shallow(<Modal classes={['hidden']} visible={false} />);
-    expect(shownModal.exists('.shown')).toBe(true);
-    expect(hiddenModal.exists('.hidden')).toBe(false);
-  });
+    const shownModal = shallow(
+      <Provider store={configureStore()({ test: { visible: true } })}>
+        <Modal namespace={'test'} />
+      </Provider>
+    );
 
-  describe('Modal Container', () => {
-    it('renders the connected modal container and gets props from store', () => {
-      const store = configureStore()({ visible: true, classes: ['test'], children: [] });
-      const modalContainer = shallow(
-        <Provider store={store}>
-          <ConnectedModal />
-        </Provider>
-      );
-      expect(modalContainer.exists()).toBe(true);
-      expect(mount(modalContainer.get(0)).find('.test')).toHaveLength(1);
-    });
+    const hiddenModal = shallow(
+      <Provider store={configureStore()({ test: { visible: false } })}>
+        <Modal namespace={'test'} />
+      </Provider>
+    );
+    expect(shownModal.html()).toStrictEqual('<div></div>');
+    expect(hiddenModal.html()).toStrictEqual('');
   });
 
 });
