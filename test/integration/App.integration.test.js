@@ -4,8 +4,8 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../../src/App';
-import NavBar from '../../src/components/Nav';
-import Viewer from '../../src/components/Viewer';
+import NavBar from '../../src/components/nav/Nav';
+import Viewer from '../../src/components/viewer/Viewer';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -1,5 +1,5 @@
-import { modalReducer } from './modal.store';
-import { punctumReducer } from '../Punctum (Case Conflict)/punctum.store';
+import { modalReducer } from '../components/modal/modal.store';
+import { punctumReducer } from '../components/punctum/punctum.store';
 
 module.exports = [
   modalReducer,

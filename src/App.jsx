@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import '../style/App.css';
 
-import NavBar from './components/Nav';
-import Viewer from './components/Viewer';
+import NavBar from './components/nav/Nav';
+import Viewer from './components/viewer/Viewer';
 
 import reducers from './store/reducers';
 const rootReducer = combineReducers(reducers);
