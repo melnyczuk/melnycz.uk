@@ -4,11 +4,12 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Punctum from '../../../src/Punctum/Punctum';
-import modal from '../../../src/store/modal.store';
+import Punctum from '../../../src/components/punctum/Punctum';
+import punctum from '../../../src/components/punctum/punctum.store';
 
-const { punctumReducer } = modal.reducers;
-const { selectModalVisibility } = modal.selectors;
+
+const { punctumReducer } = punctum;
+const { selectModalVisibility } = punctum.selectors;
 
 Enzyme.configure({ adapter: new Adapter() });
 
