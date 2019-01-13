@@ -5,7 +5,7 @@ export const modalInitialState = {}
 // ACTION CREATORS
 
 export function setModalVisibility(payload) {
-  if (payload.key){
+  if (payload.namespace){
     if (payload.value === false) {
       return { type: SET_VISIBILITY, payload };
     }
@@ -20,7 +20,7 @@ export function reduceModal(state = modalInitialState, action) {
   if (action.type === SET_VISIBILITY) {
     return {
       ...state,
-      [action.payload.key]: {
+      [action.payload.namespace]: {
         visible: action.payload.value
       }
     }
@@ -29,9 +29,9 @@ export function reduceModal(state = modalInitialState, action) {
 }
 
 // SELECTORS
-export function selectModalVisibility(state, key) {
-  if (state && state.hasOwnProperty(key)){
-    const { visible } = state[key];
+export function selectModalVisibility(state, namespace) {
+  if (state && state.hasOwnProperty(namespace)){
+    const { visible } = state[namespace];
     return visible;
   };
   return false;

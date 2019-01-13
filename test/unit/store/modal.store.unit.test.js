@@ -41,7 +41,7 @@ describe('Modal Action Creators', () => {
 });
 
 describe('Modal Reducers', () => {
-  it('returns the correct default state', () => {
+  it('returns the correct initial state', () => {
     const data = reduceModal(undefined, {});
     assert.deepStrictEqual(data, modalInitialState);
   });
@@ -57,15 +57,18 @@ describe('Modal Reducers', () => {
 });
 
 describe('Modal Selectors', () => {
-  it('selects the correct values for the modal namespace', () => {
-    const state = { testModal: { visible: true } }
-    const data = selectModalVisibility(state, 'testModal');
-    assert.strictEqual(data, true);
-  });
-
-  it('defaults the visibility to false if there is no key for the modal', () => {
-    const state = { visible: true };
-    const data = selectModalVisibility(state);
-    assert.strictEqual(data, false);
+  describe('selectModalVisibility', () => {
+    it('selects the correct values for the modal namespace', () => {
+      const namespace = 'testModal';
+      const state = { [namespace]: { visible: true } }
+      const data = selectModalVisibility(state, 'testModal');
+      assert.strictEqual(data, true);
+    });
+    
+    it('defaults the visibility to false if there is no key for the modal', () => {
+      const state = { visible: true };
+      const data = selectModalVisibility(state);
+      assert.strictEqual(data, false);
+    });
   });
 });
