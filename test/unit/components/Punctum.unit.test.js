@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Punctum from '../../../src/components/Punctum';
+import Punctum from '../../../src/Punctum/Punctum';
 import modal from '../../../src/store/modal.store';
 
 const { punctumReducer } = modal.reducers;
