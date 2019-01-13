@@ -9,8 +9,11 @@ import Modal from '../../../src/components/Modal';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal', () => {
+
+  const mockStore = configureStore();
+
   it('renders', () => {
-    const store = configureStore()({ test: { visible: true } });
+    const store = mockStore({ test: { visible: true } });
     
     const modal = shallow(
       <Provider store={store}>
@@ -25,7 +28,8 @@ describe('Modal', () => {
 
   it('renders with custom classes', () => {
     const classes = ['basic', 'modal'];
-    const store = configureStore()({ test: { visible: true } });
+    
+    const store = mockStore({ test: { visible: true } });
     
     const modal = shallow(
       <Provider store={store}>
@@ -39,19 +43,22 @@ describe('Modal', () => {
   });
 
   it('renders internal div only when visible', () => {
-    const shownModal = shallow(
-      <Provider store={configureStore()({ test: { visible: true } })}>
+    const showedStore = mockStore({ test: { visible: true } });
+    const hiddenStore = mockStore({ test: { visible: false } });
+
+    const showedModal = shallow(
+      <Provider store={showedStore}>
         <Modal namespace={'test'} />
       </Provider>
     );
 
     const hiddenModal = shallow(
-      <Provider store={configureStore()({ test: { visible: false } })}>
+      <Provider store={hiddenStore}>
         <Modal namespace={'test'} />
       </Provider>
     );
     
-    expect(shownModal.html()).toStrictEqual('<div></div>');
+    expect(showedModal.html()).toStrictEqual('<div></div>');
     expect(hiddenModal.html()).toStrictEqual('');
   });
 

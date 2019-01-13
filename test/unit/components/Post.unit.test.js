@@ -9,8 +9,11 @@ import Post from '../../../src/components/Post';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Post', () => {
+
+  const mockStore = configureStore();
+
   it('renders', () => {
-    const store = configureStore()({});
+    const store = mockStore({});
 
     const post = shallow(
       <Provider store={store}>
@@ -25,7 +28,8 @@ describe('Post', () => {
 
   it('renders with additional classes', () => {
     const classes = ['basic', 'post'];
-    const store = configureStore()({});
+
+    const store = mockStore({});
 
     const post = shallow(
       <Provider store={store}>
@@ -40,7 +44,8 @@ describe('Post', () => {
 
   it('renders with a title', () => {
     const namespace = 'testNameSpace';
-    const store = configureStore()({ [namespace]: { title: 'testTitle' } });
+    
+    const store = mockStore({ [namespace]: { title: 'testTitle' } });
 
     const post = shallow(
       <Provider store={store}>
