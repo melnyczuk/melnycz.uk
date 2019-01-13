@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import punctum from '../store/punctum.store'
-import modal from '../store/modal.store';
+import punctum from './punctum.store'
+import modal from '../modal/modal.store';
 
 const { 
   selectPunctumImageSource, 

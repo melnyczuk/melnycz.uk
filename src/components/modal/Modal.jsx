@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import modal from '../store/modal.store';
+import modal from './modal.store';
 const { setModalVisibility } = modal.actionCreators;
 const { selectModalVisibility } = modal.selectors;
 

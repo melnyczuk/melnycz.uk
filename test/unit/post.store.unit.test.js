@@ -1,7 +1,6 @@
 import assert from 'assert';
-import {
-  selectPostTitle
-} from '../../../src/store/post.store';
+import post from '../../src/components/post/post.store';
+const { selectPostTitle } = post.selectors;
 
 describe('Post Selectors', () => {
   describe('selectPostTitle', () => {

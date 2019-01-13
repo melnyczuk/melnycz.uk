@@ -1,7 +1,10 @@
 import assert from 'assert';
-import punctum from '../../../src/store/punctum.store';
+import punctum from '../../src/components/punctum/punctum.store';
 
-const { selectPunctumImageSource, selectPunctumImageAltText } = punctum.selectors;
+const { 
+  selectPunctumImageSource, 
+  selectPunctumImageAltText 
+} = punctum.selectors;
 
 describe('Punctum Store Functionality', () => {
 

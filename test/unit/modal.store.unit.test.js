@@ -1,10 +1,10 @@
 import assert from 'assert';
-import modal from '../../../src/store/modal.store';
+import modalStore from '../../src/components/modal/modal.store';
 
-const { SET_VISIBILITY } = modal.constants;
-const { setModalVisibility } = modal.actionCreators;
-const { reduceModal } = modal.reducers;
-const { selectModalVisibility } = modal.selectors;
+const { SET_VISIBILITY } = modalStore.constants;
+const { setModalVisibility } = modalStore.actionCreators;
+const { modalReducer } = modalStore;
+const { selectModalVisibility } = modalStore.selectors;
 
 describe('Modal Store Functionality', () => {
 
@@ -48,8 +48,8 @@ describe('Modal Store Functionality', () => {
   describe('Modal Reducers', () => {
 
     it('returns the correct initial state', () => {
-      const data = reduceModal(undefined, {});
-      assert.deepStrictEqual(data, modal.initialState);
+      const data = modalReducer(undefined, {});
+      assert.deepStrictEqual(data, modalStore.initialState);
     });
 
     describe('modalVisibilityReducer', () => {
@@ -57,7 +57,7 @@ describe('Modal Store Functionality', () => {
       describe('SET_VISIBILITY action', () => {
 
         it('reduces the action when the action is a valid object', () => {
-          const data = reduceModal(undefined, 
+          const data = modalReducer(undefined, 
             setModalVisibility({ namespace: 'test', value: true })
           );
 
@@ -72,7 +72,7 @@ describe('Modal Store Functionality', () => {
             }
           }
 
-          const data = reduceModal(existingState, 
+          const data = modalReducer(existingState, 
             setModalVisibility({ namespace: 'test', value: 'blahhh' })
           );
 

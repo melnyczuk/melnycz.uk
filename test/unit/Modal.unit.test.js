@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../../src/components/Modal';
+import Modal from '../../src/components/modal/Modal';
 
 Enzyme.configure({ adapter: new Adapter() });
 

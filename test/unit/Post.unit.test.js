@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Post from '../../../src/components/Post';
+import Post from '../../src/components/post/Post';
 
 Enzyme.configure({ adapter: new Adapter() });
 

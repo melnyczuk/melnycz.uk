@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectPostTitle } from '../store/post.store';
+
+import postStore from './post.store';
+
+const { selectPostTitle } = postStore.selectors;
 
 function Post({ title, classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;

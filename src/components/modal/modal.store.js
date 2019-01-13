@@ -11,7 +11,6 @@ const actionCreators = {
   setModalVisibility: (payload) => {
     if (payload.namespace) {
       if (typeof payload.value === 'boolean') {
-        console.log('fireee', payload);
         return { type: constants.SET_VISIBILITY, payload };
       }
     }
