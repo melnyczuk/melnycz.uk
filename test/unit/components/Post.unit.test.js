@@ -44,8 +44,9 @@ describe('Post', () => {
 
   it('renders with a title', () => {
     const namespace = 'testNameSpace';
+    const testTitle = 'testTitle';
     
-    const store = mockStore({ [namespace]: { title: 'testTitle' } });
+    const store = mockStore({ [namespace]: { title: testTitle } });
 
     const post = shallow(
       <Provider store={store}>
@@ -53,6 +54,7 @@ describe('Post', () => {
       </Provider>
     );
 
-    expect(post.html()).toStrictEqual('<div><h2>testTitle</h2></div>');
+    expect(mount(post.get(0)).contains(<h2>{testTitle}</h2>)).toBe(true);
+    expect(post.html()).toStrictEqual(`<div><h2>${testTitle}</h2></div>`);
   });
 });
