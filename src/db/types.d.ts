@@ -1,4 +1,5 @@
 export interface Work {
+  namespace: string;
   live: boolean;
   path: string;
   title: string;

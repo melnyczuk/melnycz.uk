@@ -9,7 +9,6 @@ import Viewer from './components/viewer/Viewer';
 
 import reducers from './store/reducers';
 const rootReducer = combineReducers(reducers);
-
 const store = createStore(rootReducer)
 
 class App extends Component {
@@ -18,8 +17,7 @@ class App extends Component {
       <Provider store={store} >
         <div className="App">
           <NavBar id={'nav-main'} title={'hello world'} />
-          <Viewer id={'main'} />
-          <Viewer id={'test'} />
+          <Viewer />
         </div>
       </Provider>
     );

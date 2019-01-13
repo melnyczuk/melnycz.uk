@@ -8,8 +8,9 @@
     "email": "h.melnyczuk@gmail.com",
     "handle": "@melnyczuk"
   },
-  "works": {
-    "rrosetta": {
+  "works": [
+    {
+      "namespace": "rrosetta",
       "live": false,
       "href": "",
       "title": "Rrosetta",
@@ -79,7 +80,8 @@
       ],
       "links": []
     },
-    "ahirespngofarock": {
+    {
+      "namespace": "hiresroc",
       "live": true,
       "year": [
         2017
@@ -91,7 +93,8 @@
       "name": "ahirespngofarock",
       "href": "http://melnycz.uk/ahirespngofarock/"
     },
-    "justwatchedandfelt": {
+    {
+      "namespace": "justwatc",
       "live": true,
       "year": [
         2017
@@ -102,7 +105,8 @@
       "name": "Just Watched And Felt",
       "href": "http://melnycz.uk/just_watched_and_felt/"
     },
-    "likethedawningofanewday": {
+    {
+      "namespace": "fanewday",
       "live": true,
       "year": [
         2017
@@ -113,7 +117,8 @@
       "name": "Like The Dawning Of A New Day",
       "href": "http://melnycz.uk/like_the_dawning_of_a_new_day/"
     },
-    "westantarcticicesheet": {
+    {
+      "namespace": "westanti",
       "live": false,
       "year": [
         2016
@@ -125,7 +130,8 @@
       "name": "West Antarctic Ice Sheet",
       "href": "http://melnycz.uk/west_antarctic_ice_sheet/"
     },
-    "endlessscrollingenduringlove": {
+    {
+      "namespace": "enscenlo",
       "live": false,
       "year": [
         2013
@@ -139,7 +145,8 @@
         "yes"
       ]
     },
-    "texturecache": {
+    {
+      "namespace": "texcache",
       "live": false,
       "year": [
         2016
@@ -151,7 +158,8 @@
       "name": "Texture Cache",
       "href": "http://melnycz.uk/texturecache/"
     },
-    "everythingisathingassoonasyouthinkitathing": {
+    { 
+      "namespace": "eiatasay",
       "live": true,
       "year": [
         2016
@@ -162,7 +170,8 @@
       "name": "Everything Is A Thing As Soon As You Think It A Thing",
       "href": "http://melnycz.uk/e-v-e-r-y-t-h-i-n-g-i-s-a-t-h-i-n-g-a-s-s-o-o-n-a-s-y-o-u-t-h-i-n-k-i-t-a-t-h-i-n-g.pdf"
     },
-    "everytimeirepeatmistakesidislikemyselfalittlemore": {
+    {
+      "namespace": "ermdmalm",
       "live": false,
       "year": [
         2016
@@ -173,7 +182,7 @@
       "name": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
       "href": "http://melnycz.uk/everytime_i_repeat_mistakes_i_dislike_myself_a_little_more/"
     }
-  },
+  ],
   "writing": [],
   "photos": []
 }

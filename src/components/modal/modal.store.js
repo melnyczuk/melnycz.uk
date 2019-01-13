@@ -1,7 +1,4 @@
-
-const initialState = {
-  
-}
+import initialStore from '../../store/initalStore';
 
 const constants = {
   SET_VISIBILITY: 'SET_VISIBILITY'
