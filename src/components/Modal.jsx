@@ -21,15 +21,14 @@ const mapStateToProps = (state, props) => {
   const { namespace } = props;
   return {
     ...props,
-    visible: selectModalVisibility(state, namespace),
+    visible: selectModalVisibility(state, namespace)
   }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   const { namespace } = props;
   return {
-    onHide: () => dispatch(setModalVisibility({ namespace, value: false })),
-    onShow: () => dispatch(setModalVisibility({ namespace, value: true }))
+    hide: () => dispatch(setModalVisibility({ namespace, value: false }))
   }
 }
 

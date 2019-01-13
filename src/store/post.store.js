@@ -1,8 +1,13 @@
-// SELECTORS
-export function selectPostTitle (state, namespace) {
-  if (state && state.hasOwnProperty(namespace)) {
-    const { title } = state[namespace];
-    return title;
+const selectors = {
+  selectPostTitle: (state, namespace) => {
+    if (state && state.hasOwnProperty(namespace)) {
+      const { title } = state[namespace];
+      return title;
+    }
+    return null;
   }
-  return null;
+} 
+
+module.exports = {
+  selectors
 }
