@@ -47,11 +47,29 @@ describe('Modal Reducers', () => {
   });
 
   describe('modalVisibilityReducer', () => {
-    it('reduces SET_VISIBILITY action', () => {
-      const data = reduceModal(undefined, 
-        setModalVisibility({ namespace: 'test', value: true })
-      );
-      assert.strictEqual(data.test.visible, true);
+    describe('SET_VISIBILITY action', () => {
+      it('reduces the action when the action is a valid object', () => {
+        const data = reduceModal(undefined, 
+          setModalVisibility({ namespace: 'test', value: true })
+        );
+
+        assert.strictEqual(data.test.visible, true);
+      });
+
+      it('returns the exisiting state when the action is not a valid object', () => {
+        const existingState = {
+          test: {
+            src: './dummySrc.jpg',
+            alt: 'dummyalt'
+          }
+        }
+
+        const data = reduceModal(existingState, 
+          setModalVisibility({ namespace: 'test', value: 'blahhh' })
+        );
+
+        assert.deepStrictEqual(data, existingState);
+      });
     });
   });
 });
