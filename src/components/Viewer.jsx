@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Viewer({classes = [], children = []}) {
+export default function Viewer({ classes = [], children = [] }) {
+  const className = [...classes].join(' ') || null;
   return (
-    <div className={classes.join(' ')}>
+    <div className={className}>
       {children}
     </div>
   );
