@@ -10,21 +10,21 @@ import {
 describe('Modal Action Creators', () => {
   describe('setModalVisibility', () => {
     it('returns false if passed false', () => {
-      const modalVisiblity = setModalVisibility({ key: 'test', value: false });
-      assert.strictEqual(modalVisiblity.payload.key, 'test');
+      const modalVisiblity = setModalVisibility({ namespace: 'test', value: false });
+      assert.strictEqual(modalVisiblity.payload.namespace, 'test');
       assert.strictEqual(modalVisiblity.payload.value, false);
       assert.strictEqual(modalVisiblity.type, SET_VISIBILITY);
     });
 
     it('returns true if passed true', () => {
-      const modalVisiblity = setModalVisibility({ key: 'test', value: true });
-      assert.strictEqual(modalVisiblity.payload.key, 'test');
+      const modalVisiblity = setModalVisibility({ namespace: 'test', value: true });
+      assert.strictEqual(modalVisiblity.payload.namespace, 'test');
       assert.strictEqual(modalVisiblity.payload.value, true);
       assert.strictEqual(modalVisiblity.type, SET_VISIBILITY);
     });
 
     it('returns nothing if passed a non-boolean value', () => {
-      const modalVisiblity = setModalVisibility({ key: 'test', value: 'hello' });
+      const modalVisiblity = setModalVisibility({ namespace: 'test', value: 'hello' });
       assert.strictEqual(modalVisiblity, undefined);
     });
 
@@ -49,7 +49,7 @@ describe('Modal Reducers', () => {
   describe('modalVisibilityReducer', () => {
     it('reduces SET_VISIBILITY action', () => {
       const data = reduceModal(undefined, 
-        setModalVisibility({ key: 'test', value: true })
+        setModalVisibility({ namespace: 'test', value: true })
       );
       assert.strictEqual(data.test.visible, true);
     });
