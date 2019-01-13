@@ -66,13 +66,11 @@ describe('Punctum', () => {
     ).toBe(true);
   });
 
-  describe('clicking it', () => {
+  describe.skip('clicking it', () => {
     it('clicking on a punctum changes the store', () => {
       const testNamespace = 'test';
       const dummySrc = './dummysrc.jpg'
       const altText = 'testImage';
-      
-      const mock = jest.fn();
 
       const store = mockStore({ 
         [testNamespace]: { 
@@ -84,22 +82,15 @@ describe('Punctum', () => {
       
       const punctum = shallow(
         <Provider store={store}>
-          <Punctum namespace={testNamespace} showmodal={'boop'} />
+          <Punctum namespace={testNamespace} />
         </Provider>
       );
-  
-      punctum.find(Punctum).simulate('click');
 
-      // expect(mock).toBeCalled();
-      
-      // store.dispatch(setModalVisibility({
-      //   namespace: testNamespace,
-      //   value: true
-      // }));
+      console.log(punctum.dive().find(Punctum).props());//.showModal();
 
-      // const state = store.getState();
-      // const visibility = selectModalVisibility(state, testNamespace);
-      // expect(visibility).toBe(true);
+      const state = store.getState();
+      const visibility = selectModalVisibility(state, testNamespace);
+      expect(visibility).toBe(true);
     });
   });
 });
