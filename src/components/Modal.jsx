@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { 
-  setModalVisiblity, 
-  selectModalVisibility 
-} from '../store/modal.store';
-
+import modal from '../store/modal.store';
+const { setModalVisibility } = modal.actionCreators;
+const { selectModalVisibility } = modal.selectors;
 
 function Modal ({ visible, classes = [], children = []}) {
   if (visible) {
@@ -30,8 +28,8 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
   const { namespace } = props;
   return {
-    onHide: () => dispatch(setModalVisiblity({ namespace, value: false })),
-    onShow: () => dispatch(setModalVisiblity({ namespace, value: true }))
+    onHide: () => dispatch(setModalVisibility({ namespace, value: false })),
+    onShow: () => dispatch(setModalVisibility({ namespace, value: true }))
   }
 }
 

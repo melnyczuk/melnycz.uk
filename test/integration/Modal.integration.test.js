@@ -11,19 +11,20 @@ import Post from '../../src/components/Post';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe.only('App', () => {
-  const key = 'intTestModal'
-  const value = { visible: true };
-  const testStore = configureStore()({ [key]: value })
+  const namespace = 'intTestModal'
+  const testStore = configureStore()({ [namespace]: { visible: true } })
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
+
     ReactDOM.render(
       <Provider store={testStore} >
-        <Modal id={'intTestModal'} >
+        <Modal>
           <Post />
         </Modal>
       </Provider>, 
     div);
+
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -35,6 +36,7 @@ describe.only('App', () => {
         </Modal>
       </Provider>
     );
+
     expect(!!app.find(Post)).toBe(true);
   });
 });

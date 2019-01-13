@@ -1,11 +1,11 @@
 import assert from 'assert';
-import {
-  SET_VISIBILITY,
-  modalInitialState,
-  setModalVisibility,
-  reduceModal,
-  selectModalVisibility
-} from '../../../src/store/modal.store';
+import modal from '../../../src/store/modal.store';
+
+const { initialState } = modal
+const { SET_VISIBILITY } = modal.constants;
+const { setModalVisibility } = modal.actionCreators;
+const { reduceModal } = modal.reducers;
+const { selectModalVisibility } = modal.selectors;
 
 describe('Modal Action Creators', () => {
   describe('setModalVisibility', () => {
@@ -43,7 +43,7 @@ describe('Modal Action Creators', () => {
 describe('Modal Reducers', () => {
   it('returns the correct initial state', () => {
     const data = reduceModal(undefined, {});
-    assert.deepStrictEqual(data, modalInitialState);
+    assert.deepStrictEqual(data, initialState);
   });
 
   describe('modalVisibilityReducer', () => {
