@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal', () => {
   it('renders', () => {
-    const store = configureStore()({ test: { visible: false } });
+    const store = configureStore()({ test: { visible: true } });
     
     const modal = shallow(
       <Provider store={store}>
@@ -20,6 +20,7 @@ describe('Modal', () => {
 
     expect(modal.exists()).toBe(true);
     expect(mount(modal.get(0)).length).toBe(1);
+    expect(modal.html()).toStrictEqual('<div></div>');
   });
 
   it('renders with custom classes', () => {

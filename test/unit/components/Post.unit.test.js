@@ -20,6 +20,7 @@ describe('Post', () => {
 
     expect(post.exists()).toBe(true);
     expect(mount(post.get(0)).length).toBe(1);
+    expect(post.html()).toStrictEqual('<div></div>');
   });
 
   it('renders with additional classes', () => {
