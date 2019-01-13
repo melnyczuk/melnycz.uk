@@ -26,15 +26,15 @@ describe('Post', () => {
     const classes = ['basic', 'post'];
     const store = configureStore()({});
 
-    const wrapper = shallow(
+    const post = shallow(
       <Provider store={store}>
         <Post classes={classes} />
       </Provider>
     );
-    const post = mount(wrapper.get(0));
-
-    classes.forEach(c => expect(post.exists(`.${c}`)).toBe(true));
-    expect(post.html()).toStrictEqual('<div class="basic post"></div>');
+    
+    expect(post.html()).toStrictEqual(
+      `<div class="${classes[0]} ${classes[1]}"></div>`
+    );
   });
 
   it('renders with a title', () => {

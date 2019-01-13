@@ -11,26 +11,30 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Modal', () => {
   it('renders', () => {
     const store = configureStore()({ test: { visible: false } });
+    
     const modal = shallow(
       <Provider store={store}>
         <Modal namespace={'test'} />
       </Provider>
     );
+
     expect(modal.exists()).toBe(true);
     expect(mount(modal.get(0)).length).toBe(1);
   });
 
-  it('renders with additional classes', () => {
+  it('renders with custom classes', () => {
     const classes = ['basic', 'modal'];
     const store = configureStore()({ test: { visible: true } });
-    const wrapper = shallow(
+    
+    const modal = shallow(
       <Provider store={store}>
         <Modal namespace={'test'} classes={classes} />
       </Provider>
     );
-    const modal = mount(wrapper.get(0));
-    classes.forEach(c => expect(modal.exists(`.${c}`)).toBe(true));
-    expect(modal.html()).toStrictEqual('<div class="basic modal"></div>');
+
+    expect(modal.html()).toStrictEqual(
+      `<div class="${classes[0]} ${classes[1]}"></div>`
+    );
   });
 
   it('renders internal div only when visible', () => {
@@ -45,6 +49,7 @@ describe('Modal', () => {
         <Modal namespace={'test'} />
       </Provider>
     );
+    
     expect(shownModal.html()).toStrictEqual('<div></div>');
     expect(hiddenModal.html()).toStrictEqual('');
   });

@@ -7,5 +7,4 @@ export default function Viewer({ classes = [], children = [] }) {
       {children}
     </div>
   );
-
 }
