@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Punctum from '../../src/components/punctum/Punctum';
+import Punctum from '../../../src/components/punctum/Punctum';
 
 Enzyme.configure({ adapter: new Adapter() });
 

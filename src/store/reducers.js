@@ -1,7 +1,6 @@
-import { modalReducer } from '../components/modal/modal.store';
-import { punctumReducer } from '../components/punctum/punctum.store';
+import { combineReducers } from 'redux';
+import viewers from './reducers/viewers.reducer';
 
-module.exports = [
-  modalReducer,
-  punctumReducer
-]
+module.exports = combineReducers(
+  viewers
+);

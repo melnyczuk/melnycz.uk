@@ -1,8 +1,7 @@
 import db from '../db/db';
-const rootDir = '';
 
-export default {
-  nav:{
+module.exports = {
+  nav: {
     buttons: [
       {
         label: 'about',
@@ -12,15 +11,15 @@ export default {
   },
   viewers: {
     main: {
-      elements: db.works.map(work => {
+      works: db.works.reduce((map, work) => {
         return {
-          [work.namespace]: {
-          src: work.keyImg,
-          alt: work.name,
-          visible: false
+          ...map, [work.namespace]: {
+            ...work,
+            visible: false
+          }
         }
-        }
-      })
+      },
+        {})
     }
   }
 };

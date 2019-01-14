@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Post from '../../src/components/post/Post';
+import Post from '../../../src/components/post/Post';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -36,7 +36,7 @@ describe('Post', () => {
         <Post classes={classes} />
       </Provider>
     );
-    
+
     expect(post.html()).toStrictEqual(
       `<div class="${classes[0]} ${classes[1]}"></div>`
     );
@@ -45,7 +45,7 @@ describe('Post', () => {
   it('renders with a title', () => {
     const namespace = 'testNameSpace';
     const testTitle = 'testTitle';
-    
+
     const store = mockStore({ [namespace]: { title: testTitle } });
 
     const post = shallow(

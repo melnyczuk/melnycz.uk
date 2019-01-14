@@ -4,7 +4,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Viewer from '../../src/components/viewer/Viewer';
+import Viewer from '../../../src/components/viewer/Viewer';
 
 Enzyme.configure({ adapter: new Adapter() });
 

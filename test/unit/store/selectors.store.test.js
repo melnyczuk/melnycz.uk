@@ -1,17 +1,55 @@
 import assert from 'assert';
-import punctum from '../../src/components/punctum/punctum.store';
+import selectors from '../../../src/store/selectors';
 
-const { 
-  selectPunctumImageSource, 
-  selectPunctumImageAltText 
-} = punctum.selectors;
+describe('Selectors', () => {
 
-describe('Punctum Store Functionality', () => {
+  describe('Modal Selectors', () => {
+
+    const {
+      selectModalVisibility
+    } = selectors.modal;
+
+    describe('selectModalVisibility', () => {
+      it('selects the correct values for the modal namespace', () => {
+        const namespace = 'testModal';
+        const state = { [namespace]: { visible: true } }
+        const data = selectModalVisibility(state, 'testModal');
+        assert.strictEqual(data, true);
+      });
+
+      it('defaults the visibility to false if there is no key for the modal', () => {
+        const state = { visible: true };
+        const data = selectModalVisibility(state);
+        assert.strictEqual(data, false);
+      });
+    });
+  });
+
+  describe('Post Selectors', () => {
+
+    const {
+      selectPostTitle
+    } = selectors.post;
+
+    describe('selectPostTitle', () => {
+      it('selects the post title', () => {
+        const expectedTitle = 'tester';
+        const namespace = 'test';
+        const state = { [namespace]: { title: expectedTitle } };
+        const data = selectPostTitle(state, namespace);
+        assert.strictEqual(data, expectedTitle);
+      });
+    });
+  });
 
   describe('Punctum Selectors', () => {
-  
+
+    const {
+      selectPunctumImageSource,
+      selectPunctumImageAltText
+    } = selectors.punctum;
+
     describe('selectPunctumImageSource', () => {
-  
       it('selects the correct values for the modal namespace', () => {
         const namespace = 'testModal';
         const dummySrc = './dummy.jpg';
@@ -19,17 +57,14 @@ describe('Punctum Store Functionality', () => {
         const data = selectPunctumImageSource(state, 'testModal');
         assert.strictEqual(data, dummySrc);
       });
-      
       it('defaults the visibility to false if there is no key for the modal', () => {
         const state = { visible: true };
         const data = selectPunctumImageSource(state);
         assert.strictEqual(data, null);
       });
-  
     });
 
     describe('selectPunctumImageAltText', () => {
-  
       it('selects the correct values for the modal namespace', () => {
         const namespace = 'testModal';
         const dummyAltText = 'testText';
@@ -37,15 +72,12 @@ describe('Punctum Store Functionality', () => {
         const data = selectPunctumImageAltText(state, 'testModal');
         assert.strictEqual(data, dummyAltText);
       });
-      
+
       it('defaults the visibility to false if there is no key for the modal', () => {
         const state = { visible: true };
         const data = selectPunctumImageAltText(state);
         assert.strictEqual(data, null);
       });
-  
     });
-  
   });
-
 });

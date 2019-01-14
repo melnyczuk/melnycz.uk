@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../src/components/modal/Modal';
+import Modal from '../../../src/components/modal/Modal';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,7 +14,7 @@ describe('Modal', () => {
 
   it('renders', () => {
     const store = mockStore({ test: { visible: true } });
-    
+
     const modal = shallow(
       <Provider store={store}>
         <Modal namespace={'test'} />
@@ -28,9 +28,9 @@ describe('Modal', () => {
 
   it('renders with custom classes', () => {
     const classes = ['basic', 'modal'];
-    
+
     const store = mockStore({ test: { visible: true } });
-    
+
     const modal = shallow(
       <Provider store={store}>
         <Modal namespace={'test'} classes={classes} />
@@ -57,7 +57,7 @@ describe('Modal', () => {
         <Modal namespace={'test'} />
       </Provider>
     );
-    
+
     expect(showedModal.html()).toStrictEqual('<div></div>');
     expect(hiddenModal.html()).toStrictEqual('');
   });

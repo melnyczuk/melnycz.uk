@@ -1,14 +1,5 @@
-const initialState = {};
+module.exports = {
 
-const constants = {};
-
-const actionCreators = {};
-
-const punctumReducer = (state = initialState, action) => {
-  return state
-};
-
-const selectors = {
   selectPunctumImageSource: (state, namespace) => {
     if (state && state.hasOwnProperty(namespace)) {
       const { src } = state[namespace];
@@ -24,12 +15,5 @@ const selectors = {
     }
     return null;
   }
-};
 
-module.exports = {
-  initialState,
-  constants,
-  actionCreators,
-  punctumReducer,
-  selectors
-}
+};
