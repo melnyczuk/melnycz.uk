@@ -11,6 +11,7 @@
   "works": [
     {
       "namespace": "rrosetta",
+      "keyImg": "",
       "live": false,
       "href": "",
       "title": "Rrosetta",
@@ -82,6 +83,7 @@
     },
     {
       "namespace": "hiresroc",
+      "keyImg": "",
       "live": true,
       "year": [
         2017
@@ -95,6 +97,7 @@
     },
     {
       "namespace": "justwatc",
+      "keyImg": "",
       "live": true,
       "year": [
         2017
@@ -107,6 +110,7 @@
     },
     {
       "namespace": "fanewday",
+      "keyImg": "",
       "live": true,
       "year": [
         2017
@@ -119,6 +123,7 @@
     },
     {
       "namespace": "westanti",
+      "keyImg": "",
       "live": false,
       "year": [
         2016
@@ -132,6 +137,7 @@
     },
     {
       "namespace": "enscenlo",
+      "keyImg": "",
       "live": false,
       "year": [
         2013
@@ -147,6 +153,7 @@
     },
     {
       "namespace": "texcache",
+      "keyImg": "",
       "live": false,
       "year": [
         2016
@@ -158,8 +165,9 @@
       "name": "Texture Cache",
       "href": "http://melnycz.uk/texturecache/"
     },
-    { 
+    {
       "namespace": "eiatasay",
+      "keyImg": "",
       "live": true,
       "year": [
         2016
@@ -172,6 +180,7 @@
     },
     {
       "namespace": "ermdmalm",
+      "keyImg": "",
       "live": false,
       "year": [
         2016

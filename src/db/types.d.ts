@@ -1,5 +1,6 @@
 export interface Work {
   namespace: string;
+  keyImg: string;
   live: boolean;
   path: string;
   title: string;

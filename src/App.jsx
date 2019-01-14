@@ -17,7 +17,7 @@ class App extends Component {
       <Provider store={store} >
         <div className="App">
           <NavBar id={'nav-main'} title={'hello world'} />
-          <Viewer />
+          <Viewer namespace={'main'} />
         </div>
       </Provider>
     );

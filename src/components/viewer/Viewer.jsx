@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 import Modal from '../modal/Modal';
 import Punctum from '../punctum/Punctum';
@@ -17,16 +17,16 @@ const mapStateToProps = (state, props) => {
   const { namespace } = props;
   return {
     ...props,
-    children: state.viewers[namespace].elements.map(el => {
+    children: state[0].viewers[namespace].elements.map((el, i) => {
       const { namespace } = el;
       return (
-        <div namespace={namespace}>
+        <div key={i} namespace={namespace}>
           <Punctum namespace={namespace} />
           <Modal namespace={namespace} />
         </div>
-      )
+      );
     })
-  }
+  };
 };
 
 export default connect(mapStateToProps)(Viewer);

@@ -1,7 +1,7 @@
 import db from '../db/db';
 const rootDir = '';
 
-module.exports = {
+export default {
   nav:{
     buttons: [
       {
@@ -14,11 +14,13 @@ module.exports = {
     main: {
       elements: db.works.map(work => {
         return {
+          [work.namespace]: {
           src: work.keyImg,
           alt: work.name,
           visible: false
         }
+        }
       })
     }
   }
-}
+};

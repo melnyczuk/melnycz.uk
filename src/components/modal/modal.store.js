@@ -1,4 +1,4 @@
-import initialStore from '../../store/initalStore';
+import initialState from '../../store/initialStore';
 
 const constants = {
   SET_VISIBILITY: 'SET_VISIBILITY'
@@ -13,11 +13,11 @@ const actionCreators = {
     }
   }
 };
-  
+
 const modalReducer = (state = initialState, action = {}) => {
   if (!(
-    action.payload && 
-    action.payload.hasOwnProperty('namespace') && 
+    action.payload &&
+    action.payload.hasOwnProperty('namespace') &&
     action.payload.hasOwnProperty('value')
   )) {
     return state;
