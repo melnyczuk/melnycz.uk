@@ -7,36 +7,67 @@ import Adapter from 'enzyme-adapter-react-16';
 import Modal from '../../src/components/modal/Modal';
 import Punctum from '../../src/components/punctum/Punctum';
 
+import modalStore from '../../src/components/modal/modal.store';
+
 Enzyme.configure({ adapter: new Adapter() });
+
+const { selectModalVisibility } = modalStore.selectors;
 
 describe('Punctum', () => {
 
   const mockStore = configureStore();
 
-  describe.skip('Modal Interaction', () => {
-    
-    it('clicking it makes the corresponding modal visible', () => {
+  describe.skip('clicking it', () => {
+    it('clicking on a punctum changes the store', () => {
       const testNamespace = 'test';
       const dummySrc = './dummysrc.jpg'
       const altText = 'testImage';
 
-      const mockShowModalFn = jest.fn();
-
-      const store = mockStore({ 
-        [testNamespace]: { 
-          src: dummySrc, 
-          alt: altText, 
-          visible: false 
-        },
-        showModal: mockShowModalFn
+      const store = mockStore({
+        [testNamespace]: {
+          src: dummySrc,
+          alt: altText,
+          visible: false
+        }
       });
-      
+
+      const punctum = shallow(
+        <Provider store={store}>
+          <Punctum namespace={testNamespace} />
+        </Provider>
+      );
+
+      console.log(punctum.dive().find(Punctum).props());//.showModal();
+
+      const state = store.getState();
+      const visibility = selectModalVisibility(state, testNamespace);
+      expect(visibility).toBe(true);
+    });
+  });
+
+  describe('Modal Interaction', () => {
+
+    it.skip('clicking it makes the corresponding modal visible', () => {
+      const testNamespace = 'test';
+      const dummySrc = './dummysrc.jpg'
+      const altText = 'testImage';
+
+      const state = {
+        [testNamespace]: {
+          src: dummySrc,
+          alt: altText,
+          visible: false
+        }
+      };
+
+      const store = mockStore(() => state);
+
       const punctum = shallow(
         <Provider store={store} >
           <Punctum namespace={testNamespace} />
         </Provider>
       );
-      
+
       expect(shallow(
         <Provider store={store} >
           <Modal namespace={testNamespace} />
@@ -46,7 +77,9 @@ describe('Punctum', () => {
 
       punctum.simulate('click');
 
-      expect(mockShowModalFn).toBeCalled();
+      const newState = store.getState();
+      console.log(newState);
+      expect(selectModalVisibility(newState, testNamespace)).toBe(true);
 
       // expect(shallow(
       //   <Provider store={store} >

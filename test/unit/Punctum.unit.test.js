@@ -1,15 +1,10 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Punctum from '../../src/components/punctum/Punctum';
-import modalStore from '../../src/components/modal/modal.store';
-
-
-const { setModalVisibility } = modalStore.actionCreators;
-const { selectModalVisibility } = modalStore.selectors;
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -19,7 +14,7 @@ describe('Punctum', () => {
 
   it('renders', () => {
     const store = mockStore({ 'test': { src: false, alt: false }});
-    
+
     const punctum = shallow(
       <Provider store={store}>
         <Punctum namespace={'test'} />
@@ -52,7 +47,7 @@ describe('Punctum', () => {
     const dummySrc = './dummysrc.jpg'
     const altText = 'testImage';
     const store = mockStore({ [testNamespace]: { src: dummySrc, alt: altText }});
-    
+
     const punctum = shallow(
       <Provider store={store}>
         <Punctum namespace={testNamespace} />
@@ -66,31 +61,4 @@ describe('Punctum', () => {
     ).toBe(true);
   });
 
-  describe.skip('clicking it', () => {
-    it('clicking on a punctum changes the store', () => {
-      const testNamespace = 'test';
-      const dummySrc = './dummysrc.jpg'
-      const altText = 'testImage';
-
-      const store = mockStore({ 
-        [testNamespace]: { 
-          src: dummySrc, 
-          alt: altText, 
-          visible: false 
-        }
-      });
-      
-      const punctum = shallow(
-        <Provider store={store}>
-          <Punctum namespace={testNamespace} />
-        </Provider>
-      );
-
-      console.log(punctum.dive().find(Punctum).props());//.showModal();
-
-      const state = store.getState();
-      const visibility = selectModalVisibility(state, testNamespace);
-      expect(visibility).toBe(true);
-    });
-  });
 });
