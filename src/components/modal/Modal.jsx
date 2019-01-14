@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import modal from './modal.store';
-const { setModalVisibility } = modal.actionCreators;
-const { selectModalVisibility } = modal.selectors;
+import actionCreators from '../../store/actionCreators';
+import selectors from '../../store/selectors';
+
+const { setModalVisibility } = actionCreators.modal;
+const { selectModalVisibility } = selectors.modal;
 
 function Modal ({ visible, classes = [], children = []}) {
   if (visible) {

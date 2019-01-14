@@ -8,7 +8,7 @@ import Viewer from '../../../src/components/viewer/Viewer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const dummyStore = { '0': { viewers: { test: { elements: [] } } } }
+const dummyStore = { viewers: { test: { works: [] } } };
 
 describe('Viewer', () =>{
 

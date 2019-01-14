@@ -13,20 +13,28 @@ function Viewer({ classes = [], children = [] }) {
   );
 }
 
-const mapStateToProps = (state, props) => {
+function mapWorksToChildren (state, props) {
   const { namespace } = props;
+  const { works } = state.viewers[namespace];
+  return Object.keys(works).map((key, i) => {
+    return (
+      <div key={i} namespace={namespace}>
+        <Punctum namespace={namespace} />
+        <Modal namespace={namespace} />
+      </div>
+    );
+  })
+}
+
+const mapStateToProps = (state, props) => {
   return {
     ...props,
-    children: state[0].viewers[namespace].elements.map((el, i) => {
-      const { namespace } = el;
-      return (
-        <div key={i} namespace={namespace}>
-          <Punctum namespace={namespace} />
-          <Modal namespace={namespace} />
-        </div>
-      );
-    })
+    children: mapWorksToChildren(state, props)
   };
 };
 
-export default connect(mapStateToProps)(Viewer);
+const mapDispatchToProps = (state, props) => {
+  return { ...props }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Viewer);

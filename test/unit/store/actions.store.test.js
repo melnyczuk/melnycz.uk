@@ -1,7 +1,7 @@
 import assert from 'assert';
 
 import constants from '../../../src/store/constants';
-import actionCreators from '../../../src/store/actions';
+import actionCreators from '../../../src/store/actionCreators';
 
 describe('Action Creators', () => {
 
