@@ -13,11 +13,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const { selectModalVisibility } = selectors.modal;
 
-describe('Punctum', () => {
+describe.skip('Punctum', () => {
 
   const mockStore = configureStore();
 
-  describe.skip('clicking it', () => {
+  describe('clicking it', () => {
     it('clicking on a punctum changes the store', () => {
       const testNamespace = 'test';
       const dummySrc = './dummysrc.jpg'
@@ -47,7 +47,7 @@ describe('Punctum', () => {
 
   describe('Modal Interaction', () => {
 
-    it.skip('clicking it makes the corresponding modal visible', () => {
+    it('clicking it makes the corresponding modal visible', () => {
       const testNamespace = 'test';
       const dummySrc = './dummysrc.jpg'
       const altText = 'testImage';

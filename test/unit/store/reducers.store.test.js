@@ -12,26 +12,43 @@ describe('Works Reducer', () => {
     assert.deepStrictEqual(data, works);
   });
 
+  it('returns the existing state if no valid action type is dispatched', () => {
+    const data = worksReducer(
+      works,
+      { payload: {
+        namespace: 'test',
+        value: true
+      } });
+    assert.deepStrictEqual(data, works);
+  });
+
   describe('SET_VISIBILITY action', () => {
 
     const { setModalVisibility } = actionCreators.modal;
 
-    it('reduces the action when the action is a valid object', () => {
-      const data = worksReducer(undefined,
+    it('reduces the action when the action payload value is a boolean', () => {
+      const data = worksReducer(
+        undefined,
         setModalVisibility({ namespace: 'test', value: true })
       );
-
       assert.strictEqual(data.test.visible, true);
     });
 
-    it('returns the exisiting state when the action is not a valid object', () => {
-      const data = worksReducer(works,
+    it('returns the existing state when the action payload value is not a boolean', () => {
+      const data = worksReducer(
+        works,
         setModalVisibility({ namespace: 'test', value: 'blahhh' })
       );
-
       assert.deepStrictEqual(data, works);
     });
 
+    it('returns the existing state when the action payload namespace is not present', () => {
+      const data = worksReducer(
+        works,
+        setModalVisibility({ value: 'blahhh' })
+      );
+      assert.deepStrictEqual(data, works);
+    });
   });
 
 

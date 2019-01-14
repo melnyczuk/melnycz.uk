@@ -39,6 +39,12 @@ describe('Selectors', () => {
         const data = selectPostTitle(state, namespace);
         assert.strictEqual(data, expectedTitle);
       });
+
+      it('returns null if the namespace is not in the store', () => {
+        const state = { test: { title: 'tester' } };
+        const data = selectPostTitle(state, 'toast');
+        assert.strictEqual(data, null);
+      });
     });
   });
 
