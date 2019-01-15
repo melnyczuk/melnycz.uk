@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import works from './main/works.reducer';
 
-module.exports = combineReducers({
+const main = combineReducers({
   works
 });
+
+export default main;

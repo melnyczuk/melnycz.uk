@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import main from './viewers/main.reducer';
+import main from './viewers/main.reducers';
 
-module.exports = combineReducers({
+const viewers = combineReducers({
   main
 });
+
+export default viewers;

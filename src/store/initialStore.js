@@ -1,6 +1,6 @@
 import db from '../db/db';
 
-module.exports = {
+const initialState = {
   nav: {
     buttons: [
       {
@@ -23,3 +23,5 @@ module.exports = {
     }
   }
 };
+
+export default initialState;

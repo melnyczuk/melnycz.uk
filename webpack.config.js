@@ -15,7 +15,9 @@ module.exports = {
     {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      use: {
+        loader: 'babel-loader'
+      }
     },
     {
       test: /\.css$/,
@@ -24,8 +26,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new HWP(
-      { template: path.join(__dirname, '/src/index.html') }
-    )
+    new HWP({ 
+      template: path.join(__dirname, '/src/index.html') 
+    })
   ]
 }

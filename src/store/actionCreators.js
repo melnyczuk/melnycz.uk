@@ -1,5 +1,7 @@
 import modal from './actionCreators/modal.actions';
 
-module.exports = {
+const actionCreators = {
   modal
-}
+};
+
+export default actionCreators;

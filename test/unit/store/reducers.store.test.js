@@ -1,4 +1,3 @@
-import assert from 'assert';
 import initialState from '../../../src/store/initialStore';
 import worksReducer from '../../../src/store/reducers/viewers/main/works.reducer';
 import actionCreators from '../../../src/store/actionCreators';
@@ -9,7 +8,7 @@ describe('Works Reducer', () => {
 
   it('returns the correct initial state', () => {
     const data = worksReducer(undefined, {});
-    assert.deepStrictEqual(data, works);
+    expect(data).toStrictEqual(works);
   });
 
   it('returns the existing state if no valid action type is dispatched', () => {
@@ -19,7 +18,7 @@ describe('Works Reducer', () => {
         namespace: 'test',
         value: true
       } });
-    assert.deepStrictEqual(data, works);
+    expect(data).toStrictEqual(works);
   });
 
   describe('SET_VISIBILITY action', () => {
@@ -31,7 +30,7 @@ describe('Works Reducer', () => {
         undefined,
         setModalVisibility({ namespace: 'test', value: true })
       );
-      assert.strictEqual(data.test.visible, true);
+      expect(data.test.visible).toBe(true);
     });
 
     it('returns the existing state when the action payload value is not a boolean', () => {
@@ -39,7 +38,7 @@ describe('Works Reducer', () => {
         works,
         setModalVisibility({ namespace: 'test', value: 'blahhh' })
       );
-      assert.deepStrictEqual(data, works);
+      expect(data).toStrictEqual(works);
     });
 
     it('returns the existing state when the action payload namespace is not present', () => {
@@ -47,7 +46,7 @@ describe('Works Reducer', () => {
         works,
         setModalVisibility({ value: 'blahhh' })
       );
-      assert.deepStrictEqual(data, works);
+      expect(data).toStrictEqual(works);
     });
   });
 

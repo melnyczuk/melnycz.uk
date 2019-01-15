@@ -1,5 +1,3 @@
-import assert from 'assert';
-
 import constants from '../../../src/store/constants';
 import actionCreators from '../../../src/store/actionCreators';
 
@@ -19,31 +17,31 @@ describe('Action Creators', () => {
 
       it('returns false if passed false', () => {
         const modalVisiblity = setModalVisibility({ namespace: 'test', value: false });
-        assert.strictEqual(modalVisiblity.payload.namespace, 'test');
-        assert.strictEqual(modalVisiblity.payload.value, false);
-        assert.strictEqual(modalVisiblity.type, SET_VISIBILITY);
+        expect(modalVisiblity.payload.namespace).toStrictEqual('test');
+        expect(modalVisiblity.payload.value).toBe(false);
+        expect(modalVisiblity.type).toStrictEqual(SET_VISIBILITY);
       });
 
       it('returns true if passed true', () => {
         const modalVisiblity = setModalVisibility({ namespace: 'test', value: true });
-        assert.strictEqual(modalVisiblity.payload.namespace, 'test');
-        assert.strictEqual(modalVisiblity.payload.value, true);
-        assert.strictEqual(modalVisiblity.type, SET_VISIBILITY);
+        expect(modalVisiblity.payload.namespace).toStrictEqual('test');
+        expect(modalVisiblity.payload.value).toBe(true);
+        expect(modalVisiblity.type).toStrictEqual(SET_VISIBILITY);
       });
 
       it('returns nothing if passed a non-boolean value', () => {
         const modalVisiblity = setModalVisibility({ namespace: 'test', value: 'hello' });
-        assert.strictEqual(modalVisiblity, undefined);
+        expect(modalVisiblity).toBeUndefined();
       });
 
       it('returns nothing if passed an object with no id', () => {
         const modalVisiblity = setModalVisibility({ value: true });
-        assert.strictEqual(modalVisiblity, undefined);
+        expect(modalVisiblity).toBeUndefined();
       });
 
       it('returns nothing if passed an empty object', () => {
         const modalVisiblity = setModalVisibility({});
-        assert.strictEqual(modalVisiblity, undefined);
+        expect(modalVisiblity).toBeUndefined();
       });
 
     });

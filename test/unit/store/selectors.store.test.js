@@ -1,4 +1,3 @@
-import assert from 'assert';
 import selectors from '../../../src/store/selectors';
 
 describe('Selectors', () => {
@@ -14,13 +13,13 @@ describe('Selectors', () => {
         const namespace = 'testModal';
         const state = { [namespace]: { visible: true } }
         const data = selectModalVisibility(state, 'testModal');
-        assert.strictEqual(data, true);
+        expect(data).toBe(true);
       });
 
       it('defaults the visibility to false if there is no key for the modal', () => {
         const state = { visible: true };
         const data = selectModalVisibility(state);
-        assert.strictEqual(data, false);
+        expect(data).toBe(false);
       });
     });
   });
@@ -37,13 +36,13 @@ describe('Selectors', () => {
         const namespace = 'test';
         const state = { [namespace]: { title: expectedTitle } };
         const data = selectPostTitle(state, namespace);
-        assert.strictEqual(data, expectedTitle);
+        expect(data).toStrictEqual(expectedTitle);
       });
 
       it('returns null if the namespace is not in the store', () => {
         const state = { test: { title: 'tester' } };
         const data = selectPostTitle(state, 'toast');
-        assert.strictEqual(data, null);
+        expect(data).toBeNull();
       });
     });
   });
@@ -61,12 +60,12 @@ describe('Selectors', () => {
         const dummySrc = './dummy.jpg';
         const state = { [namespace]: { src: dummySrc } }
         const data = selectPunctumImageSource(state, 'testModal');
-        assert.strictEqual(data, dummySrc);
+        expect(data).toStrictEqual(dummySrc);
       });
       it('defaults the visibility to false if there is no key for the modal', () => {
         const state = { visible: true };
         const data = selectPunctumImageSource(state);
-        assert.strictEqual(data, null);
+        expect(data).toBeNull();
       });
     });
 
@@ -76,13 +75,13 @@ describe('Selectors', () => {
         const dummyAltText = 'testText';
         const state = { [namespace]: { alt: dummyAltText } };
         const data = selectPunctumImageAltText(state, 'testModal');
-        assert.strictEqual(data, dummyAltText);
+        expect(data).toStrictEqual(dummyAltText);
       });
 
       it('defaults the visibility to false if there is no key for the modal', () => {
         const state = { visible: true };
         const data = selectPunctumImageAltText(state);
-        assert.strictEqual(data, null);
+        expect(data).toBeNull();
       });
     });
   });

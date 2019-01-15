@@ -7,7 +7,7 @@ const {
   SET_VISIBILITY
 } = constants;
 
-module.exports = (state = works, action = {}) => {
+export default (state = works, action = {}) => {
 
   const { type, payload } = action;
 
