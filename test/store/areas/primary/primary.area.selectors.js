@@ -1,1 +1,3 @@
-describe('Primary Area Selectors');
+describe('Primary Area Selectors', () => {
+  it('skips', () => {});
+});

@@ -1,1 +1,3 @@
-describe('Primary Area Reducer');
+describe('Primary Area Reducer', () => {
+  it('skips', () => {});
+});

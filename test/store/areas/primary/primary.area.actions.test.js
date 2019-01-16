@@ -1,1 +1,3 @@
-describe('Primary Area Action Creators');
+describe('Primary Area Action Creators', () => {
+  it('skips', () => {});
+});
