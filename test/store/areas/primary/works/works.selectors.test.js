@@ -1,91 +1,80 @@
-import initialState from '../../../src/store/initialStore';
-import selectors from '../../../src/store/selectors';
+import initialState from '../../../../../src/store/initialStore';
 
-describe('Selectors', () => {
+import {
+  getWorkModalVisibility,
+  getWorkPostTitle,
+  getWorkPunctumAltText,
+  getWorkPunctumSource,
+} from '../../../../../src/store/areas/primary/works/works.selectors';
 
-  const state = initialState;
+function genTestState(worknode) {
+  return {
+    areas: {
+      primary: {
+        works: worknode
+      }
+    }
+  }
+}
 
-  describe('Modal Selectors', () => {
+const namespace = 'test';
 
-    const {
-      getModalVisibility
-    } = selectors.modal;
+describe('Works Selectors', () => {
+  describe('getWorkModalVisibility', () => {
+    it('selects the correct values for the modal namespace', () => {
+      const state = genTestState({ [namespace]: { visible: true } });
+      const data = getWorkModalVisibility(state, { namespace });
+      expect(data).toBe(true);
+    });
 
-    describe('getModalVisibility', () => {
-      it('selects the correct values for the modal namespace', () => {
-        const namespace = 'testModal';
-        const state = { [namespace]: { visible: true } }
-        const data = getModalVisibility(state, 'testModal');
-        expect(data).toBe(true);
-      });
-
-      it('defaults the visibility to false if there is no key for the modal', () => {
-        const state = { visible: true };
-        const data = getModalVisibility(state);
-        expect(data).toBe(false);
-      });
+    it('defaults the visibility to false if there is no key for the modal', () => {
+      const state = genTestState({ toast: { visible: true } });
+      const data = getWorkModalVisibility(state, { namespace });
+      expect(data).toBe(false);
     });
   });
 
-  describe('Post Selectors', () => {
+  describe('getWorkPostTitle', () => {
+    it('selects the post title', () => {
+      const expectedTitle = 'tester';
+      const state = genTestState({ [namespace]: { title: expectedTitle } });
+      const data = getWorkPostTitle(state, { namespace });
+      expect(data).toStrictEqual(expectedTitle);
+    });
 
-    const {
-      getPostTitle
-    } = selectors.post;
-
-    describe('getPostTitle', () => {
-      it('selects the post title', () => {
-        const expectedTitle = 'tester';
-        const namespace = 'test';
-        const state = { [namespace]: { title: expectedTitle } };
-        const data = getPostTitle(state, namespace);
-        expect(data).toStrictEqual(expectedTitle);
-      });
-
-      it('returns null if the namespace is not in the store', () => {
-        const state = { test: { title: 'tester' } };
-        const data = getPostTitle(state, 'toast');
-        expect(data).toBeNull();
-      });
+    it('returns null if the namespace is not in the store', () => {
+      const state = genTestState({ toast: { title: 'tester' } });
+      const data = getWorkPostTitle(state, { namespace });
+      expect(data).toBeNull();
     });
   });
 
-  describe('Punctum Selectors', () => {
+  describe('getPunctumImageSource', () => {
+    it('selects the correct values for the modal namespace', () => {
+      const dummySrc = './dummy.jpg';
+      const state = genTestState({ [namespace]: { src: dummySrc } });
+      const data = getWorkPunctumSource(state, { namespace });
+      expect(data).toStrictEqual(dummySrc);
+    });
+    it('defaults the visibility to false if there is no key for the modal', () => {
+      const state = genTestState({ toast: { visible: true } });
+      const data = getWorkPunctumSource(state, { namespace });
+      expect(data).toBeNull();
+    });
+  });
 
-    const {
-      getPunctumImageSource,
-      getPunctumImageAltText
-    } = selectors.punctum;
-
-    describe('getPunctumImageSource', () => {
-      it('selects the correct values for the modal namespace', () => {
-        const namespace = 'testModal';
-        const dummySrc = './dummy.jpg';
-        const state = { [namespace]: { src: dummySrc } }
-        const data = getPunctumImageSource(state, 'testModal');
-        expect(data).toStrictEqual(dummySrc);
-      });
-      it('defaults the visibility to false if there is no key for the modal', () => {
-        const state = { visible: true };
-        const data = getPunctumImageSource(state);
-        expect(data).toBeNull();
-      });
+  describe('getPunctumImageAltText', () => {
+    it('selects the correct values for the modal namespace', () => {
+      const dummyAltText = 'testText';
+      const state = genTestState({ [namespace]: { alt: dummyAltText } });
+      const data = getWorkPunctumAltText(state, { namespace });
+      expect(data).toStrictEqual(dummyAltText);
     });
 
-    describe('getPunctumImageAltText', () => {
-      it('selects the correct values for the modal namespace', () => {
-        const namespace = 'testModal';
-        const dummyAltText = 'testText';
-        const state = { [namespace]: { alt: dummyAltText } };
-        const data = getPunctumImageAltText(state, 'testModal');
-        expect(data).toStrictEqual(dummyAltText);
-      });
-
-      it('defaults the visibility to false if there is no key for the modal', () => {
-        const state = { visible: true };
-        const data = getPunctumImageAltText(state);
-        expect(data).toBeNull();
-      });
+    it('defaults the visibility to false if there is no key for the modal', () => {
+      const state = genTestState({ toast: { visible: true } });
+      const data = getWorkPunctumAltText(state, { namespace });
+      expect(data).toBeNull();
     });
   });
 });

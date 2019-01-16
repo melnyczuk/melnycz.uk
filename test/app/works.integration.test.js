@@ -5,13 +5,13 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Modal from '../../src/components/modal/Modal';
-import Punctum from '../../src/components/punctum/Punctum';
-
-import selectors from '../../src/store/selectors';
+import {
+  setWorkModalVisibility
+} from '../../src/store/areas/primary/works/works.actions';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const { getModalVisibility } = selectors.modal;
+
 
 describe.skip('Punctum', () => {
 
@@ -31,16 +31,16 @@ describe.skip('Punctum', () => {
         }
       });
 
-      const punctum = shallow(
-        <Provider store={store}>
-          <Punctum namespace={testNamespace} />
-        </Provider>
-      );
+      // const punctum = shallow(
+      //   <Provider store={store}>
+      //     <Punctum namespace={testNamespace} />
+      //   </Provider>
+      // );
 
-      console.log(punctum.dive().find(Punctum).props());//.showModal();
+      // console.log(punctum.dive().find(Punctum).props());//.showModal();
 
       const state = store.getState();
-      const visibility = getModalVisibility(state, testNamespace);
+      const visibility = setWorkModalVisibility(state, testNamespace);
       expect(visibility).toBe(true);
     });
   });
@@ -64,7 +64,7 @@ describe.skip('Punctum', () => {
 
       const punctum = shallow(
         <Provider store={store} >
-          <Punctum namespace={testNamespace} />
+          {/* <Punctum namespace={testNamespace} /> */}
         </Provider>
       );
 
@@ -79,7 +79,7 @@ describe.skip('Punctum', () => {
 
       const newState = store.getState();
       console.log(newState);
-      expect(getModalVisibility(newState, testNamespace)).toBe(true);
+      expect(setWorkModalVisibility(newState, testNamespace)).toBe(true);
 
       // expect(shallow(
       //   <Provider store={store} >

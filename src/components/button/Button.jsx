@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Button({ classes = [], children = [] }){
+export default function Button({ type, classes = [], children = [] }){
   const className = [...classes].join(' ') || null;
   return(
-    <div className={className}>
+    <button className={className}>
       {children}
-    </div>
+    </button>
   )
 }

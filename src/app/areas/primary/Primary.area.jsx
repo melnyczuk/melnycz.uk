@@ -5,7 +5,7 @@ import Works from './Works';
 
 import {
   selectPrimaryAreaState
-} from '../../store/areas/primary/primary.selectors';
+} from '../../../store/areas/primary/primary.selectors';
 
 function PrimaryArea({ classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;
@@ -17,7 +17,7 @@ function PrimaryArea({ classes = [], children = [] }) {
 }
 
 function mapWorksToChildren (state) {
-  const { works } = selectPrimaryAreaState(state);
+  const { works = {} } = selectPrimaryAreaState(state);
   return Object.keys(works).map((key, i) => {
     const { namespace = undefined } = works[key];
     return (namespace && <Works key={i} namespace={namespace} />);

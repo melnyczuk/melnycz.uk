@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 // import './style/App.css';
 
 import NavBar from '../components/nav/Nav';
-import PrimaryArea from './areas/PrimaryArea';
+import PrimaryArea from './areas/primary/Primary.area';
 
-import rootReducer from './store/reducers';
+import rootReducer from '../store/rootReducer';
 
 const store = createStore(rootReducer);
 

@@ -10,7 +10,7 @@ const initialState = {
     ]
   },
   areas: {
-    main: {
+    primary: {
       works: db.works.reduce((map, work) => {
         return {
           ...map, [work.namespace]: {

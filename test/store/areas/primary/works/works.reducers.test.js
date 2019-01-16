@@ -1,10 +1,11 @@
-import initialState from '../../../src/store/initialStore';
-import worksReducer from '../../../src/store/reducers/areas/main/works.reducer';
-import actionCreators from '../../../src/store/actionCreators';
+import configureStore from 'redux-mock-store';
+
+import initialState from '../../../../../src/store/initialStore';
+import { SET_VISIBILITY } from '../../../../../src/store/constants';
+import worksReducer from '../../../../../src/store/areas/primary/works/works.reducer';
 
 describe('Works Reducer', () => {
-
-  const { works } = initialState.areas.main;
+  const { works } = initialState.areas.primary;
 
   it('returns the correct initial state', () => {
     const data = worksReducer(undefined, {});
@@ -13,42 +14,31 @@ describe('Works Reducer', () => {
 
   it('returns the existing state if no valid action type is dispatched', () => {
     const data = worksReducer(
-      works,
+      undefined,
       { payload: {
         namespace: 'test',
         value: true
       } });
+
     expect(data).toStrictEqual(works);
   });
 
   describe('SET_VISIBILITY action', () => {
+    const setModalVisibility = jest.fn(value => {
+      return {
+        type: SET_VISIBILITY,
+        payload: { namespace: 'test', value }
+      }
+    });
 
-    const { setModalVisibility } = actionCreators.modal;
+    it('reduces the action payload', () => {
 
-    it('reduces the action when the action payload value is a boolean', () => {
       const data = worksReducer(
         undefined,
-        setModalVisibility({ namespace: 'test', value: true })
+        setModalVisibility(true)
       );
+
       expect(data.test.visible).toBe(true);
     });
-
-    it('returns the existing state when the action payload value is not a boolean', () => {
-      const data = worksReducer(
-        works,
-        setModalVisibility({ namespace: 'test', value: 'blahhh' })
-      );
-      expect(data).toStrictEqual(works);
-    });
-
-    it('returns the existing state when the action payload namespace is not present', () => {
-      const data = worksReducer(
-        works,
-        setModalVisibility({ value: 'blahhh' })
-      );
-      expect(data).toStrictEqual(works);
-    });
   });
-
-
 });

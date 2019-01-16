@@ -4,7 +4,7 @@ const {
   SET_VISIBILITY
 } = constants;
 
-const modal = {
+module.exports = {
   setWorkModalVisibility: (payload) => {
     if (payload.namespace) {
       if (typeof payload.value === 'boolean') {
@@ -13,5 +13,3 @@ const modal = {
     }
   }
 };
-
-export default modal;

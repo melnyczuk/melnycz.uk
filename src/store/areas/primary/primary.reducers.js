@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import works from './main/works.reducer';
+import works from './works/works.reducer';
 
 const main = combineReducers({
   works
