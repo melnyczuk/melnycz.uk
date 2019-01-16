@@ -13,11 +13,11 @@ function NavButtons(buttons = []) {
 }
 
 function NavBar({ title, buttons, classes = [] }) {
-  const id = String(title).replace(' ', '-');
+  const id = `nav-title-${String(title).replace(' ', '-')}`;
   const className = [...classes].join(' ') || null;
   return (
     <nav className={className} >
-      <h1 id={id} >{title}</h1>
+      {title && <h1 id={id} >{title}</h1>}
       { NavButtons(buttons) }
     </nav>
   );

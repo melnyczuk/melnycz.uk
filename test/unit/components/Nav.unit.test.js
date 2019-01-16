@@ -12,10 +12,13 @@ describe('Nav', () => {
     expect(navBar.exists()).toBe(true);
   });
 
-  it('renders with class "nav-bar" & additional classes', () => {
-    const classes = ['navigation'];
+  it('renders with custom classes', () => {
+    const classes = ['navigation', 'bar'];
     const navBar = shallow(<NavBar classes={classes} />);
     classes.forEach(c => expect(navBar.hasClass(c)).toBe(true));
+    expect(navBar.html()).toStrictEqual(
+      `<nav class="${classes[0]} ${classes[1]}"></nav>`
+    );
   });
 
   it('renders an id', () => {
@@ -26,8 +29,12 @@ describe('Nav', () => {
 
   it('renders a title', () => {
     const title = 'howard-melnyczuk';
-    const navTitle = shallow(<NavBar title={title} />).find(`#${title}`);
+    const navBar = shallow(<NavBar title={title} />)
+    const navTitle = navBar.find(`#nav-title-${title}`);
     expect(navTitle.exists()).toBe(true);
+    expect(navBar.html()).toStrictEqual(
+      `<nav><h1 id="nav-title-${title}">${title}</h1></nav>`
+    );
   });
 
   it('renders with buttons with id and relative href', () => {
