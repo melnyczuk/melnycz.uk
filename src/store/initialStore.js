@@ -9,7 +9,7 @@ const initialState = {
       }
     ]
   },
-  viewers: {
+  areas: {
     main: {
       works: db.works.reduce((map, work) => {
         return {

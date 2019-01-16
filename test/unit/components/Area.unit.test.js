@@ -4,40 +4,40 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Viewer from '../../../src/components/viewer/Viewer';
+import Area from '../../../src/components/area/Area';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const dummyStore = { viewers: { test: { works: [] } } };
+const dummyStore = { areas: { test: { works: [] } } };
 
-describe('Viewer', () =>{
+describe('Area', () =>{
 
   const store = configureStore()({ ...dummyStore });
 
   afterEach(() => store.clearActions());
 
   it('renders', () => {
-    const viewer = shallow(
+    const area = shallow(
       <Provider store={store}>
-        <Viewer namespace={'test'} />
+        <Area namespace={'test'} />
       </Provider>
     );
 
-    expect(viewer.exists()).toBe(true);
-    expect(mount(viewer.get(0)).length).toBe(1);
-    expect(viewer.html()).toStrictEqual('<div></div>');
+    expect(area.exists()).toBe(true);
+    expect(mount(area.get(0)).length).toBe(1);
+    expect(area.html()).toStrictEqual('<div></div>');
   });
 
   it('renders with custom classes', () => {
     const classes = ['image', 'entrypoint'];
 
-    const viewer = shallow(
+    const area = shallow(
       <Provider store={store}>
-        <Viewer namespace={'test'} classes={classes} />
+        <Area namespace={'test'} classes={classes} />
       </Provider>
     );
 
-    expect(viewer.html()).toStrictEqual(
+    expect(area.html()).toStrictEqual(
       `<div class="${classes[0]} ${classes[1]}"></div>`
     );
   });

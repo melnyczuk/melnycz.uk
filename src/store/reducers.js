@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import viewers from './reducers/viewers.reducer';
+import areas from './reducers/areas.reducer';
 
 const rootReducer = combineReducers({
-  viewers
+  areas
 });
 
 export default rootReducer;

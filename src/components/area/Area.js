@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Modal from '../modal/Modal';
 import Punctum from '../punctum/Punctum';
 
-function Viewer({ classes = [], children = [] }) {
+function Area({ classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;
   return (
     <div className={className}>
@@ -15,7 +15,7 @@ function Viewer({ classes = [], children = [] }) {
 
 function mapWorksToChildren (state, props) {
   const { namespace } = props;
-  const { works } = state.viewers[namespace];
+  const { works } = state.areas[namespace];
   return Object.keys(works).map((key, i) => {
     return (
       <div key={i} namespace={namespace}>
@@ -37,4 +37,4 @@ const mapDispatchToProps = (state, props) => {
   return { ...props }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Viewer);
+export default connect(mapStateToProps, mapDispatchToProps)(Area);

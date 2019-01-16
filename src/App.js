@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 // import './style/App.css';
 
 import NavBar from './components/nav/Nav';
-import Viewer from './components/viewer/Viewer';
+import Area from './components/area/Area';
 
 import rootReducer from './store/reducers';
 
@@ -17,7 +17,7 @@ class App extends Component {
       <Provider store={store} >
         <div className="App">
           <NavBar id={'nav-main'} title={'hello world'} />
-          <Viewer namespace={'main'} />
+          <Area namespace={'main'} />
         </div>
       </Provider>
     );

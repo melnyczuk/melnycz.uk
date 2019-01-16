@@ -1,10 +1,10 @@
 import initialState from '../../../src/store/initialStore';
-import worksReducer from '../../../src/store/reducers/viewers/main/works.reducer';
+import worksReducer from '../../../src/store/reducers/areas/main/works.reducer';
 import actionCreators from '../../../src/store/actionCreators';
 
 describe('Works Reducer', () => {
 
-  const { works } = initialState.viewers.main;
+  const { works } = initialState.areas.main;
 
   it('returns the correct initial state', () => {
     const data = worksReducer(undefined, {});
