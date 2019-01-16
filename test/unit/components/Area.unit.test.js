@@ -25,7 +25,7 @@ describe('Area', () =>{
 
     expect(area.exists()).toBe(true);
     expect(mount(area.get(0)).length).toBe(1);
-    expect(area.html()).toStrictEqual('<div></div>');
+    expect(area.html()).toStrictEqual('<section></section>');
   });
 
   it('renders with custom classes', () => {
@@ -38,7 +38,7 @@ describe('Area', () =>{
     );
 
     expect(area.html()).toStrictEqual(
-      `<div class="${classes[0]} ${classes[1]}"></div>`
+      `<section class="${classes[0]} ${classes[1]}"></section>`
     );
   });
 

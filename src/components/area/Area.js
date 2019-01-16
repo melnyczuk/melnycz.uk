@@ -7,16 +7,16 @@ import Punctum from '../punctum/Punctum';
 function Area({ classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;
   return (
-    <div className={className}>
+    <section className={className}>
       {children}
-    </div>
+    </section>
   );
 }
 
 function mapWorksToChildren (state, props) {
-  const { namespace } = props;
-  const { works } = state.areas[namespace];
+  const { works } = state.areas[props.namespace];
   return Object.keys(works).map((key, i) => {
+    const { namespace } = works[key];
     return (
       <div key={i} namespace={namespace}>
         <Punctum namespace={namespace} />
