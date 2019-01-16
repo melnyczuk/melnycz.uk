@@ -11,7 +11,7 @@
   "works": [
     {
       "namespace": "rrosetta",
-      "keyImg": "",
+      "keyImg": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
       "live": false,
       "href": "/home/hpm/Dropbox/Work/006:1/A1-2638 1-2-20150831-6.jpg",
       "title": "Rrosetta",
@@ -83,7 +83,7 @@
     },
     {
       "namespace": "hiresroc",
-      "keyImg": "",
+      "keyImg": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
       "live": true,
       "year": [
         2017
@@ -97,7 +97,7 @@
     },
     {
       "namespace": "justwatc",
-      "keyImg": "",
+      "keyImg": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
       "live": true,
       "year": [
         2017

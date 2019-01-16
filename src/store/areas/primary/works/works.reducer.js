@@ -1,7 +1,7 @@
 import constants from '../../../constants';
 
 import initialState from '../../../initialStore';
-const { works } = initialState.areas.main;
+const { works } = initialState.areas.primary;
 
 const {
   SET_VISIBILITY

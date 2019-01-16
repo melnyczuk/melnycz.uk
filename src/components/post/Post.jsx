@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import selectors from '../../store/selectors';
 
-const { selectPostTitle } = selectors.post;
+const { getPostTitle } = selectors.post;
 
 function Post({ title, classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;
@@ -20,7 +20,7 @@ const mapStateToProps = (state, props) => {
   const { namespace } = props;
   return {
     ...props,
-    title: selectPostTitle(state, namespace),
+    title: getPostTitle(state, namespace),
   }
 }
 

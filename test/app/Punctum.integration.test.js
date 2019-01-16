@@ -11,7 +11,7 @@ import selectors from '../../src/store/selectors';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const { selectModalVisibility } = selectors.modal;
+const { getModalVisibility } = selectors.modal;
 
 describe.skip('Punctum', () => {
 
@@ -40,7 +40,7 @@ describe.skip('Punctum', () => {
       console.log(punctum.dive().find(Punctum).props());//.showModal();
 
       const state = store.getState();
-      const visibility = selectModalVisibility(state, testNamespace);
+      const visibility = getModalVisibility(state, testNamespace);
       expect(visibility).toBe(true);
     });
   });
@@ -79,7 +79,7 @@ describe.skip('Punctum', () => {
 
       const newState = store.getState();
       console.log(newState);
-      expect(selectModalVisibility(newState, testNamespace)).toBe(true);
+      expect(getModalVisibility(newState, testNamespace)).toBe(true);
 
       // expect(shallow(
       //   <Provider store={store} >
