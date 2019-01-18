@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Works from './Works';
+import Work from './Work';
 
 import {
-  selectPrimaryAreaState
-} from '../../../store/areas/primary/primary.selectors';
+  reduceState
+} from '../../../store/utils';
 
 function PrimaryArea({ classes = [], children = [] }) {
   const className = [...classes].join(' ') || null;
@@ -17,18 +17,17 @@ function PrimaryArea({ classes = [], children = [] }) {
 }
 
 function mapWorksToChildren (state) {
-  const { works = {} } = selectPrimaryAreaState(state);
+  const works = reduceState(state, ['areas', 'primary', 'works'], null);
   return Object.keys(works).map((key, i) => {
     const { namespace = undefined } = works[key];
-    return (namespace && <Works key={i} namespace={namespace} />);
+    return (namespace && <Work key={i} namespace={namespace} />);
   })
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
   return {
-    ...props,
     children: mapWorksToChildren(state),
-  };
+  }
 };
 
 export default connect(mapStateToProps)(PrimaryArea);

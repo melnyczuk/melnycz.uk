@@ -1,3 +1,3 @@
 module.exports = {
-  SET_VISIBILITY: 'SET_VISIBILITY'
+  SET_VISIBILE: 'SET_VISIBILE'
 };
