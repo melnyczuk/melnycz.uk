@@ -8,37 +8,33 @@ import {
   getWorkModalVisibility,
   getWorkPostTitle,
   getWorkPunctumAltText,
-  getWorkPunctumSource,
+  getWorkPunctumSource
 } from '../../../store/areas/primary/works/works.selectors';
-
-import { getWorkPropertyFromState } from '../../../store/areas/primary/works/works.selectors';
 
 import {
   setWorkModalVisibility,
 } from '../../../store/areas/primary/works/works.actions';
 
-function Works ({namespace, src, alt, title, showModal}) {
-  console.log(src);
+function Work ({ namespace, visible, src, alt, title, showModal }) {
   return (
     <section namespace={namespace} >
-    <Punctum src={src} alt={alt} showModal={showModal} />
-    <Modal>
-      <Post title={title} />
-    </Modal>
+      <Punctum src={src} alt={alt} showModal={showModal} />
+      <Modal visible={visible}>
+        {title && <Post title={title} />}
+      </Modal>
     </section>
   )
 }
 
 function Punctum ({src, alt, showModal}) {
-
   if (src) {
     return(<img src={src} alt={alt} onClick={showModal} />)
-  } return null;
+  }
+  return null;
 }
 
 const mapStateToProps = (state, props) => {
-
-  return {
+  return  {
     src: getWorkPunctumSource(state, props),
     alt: getWorkPunctumAltText(state, props),
     visible: getWorkModalVisibility(state, props),
@@ -49,8 +45,8 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
   const { namespace } = props;
   return {
-    showModal: () => dispatch(setWorkModalVisibility({ namespace, value: true }))
+    showModal: () => dispatch(setWorkModalVisibility(namespace))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Works);
+export default connect(mapStateToProps, mapDispatchToProps)(Work);

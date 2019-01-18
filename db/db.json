@@ -11,7 +11,7 @@
   "works": [
     {
       "namespace": "rrosetta",
-      "punctum": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
+      "src": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
       "live": false,
       "href": "/home/hpm/Dropbox/Work/006:1/A1-2638 1-2-20150831-6.jpg",
       "title": "Rrosetta",
@@ -83,7 +83,7 @@
     },
     {
       "namespace": "hiresroc",
-      "punctum": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
+      "src": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
       "live": true,
       "year": [
         2017
@@ -97,7 +97,7 @@
     },
     {
       "namespace": "justwatc",
-      "punctum": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
+      "src": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
       "live": true,
       "year": [
         2017
@@ -110,7 +110,7 @@
     },
     {
       "namespace": "fanewday",
-      "punctum": "",
+      "src": "",
       "live": true,
       "year": [
         2017
@@ -123,7 +123,7 @@
     },
     {
       "namespace": "westanti",
-      "punctum": "",
+      "src": "",
       "live": false,
       "year": [
         2016
@@ -137,7 +137,7 @@
     },
     {
       "namespace": "enscenlo",
-      "punctum": "",
+      "src": "",
       "live": false,
       "year": [
         2013
@@ -153,7 +153,7 @@
     },
     {
       "namespace": "texcache",
-      "punctum": "",
+      "src": "",
       "live": false,
       "year": [
         2016
@@ -167,7 +167,7 @@
     },
     {
       "namespace": "eiatasay",
-      "punctum": "",
+      "src": "",
       "live": true,
       "year": [
         2016
@@ -180,7 +180,7 @@
     },
     {
       "namespace": "ermdmalm",
-      "punctum": "",
+      "src": "",
       "live": false,
       "year": [
         2016

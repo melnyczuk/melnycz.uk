@@ -1,15 +1,11 @@
 import constants from '../../../constants';
 
 const {
-  SET_VISIBILITY
+  SET_VISIBILE
 } = constants;
 
 const setWorkModalVisibility = (payload) => {
-    if (payload.namespace) {
-      if (typeof payload.value === 'boolean') {
-        return { type: SET_VISIBILITY, payload };
-      }
-    }
-  };
+  return { type: SET_VISIBILE, payload };
+};
 
 export { setWorkModalVisibility };
