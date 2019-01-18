@@ -16,17 +16,14 @@ describe('Works Reducer', () => {
   });
 
   describe('SET_VISIBLE action', () => {
-    const setModalVisibility = jest.fn(namespace => {
+    const setModalVisible = jest.fn(namespace => {
       return { type: SET_VISIBLE, namespace }
     });
 
     it('reduces the action payload', () => {
-
       const data = worksReducer(
         { test: { visible: false } },
-        setModalVisibility('test')
-      );
-      console.log(data);
+        setModalVisible('test'));
       expect(data.test.visible).toBe(true);
     });
   });
