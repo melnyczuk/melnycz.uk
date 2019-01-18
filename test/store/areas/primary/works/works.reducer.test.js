@@ -1,7 +1,5 @@
-import configureStore from 'redux-mock-store';
-
 import initialState from '../../../../../src/store/initialStore';
-import { SET_VISIBILITY } from '../../../../../src/store/constants';
+import { SET_VISIBILE } from '../../../../../src/store/constants';
 import worksReducer from '../../../../../src/store/areas/primary/works/works.reducer';
 
 describe('Works Reducer', () => {
@@ -13,31 +11,22 @@ describe('Works Reducer', () => {
   });
 
   it('returns the existing state if no valid action type is dispatched', () => {
-    const data = worksReducer(
-      undefined,
-      { payload: {
-        namespace: 'test',
-        value: true
-      } });
-
+    const data = worksReducer(undefined, { payload: 'blah' });
     expect(data).toStrictEqual(works);
   });
 
-  describe('SET_VISIBILITY action', () => {
-    const setModalVisibility = jest.fn(value => {
-      return {
-        type: SET_VISIBILITY,
-        payload: { namespace: 'test', value }
-      }
+  describe('SET_VISIBILE action', () => {
+    const setModalVisibility = jest.fn(payload => {
+      return { type: SET_VISIBILE, payload }
     });
 
     it('reduces the action payload', () => {
 
       const data = worksReducer(
-        undefined,
-        setModalVisibility(true)
+        { test: { visible: false } },
+        setModalVisibility('test')
       );
-
+      console.log(data);
       expect(data.test.visible).toBe(true);
     });
   });
