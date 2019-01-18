@@ -9,17 +9,26 @@ const getWorkPropertyFromState = (state, props, property, fallback) => {
   return fallback;
 };
 
-module.exports = {
-  getWorkModalVisibility: (state, props) => {
-    return getWorkPropertyFromState(state, props, 'visible', false);
-  },
-  getWorkPostTitle: (state, props) => {
-    return getWorkPropertyFromState(state, props, 'title', null);
-  },
-  getWorkPunctumAltText: (state, props) => {
-    return getWorkPropertyFromState(state, props, 'alt', null);
-  },
-  getWorkPunctumSource: (state, props) => {
-    return getWorkPropertyFromState(state, props, 'src', null);
-  },
-};
+
+function getWorkModalVisibility (state, props) {
+  return getWorkPropertyFromState(state, props, 'visible', false);
+}
+
+function getWorkPostTitle (state, props) {
+  return getWorkPropertyFromState(state, props, 'title', null);
+}
+
+function getWorkPunctumAltText (state, props) {
+  return getWorkPropertyFromState(state, props, 'alt', null);
+}
+
+function getWorkPunctumSource (state, props) {
+  return getWorkPropertyFromState(state, props, 'src', null);
+}
+
+export {
+  getWorkModalVisibility,
+  getWorkPostTitle,
+  getWorkPunctumAltText,
+  getWorkPunctumSource
+}

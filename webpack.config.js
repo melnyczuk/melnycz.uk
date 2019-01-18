@@ -5,7 +5,8 @@ module.exports = {
   entry: path.join(__dirname, '/src/index.js'),
   output: {
     filename: 'build.js',
-    path: path.join(__dirname, '/dist')
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -13,11 +14,9 @@ module.exports = {
   module: {
     rules: [
     {
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader'
-      }
+      use: ['babel-loader']
     },
     {
       test: /\.css$/,
@@ -26,8 +25,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new HWP({ 
-      template: path.join(__dirname, '/src/index.html') 
+    new HWP({
+      template: path.join(__dirname, '/src/index.html')
     })
   ]
 }
