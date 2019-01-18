@@ -1,11 +1,11 @@
 import constants from '../../../constants';
 
 const {
-  SET_VISIBILE
+  SET_VISIBLE
 } = constants;
 
-const setWorkModalVisibility = (payload) => {
-  return { type: SET_VISIBILE, payload };
+const setWorkModalVisible = (namespace) => {
+  return { type: SET_VISIBLE, namespace };
 };
 
-export { setWorkModalVisibility };
+export { setWorkModalVisible };

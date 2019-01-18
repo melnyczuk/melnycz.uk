@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import Modal from '../../src/components/modal/Modal';
 import {
-  setWorkModalVisibility
+  setWorkModalVisible
 } from '../../src/store/areas/primary/works/works.actions';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -40,7 +40,7 @@ describe.skip('Punctum', () => {
       // console.log(punctum.dive().find(Punctum).props());//.showModal();
 
       const state = store.getState();
-      const visibility = setWorkModalVisibility(state, testNamespace);
+      const visibility = setWorkModalVisible(state, testNamespace);
       expect(visibility).toBe(true);
     });
   });
@@ -79,7 +79,7 @@ describe.skip('Punctum', () => {
 
       const newState = store.getState();
       console.log(newState);
-      expect(setWorkModalVisibility(newState, testNamespace)).toBe(true);
+      expect(setWorkModalVisible(newState, testNamespace)).toBe(true);
 
       // expect(shallow(
       //   <Provider store={store} >

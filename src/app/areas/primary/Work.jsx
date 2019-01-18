@@ -12,7 +12,7 @@ import {
 } from '../../../store/areas/primary/works/works.selectors';
 
 import {
-  setWorkModalVisibility,
+  setWorkModalVisible,
 } from '../../../store/areas/primary/works/works.actions';
 
 function Work ({ namespace, visible, src, alt, title, showModal }) {
@@ -45,7 +45,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
   const { namespace } = props;
   return {
-    showModal: () => dispatch(setWorkModalVisibility(namespace))
+    showModal: () => dispatch(setWorkModalVisible(namespace))
   }
 }
 

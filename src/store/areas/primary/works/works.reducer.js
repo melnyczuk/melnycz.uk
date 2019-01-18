@@ -4,19 +4,19 @@ import initialState from '../../../initialStore';
 const { works } = initialState.areas.primary;
 
 const {
-  SET_VISIBILE
+  SET_VISIBLE
 } = constants;
 
 export default (state = works, action = {}) => {
 
-  const { type, payload } = action;
+  const { type, namespace } = action;
 
   switch (type) {
 
-    case SET_VISIBILE: {
+    case SET_VISIBLE: {
       return Object.keys(state).reduce((next, key) => {
-        if (key !== payload) next[key] = { ...state[key], visible: false }
-        if (key === payload) next[key] = { ...state[key], visible: true }
+        if (key !== namespace) next[key] = { ...state[key], visible: false }
+        if (key === namespace) next[key] = { ...state[key], visible: true }
         return next;
       }, {});
     }
