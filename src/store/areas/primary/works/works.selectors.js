@@ -6,22 +6,22 @@ const getWorkStateForNameSpace = (state, { namespace }) => {
 
 const getWorkModalVisibility = createSelector(
   getWorkStateForNameSpace,
-  state => (state && state.visible) ? state.visible : ''
+  state => (state && state.visible) ? state.visible : false
 );
 
 const getWorkPostTitle = createSelector(
   getWorkStateForNameSpace,
-  state => (state && state.title) ? state.title : ''
+  state => (state && state.title) ? state.title : null
 );
 
 const getWorkPunctumAltText = createSelector(
   getWorkStateForNameSpace,
-  state => (state && state.alt) ? state.alt : ''
+  state => (state && state.alt) ? state.alt : null
 );
 
 const getWorkPunctumSource = createSelector(
   getWorkStateForNameSpace,
-  state =>  (state && state.src) ? state.src : ''
+  state =>  (state && state.src) ? state.src : null
 );
 
 export {

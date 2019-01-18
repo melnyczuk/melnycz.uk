@@ -1,5 +1,3 @@
-import initialState from '../../../../../src/store/initialStore';
-
 import {
   getWorkModalVisibility,
   getWorkPostTitle,
@@ -7,11 +5,11 @@ import {
   getWorkPunctumSource,
 } from '../../../../../src/store/areas/primary/works/works.selectors';
 
-function genTestState(worknode) {
+function genTestState(works) {
   return {
     areas: {
       primary: {
-        works: worknode
+        works
       }
     }
   }
