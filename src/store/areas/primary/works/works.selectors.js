@@ -1,30 +1,28 @@
-import { selectPrimaryAreaState } from '../primary.selectors';
+import { createSelector } from 'reselect';
 
-const getWorkPropertyFromState = (state, props, property, fallback) => {
-  const { namespace } = props;
-  const { works = {} } = selectPrimaryAreaState(state);
-  if (works && works[namespace] && works[namespace][property]) {
-    return works[namespace][property];
-  };
-  return fallback;
-};
-
-
-function getWorkModalVisibility (state, props) {
-  return getWorkPropertyFromState(state, props, 'visible', false);
+const getWorkStateForNameSpace = (state, { namespace }) => {
+  return state.areas.primary.works[namespace];
 }
 
-function getWorkPostTitle (state, props) {
-  return getWorkPropertyFromState(state, props, 'title', null);
-}
+const getWorkModalVisibility = createSelector(
+  getWorkStateForNameSpace,
+  state => (state && state.visible) ? state.visible : ''
+);
 
-function getWorkPunctumAltText (state, props) {
-  return getWorkPropertyFromState(state, props, 'alt', null);
-}
+const getWorkPostTitle = createSelector(
+  getWorkStateForNameSpace,
+  state => (state && state.title) ? state.title : ''
+);
 
-function getWorkPunctumSource (state, props) {
-  return getWorkPropertyFromState(state, props, 'src', null);
-}
+const getWorkPunctumAltText = createSelector(
+  getWorkStateForNameSpace,
+  state => (state && state.alt) ? state.alt : ''
+);
+
+const getWorkPunctumSource = createSelector(
+  getWorkStateForNameSpace,
+  state =>  (state && state.src) ? state.src : ''
+);
 
 export {
   getWorkModalVisibility,
