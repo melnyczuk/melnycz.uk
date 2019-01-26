@@ -11,10 +11,9 @@
   "works": [
     {
       "namespace": "rrosetta",
-      "src": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
       "live": false,
-      "href": "/home/hpm/Dropbox/Work/006:1/A1-2638 1-2-20150831-6.jpg",
       "title": "Rrosetta",
+      "src": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
       "year": [
         2017
       ],
@@ -30,8 +29,9 @@
         "found text"
       ],
       "description": {
-        "long": "Rrosetta is a digital artwork. It consists of a data-driven application that seeks to analyse sensitive personal information to create a unique and cherishable publication. Coming out of the niche and often intimate subculture of zine-making and self-publishing, Rrosetta also offers a way for me as an artist and publisher to critically explore wider cultural narratives arising out of the proliferation of the tech industry. On setting out on this project, it was crucial that I pay close attention to any questions arising from the intersection between two distinct fields of concern: the strengths and shortcomings of technological approaches to autonomy, craft and agency, and a focus on the price, cost and value of art and data.",
-        "short": ""
+        "short": "Rrosetta is project crafting one-off self-publishing zines using sensitive personal data.",
+        "mid": "Rrosetta is a digital artwork. It consists of a data-driven application that seeks to analyse sensitive personal information to create a unique and cherishable publication. Coming out of the niche and often intimate subculture of zine-making and self-publishing, Rrosetta also offers a way for me as an artist and publisher to critically explore wider cultural narratives arising out of the proliferation of the tech industry. On setting out on this project, it was crucial that I pay close attention to any questions arising from the intersection between two distinct fields of concern: the strengths and shortcomings of technological approaches to autonomy, craft and agency, and a focus on the price, cost and value of art and data.",
+        "long": "./works/rrosetta/long.txt"
       },
       "media": {
         "images": [
@@ -83,6 +83,7 @@
     },
     {
       "namespace": "hiresroc",
+      "name": "ahirespngofarock",
       "src": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
       "live": true,
       "year": [
@@ -91,12 +92,11 @@
       "type": [
         "website"
       ],
-      "materials": [],
-      "name": "ahirespngofarock",
-      "href": "http://melnycz.uk/ahirespngofarock/"
+      "materials": []
     },
     {
       "namespace": "justwatc",
+      "name": "Just Watched And Felt",
       "src": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
       "live": true,
       "year": [
@@ -104,12 +104,11 @@
       ],
       "type": [
         "website"
-      ],
-      "name": "Just Watched And Felt",
-      "href": "http://melnycz.uk/just_watched_and_felt/"
+      ]
     },
     {
       "namespace": "fanewday",
+      "name": "Like The Dawning Of A New Day",
       "src": "",
       "live": true,
       "year": [
@@ -117,9 +116,7 @@
       ],
       "type": [
         "website"
-      ],
-      "name": "Like The Dawning Of A New Day",
-      "href": "http://melnycz.uk/like_the_dawning_of_a_new_day/"
+      ]
     },
     {
       "namespace": "westanti",
@@ -163,7 +160,6 @@
         "rendering"
       ],
       "name": "Texture Cache",
-      "href": "http://melnycz.uk/texturecache/"
     },
     {
       "namespace": "eiatasay",
@@ -176,7 +172,6 @@
         "pdf"
       ],
       "name": "Everything Is A Thing As Soon As You Think It A Thing",
-      "href": "http://melnycz.uk/e-v-e-r-y-t-h-i-n-g-i-s-a-t-h-i-n-g-a-s-s-o-o-n-a-s-y-o-u-t-h-i-n-k-i-t-a-t-h-i-n-g.pdf"
     },
     {
       "namespace": "ermdmalm",
@@ -189,7 +184,18 @@
         "video"
       ],
       "name": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
-      "href": "http://melnycz.uk/everytime_i_repeat_mistakes_i_dislike_myself_a_little_more/"
+    },
+    {
+      "namespace": "otsmiasm",
+      "src": "",
+      "live": false,
+      "year": [
+        2016
+      ],
+      "type": [
+        "video"
+      ],
+      "name": "On The Side Of Every Mountain Is Another Smaller Mountain",
     }
   ],
   "writing": [],

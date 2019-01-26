@@ -1,21 +1,19 @@
 export interface Work {
   namespace: string;
-  keyImg: string;
   live: boolean;
-  path: string;
   title: string;
+  src: string;
+  media: Media;
   year: Array<number>;
   type: Array<string>;
   materials: Array<string>;
   description: Description;
-  href?: string;
   links?: Array<string>;
-  media?: Media;
   exhibitions?: Array<Exhibition>;
 }
 
 export interface Description {
-  short?: string;
+  short: string;
   long?: string;
   mid?: string;
 }
@@ -40,23 +38,20 @@ export interface Media {
 
 export interface Image {
   src: string;
-  title?: string;
-  alt?: string;
+  title: string;
   description?: Description;
 }
 
 export interface Video {
   src: string;
-  title?: string;
-  alt?: string;
+  title: string;
   length?: number;
   description?: Description;
 }
 
 export interface Audio {
   src: string;
-  title?: string;
-  alt?: string;
+  title: string;
   length?: number;
   description?: Description;
 }
