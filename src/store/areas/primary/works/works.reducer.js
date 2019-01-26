@@ -25,6 +25,4 @@ export default (state = works, action = {}) => {
 
   }
 
-  return state;
-
 };
