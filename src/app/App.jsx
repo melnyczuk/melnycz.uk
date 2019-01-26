@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <Provider store={store} >
         <div className="App">
-          <NavBar id={'nav-main'} title={'hello world'} />
+          <NavBar id={'nav-main'} title={'Howard Melnyczuk'} />
           <PrimaryArea />
         </div>
       </Provider>

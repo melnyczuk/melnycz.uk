@@ -3,13 +3,15 @@ export interface Work {
   live: boolean;
   title: string;
   src: string;
-  media: Media;
   year: Array<number>;
-  type: Array<string>;
-  materials: Array<string>;
   description: Description;
+  media: Media;
+  materials: Array<string>;
+  type: Array<string>;
+  
   links?: Array<string>;
   exhibitions?: Array<Exhibition>;
+
 }
 
 export interface Description {
@@ -39,6 +41,7 @@ export interface Media {
 export interface Image {
   src: string;
   title: string;
+  rank: number;
   description?: Description;
 }
 

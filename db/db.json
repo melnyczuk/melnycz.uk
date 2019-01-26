@@ -13,7 +13,7 @@
       "namespace": "rrosetta",
       "live": false,
       "title": "Rrosetta",
-      "src": "https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg",
+      "src": "../bin/works/rrosetta/rrosetta_009.jpg",
       "year": [
         2017
       ],
@@ -31,17 +31,41 @@
       "description": {
         "short": "Rrosetta is project crafting one-off self-publishing zines using sensitive personal data.",
         "mid": "Rrosetta is a digital artwork. It consists of a data-driven application that seeks to analyse sensitive personal information to create a unique and cherishable publication. Coming out of the niche and often intimate subculture of zine-making and self-publishing, Rrosetta also offers a way for me as an artist and publisher to critically explore wider cultural narratives arising out of the proliferation of the tech industry. On setting out on this project, it was crucial that I pay close attention to any questions arising from the intersection between two distinct fields of concern: the strengths and shortcomings of technological approaches to autonomy, craft and agency, and a focus on the price, cost and value of art and data.",
-        "long": "./works/rrosetta/long.txt"
+        "long": "works/rrosetta/rrosetta_long.txt"
       },
       "media": {
         "images": [
           {
-            "alt": "",
-            "src": "",
+            "title": "",
+            "src": "works/rrosetta/rrosetta_002.jpg",
+            "rank": 0
+          },
+          {
+            "title": "",
+            "src": "works/rrosetta/rrosetta_003.jpg",
+            "rank": 0
+          },
+          {
+            "title": "",
+            "src": "works/rrosetta/rrosetta_004.jpg",
+            "rank": 0
+          },
+          {
+            "title": "",
+            "src": "works/rrosetta/rrosetta_006.jpg",
+            "rank": 0
+          },
+          {
+            "title": "",
+            "src": "works/rrosetta/rrosetta_009.jpg",
             "rank": 0
           }
         ],
-        "video": []
+        "video": [
+          {
+            
+          }
+        ]
       },
       "exhibitions": [
         {
@@ -83,21 +107,25 @@
     },
     {
       "namespace": "hiresroc",
-      "name": "ahirespngofarock",
-      "src": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
       "live": true,
+      "title": "ahirespngofarock",
+      "src": "",
       "year": [
         2017
-      ],
+      ],      
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "website"
-      ],
-      "materials": []
+      ]
     },
     {
       "namespace": "justwatc",
       "name": "Just Watched And Felt",
-      "src": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
+      "src": "",
       "live": true,
       "year": [
         2017
@@ -120,82 +148,110 @@
     },
     {
       "namespace": "westanti",
-      "src": "",
       "live": false,
+      "title": "West Antarctic Ice Sheet",
+      "src": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "website",
         "pdf"
-      ],
-      "name": "West Antarctic Ice Sheet",
-      "href": "http://melnycz.uk/west_antarctic_ice_sheet/"
+      ]
     },
     {
       "namespace": "enscenlo",
-      "src": "",
       "live": false,
+      "title": "Endless Scrolling / Enduring Love",
+      "src": "",
       "year": [
         2013
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "website"
       ],
-      "name": "Endless Scrolling / Enduring Love",
-      "href": "http://melnycz.uk/endless_scrolling_enduring_love/",
       "exhibitions": [
         "yes"
       ]
     },
     {
       "namespace": "texcache",
-      "src": "",
       "live": false,
+      "title": "Texture Cache",
+      "src": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "website",
         "rendering"
-      ],
-      "name": "Texture Cache",
+      ]
     },
     {
       "namespace": "eiatasay",
-      "src": "",
       "live": true,
+      "title": "Everything Is A Thing As Soon As You Think It A Thing",
+      "src": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "pdf"
-      ],
-      "name": "Everything Is A Thing As Soon As You Think It A Thing",
+      ]
     },
     {
       "namespace": "ermdmalm",
-      "src": "",
       "live": false,
+      "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
+      "src": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "video"
-      ],
-      "name": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
+      ]
     },
     {
       "namespace": "otsmiasm",
-      "src": "",
       "live": false,
+      "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
+      "src": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
+      "media": {},
+      "materials": [],
       "type": [
         "video"
-      ],
-      "name": "On The Side Of Every Mountain Is Another Smaller Mountain",
+      ]
     }
   ],
   "writing": [],
