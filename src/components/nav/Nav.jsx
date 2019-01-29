@@ -5,18 +5,18 @@ const NavButtons = (
     buttons = []
   }
 ) => {
-  return buttons.map((button, i) => {
+  return buttons.map(([label, link], i) => {
     return (
-      <div key={i} className="nav-button" id={button} >
-        <a href={button}>
-          {button}
+      <button key={i} className={'nav-button'} id={label} >
+        <a href={link}>
+          {label}
         </a>
-      </div>
+      </button>
     );
   });
 }
 
-const NavBar = (
+export const NavBar = (
   {
     title,
     buttons,
@@ -32,5 +32,3 @@ const NavBar = (
     </nav>
   );
 }
-
-export default NavBar;

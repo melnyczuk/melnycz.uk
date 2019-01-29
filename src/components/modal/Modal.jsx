@@ -1,15 +1,14 @@
 import React from 'react';
 import Button from '../button/Button';
 
-const Modal = (
+export const Modal = (
   {
-    visible,
-    classes = [],
+    visible = false,
+    className,
     children = []
   }
 ) => {
   if (visible) {
-    const className = [...classes].join(' ') || null;
     return (
       <div className={className} >
         <Button visible={true} type={'close'} />
@@ -19,5 +18,3 @@ const Modal = (
   }
   return null;
 }
-
-export default Modal;

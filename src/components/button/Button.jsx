@@ -1,10 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function Button({ type, classes = [], children = [] }){
-  const className = [...classes].join(' ') || null;
-  return(
-    <button className={className}>
-      {children}
-    </button>
-  )
+export const Button = (
+  {
+    visible,
+    className,
+    onClick,
+  }
+) => {
+  if (visible) {
+    return (
+      <button
+        className={className}
+        onClick={onClick}
+      >
+        <svg></svg>
+      </button>
+    )
+  }
+  return null;
 }
+
+const mapStateToProps = (state, props) => {
+  const { classes = [] } = props;
+  return {
+    className: [...classes].join(' ') || null,
+    visible: props.visible
+  };
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+  const { type } = props;
+  return {
+    onClick: () => dispatch(handleButtonClick(type)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

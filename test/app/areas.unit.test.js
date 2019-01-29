@@ -1,10 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import Enzyme, { shallow, mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import PrimaryArea from '../../src/app/areas/primary/Primary.area';
+import { PrimaryArea } from '../../src/app/areas/primary/Primary.area';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -12,33 +10,24 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Area', () => {
 
   describe('Primary Area', () => {
-    const dummyStore = { areas: { primary: { works: [] } } };
-    const store = configureStore()({ ...dummyStore });
-    afterEach(() => store.clearActions());
 
     it('renders', () => {
-      const area = shallow(
-        <Provider store={store}>
-          <PrimaryArea namespace={'test'} />
-        </Provider>
-      );
+      const area = shallow(<PrimaryArea namespace={'test'} />);
 
       expect(area.exists()).toBe(true);
-      expect(mount(area.get(0)).length).toBe(1);
+      expect(area.find(PrimaryArea).length).toBe(1);
       expect(area.html()).toStrictEqual('<main></main>');
     });
 
     it('renders with custom classes', () => {
-      const classes = ['image', 'entrypoint'];
+      const className = 'image entrypoint';
 
       const area = shallow(
-        <Provider store={store}>
-          <PrimaryArea namespace={'test'} classes={classes} />
-        </Provider>
+        <PrimaryArea namespace={'test'} className={className} />
       );
 
       expect(area.html()).toStrictEqual(
-        `<main class="${classes[0]} ${classes[1]}"></main>`
+        `<main class="${className}"></main>`
       );
     });
 

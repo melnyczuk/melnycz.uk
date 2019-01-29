@@ -7,7 +7,7 @@ import {
   reduceState
 } from '../../../store/utils';
 
-const PrimaryArea = (
+export const PrimaryArea = (
   {
     className,
     children = []

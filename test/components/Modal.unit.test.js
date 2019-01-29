@@ -1,36 +1,58 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../src/components/modal/Modal';
+import { Modal } from '../../src/components/modal/Modal';
+
+const MODAL_MARKUP = '<div><button><svg></svg></button></div>';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal', () => {
+
+  const mockStore = configureStore();
+  const store = mockStore({});
+
+
   it('renders', () => {
-    const modal = shallow(<Modal visible={true} />);
+    const modal = shallow(
+      <Provider store={store}>
+        <Modal visible={true} />
+      </Provider>
+    );
 
     expect(modal.exists()).toBe(true);
-    expect(modal.length).toBe(1);
-    expect(modal.html()).toStrictEqual('<div><button></button></div>');
+    expect(mount(modal.get(0)).length).toBe(1);
+    expect(modal.html()).toStrictEqual(MODAL_MARKUP);
   });
 
   it('renders with custom classes', () => {
-    const classes = ['basic', 'modal'];
+    const className = 'basic modal';
 
-    const modal = shallow(<Modal visible={true} classes={classes} />);
-
-    expect(modal.html()).toStrictEqual(
-      `<div class="${classes[0]} ${classes[1]}"><button></button></div>`
+    const modal = shallow(
+        <Modal className={className} visible={true} />
     );
+
+    expect(modal.hasClass(className)).toBe(true);
   });
 
   it('renders internal div only when visible', () => {
-    const showedModal = shallow(<Modal visible={true} />);
-    const hiddenModal = shallow(<Modal visible={false} />);
+    const showedModal = shallow(
+      <Provider store={store}>
+        <Modal visible={true} />
+      </Provider> 
+    );
 
-    expect(showedModal.html()).toStrictEqual('<div><button></button></div>');
-    expect(hiddenModal.html()).toBeNull();
+    const hiddenModal = shallow(
+      <Provider store={store}>
+        <Modal visible={false} />
+      </Provider>
+    );
+
+    expect(showedModal.html()).toStrictEqual(MODAL_MARKUP);
+    expect(hiddenModal.html()).toStrictEqual('');
   });
 
 });

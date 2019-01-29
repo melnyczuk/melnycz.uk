@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import App from '../../src/app/App';
-import NavBar from '../../src/components/nav/Nav';
+import { App } from '../../src/app/App';
+import { NavBar } from '../../src/components/nav/Nav';
 import PrimaryArea from '../../src/app/areas/primary/Primary.area';
+
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('App', () => {
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
