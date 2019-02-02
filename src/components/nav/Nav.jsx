@@ -7,7 +7,11 @@ const NavButtons = (
 ) => {
   return buttons.map(([label, link], i) => {
     return (
-      <button key={i} className={'nav-button'} id={label} >
+      <button 
+        key={i} 
+        className={'nav-button'} 
+        id={String(label).toLowerCase()} 
+      >
         <a href={link}>
           {label}
         </a>
@@ -19,15 +23,12 @@ const NavButtons = (
 export const NavBar = (
   {
     title,
-    buttons,
-    classes = []
+    buttons
   }
 ) => {
-  const id = `nav-title-${String(title).replace(' ', '-')}`;
-  const className = [...classes].join(' ') || null;
   return (
-    <nav className={className} >
-      {title && <h1 id={id} >{title}</h1>}
+    <nav id='nav' className='nav'>
+      {title && <h1 className='nav-title'>{title}</h1>}
       <NavButtons buttons={buttons} />
     </nav>
   );
