@@ -1,3 +1,12 @@
+const areaConstants = {
+  PRIMARY_AREA: 'primary',
+}
+
+const actionConstants = {
+  SET_VISIBLE: 'SET_VISIBLE',
+}
+
 module.exports = {
-  SET_VISIBLE: 'SET_VISIBLE'
+  areaConstants,
+  actionConstants,
 };

@@ -5,13 +5,12 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Modal from '../../src/components/modal/Modal';
+
 import {
-  setWorkModalVisible
-} from '../../src/store/areas/primary/works/works.actions';
+  setWorkModalVisible,
+} from '../../src/store/works/works.actions';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-
 
 describe.skip('Punctum', () => {
 

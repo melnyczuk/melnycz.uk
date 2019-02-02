@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 // import './style/App.css';
 
 import { NavBar } from '../components/nav/Nav';
-import PrimaryArea from './areas/primary/Primary.area';
+import Areas from './areas/primary/Primary.area';
 
 import rootReducer from '../store/rootReducer';
 
@@ -16,8 +16,8 @@ export class App extends Component {
     return (
       <Provider store={store} >
         <div className="App">
-          <NavBar id={'nav-main'} title={'Howard Melnyczuk'} />
-          <PrimaryArea />
+          <NavBar title={'Howard Melnyczuk'} />
+          <Areas />
         </div>
       </Provider>
     );

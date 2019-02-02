@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
+
 import Button from '../button/Button';
 
-const Portal = (
+export const Portal = (
   {
     images,
   }
@@ -20,5 +20,3 @@ const Portal = (
     </figure>
   )
 }
-
-export default Portal;
