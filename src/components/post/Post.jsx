@@ -3,8 +3,6 @@ import React from 'react';
 import Button from '../button/Button';
 import Portal from '../portal/Portal';
 
-import { joinClasses } from '../../utils';
-
 const Post = (
   {
     namespace,
@@ -12,11 +10,11 @@ const Post = (
     short,
     long,
     images,
-    classes,
+    className,
   }
 ) => {
   return (
-    <article className={joinClasses(classes)} >
+    <article className={className} >
       {title && <h2 key="title">{title}</h2>}
       {short && <p key="short" className="work-desc work-desc-short">{short}</p>}
       {!!(long) && <Button type={"expand"} />}

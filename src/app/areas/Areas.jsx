@@ -4,25 +4,22 @@ import { connect } from 'react-redux';
 import PrimaryArea from './primary/Primary';
 
 import {
-  getActiveArea,
-  getWorks
+  selectActiveArea,
 } from '../../store/areas/areas.selectors';
 
 export const Areas = ({
   active,
-  works,
 }) => {
   switch (active) {
     default: {
-      return (<PrimaryArea works={works} />);
+      return (<PrimaryArea />);
     }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    active: getActiveArea(state),
-    works: getWorks(state),
+    active: selectActiveArea(state)
   }
 };
 

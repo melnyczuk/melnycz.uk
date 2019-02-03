@@ -12,11 +12,10 @@ describe('Modal', () => {
 
   it('renders', () => {
     const modal = shallow(
-        <Modal visible={true} />
+      <Modal visible={true} />
     );
 
     expect(modal.exists()).toBe(true);
-    expect(mount(modal.get(0)).length).toBe(1);
     expect(modal.html()).toStrictEqual(MODAL_MARKUP);
   });
 
@@ -24,23 +23,23 @@ describe('Modal', () => {
     const className = 'basic modal';
 
     const modal = shallow(
-        <Modal className={className} visible={true} />
+      <Modal className={className} visible={ true} />
     );
 
-    expect(modal.hasClass(className)).toBe(true);
+    expect(modal.hasClass(className)).toBe(true)
   });
 
   it('renders internal div only when visible', () => {
     const showedModal = shallow(
-        <Modal visible={true} />
+      <Modal visible={true} className={'show'} />
     );
 
     const hiddenModal = shallow(
-        <Modal visible={false} />
+      <Modal visible={false} className={'hide'} />
     );
 
-    expect(showedModal.html()).toStrictEqual(MODAL_MARKUP);
-    expect(hiddenModal.html()).toStrictEqual('');
+    expect(showedModal.hasClass('show')).toBe(true);
+    expect(hiddenModal.hasClass('hide')).toBe(false);
   });
 
 });

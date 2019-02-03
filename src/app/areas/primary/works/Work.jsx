@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Post from './PostContainer';
-// import Punctum from './Punctum';
-import Modal from './ModalContainer';
+import Post from './containers/Post';
+import Punctum from './containers/Punctum';
+import Modal from './containers/Modal';
 
 const Work = (
   {
@@ -11,7 +11,7 @@ const Work = (
 ) => {
   return (
     <section>
-      {/* <Punctum namespace={namespace} /> */}
+      <Punctum namespace={namespace} />
       <Modal namespace={namespace}>
         <Post namespace={namespace} />
       </Modal>

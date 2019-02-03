@@ -8,7 +8,7 @@ import Modal from '../../src/components/modal/Modal';
 
 import {
   setWorkModalVisible,
-} from '../../src/store/works/works.actions';
+} from '../../src/store/areas/primary/works/works.actions';
 
 Enzyme.configure({ adapter: new Adapter() });
 

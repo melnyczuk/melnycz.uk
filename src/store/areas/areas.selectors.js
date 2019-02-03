@@ -1,21 +1,21 @@
 import { createSelector } from 'reselect';
 
-function getAreas(state) {
+function selectAreas(state) {
   return state.areas;
 }
 
-const getActiveArea = createSelector(
-  getAreas,
+const selectActiveArea = createSelector(
+  selectAreas,
   areas => areas.active ? areas.active : null
 );
 
-const getPrimaryArea = createSelector(
-  getAreas,
+const selectPrimaryArea = createSelector(
+  selectAreas,
   areas => areas.primary ? areas.primary : null
 );
 
 
 export {
-  getActiveArea,
-  getPrimaryArea,
+  selectActiveArea,
+  selectPrimaryArea,
 };

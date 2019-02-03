@@ -1,7 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import Work from './works/Work';
 
-export const PrimaryArea = ({ works = [] }) => (
+import {
+  selectWorks
+} from '../../../store/areas/primary/primary.selectors';
+
+const PrimaryArea = ({ works = [] }) => (
   <main className='main primary'>
     {Object.keys(works).map(
       (key, i) => {
@@ -11,3 +17,11 @@ export const PrimaryArea = ({ works = [] }) => (
     )}
   </main>
 );
+
+const mapStateToProps = (state) => {
+  return {
+    works: selectWorks(state),
+  }
+}
+
+export default connect(mapStateToProps)(PrimaryArea);

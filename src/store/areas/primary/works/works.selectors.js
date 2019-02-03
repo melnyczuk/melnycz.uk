@@ -1,66 +1,68 @@
 import { createSelector } from 'reselect';
 
-const getWorkStateForNameSpace = (state, { namespace }) => {
-  return state.areas.primary.works[namespace];
+import { selectWorks } from '../primary.selectors';
+
+const selectWorkStateForNameSpace = (state, { namespace }) => {
+  return selectWorks(state)[namespace];
 };
 
-const getWorkMediaFromState = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkMediaFromState = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.media) ? state.media : null
 );
 
-const getWorkDescriptionFromState = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkDescriptionFromState = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.description) ? state.description : null
 );
 
-const getWorkModalVisibility = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkModalVisibility = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.visible) ? state.visible : false
 );
 
-const getWorkPortalImages = createSelector(
-  getWorkMediaFromState,
+const selectWorkPortalImages = createSelector(
+  selectWorkMediaFromState,
   media => (media && media.images) ? media.images : null
 )
 
-const getWorkPostDescLong = createSelector(
-  getWorkDescriptionFromState,
+const selectWorkPostDescLong = createSelector(
+  selectWorkDescriptionFromState,
   desc => (desc && desc.long) ? desc.long : false
 );
 
-const getWorkPostDescShort = createSelector(
-  getWorkDescriptionFromState,
+const selectWorkPostDescShort = createSelector(
+  selectWorkDescriptionFromState,
   desc => (desc && desc.short) ? desc.short : null
 );
 
-const getWorkPostShouldExpand = createSelector(
-  getWorkDescriptionFromState,
+const selectWorkPostShouldExpand = createSelector(
+  selectWorkDescriptionFromState,
   desc => (desc && desc.expand) ? desc.expand : false
 );
 
-const getWorkPostTitle = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkPostTitle = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.title) ? state.title : null
 );
 
-const getWorkPunctumAltText = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkPunctumAltText = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.alt) ? state.alt : null
 );
 
-const getWorkPunctumSource = createSelector(
-  getWorkStateForNameSpace,
+const selectWorkPunctumSource = createSelector(
+  selectWorkStateForNameSpace,
   state => (state && state.src) ? state.src : null
 );
 
 export {
-  getWorkModalVisibility,
-  getWorkPortalImages,
-  getWorkPostDescLong,
-  getWorkPostDescShort,
-  getWorkPostShouldExpand,
-  getWorkPostTitle,
-  getWorkPunctumAltText,
-  getWorkPunctumSource,
+  selectWorkModalVisibility,
+  selectWorkPortalImages,
+  selectWorkPostDescLong,
+  selectWorkPostDescShort,
+  selectWorkPostShouldExpand,
+  selectWorkPostTitle,
+  selectWorkPunctumAltText,
+  selectWorkPunctumSource,
 }

@@ -20,7 +20,7 @@ const NavButtons = (
   });
 }
 
-export const NavBar = (
+const NavBar = (
   {
     title,
     buttons
@@ -33,3 +33,5 @@ export const NavBar = (
     </nav>
   );
 }
+
+export default NavBar

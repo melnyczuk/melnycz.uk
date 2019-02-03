@@ -1,11 +1,11 @@
-import constants from '../../../constants';
+import { actionConstants } from '../../../constants';
 
 const {
   SET_VISIBLE
-} = constants;
+} = actionConstants;
 
-const setWorkModalVisible = (namespace) => {
+const setWorkModalVisibility = (namespace) => {
   return { type: SET_VISIBLE, namespace };
 };
 
-export { setWorkModalVisible };
+export { setWorkModalVisibility };

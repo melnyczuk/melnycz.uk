@@ -6,7 +6,8 @@ import { PrimaryArea } from '../../src/app/areas/Areas';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Area', () => {
+describe('Areas', () => {
+
 
   describe('Primary Area', () => {
 
@@ -21,12 +22,6 @@ describe('Area', () => {
         '<main class="main primary"></main>'
       );
     });
-
-    describe('Background Media', () => { });
-
-    describe('Interactive Media', () => { });
-
-    describe('Modals', () => { });
   });
 });
 

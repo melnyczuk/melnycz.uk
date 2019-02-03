@@ -1,24 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
 
 import Button from '../button/Button';
-import { joinClasses } from '../../utils';
 
-export const Modal = (
+const Modal = (
   {
-    visible = false,
-    classes,
+    visible,
+    className,
     children = [],
   }
 ) => {
-  if (visible) {
+  if (!!visible) {
     return (
-      <div className={joinClasses(classes)} >
+      <div className={className} >
         <Button visible={true} type={'close'} />
-        {children}
+        {children && children}
       </div>
     );
   }
   return null;
 }
+
+export default Modal;

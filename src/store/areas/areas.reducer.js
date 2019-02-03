@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import works from './works/works.reducer';
+import works from './primary/works/works.reducer';
 
 const areas = combineReducers({
   primary: combineReducers({ works }),

@@ -1,6 +1,6 @@
-import initialState from '../../../src/store/initialStore';
-import worksReducer from '../../../src/store/works/works.reducer';
-import { actionConstants } from '../../../src/constants';
+import initialState from '../../../../src/store/initialState';
+import worksReducer from '../../../../src/store/areas/primary/works/works.reducer';
+import { actionConstants } from '../../../../src/store/constants';
 
 const { 
   SET_VISIBLE,

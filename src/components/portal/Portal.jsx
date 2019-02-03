@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../button/Button';
 
-export const Portal = (
+const Portal = (
   {
     images,
   }
@@ -20,3 +20,5 @@ export const Portal = (
     </figure>
   )
 }
+
+export default Portal;
