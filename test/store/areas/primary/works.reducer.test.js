@@ -2,7 +2,7 @@ import initialState from '../../../../src/store/initialState';
 import worksReducer from '../../../../src/store/areas/primary/works/works.reducer';
 import { actionConstants } from '../../../../src/store/constants';
 
-const { 
+const {
   SET_VISIBLE,
 } = actionConstants;
 
@@ -20,14 +20,13 @@ describe('Works Reducer', () => {
   });
 
   describe('SET_VISIBLE action', () => {
-    const setModalVisible = jest.fn(namespace => {
-      return { type: SET_VISIBLE, namespace }
-    });
+    const setModalVisible = jest.fn(namespace => ({ type: SET_VISIBLE, namespace }));
 
     it('reduces the action payload', () => {
       const data = worksReducer(
         { test: { visible: false } },
-        setModalVisible('test'));
+        setModalVisible('test'),
+      );
       expect(data.test.visible).toBe(true);
     });
   });

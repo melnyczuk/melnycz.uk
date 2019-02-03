@@ -4,7 +4,7 @@ const Punctum = (
   {
     src,
     alt,
-    showModal
+    showModal,
   }
 ) => {
   if (src) {

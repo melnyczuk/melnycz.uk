@@ -6,7 +6,7 @@ import Post from '../../src/components/post/Post';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Post', () => {
+describe('Post Component', () => {
   it('renders', () => {
     const post = shallow(<Post />);
 
@@ -21,9 +21,8 @@ describe('Post', () => {
     const post = shallow(<Post className={className} />);
 
     expect(post.html()).toStrictEqual(
-      `<article class="${className}"></article>`
+      `<article class="${className}"></article>`,
     );
-    
   });
 
   it('renders with a title', () => {

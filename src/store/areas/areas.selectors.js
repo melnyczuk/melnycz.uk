@@ -6,7 +6,7 @@ function selectAreas(state) {
 
 const selectActiveArea = createSelector(
   selectAreas,
-  areas => areas.active ? areas.active : null
+  areas => (areas.active ? areas.active : null),
 );
 
 const selectPrimaryArea = createSelector(

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -13,21 +13,20 @@ import {
 Enzyme.configure({ adapter: new Adapter() });
 
 describe.skip('Punctum', () => {
-
   const mockStore = configureStore();
 
   describe('clicking it', () => {
     it('clicking on a punctum changes the store', () => {
       const testNamespace = 'test';
-      const dummySrc = './dummysrc.jpg'
+      const dummySrc = './dummysrc.jpg';
       const altText = 'testImage';
 
       const store = mockStore({
         [testNamespace]: {
           src: dummySrc,
           alt: altText,
-          visible: false
-        }
+          visible: false,
+        },
       });
 
       // const punctum = shallow(
@@ -45,34 +44,33 @@ describe.skip('Punctum', () => {
   });
 
   describe('Modal Interaction', () => {
-
     it('clicking it makes the corresponding modal visible', () => {
       const testNamespace = 'test';
-      const dummySrc = './dummysrc.jpg'
+      const dummySrc = './dummysrc.jpg';
       const altText = 'testImage';
 
       const state = {
         [testNamespace]: {
           src: dummySrc,
           alt: altText,
-          visible: false
-        }
+          visible: false,
+        },
       };
 
       const store = mockStore(() => state);
 
       const punctum = shallow(
-        <Provider store={store} >
+        <Provider store={store}>
           {/* <Punctum namespace={testNamespace} /> */}
-        </Provider>
+        </Provider>,
       );
 
       expect(shallow(
-        <Provider store={store} >
+        <Provider store={store}>
           <Modal namespace={testNamespace} />
-        </Provider>
+        </Provider>,
       ).html())
-      .toStrictEqual('');
+        .toStrictEqual('');
 
       punctum.simulate('click');
 
@@ -87,5 +85,5 @@ describe.skip('Punctum', () => {
       // ).html())
       // .toStrictEqual('<div></div>');
     });
+  });
 });
-})

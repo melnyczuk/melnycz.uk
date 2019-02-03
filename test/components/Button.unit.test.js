@@ -6,16 +6,16 @@ import Button from '../../src/components/button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Button', () => {
+describe('Button, component', () => {
   it('renders', () => {
     const button = shallow(<Button />);
     expect(button.exists()).toBe(true);
   });
 
   it('renders with custom classes', () => {
-    const button = shallow(<Button visible={true} className={'clickme button'} />);
+    const button = shallow(<Button visible className="clickme button" />);
     expect(button.html()).toStrictEqual(
-      `<button class="clickme button"><svg></svg></button>`
+      '<button class="clickme button"><svg></svg></button>',
     );
   });
 

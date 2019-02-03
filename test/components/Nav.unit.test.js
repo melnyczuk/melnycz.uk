@@ -6,7 +6,7 @@ import NavBar from '../../src/components/nav/Nav';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Nav', () => {
+describe('Nav Component', () => {
   it('renders', () => {
     const navBar = shallow(<NavBar />);
     expect(navBar.exists()).toBe(true);
@@ -17,23 +17,23 @@ describe('Nav', () => {
     expect(navBar.hasClass('nav')).toBe(true);
     expect(!!navBar.find('#nav')).toBe(true);
     expect(navBar.html()).toStrictEqual(
-      '<nav id="nav" class="nav"></nav>'
+      '<nav id="nav" class="nav"></nav>',
     );
   });
 
   it('renders a title', () => {
     const title = 'howard melnyczuk';
-    const navBar = shallow(<NavBar title={title} />)
+    const navBar = shallow(<NavBar title={title} />);
     const navTitle = navBar.find('h1');
     expect(navTitle.length).toBe(1);
     expect(navTitle.hasClass('nav-title')).toBe(true);
     expect(navBar.html()).toStrictEqual(
-      `<nav id="nav" class="nav"><h1 class="nav-title">${title}</h1></nav>`
+      `<nav id="nav" class="nav"><h1 class="nav-title">${title}</h1></nav>`,
     );
   });
 
   it('renders with buttons with text, id and relative href', () => {
-    const buttons = [ ['Art','/art'], ['Code', '/code'] ];
+    const buttons = [['Art', '/art'], ['Code', '/code']];
     const navButtons = shallow(<NavBar buttons={buttons} />)
       .children()
       .shallow()

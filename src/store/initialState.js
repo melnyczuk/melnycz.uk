@@ -1,5 +1,7 @@
 import db from '../../db/db';
 
+const WORKS_BIN_BASE = '../bin';
+
 const initialState = {
   nav: {
     buttons: [
@@ -9,22 +11,22 @@ const initialState = {
       },
       {
         label: 'Works',
-        path: '/works'
-      }
-    ]
+        path: '/works',
+      },
+    ],
   },
   areas: {
     active: 'primary',
     primary: {
-      works: db.works.reduce((map, work) => {
-        return {
-          ...map, [work.namespace]: {
-            ...work,
-            visible: false
-          }
-        }
-      },
-        {}),
+      baseBinUrl: WORKS_BIN_BASE,
+      works: db.works.reduce((map, work) => ({
+        ...map,
+        [work.namespace]: {
+          ...work,
+          visible: false,
+        },
+      }),
+      {}),
     },
   },
 };

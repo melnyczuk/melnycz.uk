@@ -3,24 +3,22 @@ import { connect } from 'react-redux';
 import Punctum from '../../../../../components/punctum/Punctum';
 
 import {
-  selectWorkPunctumAltText,
-  selectWorkPunctumSource,
+  punctum,
 } from '../../../../../store/areas/primary/works/works.selectors';
 
 import {
-  setWorkModalVisibility
+  setModalVisibility,
 } from '../../../../../store/areas/primary/works/works.actions';
 
-const mapStateToProps = (state, props) => {
-  return {
-    alt: selectWorkPunctumAltText(state, props),
-    src: selectWorkPunctumSource(state, props),
-  };
-};
+const mapStateToProps = (state, props) => ({
+  alt: punctum.selectAlt(state, props),
+  src: punctum.selectSrc(state, props),
+});
 
 const mapDispatchToProps = (dispatch, props) => {
+  const { namespace } = props;
   return {
-    onClick: () => dispatch(setWorkModalVisibility),
+    showModal: () => dispatch(setModalVisibility(namespace)),
   };
 };
 

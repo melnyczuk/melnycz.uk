@@ -1,11 +1,9 @@
 import { actionConstants } from '../../../constants';
 
 const {
-  SET_VISIBLE
+  SET_VISIBLE,
 } = actionConstants;
 
-const setWorkModalVisibility = (namespace) => {
-  return { type: SET_VISIBLE, namespace };
-};
+const setModalVisibility = namespace => ({ type: SET_VISIBLE, namespace });
 
-export { setWorkModalVisibility };
+export { setModalVisibility };

@@ -8,11 +8,10 @@ const MODAL_MARKUP = '<div><button><svg></svg></button></div>';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Modal', () => {
-
+describe('Modal Component', () => {
   it('renders', () => {
     const modal = shallow(
-      <Modal visible={true} />
+      <Modal visible />,
     );
 
     expect(modal.exists()).toBe(true);
@@ -23,23 +22,22 @@ describe('Modal', () => {
     const className = 'basic modal';
 
     const modal = shallow(
-      <Modal className={className} visible={ true} />
+      <Modal className={className} visible />,
     );
 
-    expect(modal.hasClass(className)).toBe(true)
+    expect(modal.hasClass(className)).toBe(true);
   });
 
   it('renders internal div only when visible', () => {
     const showedModal = shallow(
-      <Modal visible={true} className={'show'} />
+      <Modal visible className="show" />,
     );
 
     const hiddenModal = shallow(
-      <Modal visible={false} className={'hide'} />
+      <Modal visible={false} className="hide" />,
     );
 
     expect(showedModal.hasClass('show')).toBe(true);
     expect(hiddenModal.hasClass('hide')).toBe(false);
   });
-
 });

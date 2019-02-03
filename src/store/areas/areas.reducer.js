@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import works from './primary/works/works.reducer';
+import primary from './primary/primary.reducer';
 
 const areas = combineReducers({
-  primary: combineReducers({ works }),
+  primary,
 });
 
 export default areas;

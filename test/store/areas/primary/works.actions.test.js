@@ -1,31 +1,41 @@
 import { actionConstants } from '../../../../src/store/constants';
 import {
-  setWorkModalVisibility
+  setModalVisibility,
 } from '../../../../src/store/areas/primary/works/works.actions';
 
-describe('Modal Store Functions', () => {
+describe('Works Action Creators', () => {
 
-  const {
-    SET_VISIBLE
-  } = actionConstants;
+  describe('Modal Action Creators', () => {
 
-  describe('setWorkModalVisibile', () => {
+    const {
+      SET_VISIBLE,
+    } = actionConstants;
 
-    it('returns the namespace if passed a string',
-      () => {
-        const modalVisiblity = setWorkModalVisibility('test');
-        expect(modalVisiblity.namespace).toStrictEqual('test');
-        expect(modalVisiblity.type).toStrictEqual(SET_VISIBLE);
-      });
+    describe('setModalVisibility', () => {
 
-    it('returns "payload: undefined" if passed an empty object',
-      () => {
-        const modalVisiblity = setWorkModalVisibility();
-        expect(modalVisiblity).toStrictEqual({
-          type: SET_VISIBLE,
-          namespace: undefined
+      it('returns the namespace if passed a string',
+        () => {
+
+          const modalVisiblity = setModalVisibility('test');
+
+          expect(modalVisiblity.namespace).toStrictEqual('test');
+          expect(modalVisiblity.type).toStrictEqual(SET_VISIBLE);
+          
         });
-      });
+
+      it('returns "payload: undefined" if passed an empty object',
+        () => {
+
+          const modalVisiblity = setModalVisibility();
+
+          expect(modalVisiblity).toStrictEqual({
+            type: SET_VISIBLE,
+            namespace: undefined,
+          });
+
+        });
+
+    });
 
   });
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { connect } from 'react-redux';
 
 export const Button = (
   {
@@ -37,4 +36,3 @@ export const Button = (
 // }
 
 export default Button
-//connect(mapStateToProps, mapDispatchToProps)(Button);

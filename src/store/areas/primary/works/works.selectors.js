@@ -1,68 +1,85 @@
 import { createSelector } from 'reselect';
 
-import { selectWorks } from '../primary.selectors';
+import {
+  selectWorks,
+  selectBinBaseUrl,
+} from '../primary.selectors';
 
-const selectWorkStateForNameSpace = (state, { namespace }) => {
-  return selectWorks(state)[namespace];
-};
+const selectWorkStateForNameSpace = (state, { namespace }) => selectWorks(state)[namespace];
 
 const selectWorkMediaFromState = createSelector(
   selectWorkStateForNameSpace,
-  state => (state && state.media) ? state.media : null
+  work => ((work && work.media) ? work.media : null),
 );
 
 const selectWorkDescriptionFromState = createSelector(
   selectWorkStateForNameSpace,
-  state => (state && state.description) ? state.description : null
+  state => ((state && state.description) ? state.description : null),
 );
 
-const selectWorkModalVisibility = createSelector(
-  selectWorkStateForNameSpace,
-  state => (state && state.visible) ? state.visible : false
-);
+const modal = {
 
-const selectWorkPortalImages = createSelector(
-  selectWorkMediaFromState,
-  media => (media && media.images) ? media.images : null
-)
+  selectVisible: createSelector(
+    selectWorkStateForNameSpace,
+    work => ((work && work.visible) ? work.visible : false),
+  ),
 
-const selectWorkPostDescLong = createSelector(
-  selectWorkDescriptionFromState,
-  desc => (desc && desc.long) ? desc.long : false
-);
+};
 
-const selectWorkPostDescShort = createSelector(
-  selectWorkDescriptionFromState,
-  desc => (desc && desc.short) ? desc.short : null
-);
+const portal = {
 
-const selectWorkPostShouldExpand = createSelector(
-  selectWorkDescriptionFromState,
-  desc => (desc && desc.expand) ? desc.expand : false
-);
+  selectImages: createSelector(
+    selectWorkMediaFromState,
+    media => ((media && media.images) ? media.images : null),
+  ),
 
-const selectWorkPostTitle = createSelector(
-  selectWorkStateForNameSpace,
-  state => (state && state.title) ? state.title : null
-);
+  selectBinBaseUrl,
 
-const selectWorkPunctumAltText = createSelector(
-  selectWorkStateForNameSpace,
-  state => (state && state.alt) ? state.alt : null
-);
+};
 
-const selectWorkPunctumSource = createSelector(
-  selectWorkStateForNameSpace,
-  state => (state && state.src) ? state.src : null
-);
+const post = {
+
+  selectLong: createSelector(
+    selectWorkDescriptionFromState,
+    desc => ((desc && desc.long) ? desc.long : false),
+  ),
+
+  selectShort: createSelector(
+    selectWorkDescriptionFromState,
+    desc => ((desc && desc.short) ? desc.short : null),
+  ),
+
+  selectExpand: createSelector(
+    selectWorkDescriptionFromState,
+    desc => ((desc && desc.expand) ? desc.expand : false),
+  ),
+
+  selectTitle: createSelector(
+    selectWorkStateForNameSpace,
+    work => ((work && work.title) ? work.title : null),
+  ),
+
+};
+
+const punctum = {
+
+  selectAlt: createSelector(
+    selectWorkStateForNameSpace,
+    state => ((state && state.alt) ? state.alt : null),
+  ),
+
+  selectSrc: createSelector(
+    [selectWorkStateForNameSpace, selectBinBaseUrl],
+    (state, baseBinUrl) => ((state && baseBinUrl && state.src)
+      ? `${baseBinUrl}/${state.src}`
+      : null),
+  ),
+
+};
 
 export {
-  selectWorkModalVisibility,
-  selectWorkPortalImages,
-  selectWorkPostDescLong,
-  selectWorkPostDescShort,
-  selectWorkPostShouldExpand,
-  selectWorkPostTitle,
-  selectWorkPunctumAltText,
-  selectWorkPunctumSource,
-}
+  modal,
+  portal,
+  post,
+  punctum,
+};

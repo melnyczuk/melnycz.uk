@@ -7,7 +7,7 @@ import {
   selectWorks
 } from '../../../store/areas/primary/primary.selectors';
 
-const PrimaryArea = ({ works = [] }) => (
+export const PrimaryArea = ({ works = [] }) => (
   <main className='main primary'>
     {Object.keys(works).map(
       (key, i) => {
