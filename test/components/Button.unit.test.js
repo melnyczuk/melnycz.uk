@@ -8,14 +8,19 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Button, component', () => {
   it('renders', () => {
-    const button = shallow(<Button />);
+    const element = React.createElement(Button);
+    const button = shallow(element);
     expect(button.exists()).toBe(true);
   });
 
   it('renders with custom classes', () => {
-    const button = shallow(<Button visible className="clickme button" />);
+    const element = React.createElement(Button, {
+      visible: true,
+      className: 'clickme button',
+    });
+    const button = shallow(element);
     expect(button.html()).toStrictEqual(
-      '<button class="clickme button"><svg></svg></button>',
+      '<button type="button" class="clickme button"><svg></svg></button>',
     );
   });
 

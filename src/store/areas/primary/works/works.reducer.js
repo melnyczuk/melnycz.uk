@@ -14,8 +14,8 @@ export default (state = works, action = {}) => {
   switch (type) {
     case (SET_VISIBLE): {
       return Object.keys(state).reduce((next, key) => {
-        if (key !== namespace) next[key] = { ...state[key], visible: false };
-        if (key === namespace) next[key] = { ...state[key], visible: true };
+        if (key !== namespace) return { ...next, [key]: { ...state[key], visible: false } };
+        if (key === namespace) return { ...next, [key]: { ...state[key], visible: true } };
         return next;
       }, {});
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 import Modal from './containers/Modal';
 import Portal from './containers/Portal';
@@ -9,18 +9,20 @@ import Punctum from './containers/Punctum';
 const Work = (
   {
     namespace,
-  }
-) => {
-  return (
-    <section>
-      <Punctum namespace={namespace} />
-      <Modal namespace={namespace}>
-        <Post namespace={namespace}>
-          <Portal namespace={namespace} />
-        </Post>
-      </Modal>
-    </section>
-  );
+  },
+) => (
+  <section>
+    <Punctum namespace={namespace} />
+    <Modal namespace={namespace}>
+      <Post namespace={namespace}>
+        <Portal namespace={namespace} />
+      </Post>
+    </Modal>
+  </section>
+);
+
+Work.propType = {
+  namespace: PropTypes.string.isRequired,
 };
 
 export default Work;

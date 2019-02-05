@@ -11,7 +11,7 @@ const selectActiveArea = createSelector(
 
 const selectPrimaryArea = createSelector(
   selectAreas,
-  areas => areas.primary ? areas.primary : null
+  areas => (areas.primary ? areas.primary : null),
 );
 
 

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+// import React from 'react';
+// import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../src/components/modal/Modal';
+// import Modal from '../../src/components/modal/Modal';
 
 import {
-  setWorkModalVisible,
+  setModalVisibility,
 } from '../../src/store/areas/primary/works/works.actions';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -38,7 +38,7 @@ describe.skip('Punctum', () => {
       // console.log(punctum.dive().find(Punctum).props());//.showModal();
 
       const state = store.getState();
-      const visibility = setWorkModalVisible(state, testNamespace);
+      const visibility = setModalVisibility(state, testNamespace);
       expect(visibility).toBe(true);
     });
   });
@@ -60,23 +60,23 @@ describe.skip('Punctum', () => {
       const store = mockStore(() => state);
 
       const punctum = shallow(
-        <Provider store={store}>
-          {/* <Punctum namespace={testNamespace} /> */}
-        </Provider>,
+        // <Provider store={store}>
+        //   {/* <Punctum namespace={testNamespace} /> */}
+        // </Provider>,
       );
 
       expect(shallow(
-        <Provider store={store}>
-          <Modal namespace={testNamespace} />
-        </Provider>,
+        // <Provider store={store}>
+        //   <Modal namespace={testNamespace} />
+        // </Provider>,
       ).html())
         .toStrictEqual('');
 
       punctum.simulate('click');
 
       const newState = store.getState();
-      console.log(newState);
-      expect(setWorkModalVisible(newState, testNamespace)).toBe(true);
+
+      expect(setModalVisibility(newState, testNamespace)).toBe(true);
 
       // expect(shallow(
       //   <Provider store={store} >

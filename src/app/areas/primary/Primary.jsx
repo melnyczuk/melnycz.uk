@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import Work from './works/Work';
 
 import {
-  selectWorks
+  selectWorks,
 } from '../../../store/areas/primary/primary.selectors';
 
 export const PrimaryArea = ({ works = [] }) => (
-  <main className='main primary'>
+  <main className="main primary">
     {Object.keys(works).map(
-      (key, i) => {
+      (key) => {
         const { namespace = undefined } = works[key];
-        return (namespace && <Work key={i} namespace={namespace} />);
-      }
+        return (namespace && <Work key={namespace} namespace={namespace} />);
+      },
     )}
   </main>
 );
@@ -21,7 +21,7 @@ export const PrimaryArea = ({ works = [] }) => (
 const mapStateToProps = (state) => {
   return {
     works: selectWorks(state),
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(PrimaryArea);

@@ -13,17 +13,20 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('App', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    const app = React.createElement(App);
+    ReactDOM.render(app, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders with NavBar component', () => {
-    const app = shallow(<App />);
+    const element = React.createElement(App);
+    const app = shallow(element);
     expect(!!app.find(NavBar)).toBe(true);
   });
 
   it('renders with Area component', () => {
-    const app = shallow(<App />);
+    const element = React.createElement(App);
+    const app = shallow(element);
     expect(!!app.find(Areas)).toBe(true);
   });
 });

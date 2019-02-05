@@ -8,7 +8,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Post Component', () => {
   it('renders', () => {
-    const post = shallow(<Post />);
+    const element = React.createElement(Post);
+    const post = shallow(element);
 
     expect(post.exists()).toBe(true);
     expect(post.length).toBe(1);
@@ -18,7 +19,8 @@ describe('Post Component', () => {
   it('renders with additional className', () => {
     const className = 'basic post';
 
-    const post = shallow(<Post className={className} />);
+    const element = React.createElement(Post, { className });
+    const post = shallow(element);
 
     expect(post.html()).toStrictEqual(
       `<article class="${className}"></article>`,
@@ -26,11 +28,12 @@ describe('Post Component', () => {
   });
 
   it('renders with a title', () => {
-    const testTitle = 'testTitle';
+    const title = 'testTitle';
+    const element = React.createElement(Post, { title });
+    const post = shallow(element);
 
-    const post = shallow(<Post title={testTitle} />);
-
-    expect(post.contains(<h2>{testTitle}</h2>)).toBe(true);
-    expect(post.html()).toStrictEqual(`<article><h2>${testTitle}</h2></article>`);
+    const header = React.createElement('h2', {}, title);
+    expect(post.contains(header)).toBe(true);
+    expect(post.html()).toStrictEqual(`<article><h2>${title}</h2></article>`);
   });
 });

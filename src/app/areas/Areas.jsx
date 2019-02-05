@@ -15,12 +15,12 @@ export const Areas = ({
       return (<PrimaryArea />);
     }
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
-    active: selectActiveArea(state)
-  }
+    active: selectActiveArea(state),
+  };
 };
 
 export default connect(mapStateToProps)(Areas);

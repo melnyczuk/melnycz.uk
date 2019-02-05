@@ -8,7 +8,6 @@ export interface Work {
   media: Media;
   materials: Array<string>;
   type: Array<string>;
-  
   links?: Array<string>;
   exhibitions?: Array<Exhibition>;
 
@@ -39,22 +38,28 @@ export interface Media {
 }
 
 export interface Image {
-  src: string;
-  title: string;
-  rank: number;
+  id: string;
+  path: string;
+  ext: string;
+  title?: string;
+  rank?: number;
   description?: Description;
 }
 
 export interface Video {
-  src: string;
-  title: string;
-  length?: number;
+  id: string;
+  path: string;
+  ext: string;
+  title?: string;
+  duration?: number;
   description?: Description;
 }
 
 export interface Audio {
-  src: string;
-  title: string;
-  length?: number;
+  id: string;
+  path: string;
+  ext: string;
+  title?: string;
+  duration?: number;
   description?: Description;
 }

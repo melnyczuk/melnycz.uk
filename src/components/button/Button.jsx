@@ -1,38 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const Button = (
+const Button = (
   {
     visible,
-    className,
-    onClick,
-  }
+    className = null,
+    onClick = null,
+  },
 ) => {
   if (visible) {
     return (
       <button
+        type="button"
         className={className}
         onClick={onClick}
       >
-        <svg></svg>
+        <svg />
       </button>
-    )
+    );
   }
   return null;
-}
+};
 
-// const mapStateToProps = (state, props) => {
-//   const { classes = [] } = props;
-//   return {
-//     className: [...classes].join(' ') || null,
-//     visible: props.visible
-//   };
-// };
+Button.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+};
 
-// const mapDispatchToProps = (dispatch, props) => {
-//   const { type } = props;
-//   return {
-//     onClick: () => dispatch(handleButtonClick(type)),
-//   }
-// }
+Button.defaultProps = {
+  className: null,
+  onClick: () => {},
+};
 
-export default Button
+export default Button;

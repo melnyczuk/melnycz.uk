@@ -8,12 +8,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Nav Component', () => {
   it('renders', () => {
-    const navBar = shallow(<NavBar />);
+    const element = React.createElement(NavBar);
+    const navBar = shallow(element);
     expect(navBar.exists()).toBe(true);
   });
 
   it('renders with custom classes', () => {
-    const navBar = shallow(<NavBar />);
+    const element = React.createElement(NavBar);
+    const navBar = shallow(element);
     expect(navBar.hasClass('nav')).toBe(true);
     expect(!!navBar.find('#nav')).toBe(true);
     expect(navBar.html()).toStrictEqual(
@@ -23,7 +25,8 @@ describe('Nav Component', () => {
 
   it('renders a title', () => {
     const title = 'howard melnyczuk';
-    const navBar = shallow(<NavBar title={title} />);
+    const element = React.createElement(NavBar, { title });
+    const navBar = shallow(element);
     const navTitle = navBar.find('h1');
     expect(navTitle.length).toBe(1);
     expect(navTitle.hasClass('nav-title')).toBe(true);
@@ -34,7 +37,8 @@ describe('Nav Component', () => {
 
   it('renders with buttons with text, id and relative href', () => {
     const buttons = [['Art', '/art'], ['Code', '/code']];
-    const navButtons = shallow(<NavBar buttons={buttons} />)
+    const element = React.createElement(NavBar, { buttons });
+    const navButtons = shallow(element)
       .children()
       .shallow()
       .map(button => button.shallow());
