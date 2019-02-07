@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
+      "allowJs": true,
+      "checkJs": false,
       "outDir": "./dist/",
       "sourceMap": true,
       "noImplicitAny": true,
       "module": "commonjs",
       "target": "es2016",
-      "jsx": "react"
-  },
-  "include": [
-      "./src/**/*"
-  ]
+      "jsx": "react",
+      "resolveJsonModule": true
+  }
 }
