@@ -7,12 +7,12 @@ import { PrimaryArea } from '../../src/app/areas/primary/Primary';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Areas', () => {
-  
+
   describe('Primary Area', () => {
-  
+
     it('renders', () => {
-      
-      const primary = shallow(<PrimaryArea />);
+
+      const primary: any = shallow(<PrimaryArea />);
 
       expect(primary.exists()).toBe(true);
       expect(primary.length).toBe(1);
