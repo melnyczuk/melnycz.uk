@@ -1,89 +1,91 @@
-// import React from 'react';
-// import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+// // import React from 'react';
+// // import { Provider } from 'react-redux';
+// import configureStore from 'redux-mock-store';
+// import Enzyme, { shallow } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
 
-// import Modal from '../../src/components/modal/Modal';
+// // import Modal from '../../src/components/modal/Modal';
 
-import {
-  setModalVisibility,
-} from '../../src/store/areas/primary/works/works.actions';
+// import {
+//   modal,
+// } from '../../src/store/areas/primary/works/works.actions';
 
-Enzyme.configure({ adapter: new Adapter() });
+// Enzyme.configure({ adapter: new Adapter() });
 
-describe.skip('Punctum', () => {
-  const mockStore = configureStore();
+// describe.skip('Punctum', () => {
+//   const mockStore = configureStore();
 
-  describe('clicking it', () => {
-    it('clicking on a punctum changes the store', () => {
-      const testNamespace = 'test';
-      const dummySrc = './dummysrc.jpg';
-      const altText = 'testImage';
+//   const { setModalShow } = modal;
 
-      const store = mockStore({
-        [testNamespace]: {
-          src: dummySrc,
-          alt: altText,
-          visible: false,
-        },
-      });
+//   describe('clicking it', () => {
+//     it('clicking on a punctum changes the store', () => {
+//       const testNamespace = 'test';
+//       const dummySrc = './dummysrc.jpg';
+//       const altText = 'testImage';
 
-      // const punctum = shallow(
-      //   <Provider store={store}>
-      //     <Punctum namespace={testNamespace} />
-      //   </Provider>
-      // );
+//       const store = mockStore({
+//         [testNamespace]: {
+//           src: dummySrc,
+//           alt: altText,
+//           visible: false,
+//         },
+//       });
 
-      // console.log(punctum.dive().find(Punctum).props());//.showModal();
+//       // const punctum = shallow(
+//       //   <Provider store={store}>
+//       //     <Punctum namespace={testNamespace} />
+//       //   </Provider>
+//       // );
 
-      const state = store.getState();
-      const visibility = setModalVisibility(state, testNamespace);
-      expect(visibility).toBe(true);
-    });
-  });
+//       // console.log(punctum.dive().find(Punctum).props());//.showModal();
 
-  describe('Modal Interaction', () => {
-    it('clicking it makes the corresponding modal visible', () => {
-      const testNamespace = 'test';
-      const dummySrc = './dummysrc.jpg';
-      const altText = 'testImage';
+//       const state = store.getState();
+//       const visibility = setModalShow(testNamespace);
+//       expect(visibility).toBe(true);
+//     });
+//   });
 
-      const state = {
-        [testNamespace]: {
-          src: dummySrc,
-          alt: altText,
-          visible: false,
-        },
-      };
+//   describe('Modal Interaction', () => {
+//     it('clicking it makes the corresponding modal visible', () => {
+//       const testNamespace = 'test';
+//       const dummySrc = './dummysrc.jpg';
+//       const altText = 'testImage';
 
-      const store = mockStore(() => state);
+//       const state = {
+//         [testNamespace]: {
+//           src: dummySrc,
+//           alt: altText,
+//           visible: false,
+//         },
+//       };
 
-      const punctum = shallow(
-        // <Provider store={store}>
-        //   {/* <Punctum namespace={testNamespace} /> */}
-        // </Provider>,
-      );
+//       const store = mockStore(() => state);
 
-      expect(shallow(
-        // <Provider store={store}>
-        //   <Modal namespace={testNamespace} />
-        // </Provider>,
-      ).html())
-        .toStrictEqual('');
+//       const punctum = shallow(
+//         // <Provider store={store}>
+//         //   {/* <Punctum namespace={testNamespace} /> */}
+//         // </Provider>,
+//       );
 
-      punctum.simulate('click');
+//       expect(shallow(
+//         // <Provider store={store}>
+//         //   <Modal namespace={testNamespace} />
+//         // </Provider>,
+//       ).html())
+//         .toStrictEqual('');
 
-      const newState = store.getState();
+//       punctum.simulate('click');
 
-      expect(setModalVisibility(newState, testNamespace)).toBe(true);
+//       const newState = store.getState();
 
-      // expect(shallow(
-      //   <Provider store={store} >
-      //     <Modal namespace={testNamespace} />
-      //   </Provider>
-      // ).html())
-      // .toStrictEqual('<div></div>');
-    });
-  });
-});
+//       expect(setModalShow(testNamespace)).toBe(true);
+
+//       // expect(shallow(
+//       //   <Provider store={store} >
+//       //     <Modal namespace={testNamespace} />
+//       //   </Provider>
+//       // ).html())
+//       // .toStrictEqual('<div></div>');
+//     });
+//   });
+// });

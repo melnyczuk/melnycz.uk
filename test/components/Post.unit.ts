@@ -19,7 +19,18 @@ describe('Post Component', () => {
   it('renders with additional className', () => {
     const className = 'basic post';
 
-    const element = React.createElement(Post, { className });
+    const element = React.createElement(
+      Post,
+      {
+        className,
+        namespace: null,
+        title: null,
+        expand: null,
+        expanded: null,
+        short: null,
+      }
+    );
+
     const post = shallow(element);
 
     expect(post.html()).toStrictEqual(

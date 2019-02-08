@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Modal from './containers/Modal';
 import Portal from './containers/Portal';
 import Post from './containers/Post';
 import Punctum from './containers/Punctum';
+import { Container } from '../../../../store/store';
 
 const Work = (
   {
     namespace,
-  },
-) => (
+  }: Container,
+): JSX.Element => (
   <section>
     <Punctum namespace={namespace} />
     <Modal namespace={namespace}>
@@ -20,9 +20,5 @@ const Work = (
     </Modal>
   </section>
 );
-
-Work.propType = {
-  namespace: PropTypes.string.isRequired,
-};
 
 export default Work;

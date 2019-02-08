@@ -6,9 +6,22 @@ import {
   portal,
 } from '../../../../../store/areas/primary/works/works.selectors';
 
-const mapStateToProps = (state, props) => ({
+import {
+  StoreState,
+  Container,
+} from '../../../../../store/store';
+
+import {
+  PortalProps
+} from '../../../../../components/portal/portal.d';
+
+const mapStateToProps = (
+  state: StoreState,
+  props: PortalProps
+): PortalProps => ({
+  ...props,
   baseBinUrl: portal.selectBinBaseUrl(state),
   images: portal.selectImages(state, props),
 });
 
-export default connect(mapStateToProps)(Portal);
+export default connect<PortalProps, Container>(mapStateToProps)(Portal);

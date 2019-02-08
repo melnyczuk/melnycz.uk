@@ -15,7 +15,8 @@ describe('Button, component', () => {
 
   it('renders with custom classes', () => {
     const element = React.createElement(Button, {
-      visible: true,
+      purpose: null,
+      onClick: null,
       className: 'clickme button',
     });
     const button = shallow(element);

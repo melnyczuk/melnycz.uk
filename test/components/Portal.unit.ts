@@ -18,7 +18,18 @@ describe('Portal Component', () => {
   it.skip('renders with additional className', () => {
     const className = 'basic post';
 
-    const post = shallow(React.createElement(Portal), { className });
+    const post = shallow(
+      React.createElement(
+        Portal,
+        {
+          className,
+          namespace: null,
+          images: null,
+          scrollPortal: null,
+          baseBinUrl: null,
+        }
+      )
+    );
 
     expect(post.html()).toStrictEqual(
       '<figure></figure>',

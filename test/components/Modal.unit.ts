@@ -22,7 +22,9 @@ describe('Modal Component', () => {
     const className = 'basic modal';
 
     const element = React.createElement(Modal, {
+      namespace: null,
       visible: true,
+      hide: null,
       className,
     });
 
@@ -33,11 +35,15 @@ describe('Modal Component', () => {
 
   it('renders internal div only when visible', () => {
     const shownElement = React.createElement(Modal, {
+      namespace: null,
+      hide: null,
       visible: true,
       className: 'show',
     });
 
     const hiddenElement = React.createElement(Modal, {
+      namespace: null,
+      hide: null,
       visible: false,
       className: 'hide',
     });

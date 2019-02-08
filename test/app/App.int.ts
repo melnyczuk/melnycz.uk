@@ -4,7 +4,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { App } from '../../src/app/App';
-import NavBar from '../../src/components/nav/Nav';
+import NavBar from '../../src/components/nav/NavBar';
 import Areas from '../../src/app/areas/Areas';
 
 

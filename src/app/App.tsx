@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 // import './style/App.css';
 
-import NavBar from '../components/nav/Nav';
+import NavBar from '../components/nav/NavBar';
 import Areas from './areas/Areas';
 
 import rootReducer from '../store/rootReducer';

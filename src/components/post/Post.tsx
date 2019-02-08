@@ -1,39 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
+
+import { Container, Description } from "../../store/store.d";
+export interface PostProps extends Description {
+  namespace: string;
+  title: string;
+  className?: string;
+  children?: Array<Container | JSX.Element>;
+  expand: () => void;
+}
 
 const Post = (
   {
     title,
     short,
     long,
+    expand,
+    expanded,
     className,
     children,
-  },
-) => (
+  }: PostProps,
+): JSX.Element => (
   <article className={className}>
     {title && <h2 key="title">{title}</h2>}
     {short && <p key="short" className="work-desc work-desc-short">{short}</p>}
-    {!!(long) && <Button purpose="expand" />}
+    {long && <Button purpose='' onClick={expand} />}
+    {expanded && <p>{long}</p>}
     {children}
   </article>
 );
-
-Post.propTypes = {
-  title: PropTypes.string,
-  short: PropTypes.string,
-  long: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.any),
-};
-
-Post.defaultProps = {
-  title: null,
-  short: null,
-  long: null,
-  className: null,
-  children: [],
-};
 
 export default Post;

@@ -3,10 +3,12 @@ const areaConstants = {
 };
 
 const actionConstants = {
-  SET_VISIBLE: 'SET_VISIBLE',
+  SET_SHOW: 'SET_SHOW',
+  SET_HIDE: 'SET_HIDE',
+  SET_LENGTH: 'SET_LENGTH',
 };
 
-module.exports = {
+export {
   areaConstants,
   actionConstants,
 };

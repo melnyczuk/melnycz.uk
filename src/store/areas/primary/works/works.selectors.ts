@@ -5,35 +5,53 @@ import {
   selectBinBaseUrl,
 } from '../primary.selectors';
 
-const selectWorkStateForNameSpace = (state, { namespace }) => selectWorks(state)[namespace];
+import {
+  StoreState,
+  Work,
+  Container,
+  Description,
+  Media,
+  Image,
+} from '../../../store.d';
+
+const selectWorkStateForNameSpace = (
+  state: StoreState,
+  { namespace }: Container): Work => (
+    selectWorks(state)[namespace]
+  );
 
 const selectWorkMediaFromState = createSelector(
   selectWorkStateForNameSpace,
-  work => ((work && work.media) ? work.media : null),
+  (work: Work): Media | null => (
+    (work && work.media) ? work.media : null
+  ),
 );
 
 const selectWorkDescriptionFromState = createSelector(
   selectWorkStateForNameSpace,
-  state => ((state && state.description) ? state.description : null),
+  (work: Work): Description | null => (
+    (work && work.description) ? work.description : null
+  ),
 );
 
 const modal = {
-
   selectVisible: createSelector(
     selectWorkStateForNameSpace,
-    work => ((work && work.visible) ? work.visible : false),
+    (work: Work): boolean => (
+      (work && work.visible) ? work.visible : false),
   ),
-
 };
 
 const portal = {
 
+  selectBinBaseUrl,
+
   selectImages: createSelector(
     selectWorkMediaFromState,
-    media => ((media && media.images) ? media.images : null),
+    (media: Media): Array<Image> | null => (
+      (media && media.images) ? media.images : null
+    ),
   ),
-
-  selectBinBaseUrl,
 
 };
 
@@ -41,22 +59,30 @@ const post = {
 
   selectLong: createSelector(
     selectWorkDescriptionFromState,
-    desc => ((desc && desc.long) ? desc.long : false),
+    (desc: Description): string | null => (
+      (desc && desc.long) ? desc.long : null
+    ),
   ),
 
   selectShort: createSelector(
     selectWorkDescriptionFromState,
-    desc => ((desc && desc.short) ? desc.short : null),
+    (desc: Description): string | null => (
+      (desc && desc.short) ? desc.short : null
+    ),
   ),
 
-  selectExpand: createSelector(
+  selectExpanded: createSelector(
     selectWorkDescriptionFromState,
-    desc => ((desc && desc.expand) ? desc.expand : false),
+    (desc: Description): boolean => (
+      (desc && desc.expanded) ? desc.expanded : false
+    ),
   ),
 
   selectTitle: createSelector(
     selectWorkStateForNameSpace,
-    work => ((work && work.title) ? work.title : null),
+    (work: Work): string | null => (
+      (work && work.title) ? work.title : null
+    ),
   ),
 
 };
@@ -65,14 +91,18 @@ const punctum = {
 
   selectAlt: createSelector(
     selectWorkStateForNameSpace,
-    state => ((state && state.alt) ? state.alt : null),
+    (work: Work): string | null => (
+      (work && work.title) ? work.title : null
+    ),
   ),
 
   selectSrc: createSelector(
     [selectWorkStateForNameSpace, selectBinBaseUrl],
-    (state, baseBinUrl) => ((state && baseBinUrl && state.src)
-      ? `${baseBinUrl}/${state.src}`
-      : null),
+    (work: Work, baseBinUrl: string): string | null => (
+      (work && baseBinUrl && work.src)
+        ? `${baseBinUrl}/${work.src}`
+        : null
+    ),
   ),
 
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import NavBar from '../../src/components/nav/Nav';
+import NavBar from '../../src/components/nav/NavBar';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -25,7 +25,7 @@ describe('Nav Component', () => {
 
   it('renders a title', () => {
     const title = 'howard melnyczuk';
-    const element = React.createElement(NavBar, { title });
+    const element = React.createElement(NavBar, { title, buttons: null });
     const navBar = shallow(element);
     const navTitle = navBar.find('h1');
     expect(navTitle.length).toBe(1);
@@ -36,8 +36,8 @@ describe('Nav Component', () => {
   });
 
   it('renders with buttons with text, id and relative href', () => {
-    const buttons = [['Art', '/art'], ['Code', '/code']];
-    const element = React.createElement(NavBar, { buttons });
+    const buttons = ['Art', 'Code'];
+    const element = React.createElement(NavBar, { buttons, title: null });
     const navButtons = shallow(element)
       .children()
       .shallow()

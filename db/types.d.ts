@@ -10,7 +10,6 @@ export interface Work {
   type: Array<string>;
   links?: Array<string>;
   exhibitions?: Array<Exhibition>;
-
 }
 
 export interface Description {
