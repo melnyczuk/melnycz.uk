@@ -29,3 +29,4 @@ package-lock.json
 *.mp4
 *.wav
 *.txt
+*.wg
