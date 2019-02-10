@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Portal from '../../src/components/portal/Portal';
+import { Portal, PortalProps } from '../../src/components/Portal';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,20 +16,15 @@ describe('Portal Component', () => {
   });
 
   it.skip('renders with additional className', () => {
-    const className = 'basic post';
+    const props: PortalProps = {
+      className: 'basic post',
+      namespace: null,
+      images: null,
+      scrollPortal: null,
+      baseBinUrl: null,
+    };
 
-    const post = shallow(
-      React.createElement(
-        Portal,
-        {
-          className,
-          namespace: null,
-          images: null,
-          scrollPortal: null,
-          baseBinUrl: null,
-        }
-      )
-    );
+    const post = shallow(React.createElement(Portal, props));
 
     expect(post.html()).toStrictEqual(
       '<figure></figure>',

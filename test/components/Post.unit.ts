@@ -1,10 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Post from '../../src/components/post/Post';
+import { Post, PostProps } from '../../src/components/Post';
 
-Enzyme.configure({ adapter: new Adapter() });
+console.log(configure);
+
+configure({ adapter: new Adapter() });
 
 describe('Post Component', () => {
   it('renders', () => {
@@ -17,24 +19,21 @@ describe('Post Component', () => {
   });
 
   it('renders with additional className', () => {
-    const className = 'basic post';
+    const props: PostProps = {
+      className:  'basic post',
+      namespace: null,
+      title: null,
+      expand: null,
+      expanded: null,
+      short: null,
+    }
 
-    const element = React.createElement(
-      Post,
-      {
-        className,
-        namespace: null,
-        title: null,
-        expand: null,
-        expanded: null,
-        short: null,
-      }
-    );
+    const element = React.createElement(Post, props);
 
     const post = shallow(element);
 
     expect(post.html()).toStrictEqual(
-      `<article class="${className}"></article>`,
+      `<article class="${props.className}"></article>`,
     );
   });
 

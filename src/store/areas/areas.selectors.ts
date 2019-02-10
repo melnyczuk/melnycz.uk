@@ -1,18 +1,47 @@
 import { createSelector } from 'reselect';
-import { StoreState, Areas, } from '../store';
+
+import { 
+  StoreType,
+  AreasType, 
+  PortfolioType, 
+  ResearchType, 
+} from '../types';
+
 import { DEFAULT_AREA } from '../initialState';
 
-function selectAreas(state: StoreState): Areas {
+function selectAreas(state: StoreType): AreasType {
   return state.areas;
 }
 
 const selectActiveArea = createSelector(
   selectAreas,
-  (areas: Areas): string => (
+  (areas: AreasType): string => (
     areas.active ? areas.active : DEFAULT_AREA
   ),
 );
 
+const selectPortfolio = createSelector(
+  selectAreas,
+  (areas: AreasType): PortfolioType => (
+    areas.portfolio ? areas.portfolio : null
+  ),
+);
+
+const selectResearch = createSelector(
+  selectAreas,
+  (areas: AreasType): ResearchType => (
+    areas.research ? areas.research : null
+  ),
+);
+
+const navSelectors = {
+  selectButtons: (state: StoreType): Array<string> => state.nav.buttons,
+  selectTitle: (state: StoreType): string => state.nav.title,
+};
+
 export {
   selectActiveArea,
+  selectPortfolio,
+  selectResearch,
+  navSelectors,
 };

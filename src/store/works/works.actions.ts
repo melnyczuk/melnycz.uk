@@ -1,5 +1,5 @@
-import { actionConstants } from '../../../constants';
-import { Action } from '../../../store.d';
+import { actionConstants } from '../constants';
+import { ActionType } from '../types';
 
 const {
   SET_SHOW,
@@ -8,12 +8,12 @@ const {
 } = actionConstants;
 
 const modalActions = {
-  setModalShow: (namespace: string): Action => ({ type: SET_SHOW, namespace }),
-  setModalHide: (namespace: string): Action => ({ type: SET_HIDE, namespace }),
+  setModalShow: (namespace: string): ActionType => ({ type: SET_SHOW, namespace }),
+  setModalHide: (namespace: string): ActionType => ({ type: SET_HIDE, namespace }),
 }
 
 const postActions = {
-  setPostLength: (namespace: string): Action => ({ type: SET_LENGTH, namespace }),
+  setPostLength: (namespace: string): ActionType => ({ type: SET_LENGTH, namespace }),
 }
 
 export { 

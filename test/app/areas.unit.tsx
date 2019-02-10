@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { PrimaryArea } from '../../src/app/areas/Primary';
+import Portfolio from '../../src/app/areas/portfolio';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -12,7 +12,7 @@ describe('Areas', () => {
 
     it('renders', () => {
 
-      const primary: any = shallow(<PrimaryArea />);
+      const primary: any = shallow(<Portfolio />);
 
       expect(primary.exists()).toBe(true);
       expect(primary.length).toBe(1);

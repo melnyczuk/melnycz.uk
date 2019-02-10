@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Modal from '../../src/components/modal/Modal';
+import { Modal } from '../../src/components/Modal';
 
 const MODAL_MARKUP = '<div><button type="button"><svg></svg></button></div>';
 

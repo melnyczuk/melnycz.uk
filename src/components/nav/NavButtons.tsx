@@ -1,29 +1,24 @@
 import React from 'react';
-import { NavButtonLabel } from '../../store/store';
 
 interface NavButtonProps {
-  buttons: Array<NavButtonLabel>;
+  key: number;
+  value: string;
 }
 
-const NavButtons = (
+const NavButton = (
   {
-    buttons = []
+    key,
+    value,
   }: NavButtonProps
-): Array<JSX.Element> => {
-  return buttons.map((title, i) => {
-    const label = String(title).toLowerCase().replace(' ', '-')
-    return (
-      <button
-        key={i}
-        className={'nav-button'}
-        id={label}
-      >
-        <a href={`/${label}`}>
-          {title}
-        </a>
-      </button>
-    );
-  });
+): JSX.Element => {
+  const label = String(value).toLowerCase().replace(' ', '-');
+  return (
+    <button key={key} className={'nav-button'} id={label}>
+      <a href={`/${label}`}>
+        {value}
+      </a>
+    </button>
+  );
 }
 
-export default NavButtons;
+export default NavButton;

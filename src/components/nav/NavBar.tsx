@@ -1,24 +1,28 @@
 import React from 'react';
-import NavButtons from './NavButtons';
-import { NavButtonLabel } from '../../store/store.d';
+import NavButton from './NavButtons';
 
 interface NavBarProps {
   title: string;
-  buttons: Array<NavButtonLabel>
+  buttons: Array<string>
 }
 
 const NavBar = (
   {
     title,
-    buttons
+    buttons,
   }: NavBarProps,
 ) => {
   return (
     <nav id='nav' className='nav'>
       {title && <h1 className='nav-title'>{title}</h1>}
-      <NavButtons buttons={buttons} />
+      {
+        buttons.map((button, i) => <NavButton key={i} value={button} />)
+      }
     </nav>
   );
 }
 
-export default NavBar
+export {
+  NavBar,
+  NavBarProps,
+}

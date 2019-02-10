@@ -1,9 +1,8 @@
 import { actionConstants } from '../constants';
 
-import { Action, Works } from '../store.d';
+import { ActionType, WorksType } from '../types';
 
 import initialState from '../initialState';
-const { works } = initialState;
 
 const {
   SET_SHOW,
@@ -11,11 +10,22 @@ const {
   SET_LENGTH,
 } = actionConstants;
 
-export default (state: Works = works, action: Action) => {
+async function loadInitialWorksState(){
+  const { works } = await initialState;
+  return works;
+} 
 
+
+export default (state: WorksType, action: ActionType) => {
+
+  if (!state) {
+    return loadInitialWorksState();
+  }
+  
   const { type, namespace } = action;
 
   switch (type) {
+
     default: { return state; }
 
     case (SET_SHOW): {
