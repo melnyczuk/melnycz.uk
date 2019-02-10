@@ -1,11 +1,12 @@
-import db from '../../db/db.json';
+import fs from 'fs';
 import { StoreType } from './types';
 
 export const WORKS_BIN_BASE = '../bin';
 export const DEFAULT_AREA = 'primary'
 
-const initialState: Promise<StoreType> = new Promise(
-  (resolve) => resolve({
+const db = JSON.parse(fs.readFileSync('../../db/db.json', 'utf8'));
+
+const initialState: StoreType = {
     nav: {
       title: 'hi',
       buttons: [
@@ -29,7 +30,6 @@ const initialState: Promise<StoreType> = new Promise(
     media: {
       baseBinUrl: WORKS_BIN_BASE,
     }
-  })
-);
+  };
 
 export default initialState;
