@@ -13,7 +13,7 @@
       "namespace": "rrosetta",
       "live": false,
       "title": "Rrosetta",
-      "src": "works/rrosetta/rrosetta_009.jpg",
+      "img": "works/rrosetta/rrosetta_009.jpg",
       "year": [
         2017
       ],
@@ -35,47 +35,14 @@
       },
       "media": {
         "images": [
-          {
-            "id": "rrosetta_002",
-            "title": "",
-            "path": "works/rrosetta/",
-            "ext": "jpg",
-            "rank": 0
-          },
-          {
-            "id": "rrosetta_003",
-            "title": "",
-            "path": "works/rrosetta/",
-            "ext": "jpg",
-            "rank": 0
-          },
-          {
-            "id": "rrosetta_004",
-            "title": "",
-            "path": "works/rrosetta/",
-            "ext": "jpg",
-            "rank": 0
-          },
-          {
-            "id": "rrosetta_006",
-            "title": "",
-            "path": "works/rrosetta/",
-            "ext": "jpg",
-            "rank": 0
-          },
-          {
-            "id": "rrosetta_009",
-            "title": "",
-            "path": "works/rrosetta/",
-            "ext": "jpg",
-            "rank": 0
-          }
+          "rrosetta_002",
+          "rrosetta_003",
+          "rrosetta_004",
+          "rrosetta_006",
+          "rrosetta_009"
         ],
-        "video": [
-          {
-
-          }
-        ]
+        "video": [],
+        "audio": []
       },
       "exhibitions": [
         {
@@ -91,9 +58,7 @@
             "20170909",
             "20170910"
           ],
-          "video": [
-            "https://vimeo.com/239667082"
-          ],
+          "video": [],
           "links": [
             "http://www.overlap.show"
           ]
@@ -119,14 +84,18 @@
       "namespace": "hiresroc",
       "live": true,
       "title": "ahirespngofarock",
-      "src": "",
+      "img": "",
       "year": [
         2017
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "website"
@@ -135,39 +104,53 @@
     {
       "namespace": "justwatc",
       "name": "Just Watched And Felt",
-      "src": "",
+      "img": "",
       "live": true,
       "year": [
         2017
       ],
       "type": [
         "website"
-      ]
+      ],
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      }
     },
     {
       "namespace": "fanewday",
       "name": "Like The Dawning Of A New Day",
-      "src": "",
+      "img": "",
       "live": true,
       "year": [
         2017
       ],
       "type": [
         "website"
-      ]
+      ],
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      }
     },
     {
       "namespace": "westanti",
       "live": false,
       "title": "West Antarctic Ice Sheet",
-      "src": "",
+      "img": "",
       "year": [
         2016
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "website",
@@ -178,14 +161,18 @@
       "namespace": "enscenlo",
       "live": false,
       "title": "Endless Scrolling / Enduring Love",
-      "src": "",
+      "img": "",
       "year": [
         2013
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "website"
@@ -198,14 +185,18 @@
       "namespace": "texcache",
       "live": false,
       "title": "Texture Cache",
-      "src": "",
+      "img": "",
       "year": [
         2016
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "website",
@@ -216,14 +207,18 @@
       "namespace": "eiatasay",
       "live": true,
       "title": "Everything Is A Thing As Soon As You Think It A Thing",
-      "src": "",
+      "img": "",
       "year": [
         2016
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "pdf"
@@ -233,14 +228,18 @@
       "namespace": "ermdmalm",
       "live": false,
       "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
-      "src": "",
+      "img": "",
       "year": [
         2016
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "video"
@@ -250,14 +249,18 @@
       "namespace": "otsmiasm",
       "live": false,
       "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
-      "src": "",
+      "img": "",
       "year": [
         2016
       ],
       "description": {
         "short": ""
       },
-      "media": {},
+      "media": {
+        "images":[],
+        "video":[],
+        "audio":[]
+      },
       "materials": [],
       "type": [
         "video"
@@ -265,5 +268,49 @@
     }
   ],
   "writing": [],
-  "photos": []
+  "media": {
+    "images": [
+      {
+        "id": "rrosetta_002",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_003",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_004",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_006",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_009",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      }
+    ],
+    "video": [
+      {
+        "url": "https://vimeo.com/239667082"
+      }
+    ],
+    "audio": []
+  }
 }

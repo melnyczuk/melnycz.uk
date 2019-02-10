@@ -2,10 +2,10 @@ export interface Work {
   namespace: string;
   live: boolean;
   title: string;
-  src: string;
+  img: string;
   year: Array<number>;
   description: Description;
-  media: Media;
+  media: MediaIndex;
   materials: Array<string>;
   type: Array<string>;
   links?: Array<string>;
@@ -26,8 +26,14 @@ export interface Exhibition {
   country: string;
   geolocation: Array<number>;
   date: Array<number>;
-  media: Media;
+  media: MediaIndex;
   links?: Array<string>;
+}
+
+export interface MediaIndex {
+  images: Array<string>;
+  video: Array<string>;
+  audio: Array<string>;
 }
 
 export interface Media {
