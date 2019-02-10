@@ -7,13 +7,16 @@ const {
   SET_LENGTH,
 } = actionConstants;
 
-const modal = {
+const modalActions = {
   setModalShow: (namespace: string): Action => ({ type: SET_SHOW, namespace }),
   setModalHide: (namespace: string): Action => ({ type: SET_HIDE, namespace }),
 }
 
-const post = {
+const postActions = {
   setPostLength: (namespace: string): Action => ({ type: SET_LENGTH, namespace }),
 }
 
-export { modal, post };
+export { 
+  modalActions, 
+  postActions,
+};

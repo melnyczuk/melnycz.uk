@@ -1,9 +1,9 @@
-import { actionConstants } from '../../../constants';
+import { actionConstants } from '../constants';
 
-import initialState from '../../../initialState';
-import { Action, Works } from '../../../store.d';
+import { Action, Works } from '../store.d';
 
-const { works } = initialState.areas.primary;
+import initialState from '../initialState';
+const { works } = initialState;
 
 const {
   SET_SHOW,

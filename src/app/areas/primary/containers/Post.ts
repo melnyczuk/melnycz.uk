@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 
-import Post from '../../../../../components/post/Post';
+import { Post, PostProps }  from '../../../../components/post/Post';
 
 import {
   post as postSelectors,
-} from '../../../../../store/areas/primary/works/works.selectors';
+} from '../../../../store/areas/primary/works/works.selectors';
 
 import {
-  post as postActions
-} from '../../../../../store/areas/primary/works/works.actions';
+  postActions
+} from '../../../../store/areas/primary/works/works.actions';
 
-import { StoreState, Container } from '../../../../../store/store';
-import { PostProps } from '../../../../../components/post/post.d';
+import { StoreState, Container } from '../../../../store/store';
 import { Dispatch } from 'redux';
 
 const mapStateToProps = (

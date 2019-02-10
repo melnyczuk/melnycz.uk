@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Work from './works/Work';
+import Work from './primary/Work';
 
 import {
   selectWorks,
-} from '../../../store/areas/primary/primary.selectors';
+} from '../../store/areas/primary/primary.selectors';
 
 export const PrimaryArea = ({ works = [] }) => (
   <main className="main primary">

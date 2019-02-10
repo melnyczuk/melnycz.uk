@@ -6,31 +6,26 @@ export const DEFAULT_AREA = 'primary'
 
 const initialState: StoreState = {
   nav: {
-    buttons: [
-      {
-        label: 'About',
-        path: '/about',
-      },
-      {
-        label: 'Works',
-        path: '/works',
-      },
+    buttons: [ 
+      'About',
+      'Works',
     ],
   },
   areas: {
     active: DEFAULT_AREA,
-    primary: {
-      baseBinUrl: WORKS_BIN_BASE,
-      works: db.works.reduce((map, work) => ({
-        ...map,
-        [work.namespace]: {
-          ...work,
-          visible: false,
-        },
-      }),
-      {}),
-    },
+    primary: {},
   },
+  works: db.works.reduce((map, work) => ({
+    ...map,
+    [work.namespace]: {
+      ...work,
+      visible: false,
+    },
+  }),
+  {}),
+  media: {
+    baseBinUrl: WORKS_BIN_BASE,
+  }
 };
 
 export default initialState;

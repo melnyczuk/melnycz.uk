@@ -1,19 +1,15 @@
 import { connect } from 'react-redux';
 
-import Portal from '../../../../../components/portal/Portal';
+import Portal, { PortalProps } from '../../../../components/portal/Portal';
 
 import {
   portal,
-} from '../../../../../store/areas/primary/works/works.selectors';
+} from '../../../../store/areas/primary/works/works.selectors';
 
 import {
   StoreState,
   Container,
-} from '../../../../../store/store';
-
-import {
-  PortalProps
-} from '../../../../../components/portal/portal.d';
+} from '../../../../store/store';s
 
 const mapStateToProps = (
   state: StoreState,

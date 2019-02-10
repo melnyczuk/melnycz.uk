@@ -31,15 +31,15 @@ export interface Exhibition {
 }
 
 export interface MediaIndex {
-  images: Array<string>;
-  video: Array<string>;
-  audio: Array<string>;
+  imageKeys: Array<string>;
+  videoKeys: Array<string>;
+  audioKeys: Array<string>;
 }
 
 export interface Media {
   images?: Array<Image>;
-  video?: Array<Video>;
-  audio?: Array<Audio>;
+  videos?: Array<Video>;
+  audios?: Array<Audio>;
 }
 
 export interface Image {

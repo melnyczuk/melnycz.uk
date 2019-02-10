@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import PrimaryArea from './primary/Primary';
+import PrimaryArea from './areas/Primary';
 
 import {
   selectActiveArea,
-} from '../../store/areas/areas.selectors';
+} from '../store/areas/areas.selectors';
 
 export const Areas = ({
   active,

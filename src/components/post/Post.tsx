@@ -3,7 +3,8 @@ import React from 'react';
 import Button from '../button/Button';
 
 import { Container, Description } from "../../store/store.d";
-export interface PostProps extends Description {
+
+interface PostProps extends Description {
   namespace: string;
   title: string;
   className?: string;
@@ -31,4 +32,7 @@ const Post = (
   </article>
 );
 
-export default Post;
+export {
+  Post,
+  PostProps
+};

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { StoreState, Areas, Primary } from '../store';
+import { StoreState, Areas, } from '../store';
 import { DEFAULT_AREA } from '../initialState';
 
 function selectAreas(state: StoreState): Areas {
@@ -13,14 +13,6 @@ const selectActiveArea = createSelector(
   ),
 );
 
-const selectPrimaryArea = createSelector(
-  selectAreas,
-  (areas: Areas): Primary | null => (
-    areas.primary ? areas.primary : null
-  ),
-);
-
 export {
   selectActiveArea,
-  selectPrimaryArea,
 };

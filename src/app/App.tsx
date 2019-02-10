@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 // import './style/App.css';
 
 import NavBar from '../components/nav/NavBar';
-import Areas from './areas/Areas';
+import Areas from './Areas';
 
 import rootReducer from '../store/rootReducer';
 
@@ -15,7 +15,7 @@ export function App() {
   return (
     <Provider store={store} >
       <div className="App">
-        <NavBar title={'Howard Melnyczuk'} />
+        <NavBar />
         <Areas />
       </div>
     </Provider>

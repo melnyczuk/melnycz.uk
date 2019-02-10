@@ -21,31 +21,34 @@ export interface Exhibition extends DB.Exhibition {}
 
 export interface Video extends DB.Video {}
 
-export interface Media extends DB.Media {}
+export interface Audio extends DB.Audio {}
+
+export interface Media extends DB.Media {
+  baseBinUrl: string;
+}
+
+export interface MediaIndex extends DB.MediaIndex {}
 
 export interface Works {
   [key: string]: Work;
 }
 
-export interface Primary {
-  baseBinUrl: string;
-  works: Works;
-}
+export interface Primary {}
 
 export interface Areas {
   active: string;
   primary: Primary;
 }
 
-export enum NavButtonLabel { string }
-
 export interface Nav {
-  buttons: Array<NavButtonLabel>;
+  buttons: Array<string>;
 }
 
 export interface StoreState {
   areas: Areas;
   nav: Nav;
+  works: Works;
+  media: Media;
 }
 
 export interface Container {
