@@ -2,25 +2,39 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Portfolio from '../../src/app/areas/portfolio';
+import { Portfolio } from '../../src/app/areas/portfolio';
+import { WorksType } from '../../src/store/types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Areas', () => {
 
-  describe('Primary Area', () => {
+  describe('Portfolio', () => {
 
     it('renders', () => {
 
-      const primary: any = shallow(<Portfolio />);
+      const mockWorks: WorksType = {
+        test: {
+          visible: null,
+          description: null,
+          namespace: null,
+          img: null,
+          live: null,
+          media: null,
+          year: null,
+          title: null,
+          materials: null,
+          type: null,
+        }
+      }
 
-      expect(primary.exists()).toBe(true);
-      expect(primary.length).toBe(1);
-      expect(primary.hasClass('main')).toBe(true);
-      expect(primary.hasClass('primary')).toBe(true);
-      expect(primary.html()).toStrictEqual(
-        '<main class="main primary"></main>',
-      );
+      const portfolio = shallow(<Portfolio works={mockWorks} />);
+
+      expect(portfolio.exists()).toBe(true);
+      expect(portfolio.length).toBe(1);
+      expect(portfolio.is('main')).toBe(true);
+      expect(portfolio.hasClass('main')).toBe(true);
+      expect(portfolio.hasClass('portfolio')).toBe(true);
 
     });
 
