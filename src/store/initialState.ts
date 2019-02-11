@@ -1,15 +1,12 @@
-import { 
-  bio, 
-  info, 
-  media,
-  works as dbWorks, 
-} from '../../db/db.json';
-
+import db from '../../db/db.json';
 import { WorksType } from './types.js';
 
+const DEFAULT_AREA = 'portfolio';
 const nav = { buttons: [ 'Art', 'Code' ] };
 
-const works: WorksType = dbWorks.reduce((map, work) => ({
+const { bio, info, media } = db;
+
+const works: WorksType = db.works.reduce((map, work) => ({
   ...map,
   [work.namespace]: {
     ...work,
@@ -24,4 +21,5 @@ export {
   media,
   nav,
   works,
+  DEFAULT_AREA,
 };

@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
-import { 
+import {
   StoreType,
-  AreasType, 
-  PortfolioType, 
-  ResearchType, 
+  AreasType,
+  PortfolioType,
+  ResearchType,
 } from '../types';
 
 import { DEFAULT_AREA } from '../initialState';

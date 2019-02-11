@@ -24,7 +24,7 @@ export interface Exhibition {
   place: string;
   city: string;
   country: string;
-  geolocation: Array<number>;
+  geo: Array<number>;
   date: Array<number>;
   media: MediaIndex;
   links?: Array<string>;
@@ -68,4 +68,27 @@ export interface Audio {
   title?: string;
   duration?: number;
   description?: Description;
+}
+
+export interface Bio {
+  short?: string;
+  long?: string;
+}
+
+export interface Information {
+  name: string;
+  email: string;
+  handle: string;
+}
+
+export interface Writing {
+
+}
+
+export interface DB {
+  bio: Bio;
+  info: Information;
+  media: Media;
+  works: Array<Work>;
+  writing: Array<Writing>;
 }
