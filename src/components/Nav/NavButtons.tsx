@@ -1,4 +1,6 @@
-import React from 'react';
+import * as React from 'react';
+
+import { Link } from 'react-router';
 
 interface NavButtonProps {
   label: string;
@@ -12,9 +14,9 @@ const NavButton = (
   const id = String(label).toLowerCase().replace(' ', '-');
   return (
     <button className={'nav-button'} id={id}>
-      <a href={`/${id}`}>
+      <Link to={`/${id}`}>
         {label}
-      </a>
+      </Link>
     </button>
   );
 }

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { 
-  Post, 
-  PostProps, 
+import {
+  Post,
+  PostProps,
 } from '../../../../components/Post';
 
 import {
@@ -14,7 +14,6 @@ import {
 } from '../../../../store/works/works.actions';
 
 import { StoreType, ContainerType } from '../../../../store/types';
-import { Dispatch } from 'redux';
 
 const mapStateToProps = (
   state: StoreType,
@@ -28,7 +27,7 @@ const mapStateToProps = (
 });
 
 const mapDispatchToProps = (
-  dispatch: Dispatch,
+  dispatch: any,
   props: PostProps,
 ): PostProps => ({
   ...props,

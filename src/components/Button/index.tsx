@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 interface ButtonProps {
   purpose: string;
@@ -25,4 +25,4 @@ const Button = (
 export {
   Button,
   ButtonProps,
-} 
+}

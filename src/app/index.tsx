@@ -1,23 +1,29 @@
-import React from 'react';
+import * as React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-// import './style/App.css';
-
 import NavBar from './areas/Nav.App';
-import Areas from './areas';
+import Areas from './areas/Areas';
 
 import rootReducer from '../store/rootReducer';
 
+import { Route } from 'react-router';
+import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
+import Portfolio from './areas/portfolio/Portfolio';
+
 const store = createStore(rootReducer);
 
-export default function App(): JSX.Element {
-  return (
-    <Provider store={store} >
+const App = () => (
+  <Provider store={store} >
+    <Router history={hashHistory} >
       <div className="App">
         <NavBar />
-        <Areas />
+        <Route path='/' component={Portfolio} >
+          <Route path='portfolio' component={Portfolio} />
+        </Route>
       </div>
-    </Provider>
-  );
-}
+    </Router>
+  </Provider>
+);
+
+export default App;

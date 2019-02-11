@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../../src/app';
-import Areas from '../../src/app/areas';
+import Areas from '../../src/app/areas/Areas';
 import { NavBar } from '../../src/components/nav/NavBar';
 
 

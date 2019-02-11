@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Button } from '../Button';
 
@@ -38,4 +38,4 @@ const Portal = (
 export {
   Portal,
   PortalProps,
-} 
+}

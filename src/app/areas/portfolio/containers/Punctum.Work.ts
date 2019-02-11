@@ -11,7 +11,6 @@ import {
 } from '../../../../store/works/works.actions';
 
 import { StoreType, ContainerType } from '../../../../store/types';
-import { Dispatch } from 'redux';
 
 const mapStateToProps = (
   state: StoreType,
@@ -23,7 +22,7 @@ const mapStateToProps = (
 });
 
 const mapDispatchToProps = (
-  dispatch: Dispatch,
+  dispatch: any,
   props: PunctumProps
 ): PunctumProps => ({
   ...props,

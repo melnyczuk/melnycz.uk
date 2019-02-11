@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Work from './Work';
@@ -17,12 +17,10 @@ export interface PortfolioProps {
   works: WorksType;
 }
 
-export const Portfolio = ({
-  works
-}: PortfolioProps
-): JSX.Element => (
-    <main className="main portfolio">
-      {Object.keys(works).map(
+export const Portfolio = ({ works }: PortfolioProps) => (
+  <main className="main portfolio">
+    {
+      Object.keys(works).map(
         (key, i) => {
           const { namespace } = works[key];
           return (
@@ -30,9 +28,10 @@ export const Portfolio = ({
             <Work key={i} namespace={namespace} />
           );
         },
-      )}
-    </main>
-  );
+      )
+    }
+  </main>
+);
 
 const mapStateToProps = (state: StoreType) => {
   return {

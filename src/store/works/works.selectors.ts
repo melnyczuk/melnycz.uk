@@ -38,21 +38,21 @@ const selectWorkMediaIndex = createSelector(
 const selectImageKeys = createSelector(
   [selectWorkMediaIndex],
   (mediaIndex: MediaIndexType): Array<string> | null => (
-    (mediaIndex && mediaIndex.imageKeys) ? mediaIndex.imageKeys : null
+    (mediaIndex && mediaIndex.imageKeys) ? mediaIndex.imageKeys : []
   ),
 );
 
 const selectVideoKeys = createSelector(
   [selectWorkMediaIndex],
   (mediaIndex: MediaIndexType): Array<string> | null => (
-    (mediaIndex && mediaIndex.videoKeys) ? mediaIndex.videoKeys : null
+    (mediaIndex && mediaIndex.videoKeys) ? mediaIndex.videoKeys : []
   ),
 );
 
 const selectAudioKeys = createSelector(
   [selectWorkMediaIndex],
   (mediaIndex: MediaIndexType): Array<string> | null => (
-    (mediaIndex && mediaIndex.audioKeys) ? mediaIndex.audioKeys : null
+    (mediaIndex && mediaIndex.audioKeys) ? mediaIndex.audioKeys : []
   ),
 );
 
@@ -77,23 +77,32 @@ const mediaSelectors = {
 
   selectImages: createSelector(
     [selectImageKeys, selectImages],
-    (imageKeys: Array<string>, images: Array<ImageType>): Array<ImageType> | null => (
-      images.filter((image) => (imageKeys.includes(image.id)))
-    ),
+    (
+      imageKeys: Array<string>,
+      images: Array<ImageType>
+    ): Array<ImageType> | [] => (
+        images.filter((image) => (imageKeys.includes(image.id)))
+      ),
   ),
 
   selectVideos: createSelector(
     [selectVideoKeys, selectVideos],
-    (videoKeys: Array<string>, videos: Array<VideoType>): Array<VideoType> | null => (
-      videos.filter((video) => (videoKeys.includes(video.id)))
-    ),
+    (
+      videoKeys: Array<string>,
+      videos: Array<VideoType>
+    ): Array<VideoType> | null => (
+        videos.filter((video) => (videoKeys.includes(video.id)))
+      ),
   ),
 
   selectAudios: createSelector(
     [selectAudioKeys, selectAudios],
-    (audioKeys: Array<string>, audio: Array<AudioType>): Array<AudioType> | null => (
-      audio.filter((audio) => (audioKeys.includes(audio.id)))
-    ),
+    (
+      audioKeys: Array<string>,
+      audio: Array<AudioType>
+    ): Array<AudioType> | null => (
+        audio.filter((audio) => (audioKeys.includes(audio.id)))
+      ),
   ),
 
 };

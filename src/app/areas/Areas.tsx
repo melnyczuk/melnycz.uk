@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
-import Portfolio from './portfolio';
+import Portfolio from './portfolio/Portfolio';
 
 import {
   selectActiveArea,

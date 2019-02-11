@@ -1,4 +1,4 @@
-import db from '../../../db/db.json';
+import { works as dbWorks} from '../../../db/db.json';
 import { ActionType, WorksType } from '../types';
 
 import { actionConstants } from '../constants';
@@ -8,7 +8,7 @@ const {
   SET_LENGTH,
 } = actionConstants;
 
-const works: WorksType = db.works.reduce((map, work) => ({
+const works: WorksType = dbWorks.reduce((map, work) => ({
   ...map,
   [work.namespace]: {
     ...work,

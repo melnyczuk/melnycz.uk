@@ -1,21 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 
 import Modal from './containers/Modal.Work';
 import Portal from './containers/Portal.Work';
 import Post from './containers/Post.Work';
 import Punctum from './containers/Punctum.Work';
-import { ContainerType } from '../../../store/types';
 
-const Work = (
-  {
-    namespace,
-  }: ContainerType,
-): JSX.Element => (
+interface WorkProps {
+  namespace: string;
+}
+
+const Work = ({ namespace }: WorkProps): JSX.Element => (
   <section>
     <Punctum namespace={namespace} />
     <Modal namespace={namespace}>
       <Post namespace={namespace}>
-        <Portal namespace={namespace} />
+        {/* <Portal namespace={namespace} /> */}
       </Post>
     </Modal>
   </section>
