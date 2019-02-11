@@ -8,9 +8,8 @@ import NavBar from './areas/Nav.App';
 import Areas from './areas';
 
 import rootReducer from '../store/rootReducer';
-import * as initialState from '../store/initialState';
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(rootReducer);
 
 export default function App(): JSX.Element {
   return (

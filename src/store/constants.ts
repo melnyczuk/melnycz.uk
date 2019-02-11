@@ -1,4 +1,5 @@
 const areaConstants = {
+  DEFAULT_AREA: 'portfolio',
   PRIMARY_AREA: 'primary',
 };
 
@@ -8,6 +9,7 @@ const actionConstants = {
   SET_LENGTH: 'SET_LENGTH',
   INITIALISE_STORE: 'INITIALISE_STORE',
 };
+
 
 export {
   areaConstants,

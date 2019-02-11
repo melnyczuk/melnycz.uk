@@ -7,7 +7,8 @@ import {
   ResearchType,
 } from '../types';
 
-import { DEFAULT_AREA } from '../initialState';
+import { areaConstants } from '../constants';
+const { DEFAULT_AREA } = areaConstants;
 
 function selectAreas(state: StoreType): AreasType {
   return state.areas;

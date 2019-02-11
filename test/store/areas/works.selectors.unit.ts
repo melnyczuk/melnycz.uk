@@ -4,8 +4,12 @@ import {
   mediaSelectors,
   punctumSelectors,
 } from '../../../src/store/works/works.selectors';
+
 import { StoreType, WorksType, WorkType } from '../../../src/store/types';
-import { DEFAULT_AREA } from '../../../src/store/initialState';
+
+import { areaConstants } from '../../../src/store/constants';
+
+const { DEFAULT_AREA } = areaConstants;
 
 function genTestState(works: WorksType): StoreType {
   return {
@@ -20,7 +24,7 @@ function genTestState(works: WorksType): StoreType {
     },
     works,
     media: {
-      baseBinUrl: '.',
+      baseURL: '.',
     },
   };
 }

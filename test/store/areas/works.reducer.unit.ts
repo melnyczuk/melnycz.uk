@@ -1,9 +1,11 @@
-import { works } from '../../../src/store/initialState';
 import worksReducer from '../../../src/store/works/works.reducer';
 import { actionConstants } from '../../../src/store/constants';
 import { WorkType } from '../../../src/store/types';
 
-describe('Works Reducer', () => {  
+describe('Works Reducer', () => {
+
+  const works = worksReducer(undefined, undefined);
+
   const nullProps: WorkType = {
     visible: null,
     description: null,
@@ -16,7 +18,7 @@ describe('Works Reducer', () => {
     materials: null,
     type: null,
   }
-  
+
   it('returns the correct initial state', () => {
     const data = worksReducer(undefined, { type: undefined, namespace: null });
     expect(data).toStrictEqual(works);
