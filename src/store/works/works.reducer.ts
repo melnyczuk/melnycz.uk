@@ -1,16 +1,27 @@
-import { works } from '../initialState';
-import { actionConstants } from '../constants';
-
+import db from '../../../db/db.json';
 import { ActionType, WorksType } from '../types';
 
+import { actionConstants } from '../constants';
 const {
   SET_SHOW,
   SET_HIDE,
   SET_LENGTH,
 } = actionConstants;
 
+const works: WorksType = db.works.reduce((map, work) => ({
+  ...map,
+  [work.namespace]: {
+    ...work,
+    visible: false,
+  },
+}),{});
+
 export default (state: WorksType = works, action: ActionType) => {
-  
+
+  if (!action) {
+    return state;
+  }
+
   const { type, namespace } = action;
 
   switch (type) {
@@ -22,7 +33,7 @@ export default (state: WorksType = works, action: ActionType) => {
         if (key !== namespace) {
           return { ...next, [key]: { ...state[key], visible: false } }
         }
-          
+
         if (key === namespace) {
           return { ...next, [key]: { ...state[key], visible: true } }
         }
@@ -36,7 +47,7 @@ export default (state: WorksType = works, action: ActionType) => {
         if (key === namespace) {
           return { ...next, [key]: { ...state[key], visible: false } }
         }
-  
+
         return next;
       }, {});
     }
