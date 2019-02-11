@@ -13,15 +13,15 @@ import {
   WorksType,
 } from '../../../store/types';
 
-interface PortfolioProps {
+export interface PortfolioProps {
   works: WorksType;
 }
 
-const Portfolio = ({
+export const Portfolio = ({
   works
 }: PortfolioProps
 ): JSX.Element => (
-    <main className="main primary">
+    <main className="main portfolio">
       {Object.keys(works).map(
         (key, i) => {
           const { namespace } = works[key];
