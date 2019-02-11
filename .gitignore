@@ -2,7 +2,6 @@
 .DS_Store
 
 # Folders:
-media/
 node_modules/
 __pycache__/
 coverage
