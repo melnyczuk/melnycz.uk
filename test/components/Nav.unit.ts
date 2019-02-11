@@ -40,7 +40,6 @@ describe('Nav Component', () => {
     const element = React.createElement(NavBar, { buttons, title: null });
     const navButtons = shallow(element)
       .children()
-      .shallow()
       .map(button => button.shallow());
 
     expect(navButtons.length).toBe(2);

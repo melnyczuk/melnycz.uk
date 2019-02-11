@@ -16,7 +16,7 @@ const NavBar = (
     <nav id='nav' className='nav'>
       {title && <h1 className='nav-title'>{title}</h1>}
       {
-        buttons.map((button, i) => <NavButton key={i} value={button} />)
+        buttons && buttons.map((label, i) => <NavButton key={i} label={label} />)
       }
     </nav>
   );

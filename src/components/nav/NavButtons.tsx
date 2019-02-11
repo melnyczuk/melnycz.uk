@@ -1,21 +1,19 @@
 import React from 'react';
 
 interface NavButtonProps {
-  key: number;
-  value: string;
+  label: string;
 }
 
 const NavButton = (
   {
-    key,
-    value,
+    label,
   }: NavButtonProps
 ): JSX.Element => {
-  const label = String(value).toLowerCase().replace(' ', '-');
+  const id = String(label).toLowerCase().replace(' ', '-');
   return (
-    <button key={key} className={'nav-button'} id={label}>
-      <a href={`/${label}`}>
-        {value}
+    <button className={'nav-button'} id={id}>
+      <a href={`/${id}`}>
+        {label}
       </a>
     </button>
   );
