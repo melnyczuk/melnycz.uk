@@ -1,8 +1,7 @@
+import { works } from '../initialState';
 import { actionConstants } from '../constants';
 
 import { ActionType, WorksType } from '../types';
-
-import initialState from '../initialState';
 
 const {
   SET_SHOW,
@@ -10,17 +9,7 @@ const {
   SET_LENGTH,
 } = actionConstants;
 
-async function loadInitialWorksState(){
-  const { works } = await initialState;
-  return works;
-} 
-
-
-export default (state: WorksType, action: ActionType) => {
-
-  if (!state) {
-    return loadInitialWorksState();
-  }
+export default (state: WorksType = works, action: ActionType) => {
   
   const { type, namespace } = action;
 
@@ -29,14 +18,14 @@ export default (state: WorksType, action: ActionType) => {
     default: { return state; }
 
     case (SET_SHOW): {
-      return Object.keys(state).reduce((next, key) => {
-        if (key !== namespace) (
-          { ...next, [key]: { ...state[key], visible: false } }
-        );
-
-        if (key === namespace) (
-          { ...next, [key]: { ...state[key], visible: true } }
-        );
+      return Object.keys(state).reduce((next: object, key: string) => {
+        if (key !== namespace) {
+          return { ...next, [key]: { ...state[key], visible: false } }
+        }
+          
+        if (key === namespace) {
+          return { ...next, [key]: { ...state[key], visible: true } }
+        }
 
         return next;
       }, {});
@@ -44,9 +33,10 @@ export default (state: WorksType, action: ActionType) => {
 
     case (SET_HIDE): {
       return Object.keys(state).reduce((next, key: string) => {
-        if (key === namespace) (
-          { ...next, [key]: { ...state[key], visible: false } }
-        );
+        if (key === namespace) {
+          return { ...next, [key]: { ...state[key], visible: false } }
+        }
+  
         return next;
       }, {});
     }

@@ -37,6 +37,7 @@ export interface MediaIndex {
 }
 
 export interface Media {
+  baseURL: string;
   images?: Array<Image>;
   videos?: Array<Video>;
   audios?: Array<Audio>;

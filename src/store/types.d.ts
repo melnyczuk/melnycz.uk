@@ -23,9 +23,7 @@ export interface VideoType extends DB.Video {}
 
 export interface AudioType extends DB.Audio {}
 
-export interface MediaType extends DB.Media {
-  baseBinUrl: string;
-}
+export interface MediaType extends DB.Media {}
 
 export interface MediaIndexType extends DB.MediaIndex {}
 

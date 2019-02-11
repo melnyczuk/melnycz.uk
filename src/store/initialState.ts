@@ -1,35 +1,27 @@
-import fs from 'fs';
-import { StoreType } from './types';
+import { 
+  bio, 
+  info, 
+  media,
+  works as dbWorks, 
+} from '../../db/db.json';
 
-export const WORKS_BIN_BASE = '../bin';
-export const DEFAULT_AREA = 'primary'
+import { WorksType } from './types.js';
 
-const db = JSON.parse(fs.readFileSync('../../db/db.json', 'utf8'));
+const nav = { buttons: [ 'Art', 'Code' ] };
 
-const initialState: StoreType = {
-    nav: {
-      title: 'hi',
-      buttons: [
-        'About',
-        'Works',
-      ],
-    },
-    areas: {
-      active: DEFAULT_AREA,
-      portfolio: null,
-      research: null,
-    },
-    works: db.works.reduce((map, work) => ({
-      ...map,
-      [work.namespace]: {
-        ...work,
-        visible: false,
-      },
-    }),
-      {}),
-    media: {
-      baseBinUrl: WORKS_BIN_BASE,
-    }
-  };
+const works: WorksType = dbWorks.reduce((map, work) => ({
+  ...map,
+  [work.namespace]: {
+    ...work,
+    visible: false,
+  },
+}),{});
 
-export default initialState;
+
+export {
+  bio,
+  info,
+  media,
+  nav,
+  works,
+};

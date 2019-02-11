@@ -1,15 +1,9 @@
-import initialState from '../../../src/store/initialState';
+import { works } from '../../../src/store/initialState';
 import worksReducer from '../../../src/store/works/works.reducer';
 import { actionConstants } from '../../../src/store/constants';
 import { WorkType } from '../../../src/store/types';
 
-const {
-  SET_SHOW,
-} = actionConstants;
-
-describe('Works Reducer', () => {
-  const { works } = initialState;
-
+describe('Works Reducer', () => {  
   const nullProps: WorkType = {
     visible: null,
     description: null,
@@ -22,21 +16,35 @@ describe('Works Reducer', () => {
     materials: null,
     type: null,
   }
-
+  
   it('returns the correct initial state', () => {
     const data = worksReducer(undefined, { type: undefined, namespace: null });
     expect(data).toStrictEqual(works);
   });
 
-  describe('SET_VISIBLE action', () => {
-    const setModalVisible = jest.fn(namespace => ({ type: SET_SHOW, namespace }));
+  describe('SET_SHOW action', () => {
+    const { SET_SHOW } = actionConstants;
+
+    const setModalShowMock = jest.fn(namespace => ({ type: SET_SHOW, namespace }));
 
     it('reduces the action payload', () => {
-      const data = worksReducer(
-        { test: { ...nullProps, visible: false, } },
-        setModalVisible('test'),
-      );
+      const fakeWorks =  { test: { ...nullProps, visible: false, } };
+      const data = worksReducer(fakeWorks, setModalShowMock('test'));
       expect(data.test.visible).toBe(true);
     });
+
+  });
+
+  describe('SET_HIDE action', () => {
+    const { SET_HIDE } = actionConstants;
+
+    const setModalHideMock = jest.fn(namespace => ({ type: SET_HIDE, namespace }));
+
+    it('reduces the action payload', () => {
+      const fakeWorks =  { test: { ...nullProps, visible: true, } };
+      const data = worksReducer(fakeWorks, setModalHideMock('test'));
+      expect(data.test.visible).toBe(false);
+    });
+
   });
 });

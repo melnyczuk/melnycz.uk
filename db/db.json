@@ -269,6 +269,7 @@
   ],
   "writing": [],
   "media": {
+    "baseURL": "../bin",
     "images": [
       {
         "id": "rrosetta_002",

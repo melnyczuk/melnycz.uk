@@ -15,7 +15,9 @@ describe('Works Action Creators', () => {
     } = actionConstants;
 
     describe('setModalVisibility', () => {
+
       const { setModalShow } = modalActions;
+      
       it('returns the namespace if passed a string',
         () => {
 

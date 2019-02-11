@@ -1,12 +1,10 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Post, PostProps } from '../../src/components/Post';
 
-console.log(configure);
-
-configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Post Component', () => {
   it('renders', () => {
