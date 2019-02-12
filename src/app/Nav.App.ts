@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 
 import {
-  NavBar,
-  NavBarProps
+  NavBar
 } from '../components/Nav';
 
 import {
-  StoreType
+  StoreType, NavType
 } from '../store/types';
 
 import {
@@ -16,13 +15,13 @@ import {
 
 const mapStateToProps = (
   state: StoreType,
-  props: NavBarProps
-): NavBarProps => ({
+  props: NavType
+): NavType => ({
   ...props,
   title: selectTitle(state),
   links: selectLinks(state),
 });
 
-export default connect<NavBarProps, NavBarProps, any>
+export default connect<NavType, NavType, any>
   (mapStateToProps)
   (NavBar);

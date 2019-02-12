@@ -61,7 +61,7 @@ export default (state: WorksType = works, action: ActionType) => {
               ...state[key],
               description: {
                 expanded: !state[key].description.expanded,
-              }
+              } 
             }
           }
         );

@@ -13,9 +13,9 @@ const { DEFAULT_AREA } = areaConstants;
 
 function genTestState(works: WorksType): StoreType {
   return {
-    nav: {
+    navs: {
       title: null,
-      buttons:[]
+      links: []
     },
     areas: {
       active: DEFAULT_AREA,

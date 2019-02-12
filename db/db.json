@@ -92,9 +92,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -113,9 +113,9 @@
         "website"
       ],
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       }
     },
     {
@@ -130,9 +130,9 @@
         "website"
       ],
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       }
     },
     {
@@ -147,9 +147,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -169,9 +169,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -193,9 +193,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -215,9 +215,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -236,9 +236,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -257,9 +257,9 @@
         "short": ""
       },
       "media": {
-        "images":[],
-        "video":[],
-        "audio":[]
+        "images": [],
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
@@ -313,5 +313,23 @@
       }
     ],
     "audio": []
+  },
+  "navs": {
+    "default": "Portfolio",
+    "title": "hi",
+    "links": [
+      {
+        "title": "Portfolio",
+        "links": [
+          "photography",
+          "coding",
+          "design"
+        ]
+      },
+      {
+        "title": "Research",
+        "links": []
+      }
+    ]
   }
 }
