@@ -7,21 +7,10 @@ import {
 
 import { StoreType, WorksType, WorkType } from '../../../src/store/types';
 
-import { areaConstants } from '../../../src/store/constants';
-
-const { DEFAULT_AREA } = areaConstants;
-
 function genTestState(works: WorksType): StoreType {
   return {
-    navs: {
-      title: null,
-      links: []
-    },
-    areas: {
-      active: DEFAULT_AREA,
-      portfolio: null,
-      research: null,
-    },
+    about: null,
+    nav: [],
     works,
     media: {
       baseURL: '.',

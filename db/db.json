@@ -1,12 +1,76 @@
 {
-  "bio": {
-    "long": "",
-    "short": ""
+  "about": {
+    "title": "hi",
+    "bio": {
+      "long": "",
+      "short": ""
+    },
+    "info": {
+      "name": "Howard Melnyczuk",
+      "email": "h.melnyczuk@gmail.com",
+      "handle": "@melnyczuk"
+    }
   },
-  "info": {
-    "name": "Howard Melnyczuk",
-    "email": "h.melnyczuk@gmail.com",
-    "handle": "@melnyczuk"
+  "nav": [
+    {
+      "title": "Portfolio",
+      "links": [
+        "photography",
+        "coding",
+        "design"
+      ]
+    },
+    {
+      "title": "Research",
+      "links": []
+    }
+  ],
+  "writing": [],
+  "media": {
+    "baseURL": "../bin",
+    "images": [
+      {
+        "id": "rrosetta_002",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_003",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_004",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_006",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      },
+      {
+        "id": "rrosetta_009",
+        "title": "",
+        "path": "works/rrosetta/",
+        "ext": "jpg",
+        "rank": 0
+      }
+    ],
+    "video": [
+      {
+        "url": "https://vimeo.com/239667082"
+      }
+    ],
+    "audio": []
   },
   "works": [
     {
@@ -266,70 +330,5 @@
         "video"
       ]
     }
-  ],
-  "writing": [],
-  "media": {
-    "baseURL": "../bin",
-    "images": [
-      {
-        "id": "rrosetta_002",
-        "title": "",
-        "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": 0
-      },
-      {
-        "id": "rrosetta_003",
-        "title": "",
-        "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": 0
-      },
-      {
-        "id": "rrosetta_004",
-        "title": "",
-        "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": 0
-      },
-      {
-        "id": "rrosetta_006",
-        "title": "",
-        "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": 0
-      },
-      {
-        "id": "rrosetta_009",
-        "title": "",
-        "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": 0
-      }
-    ],
-    "video": [
-      {
-        "url": "https://vimeo.com/239667082"
-      }
-    ],
-    "audio": []
-  },
-  "navs": {
-    "default": "Portfolio",
-    "title": "hi",
-    "links": [
-      {
-        "title": "Portfolio",
-        "links": [
-          "photography",
-          "coding",
-          "design"
-        ]
-      },
-      {
-        "title": "Research",
-        "links": []
-      }
-    ]
-  }
+  ]
 }

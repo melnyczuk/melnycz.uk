@@ -1,18 +1,21 @@
 import * as React from 'react';
 import NavButton from './NavButtons';
-import { NavType } from '../../store/types';
+import { NavType, NavLinksType } from '../../store/types';
+
+export interface NavBarProps {
+  links: NavLinksType;
+}
 
 const NavBar = (
   {
-    title,
     links,
-  }: NavType,
+  }: NavBarProps,
 ) => (
     <nav className='nav'>
-      {title && <h1 className='nav-title'>{title}</h1>}
       {
         links && links.map(
-          (label: string, i: number) => <NavButton key={i} label={label} />
+          (label: string, i: number) =>
+            <NavButton key={i} label={label} />
         )
       }
     </nav>

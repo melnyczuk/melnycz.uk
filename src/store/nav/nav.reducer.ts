@@ -1,5 +1,5 @@
-import { navs } from '../../../db/db.json';
+const { nav } = require('../../../db/db.json');
 
 import { ActionType, NavType } from '../types';
 
-export default (state: NavType = navs, action: ActionType) => state;
+export default (state: NavType = nav, action: ActionType) => state;

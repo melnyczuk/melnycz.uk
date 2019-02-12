@@ -1,5 +1,6 @@
-import { works as dbWorks} from '../../../db/db.json';
+const { works: dbWorks } = require('../../../db/db.json');
 import { ActionType, WorksType } from '../types';
+import { Work } from '../../../db/types';
 
 import { actionConstants } from '../constants';
 const {
@@ -8,13 +9,13 @@ const {
   SET_LENGTH,
 } = actionConstants;
 
-const works: WorksType = dbWorks.reduce((map, work) => ({
+const works: WorksType = dbWorks.reduce((map: WorksType, work: Work) => ({
   ...map,
   [work.namespace]: {
     ...work,
     visible: false,
   },
-}),{});
+}), {});
 
 export default (state: WorksType = works, action: ActionType) => {
 
@@ -61,7 +62,7 @@ export default (state: WorksType = works, action: ActionType) => {
               ...state[key],
               description: {
                 expanded: !state[key].description.expanded,
-              } 
+              }
             }
           }
         );

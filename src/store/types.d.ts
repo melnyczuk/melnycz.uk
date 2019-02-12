@@ -1,5 +1,12 @@
-import DB from '../../db/types';
+import { DB, Work as DBWork } from '../../db/types';
 import { type } from 'os';
+
+export interface AboutType {
+  title: string;
+  bio: BioType;
+  info: InfoType;
+  statement?: DescriptionType;
+}
 
 export interface ActionType {
   type: string;
@@ -35,20 +42,6 @@ export interface ContainerType {
   children?: ContainerType | JSX.Element | Array<ContainerType | JSX.Element>;
 }
 
-export interface DBWork {
-  namespace: string;
-  live: boolean;
-  title: string;
-  img: string;
-  year: Array<number>;
-  description: DescriptionType;
-  media: MediaIndexType;
-  materials: Array<string>;
-  type: Array<string>;
-  links?: Array<string>;
-  exhibitions?: Array<ExhibitionType>;
-}
-
 export interface DescriptionType {
   expanded: boolean | false;
   short: string;
@@ -77,7 +70,7 @@ export interface ImageType {
   description?: DescriptionType;
 }
 
-export interface InformationType {
+export interface InfoType {
   name: string;
   email: string;
   handle: string;
@@ -103,7 +96,6 @@ export interface ModalDescriptionType extends DescriptionType {
 export interface NavType {
   title: string;
   links: NavLinksType;
-  default?: string;
 }
 
 export type NavLinksType = Array<NavType|string>;
@@ -117,8 +109,8 @@ export interface ResearchType extends AreaType {
 }
 
 export interface StoreType {
-  areas: AreasType;
-  navs: NavType;
+  about: AboutType;
+  nav: Array<NavType>;
   works: WorksType;
   media: MediaType;
 }
