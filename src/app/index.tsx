@@ -7,23 +7,24 @@ import Areas from './areas/Areas';
 
 import rootReducer from '../store/rootReducer';
 
-import { Route } from 'react-router';
-import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
+import { Route, BrowserRouter } from 'react-router-dom';
+// import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
 import Portfolio from './areas/portfolio/Portfolio';
 
 const store = createStore(rootReducer);
 
-const App = () => (
-  <Provider store={store} >
-    <Router history={hashHistory} >
+const App = () => {
+  if (!store) return (<h1>Loading...</h1>);
+  return (<Provider store={store} >
+    <BrowserRouter>
       <div className="App">
         <NavBar />
-        <Route path='/' component={Portfolio} >
-          <Route path='portfolio' component={Portfolio} />
-        </Route>
+        <Route component={() => (<div />)} />
+        <Route path='/portfolio' component={Portfolio} />
+        <Route path='/research' render={() => (<h1>TODO</h1>)} />
       </div>
-    </Router>
-  </Provider>
-);
+    </BrowserRouter>
+  </Provider>);
+};
 
 export default App;
