@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../../src/app';
 import Areas from '../../src/app/areas/Areas';
-import { NavBar } from '../../src/components/nav/NavBar';
+import { NavBar } from '../../src/components/Nav';
 
 
 Enzyme.configure({ adapter: new Adapter() });

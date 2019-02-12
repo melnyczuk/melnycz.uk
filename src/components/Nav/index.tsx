@@ -3,20 +3,22 @@ import NavButton from './NavButtons';
 
 interface NavBarProps {
   title: string;
-  buttons: Array<string>
+  links: Array<string>
 }
 
 const NavBar = (
   {
     title,
-    buttons,
+    links,
   }: NavBarProps,
 ) => {
   return (
-    <nav id='nav' className='nav'>
+    <nav className='nav'>
       {title && <h1 className='nav-title'>{title}</h1>}
       {
-        buttons && buttons.map((label, i) => <NavButton key={i} label={label} />)
+        links && links.map(
+          (label, i) => <NavButton key={i} label={label} />
+        )
       }
     </nav>
   );

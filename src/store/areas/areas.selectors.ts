@@ -35,14 +35,8 @@ const selectResearch = createSelector(
   ),
 );
 
-const navSelectors = {
-  selectButtons: (state: StoreType): Array<string> => state.nav.buttons,
-  selectTitle: (state: StoreType): string => state.nav.title,
-};
-
 export {
   selectActiveArea,
   selectPortfolio,
   selectResearch,
-  navSelectors,
 };
