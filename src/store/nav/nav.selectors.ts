@@ -10,7 +10,6 @@ function selectNav(state: StoreType | NavType): NavType {
 const selectTitle = createSelector(
   selectNav,
   (nav: NavType): string => nav.title
-  }
 );
 
 const selectLinks = createSelector(
