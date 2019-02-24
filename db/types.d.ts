@@ -19,14 +19,14 @@ export interface Description {
 }
 
 export interface Exhibition {
-  name: string;
-  curator?: Array<string>;
-  place: string;
+  title: string;
+  space: string;
   city: string;
   country: string;
   geo: Array<number>;
-  date: Array<number>;
+  dates: Array<number>;
   media: MediaIndex;
+  curator?: Array<string>;
   links?: Array<string>;
 }
 

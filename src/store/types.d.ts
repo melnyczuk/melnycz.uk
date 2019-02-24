@@ -11,6 +11,7 @@ export interface AboutType {
 export interface ActionType {
   type: string;
   namespace: string;
+  data?: any;
 }
 
 export interface AreaType {
@@ -43,7 +44,6 @@ export interface ContainerType {
 }
 
 export interface DescriptionType {
-  expanded: boolean | false;
   short: string;
   long?: string;
   mid?: string;

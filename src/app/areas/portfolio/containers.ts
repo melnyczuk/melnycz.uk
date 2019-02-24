@@ -13,79 +13,65 @@ import {
 } from '../../../store/works/works.selectors';
 
 import {
-  modalActions,
-  postActions,
+  modalActions, postActions,
 } from '../../../store/works/works.actions';
 
 import { StoreType, ContainerType } from '../../../store/types';
 
 const ModalContainer = connect<ModalProps, ModalProps, ContainerType>
   (
-    (state: StoreType, props: ModalProps): ModalProps => (
-      {
-        ...props,
-        visible: modalSelectors.selectVisible(state, props),
-      }
-    ),
-    (dispatch: any, props: ModalProps): ModalProps => (
-      {
-        ...props,
-        hide: () => dispatch(modalActions.setModalHide(props.namespace))
-      }
-    )
+    (state: StoreType, props: ModalProps): ModalProps => ({
+      ...props,
+      visible: modalSelectors.selectVisible(state, props),
+      long: postSelectors.selectLong(state, props),
+      longPath: postSelectors.selectLongPath(state, props),
+    }),
+    (dispatch: any, props: ModalProps): ModalProps => ({
+      ...props,
+      hide: () => dispatch(modalActions.setModalHide(props.namespace)),
+      setLong: (data) => dispatch(postActions.setPostLong(props.namespace, data)),
+    })
   )
   (Modal);
 
 const PortalContainer = connect<PortalProps, PortalProps, ContainerType>
   (
-    (state: StoreType, props: PortalProps): PortalProps => (
-      {
-        ...props,
-        baseBinUrl: mediaSelectors.selectBinBaseUrl(state),
-        images: mediaSelectors.selectImages(state, props),
-      }
-    )
+    (state: StoreType, props: PortalProps): PortalProps => ({
+      ...props,
+      baseBinUrl: mediaSelectors.selectBinBaseUrl(state),
+      images: mediaSelectors.selectImages(state, props),
+    }),
+    (dispatch: any, props: PortalProps, ) => ({ ...props })
   )
   (Portal);
 
 const PostContainer = connect<PostProps, PostProps, ContainerType>
   (
-    (state: StoreType, props: PostProps): PostProps => (
-      {
-        ...props,
-        expanded: postSelectors.selectExpanded(state, props),
-        short: postSelectors.selectShort(state, props),
-        long: postSelectors.selectLong(state, props),
-        title: postSelectors.selectTitle(state, props),
-      }
-    ),
-    (dispatch: any, props: PostProps, ): PostProps => (
-      {
-        ...props,
-        expand: () => dispatch(postActions.setPostLength(props.namespace))
-      }
-    )
+    (state: StoreType, props: PostProps): PostProps => ({
+      ...props,
+      short: postSelectors.selectShort(state, props),
+      long: postSelectors.selectLong(state, props),
+      longPath: postSelectors.selectLongPath(state, props),
+      title: postSelectors.selectTitle(state, props),
+    }),
+    (dispatch: any, props: PostProps, ): PostProps => ({ 
+      ...props,
+      setLong: (data) => dispatch(postActions.setPostLong(props.namespace, data)),
+    })
   )(Post);
 
 
 const PunctumContainer = connect<PunctumProps, PunctumProps, ContainerType>
   (
-    (state: StoreType, props: PunctumProps): PunctumProps => (
-      {
-        ...props,
-        alt: punctumSelectors.selectAlt(state, props),
-        src: punctumSelectors.selectSrc(state, props),
-      }
-    ),
-    (
-      dispatch: any,
-      props: PunctumProps
-    ): PunctumProps => (
-        {
-          ...props,
-          showModal: () => dispatch(modalActions.setModalShow(props.namespace)),
-        }
-      )
+    (state: StoreType, props: PunctumProps): PunctumProps => ({
+      ...props,
+      alt: punctumSelectors.selectAlt(state, props),
+      src: punctumSelectors.selectSrc(state, props),
+    }),
+    (dispatch: any, props: PunctumProps): PunctumProps => ({
+      ...props,
+      showModal: () => dispatch(modalActions.setModalShow(props.namespace))
+    })
   )(Punctum);
 
 export {

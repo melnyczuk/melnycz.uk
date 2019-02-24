@@ -19,14 +19,19 @@ import {
   AudioType,
 } from '../types';
 
-const selectWorks = (state: StoreType): WorksType => state.works;
-
-const selectWork = (
+const selectNamespace = (
   state: StoreType,
-  { namespace }: ContainerType
-): WorkType => (
-    selectWorks(state)[namespace]
-  );
+  props: ContainerType
+): string => props.namespace;
+
+const selectWorks = (
+  state: StoreType
+): WorksType => state.works;
+
+const selectWork = createSelector(
+  [selectWorks, selectNamespace],
+  (works: WorksType, namespace: string): WorkType => works[namespace]
+);
 
 const selectWorkMediaIndex = createSelector(
   selectWork,
@@ -63,13 +68,6 @@ const selectWorkDescription = createSelector(
   ),
 );
 
-const modalSelectors = {
-  selectVisible: createSelector(
-    [selectWork],
-    (work: WorkType): boolean => (
-      (work && work.visible) ? work.visible : false),
-  ),
-};
 
 const mediaSelectors = {
 
@@ -109,6 +107,15 @@ const mediaSelectors = {
 
 const postSelectors = {
 
+  selectLongPath: createSelector(
+    [selectNamespace, selectBinBaseUrl],
+    (namespace: string, baseBinUrl: string): string | null => (
+      (namespace && baseBinUrl)
+        ? `${baseBinUrl}/works/${namespace}/${namespace}.txt`
+        : null
+    ),
+  ),
+
   selectLong: createSelector(
     [selectWorkDescription],
     (desc: DescriptionType): string | null => (
@@ -117,16 +124,9 @@ const postSelectors = {
   ),
 
   selectShort: createSelector(
-    selectWorkDescription,
+    [selectWorkDescription],
     (desc: DescriptionType): string | null => (
       (desc && desc.short) ? desc.short : null
-    ),
-  ),
-
-  selectExpanded: createSelector(
-    [selectWorkDescription],
-    (desc: DescriptionType): boolean => (
-      (desc && desc.expanded) ? desc.expanded : false
     ),
   ),
 
@@ -134,6 +134,17 @@ const postSelectors = {
     [selectWork],
     (work: WorkType): string | null => (
       (work && work.title) ? work.title : null
+    ),
+  ),
+
+};
+
+const modalSelectors = {
+
+  selectVisible: createSelector(
+    [selectWork],
+    (work: WorkType): boolean => (
+      (work && work.visible) ? work.visible : false
     ),
   ),
 
@@ -149,10 +160,10 @@ const punctumSelectors = {
   ),
 
   selectSrc: createSelector(
-    [selectWork, selectBinBaseUrl],
-    (work: WorkType, baseBinUrl: string): string | null => (
-      (work && baseBinUrl && work.img)
-        ? `${baseBinUrl}/${work.img}`
+    [selectWork, selectNamespace, selectBinBaseUrl],
+    (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
+      (work && namespace && baseBinUrl && work.img)
+        ? `${baseBinUrl}/works/${namespace}/${work.img}.jpg`
         : null
     ),
   ),
