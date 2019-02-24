@@ -7,6 +7,15 @@ import { Post, PostProps } from '../../src/components/Post';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Post Component', () => {
+  const nullProps: PostProps = {
+    className: null,
+    namespace: null,
+    title: null,
+    short: null,
+    long: null,
+    setLong: () => {},
+  };
+
   it('renders', () => {
     const element = React.createElement(Post);
     const post = shallow(element);
@@ -17,14 +26,7 @@ describe('Post Component', () => {
   });
 
   it('renders with additional className', () => {
-    const props: PostProps = {
-      className:  'basic post',
-      namespace: null,
-      title: null,
-      expand: null,
-      expanded: null,
-      short: null,
-    }
+    const props: PostProps = { ...nullProps, className: 'basic post' }
 
     const element = React.createElement(Post, props);
 
@@ -36,12 +38,15 @@ describe('Post Component', () => {
   });
 
   it('renders with a title', () => {
-    const title = 'testTitle';
-    const element = React.createElement(Post, { title });
+    const props: PostProps = { ...nullProps, title: 'testTitle' }
+
+    const element = React.createElement(Post, props);
     const post = shallow(element);
 
-    const header = React.createElement('h2', {}, title);
+    const header = React.createElement('h2', {}, props.title);
     expect(post.contains(header)).toBe(true);
-    expect(post.html()).toStrictEqual(`<article><h2>${title}</h2></article>`);
+    expect(post.html()).toStrictEqual(
+      `<article><h2>${props.title}</h2></article>`
+    );
   });
 });

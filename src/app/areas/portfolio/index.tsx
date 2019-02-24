@@ -22,25 +22,36 @@ interface PortfolioProps {
   links: NavLinksType;
   works: WorksType;
 }
+class Portfolio extends React.PureComponent<PortfolioProps> {
 
-const Portfolio = ({ links, works }: PortfolioProps): JSX.Element => (
-  <div className="portfolio">
-    <NavBar links={links} />
-    <div className="works">
-      {
-        Object.keys(works).map(
-          (key, i) => {
-            const { namespace }: WorkProps = works[key];
-            return (
-              works.hasOwnProperty(key) &&
-              <Work key={i} namespace={namespace} />
-            );
-          },
-        )
-      }
-    </div>
-  </div>
-)
+  constructor(props: PortfolioProps) {
+    super(props);
+  }
+
+  render() {
+
+    const { links, works } = this.props;
+
+    return (
+      <div className="portfolio">
+        <NavBar links={links} />
+        <div className="works">
+          {
+            Object.keys(works).map(
+              (key, i) => {
+                const { namespace }: WorkProps = works[key];
+                return (
+                  works.hasOwnProperty(key) &&
+                  <Work key={i} namespace={namespace} />
+                );
+              },
+            )
+          }
+        </div>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state: StoreType) => ({
   links: selectLinksForActive(state),

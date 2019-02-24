@@ -7,17 +7,27 @@ interface PunctumProps {
   showModal: () => void;
 }
 
-const Punctum = (
-  {
-    src,
-    alt,
-    showModal,
-  }: PunctumProps
-): JSX.Element => {
-  if (src) {
-    return (<img src={src} alt={alt} onClick={showModal} />)
+class Punctum extends React.PureComponent <PunctumProps> {
+  
+  constructor(props: PunctumProps){
+    super(props);
   }
-  return null;
+
+  render() {
+
+    const {
+      src,
+      alt,
+      showModal,
+    }: PunctumProps = this.props;
+
+    if (src) {
+      return (<img src={src} alt={alt} onClick={showModal} />)
+    }
+
+    return null;
+  }
+
 }
 
 export {

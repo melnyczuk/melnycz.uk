@@ -2,15 +2,20 @@ import * as React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { Modal } from '../../src/components/Modal';
+import { Modal, ModalProps } from '../../src/components/Modal';
 
 const MODAL_MARKUP = '<div><button type="button"><svg></svg></button></div>';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal Component', () => {
+  const nullProps: ModalProps = {
+    namespace: null,
+    visible: null,
+    hide: null,
+  }
   it('renders', () => {
-    const element = React.createElement(Modal, { visible: true });
+    const element = React.createElement(Modal, { ...nullProps, visible: true });
 
     const modal = shallow(element);
 
