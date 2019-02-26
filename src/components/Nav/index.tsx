@@ -1,27 +1,50 @@
 import * as React from 'react';
-import NavButton from './NavButtons';
-import { NavType, NavLinksType } from '../../store/types';
+import { NavLink } from 'react-router-dom';
+import { 
+  NavLinksType, 
+  NavButtonType 
+} from '../../store/types';
 
-export interface NavBarProps {
+
+interface NavBarVals {
   links: NavLinksType;
 }
 
-const NavBar = (
-  {
-    links,
-  }: NavBarProps,
-) => (
-    <nav className='nav'>
-      {
-        links && links.map(
-          (label: string, i: number) =>
-            <NavButton key={i} label={label} />
-        )
-      }
-    </nav>
-  );
+interface NavBarFuncs {
 
+}
+
+interface NavBarProps extends NavBarVals, NavBarFuncs {
+
+}
+
+class NavBar extends React.PureComponent<NavBarProps> {
+
+  constructor(props: NavBarProps) { super(props); }
+
+  render() {
+    const { links }: NavBarProps = this.props;
+    return (
+      <nav className='nav'>
+        {
+          links && links.map(
+            ({ label, updateTitle }: NavButtonType) => {
+            <button className={'nav-button'} onClick={() => updateTitle(label)}>
+              <NavLink to={`/${label.toLowerCase().replace(' ', '-')}`} >
+                {label}
+              </NavLink>
+            </button>
+          })
+        }
+      </nav>
+    );
+  };
+
+}
 
 export {
-  NavBar
+  NavBar,
+  NavBarProps,
+  NavBarVals,
+  NavBarFuncs,
 }

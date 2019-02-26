@@ -4,12 +4,18 @@ import { Button } from '../Button';
 
 import { ImageType } from '../../store/types';
 
-interface PortalProps {
-  namespace: string;
+interface PortalVals {
   baseBinUrl: string;
   images: Array<ImageType>;
-  scrollPortal: Function;
   className?: string;
+}
+
+interface PortalFuncs {
+  scrollPortal?: Function;
+}
+
+interface PortalProps extends PortalVals, PortalFuncs {s
+  namespace: string;
 }
 
 const Portal = (
@@ -38,4 +44,6 @@ const Portal = (
 export {
   Portal,
   PortalProps,
+  PortalVals,
+  PortalFuncs,
 }

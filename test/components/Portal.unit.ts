@@ -7,27 +7,22 @@ import { Portal, PortalProps } from '../../src/components/Portal';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Portal Component', () => {
+  
+  const nullProps: PortalProps = {
+    className: null,
+    namespace: null,
+    images: null,
+    scrollPortal: () => {},
+    baseBinUrl: null,
+  };
+
+  const postMarkup = '<figure><button type="button"><svg></svg></button><button type="button"><svg></svg></button></figure>'
+
   it('renders', () => {
-    const post = shallow(React.createElement(Portal));
+    const post = shallow(React.createElement(Portal, nullProps));
 
     expect(post.exists()).toBe(true);
     expect(post.length).toBe(1);
-    expect(post.html()).toStrictEqual('<figure></figure>');
-  });
-
-  it.skip('renders with additional className', () => {
-    const props: PortalProps = {
-      className: 'basic post',
-      namespace: null,
-      images: null,
-      scrollPortal: null,
-      baseBinUrl: null,
-    };
-
-    const post = shallow(React.createElement(Portal, props));
-
-    expect(post.html()).toStrictEqual(
-      '<figure></figure>',
-    );
+    expect(post.html()).toStrictEqual(postMarkup);
   });
 });

@@ -98,7 +98,12 @@ export interface NavType {
   links: NavLinksType;
 }
 
-export type NavLinksType = Array<NavType|string>;
+export interface NavButtonType {
+  label: string;
+  updateTitle: (title: string) => void;
+}
+
+export type NavLinksType = Array<NavButtonType | string>;
 
 export interface PortfolioType extends AreaType {
 

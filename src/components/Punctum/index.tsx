@@ -1,10 +1,16 @@
 import * as React from 'react';
 
-interface PunctumProps {
-  namespace: string;
+interface PunctumVals {
   src: string;
   alt: string;
+}
+
+interface PunctumFuncs {
   showModal: () => void;
+}
+
+interface PunctumProps extends PunctumVals, PunctumFuncs {
+  namespace: string;
 }
 
 class Punctum extends React.PureComponent <PunctumProps> {
@@ -33,4 +39,6 @@ class Punctum extends React.PureComponent <PunctumProps> {
 export {
   Punctum,
   PunctumProps,
+  PunctumVals,
+  PunctumFuncs,
 }

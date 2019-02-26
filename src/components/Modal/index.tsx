@@ -8,15 +8,21 @@ export interface ModalType {
   props: ModalProps;
 }
 
-interface ModalProps {
-  namespace: string;
+interface ModalVals {
   visible: boolean;
   className?: string;
   long?: string;
   longPath?: string;
   children?: Array<JSX.Element>,
+}
+
+interface ModalFuncs {
   hide: () => void;
   setLong?: (data: string) => void;
+}
+
+interface ModalProps extends ModalVals, ModalFuncs {
+  namespace: string;
 }
 
 class Modal extends React.PureComponent<ModalProps> {
@@ -24,12 +30,6 @@ class Modal extends React.PureComponent<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
   }
-
-  // componentDidMount() {
-  //   if (!this.props.long && this.props.longPath) {
-  //     fetchLongDescriptions(this.props.longPath).then(data => this.props.setLong(data));
-  //   }
-  // }
 
   render() {
 
@@ -56,4 +56,6 @@ class Modal extends React.PureComponent<ModalProps> {
 export {
   Modal,
   ModalProps,
+  ModalVals,
+  ModalFuncs,
 };
