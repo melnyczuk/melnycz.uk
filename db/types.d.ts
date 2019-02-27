@@ -3,13 +3,13 @@ export interface Work {
   live: boolean;
   title: string;
   img: string;
-  year: Array<number>;
+  year: number[];
   description: Description;
   media: MediaIndex;
-  materials: Array<string>;
-  type: Array<string>;
-  links?: Array<string>;
-  exhibitions?: Array<Exhibition>;
+  materials: string[];
+  type: string[];
+  links?: string[];
+  exhibitions?: Exhibition[];
 }
 
 export interface Description {
@@ -23,24 +23,24 @@ export interface Exhibition {
   space: string;
   city: string;
   country: string;
-  geo: Array<number>;
-  dates: Array<number>;
+  geo: number[];
+  dates: number[];
   media: MediaIndex;
-  curator?: Array<string>;
-  links?: Array<string>;
+  curator?: string[];
+  links?: string[];
 }
 
 export interface MediaIndex {
-  imageKeys: Array<string>;
-  videoKeys: Array<string>;
-  audioKeys: Array<string>;
+  imageKeys: string[];
+  videoKeys: string[];
+  audioKeys: string[];
 }
 
 export interface Media {
   baseURL: string;
-  images?: Array<Image>;
-  videos?: Array<Video>;
-  audios?: Array<Audio>;
+  images?: Image[];
+  videos?: Video[];
+  audios?: Audio[];
 }
 
 export interface Image {
@@ -89,6 +89,6 @@ export interface DB {
   bio: Bio;
   info: Information;
   media: Media;
-  works: Array<Work>;
-  writing: Array<Writing>;
+  works: Work[];
+  writing: Writing[];
 }

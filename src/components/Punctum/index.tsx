@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 interface PunctumVals {
+  className: string;
   src: string;
   alt: string;
 }
@@ -22,13 +23,14 @@ class Punctum extends React.PureComponent <PunctumProps> {
   render() {
 
     const {
+      className,
       src,
       alt,
       showModal,
     }: PunctumProps = this.props;
 
     if (src) {
-      return (<img src={src} alt={alt} onClick={showModal} />)
+      return (<img className={className} src={src} alt={alt} onClick={showModal} />)
     }
 
     return null;

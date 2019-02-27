@@ -8,7 +8,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Nav Component', () => {
   const nullProps: NavBarProps = {
-    links: null,
+    className: null,
+    labels: null,
   };
 
   const navMarkup = '<nav class="nav"></nav>';
@@ -29,7 +30,7 @@ describe('Nav Component', () => {
 
   it('renders with buttons with text, id and relative href', () => {
     const links = ['Art', 'Code'];
-    const element = React.createElement(NavBar, { ...nullProps, links });
+    const element = React.createElement(NavBar, { ...nullProps, labels: links });
     const navButtons = shallow(element).children().map(
       button => button.shallow()
     );

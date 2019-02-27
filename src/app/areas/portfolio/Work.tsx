@@ -4,7 +4,7 @@ import {
   ModalContainer,
   PostContainer,
   PunctumContainer,
-} from './containers';
+} from './portfolio.containers';
 
 interface WorkProps {
   namespace: string;
@@ -19,8 +19,6 @@ class Work extends React.PureComponent<WorkProps> {
   render() {
 
     const { namespace } = this.props;
-
-    console.log(namespace);
     
     return (
       <section>

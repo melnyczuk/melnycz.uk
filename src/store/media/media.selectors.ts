@@ -14,21 +14,21 @@ const selectBinBaseUrl = createSelector(
 
 const selectImages = createSelector(
   selectMedia,
-  (media: MediaType): Array<ImageType> => (
+  (media: MediaType): ImageType[] => (
     media.images ? media.images : null
   ),
 );
 
 const selectVideos = createSelector(
   selectMedia,
-  (media: MediaType): Array<VideoType> => (
+  (media: MediaType): VideoType[] => (
     media.videos ? media.videos : null
   ),
 );
 
 const selectAudios = createSelector(
   selectMedia,
-  (media: MediaType): Array<AudioType> => (
+  (media: MediaType): AudioType[] => (
     media.audios ? media.audios : null
   ),
 );

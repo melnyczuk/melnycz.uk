@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { NavContainer, SiteTitleContainer } from './containers';
+import { MainNavContainer, SiteTitleContainer } from './app.containers';
 
 import rootReducer from '../store/rootReducer';
 
@@ -24,7 +24,7 @@ class App extends React.PureComponent {
         <BrowserRouter>
           <div className="App">
             <SiteTitleContainer />
-            <NavContainer />
+            <MainNavContainer />
             <main>
               <Route component={() => (<div />)} />
               <Route path='/portfolio' component={Portfolio} />

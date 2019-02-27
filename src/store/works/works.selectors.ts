@@ -42,21 +42,21 @@ const selectWorkMediaIndex = createSelector(
 
 const selectImageKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): Array<string> | null => (
+  (mediaIndex: MediaIndexType): string[] | null => (
     (mediaIndex && mediaIndex.imageKeys) ? mediaIndex.imageKeys : []
   ),
 );
 
 const selectVideoKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): Array<string> | null => (
+  (mediaIndex: MediaIndexType): string[] | null => (
     (mediaIndex && mediaIndex.videoKeys) ? mediaIndex.videoKeys : []
   ),
 );
 
 const selectAudioKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): Array<string> | null => (
+  (mediaIndex: MediaIndexType): string[] | null => (
     (mediaIndex && mediaIndex.audioKeys) ? mediaIndex.audioKeys : []
   ),
 );
@@ -76,9 +76,9 @@ const mediaSelectors = {
   selectImages: createSelector(
     [selectImageKeys, selectImages],
     (
-      imageKeys: Array<string>,
-      images: Array<ImageType>
-    ): Array<ImageType> | [] => (
+      imageKeys: string[],
+      images: ImageType[]
+    ): ImageType[] | [] => (
         images.filter((image) => (imageKeys.includes(image.id)))
       ),
   ),
@@ -86,9 +86,9 @@ const mediaSelectors = {
   selectVideos: createSelector(
     [selectVideoKeys, selectVideos],
     (
-      videoKeys: Array<string>,
-      videos: Array<VideoType>
-    ): Array<VideoType> | null => (
+      videoKeys: string[],
+      videos: VideoType[]
+    ): VideoType[] | null => (
         videos.filter((video) => (videoKeys.includes(video.id)))
       ),
   ),
@@ -96,9 +96,9 @@ const mediaSelectors = {
   selectAudios: createSelector(
     [selectAudioKeys, selectAudios],
     (
-      audioKeys: Array<string>,
-      audio: Array<AudioType>
-    ): Array<AudioType> | null => (
+      audioKeys: string[],
+      audio: AudioType[]
+    ): AudioType[] | null => (
         audio.filter((audio) => (audioKeys.includes(audio.id)))
       ),
   ),

@@ -1,17 +1,15 @@
 import * as React from 'react';
 
 import { ContainerType } from "../../store/types";
-import Axios from 'axios';
 import { fetchLongDescriptions } from '../../store/works/works.utils';
-import { postActions } from '../../store/works/works.actions';
 
 interface PostVals {
+  className: string;
   title: string;
   short: string;
   long: string;
   longPath?: string;
-  className?: string;
-  children?: Array<ContainerType | JSX.Element>;
+  children?: ContainerType[] | JSX.Element[];
 }
 
 interface PostFuncs {

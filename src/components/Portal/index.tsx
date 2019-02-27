@@ -5,16 +5,16 @@ import { Button } from '../Button';
 import { ImageType } from '../../store/types';
 
 interface PortalVals {
+  className: string;
   baseBinUrl: string;
-  images: Array<ImageType>;
-  className?: string;
+  images: ImageType[];
 }
 
 interface PortalFuncs {
   scrollPortal?: Function;
 }
 
-interface PortalProps extends PortalVals, PortalFuncs {s
+interface PortalProps extends PortalVals, PortalFuncs {
   namespace: string;
 }
 

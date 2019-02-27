@@ -1,28 +1,29 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { NavBar } from '../../../components/Nav';
 import { Work, WorkProps } from './Work';
+import { SubNavContainer } from './portfolio.containers';
 
 import { selectWorks } from '../../../store/works/works.selectors';
-
-import {
-  selectLinksForActive
-} from '../../../store/nav/nav.selectors';
 
 import {
   PortfolioType,
   StoreType,
   WorksType,
-  NavLinksType,
 } from '../../../store/types';
+import { setTitle } from '../../../store/about/about.actions';
 
-
-interface PortfolioProps {
-  links: NavLinksType;
+interface PortfolioVals {
   works: WorksType;
 }
-class Portfolio extends React.PureComponent<PortfolioProps> {
+
+interface PortfolioFuncs {
+  updateTitle: (title: string) => void;
+}
+
+interface PortfolioProps extends PortfolioVals, PortfolioFuncs {}
+
+export class Portfolio extends React.PureComponent<PortfolioProps> {
 
   constructor(props: PortfolioProps) {
     super(props);
@@ -30,11 +31,13 @@ class Portfolio extends React.PureComponent<PortfolioProps> {
 
   render() {
 
-    const { links, works } = this.props;
+    const { works, updateTitle } = this.props;
+
+    updateTitle('Portfolio');
 
     return (
       <div className="portfolio">
-        <NavBar links={links} />
+        <SubNavContainer />
         <div className="works">
           {
             Object.keys(works).map(
@@ -54,11 +57,12 @@ class Portfolio extends React.PureComponent<PortfolioProps> {
 }
 
 const mapStateToProps = (state: StoreType) => ({
-  links: selectLinksForActive(state),
   works: selectWorks(state),
 });
 
-export default connect
-  <PortfolioProps, PortfolioType, any>
-  (mapStateToProps)
-  (Portfolio);
+const mapDispatchToProps = (dispatch: Function) => ({
+  updateTitle: (title: string) => dispatch(setTitle(title))
+})
+
+export default connect<PortfolioVals, PortfolioFuncs, {}>
+  (mapStateToProps, mapDispatchToProps)(Portfolio);

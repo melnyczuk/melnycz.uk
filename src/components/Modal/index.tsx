@@ -9,11 +9,11 @@ export interface ModalType {
 }
 
 interface ModalVals {
+  className: string;
   visible: boolean;
-  className?: string;
   long?: string;
   longPath?: string;
-  children?: Array<JSX.Element>,
+  children?: JSX.Element[],
 }
 
 interface ModalFuncs {

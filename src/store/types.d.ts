@@ -40,7 +40,7 @@ export interface BioType {
 
 export interface ContainerType {
   namespace: string;
-  children?: ContainerType | JSX.Element | Array<ContainerType | JSX.Element>;
+  children?: ContainerType | JSX.Element | ContainerType[] | JSX.Element[];
 }
 
 export interface DescriptionType {
@@ -51,14 +51,14 @@ export interface DescriptionType {
 
 export interface ExhibitionType {
   name: string;
-  curator?: Array<string>;
+  curator?: string[];
   place: string;
   city: string;
   country: string;
-  geo: Array<number>;
-  date: Array<number>;
+  geo: number[];
+  date: number[];
   media: MediaIndexType;
-  links?: Array<string>;
+  links?: string[];
 }
 
 export interface ImageType {
@@ -78,15 +78,15 @@ export interface InfoType {
 
 export interface MediaType {
   baseURL: string;
-  images?: Array<ImageType>;
-  videos?: Array<VideoType>;
-  audios?: Array<AudioType>;
+  images?: ImageType[];
+  videos?: VideoType[];
+  audios?: AudioType[];
 }
 
 export interface MediaIndexType {
-  imageKeys: Array<string>;
-  videoKeys: Array<string>;
-  audioKeys: Array<string>;
+  imageKeys: string[];
+  videoKeys: string[];
+  audioKeys: string[];
 }
 
 export interface ModalDescriptionType extends DescriptionType {
@@ -95,15 +95,8 @@ export interface ModalDescriptionType extends DescriptionType {
 
 export interface NavType {
   title: string;
-  links: NavLinksType;
+  labels: string[];
 }
-
-export interface NavButtonType {
-  label: string;
-  updateTitle: (title: string) => void;
-}
-
-export type NavLinksType = Array<NavButtonType | string>;
 
 export interface PortfolioType extends AreaType {
 
@@ -115,7 +108,7 @@ export interface ResearchType extends AreaType {
 
 export interface StoreType {
   about: AboutType;
-  nav: Array<NavType>;
+  nav: NavType[];
   works: WorksType;
   media: MediaType;
 }
