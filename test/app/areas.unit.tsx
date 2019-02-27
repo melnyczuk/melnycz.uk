@@ -28,7 +28,7 @@ describe('Areas', () => {
         }
       }
 
-      const portfolio = shallow(<Portfolio works={mockWorks} updateTitle={()=>{}} />);
+      const portfolio = shallow(<Portfolio updateTitle={()=>{}} />);
 
       expect(portfolio.exists()).toBe(true);
       expect(portfolio.length).toBe(1);

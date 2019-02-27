@@ -128,7 +128,7 @@ export interface WorkType extends DBWork {
 }
 
 export interface WorksType {
-  [key: string]: WorkType;
+  [key: string]: WorkType 
 }
 
 export interface WritingType {

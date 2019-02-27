@@ -18,12 +18,13 @@ class Research extends React.PureComponent <ResearchProps> {
   constructor(props: ResearchProps) {
     super(props);
   }
+  
+  componentDidMount() {
+    const { updateTitle } = this.props;
+    updateTitle('Research');
+  }
 
   render() {
-    const { updateTitle } = this.props;
-    
-    updateTitle('Research');
-    
     return (<h1>TODO</h1>);
   }
 }

@@ -1,9 +1,8 @@
-const { works: dbWorks, media } = require('../../../db/db.json');
+const { works: dbWorks } = require('../../../db/db.json');
 import { ActionType, WorksType } from '../types';
 import { Work } from '../../../db/types';
 
 import { actionConstants } from '../constants';
-import Axios from 'axios';
 
 const {
   SET_SHOW,

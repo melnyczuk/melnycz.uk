@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -6,6 +7,12 @@ import {
   ModalVals,
   ModalFuncs
 } from '../../../components/Modal';
+
+import {
+  NavBarVals,
+  NavBarFuncs,
+  NavBar
+} from '../../../components/Nav';
 
 import {
   Portal,
@@ -29,11 +36,14 @@ import {
 } from '../../../components/Punctum';
 
 import {
-  mediaSelectors,
-  modalSelectors,
-  postSelectors,
-  punctumSelectors,
-} from '../../../store/works/works.selectors';
+  Works,
+  WorksVals,
+  WorksFuncs
+} from '../../../components/Works';
+
+import {
+  selectSubNavLabels,
+} from '../../../store/nav/nav.selectors';
 
 import {
   modalActions,
@@ -41,20 +51,34 @@ import {
 } from '../../../store/works/works.actions';
 
 import {
+  mediaSelectors,
+  modalSelectors,
+  postSelectors,
+  punctumSelectors,
+  selectWorks,
+} from '../../../store/works/works.selectors';
+
+import {
   StoreType,
   ContainerType
 } from '../../../store/types';
 
-import {
-  NavBarVals,
-  NavBarFuncs,
-  NavBar
-} from '../../../components/Nav';
-
-import {
-  selectSubNavLabels,
-  selectSubNavTitle
-} from '../../../store/nav/nav.selectors';
+const WorksContainer = connect<WorksVals, WorksFuncs, {}>
+  (
+    (state: StoreType) => ({
+      works: selectWorks(state),
+    }),
+    (dispatch: Function) => ({
+      children: (namespace: string) => (
+        <section>
+          <PunctumContainer namespace={namespace} />
+          <ModalContainer namespace={namespace}>
+            <PostContainer namespace={namespace} />
+          </ModalContainer>
+        </section>
+      ),
+    })
+  )(Works);
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
@@ -111,7 +135,6 @@ const PostContainer = connect<PostVals, PostFuncs, ContainerType>
     })
   )(Post);
 
-
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, ContainerType>
   (
     (state: StoreType, props: PunctumProps) => ({
@@ -128,8 +151,5 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, ContainerType>
 
 export {
   SubNavContainer,
-  ModalContainer,
-  PortalContainer,
-  PostContainer,
-  PunctumContainer,
+  WorksContainer,
 }

@@ -20,12 +20,12 @@ class Home extends React.PureComponent <HomeProps> {
   constructor(props: HomeProps) {
     super(props);
   }
+  componentDidMount(){
+    const { updateTitle } = this.props;
+    updateTitle('hi');
+  }
   
   render() {
-    const { updateTitle } = this.props;
-
-    updateTitle('hi');
-
     return (<div />);
   }
 }
