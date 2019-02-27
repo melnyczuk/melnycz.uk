@@ -43,7 +43,6 @@ import {
 import { StoreType, ContainerType } from '../../../store/types';
 import { NavBarVals, NavBarFuncs, NavBar } from '../../../components/Nav';
 import { selectSubNavLabels } from '../../../store/nav/nav.selectors';
-import { setTitle } from '../../../store/about/about.actions';
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
@@ -52,9 +51,7 @@ const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
       buttonClassName: '',
       labels: selectSubNavLabels(state)
     }),
-    (dispatch: Function) => ({
-      // updateTitle: (title) => dispatch(setTitle(title)),
-    })
+    (dispatch: Function) => ({})
   )(NavBar);
 
 const ModalContainer = connect<ModalVals, ModalFuncs, ContainerType>

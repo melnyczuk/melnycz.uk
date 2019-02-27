@@ -11,9 +11,14 @@ const selectMainNavLabels = createSelector(
 
 const selectActiveNav = createSelector(
   [selectStoreNavArray, selectTitle],
-  (navArray: NavType[], title: string): NavType => navArray.filter(
+  (navArray: NavType[], title: string): NavType => {
+    
+    const activeNavArray = navArray.filter(
       (n: NavType): Boolean => (n.title.toLowerCase() === title.toLowerCase())
-    )[0] || null
+    );
+
+    return activeNavArray[0] || null
+  }
 );
 
 const selectSubNavLabels = createSelector(

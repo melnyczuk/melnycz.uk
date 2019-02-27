@@ -14,15 +14,15 @@
   "nav": [
     {
       "title": "Portfolio",
-      "links": [
-        "photography",
-        "coding",
-        "design"
+      "labels": [
+        "Photography",
+        "Code",
+        "Design"
       ]
     },
     {
       "title": "Research",
-      "links": []
+      "labels": []
     }
   ],
   "writing": [],
