@@ -36,20 +36,33 @@ import {
 } from '../../../store/works/works.selectors';
 
 import {
-  modalActions, 
+  modalActions,
   postActions,
 } from '../../../store/works/works.actions';
 
-import { StoreType, ContainerType } from '../../../store/types';
-import { NavBarVals, NavBarFuncs, NavBar } from '../../../components/Nav';
-import { selectSubNavLabels } from '../../../store/nav/nav.selectors';
+import {
+  StoreType,
+  ContainerType
+} from '../../../store/types';
+
+import {
+  NavBarVals,
+  NavBarFuncs,
+  NavBar
+} from '../../../components/Nav';
+
+import {
+  selectSubNavLabels,
+  selectSubNavTitle
+} from '../../../store/nav/nav.selectors';
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType) => ({
       className: '',
       buttonClassName: '',
-      labels: selectSubNavLabels(state)
+      labels: selectSubNavLabels(state),
+      title: 'portfolio',
     }),
     (dispatch: Function) => ({})
   )(NavBar);
@@ -63,9 +76,12 @@ const ModalContainer = connect<ModalVals, ModalFuncs, ContainerType>
       longPath: postSelectors.selectLongPath(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
-      hide: () => dispatch(modalActions.setModalHide(props.namespace)),
-      setLong:
-        (data) => dispatch(postActions.setPostLong(props.namespace, data)),
+      hide: () => dispatch(
+        modalActions.setModalHide(props.namespace)
+      ),
+      setLong: (data) => dispatch(
+        postActions.setPostLong(props.namespace, data)
+      ),
     })
   )(Modal);
 
@@ -89,7 +105,9 @@ const PostContainer = connect<PostVals, PostFuncs, ContainerType>
       title: postSelectors.selectTitle(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setLong: (data) => dispatch(postActions.setPostLong(props.namespace, data)),
+      setLong: (data) => dispatch(
+        postActions.setPostLong(props.namespace, data)
+      ),
     })
   )(Post);
 
@@ -102,7 +120,9 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, ContainerType>
       src: punctumSelectors.selectSrc(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(modalActions.setModalShow(props.namespace))
+      showModal: () => dispatch(
+        modalActions.setModalShow(props.namespace)
+      )
     })
   )(Punctum);
 

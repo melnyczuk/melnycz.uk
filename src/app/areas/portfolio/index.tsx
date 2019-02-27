@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import {
   ModalContainer,
@@ -8,12 +9,12 @@ import {
   SubNavContainer
 } from './portfolio.containers';
 
-import { 
-  setTitle 
+import {
+  setTitle
 } from '../../../store/about/about.actions';
 
-import { 
-  selectWorks 
+import {
+  selectWorks
 } from '../../../store/works/works.selectors';
 
 import {
@@ -35,7 +36,7 @@ class Work extends React.PureComponent<WorkProps> {
   render() {
 
     const { namespace } = this.props;
-    
+
     return (
       <section>
         <PunctumContainer namespace={namespace} />
@@ -49,13 +50,14 @@ class Work extends React.PureComponent<WorkProps> {
 
 interface PortfolioVals {
   works: WorksType;
+  filter?: string;
 }
 
 interface PortfolioFuncs {
   updateTitle: (title: string) => void;
 }
 
-interface PortfolioProps extends PortfolioVals, PortfolioFuncs {}
+interface PortfolioProps extends PortfolioVals, PortfolioFuncs { }
 
 
 export class Portfolio extends React.PureComponent<PortfolioProps> {
@@ -66,26 +68,35 @@ export class Portfolio extends React.PureComponent<PortfolioProps> {
 
   render() {
 
-    const { works, updateTitle } = this.props;
+    const { works, filter, updateTitle } = this.props;
 
     updateTitle('Portfolio');
 
     return (
       <div className="portfolio">
         <SubNavContainer />
-        <div className="works">
-          {
-            Object.keys(works).map(
-              (key, i) => {
-                const { namespace }: WorkProps = works[key];
-                return (
-                  works.hasOwnProperty(key) &&
-                  <Work key={i} namespace={namespace} />
-                );
-              },
-            )
-          }
-        </div>
+        <Route path={`/portfolio/${filter}`}>
+          <div className="works">
+            {
+              Object.keys(works).map(
+                (key, i) => {
+
+                  const { namespace }: WorkProps = works[key];
+
+                  const typeHasFilter = filter
+                    ? works[key].type.includes(filter)
+                    : true;
+
+                  return (
+                    works.hasOwnProperty(key) &&
+                    typeHasFilter &&
+                    <Work key={i} namespace={namespace} />
+                  );
+                },
+              )
+            }
+          </div>
+        </Route>
       </div>
     );
   }

@@ -37,7 +37,6 @@
 //       //   </Provider>
 //       // );
 
-//       // console.log(punctum.dive().find(Punctum).props());//.showModal();
 
 //       const state = store.getState();
 //       const visibility = setModalShow(testNamespace);

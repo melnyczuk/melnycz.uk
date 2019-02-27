@@ -16,7 +16,7 @@ const selectActiveNav = createSelector(
     const activeNavArray = navArray.filter(
       (n: NavType): Boolean => (n.title.toLowerCase() === title.toLowerCase())
     );
-
+    
     return activeNavArray[0] || null
   }
 );
@@ -26,7 +26,13 @@ const selectSubNavLabels = createSelector(
   (activeNav: NavType): string[] => activeNav && activeNav.labels || null
 );
 
+const selectSubNavTitle = createSelector(
+  [selectActiveNav],
+  (activeNav: NavType): string => activeNav && activeNav.title || null
+)
+
 export {
   selectMainNavLabels,
   selectSubNavLabels,
+  selectSubNavTitle,
 }

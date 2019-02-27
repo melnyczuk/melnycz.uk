@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
 import {
-  NavBarProps,
   NavBar,
   NavBarVals,
   NavBarFuncs,
@@ -22,18 +21,16 @@ import {
 } from '../components/SiteTitle';
 
 import { selectTitle } from '../store/about/about.selectors';
-import { setTitle } from '../store/about/about.actions';
 
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType) => ({
       className: '',
       buttonClassName: '',
-      labels: selectMainNavLabels(state)
+      labels: selectMainNavLabels(state),
+      title: '',
     }),
-    (dispatch: Function) => ({
-      // updateTitle: (title) => dispatch(setTitle(title)),
-    })
+    (dispatch: Function) => ({})
   )(NavBar);
 
 const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>

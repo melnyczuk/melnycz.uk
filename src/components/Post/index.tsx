@@ -28,10 +28,9 @@ class Post extends React.PureComponent<PostProps> {
 
   componentDidMount() {
     if (!this.props.long && this.props.longPath) {
-      fetchLongDescriptions(this.props.longPath).then(data => {
-        console.log(data);
-        this.props.setLong(data);
-      });
+      fetchLongDescriptions(this.props.longPath).then(
+        data => this.props.setLong(data)
+      );
     }
   }
 

@@ -11,6 +11,7 @@ describe('Nav Component', () => {
     className: null,
     buttonClassName: null,
     labels: null,
+    title: null,
   };
 
   const navMarkup = '<nav class="nav"></nav>';
@@ -37,8 +38,6 @@ describe('Nav Component', () => {
     );
 
     expect(navButtons.length).toBe(2);
-
-    console.log(navButtons[0].debug());
 
     navButtons.forEach(navButton => {
       expect(navButton.hasClass('nav-button')).toBe(true);
