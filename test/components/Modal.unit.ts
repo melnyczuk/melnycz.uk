@@ -10,6 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal Component', () => {
   const nullProps: ModalProps = {
+    className: null,
     namespace: null,
     visible: null,
     hide: null,

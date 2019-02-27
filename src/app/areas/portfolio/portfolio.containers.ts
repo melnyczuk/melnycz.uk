@@ -1,9 +1,32 @@
 import { connect } from 'react-redux';
 
-import { Modal, ModalProps, ModalVals, ModalFuncs } from '../../../components/Modal';
-import { Portal, PortalProps, PortalVals, PortalFuncs } from '../../../components/Portal';
-import { Post, PostProps, PostVals, PostFuncs } from '../../../components/Post';
-import { Punctum, PunctumProps, PunctumVals, PunctumFuncs } from '../../../components/Punctum';
+import {
+  Modal,
+  ModalProps,
+  ModalVals,
+  ModalFuncs
+} from '../../../components/Modal';
+
+import {
+  Portal,
+  PortalProps,
+  PortalVals,
+  PortalFuncs
+} from '../../../components/Portal';
+
+import {
+  Post,
+  PostProps,
+  PostVals,
+  PostFuncs
+} from '../../../components/Post';
+
+import {
+  Punctum,
+  PunctumProps,
+  PunctumVals,
+  PunctumFuncs
+} from '../../../components/Punctum';
 
 import {
   mediaSelectors,
@@ -13,7 +36,8 @@ import {
 } from '../../../store/works/works.selectors';
 
 import {
-  modalActions, postActions,
+  modalActions, 
+  postActions,
 } from '../../../store/works/works.actions';
 
 import { StoreType, ContainerType } from '../../../store/types';
@@ -22,15 +46,16 @@ import { selectSubNavLabels } from '../../../store/nav/nav.selectors';
 import { setTitle } from '../../../store/about/about.actions';
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
-(
-  (state: StoreType) => ({ 
-    className: '',
-    labels: selectSubNavLabels(state)
-  }),
-  (dispatch: Function) => ({
-    // updateTitle: (title) => dispatch(setTitle(title)),
-  })
-)(NavBar);
+  (
+    (state: StoreType) => ({
+      className: '',
+      buttonClassName: '',
+      labels: selectSubNavLabels(state)
+    }),
+    (dispatch: Function) => ({
+      // updateTitle: (title) => dispatch(setTitle(title)),
+    })
+  )(NavBar);
 
 const ModalContainer = connect<ModalVals, ModalFuncs, ContainerType>
   (
@@ -40,12 +65,12 @@ const ModalContainer = connect<ModalVals, ModalFuncs, ContainerType>
       long: postSelectors.selectLong(state, props),
       longPath: postSelectors.selectLongPath(state, props),
     }),
-    (dispatch: any, props: ModalProps) => ({
+    (dispatch: Function, props: ModalProps) => ({
       hide: () => dispatch(modalActions.setModalHide(props.namespace)),
-      setLong: (data) => dispatch(postActions.setPostLong(props.namespace, data)),
+      setLong:
+        (data) => dispatch(postActions.setPostLong(props.namespace, data)),
     })
-  )
-  (Modal);
+  )(Modal);
 
 const PortalContainer = connect<PortalVals, PortalFuncs, ContainerType>
   (
@@ -54,9 +79,8 @@ const PortalContainer = connect<PortalVals, PortalFuncs, ContainerType>
       baseBinUrl: mediaSelectors.selectBinBaseUrl(state),
       images: mediaSelectors.selectImages(state, props),
     }),
-    (dispatch: any, props: PortalProps) => ({})
-  )
-  (Portal);
+    (dispatch: Function, props: PortalProps) => ({})
+  )(Portal);
 
 const PostContainer = connect<PostVals, PostFuncs, ContainerType>
   (
@@ -67,7 +91,7 @@ const PostContainer = connect<PostVals, PostFuncs, ContainerType>
       longPath: postSelectors.selectLongPath(state, props),
       title: postSelectors.selectTitle(state, props),
     }),
-    (dispatch: any, props: PostProps) => ({
+    (dispatch: Function, props: PostProps) => ({
       setLong: (data) => dispatch(postActions.setPostLong(props.namespace, data)),
     })
   )(Post);
@@ -80,7 +104,7 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, ContainerType>
       alt: punctumSelectors.selectAlt(state, props),
       src: punctumSelectors.selectSrc(state, props),
     }),
-    (dispatch: any, props: PunctumProps) => ({
+    (dispatch: Function, props: PunctumProps) => ({
       showModal: () => dispatch(modalActions.setModalShow(props.namespace))
     })
   )(Punctum);

@@ -1,17 +1,51 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Work, WorkProps } from './Work';
-import { SubNavContainer } from './portfolio.containers';
+import {
+  ModalContainer,
+  PostContainer,
+  PunctumContainer,
+  SubNavContainer
+} from './portfolio.containers';
 
-import { selectWorks } from '../../../store/works/works.selectors';
+import { 
+  setTitle 
+} from '../../../store/about/about.actions';
+
+import { 
+  selectWorks 
+} from '../../../store/works/works.selectors';
 
 import {
-  PortfolioType,
   StoreType,
   WorksType,
 } from '../../../store/types';
-import { setTitle } from '../../../store/about/about.actions';
+
+
+interface WorkProps {
+  namespace: string;
+}
+
+class Work extends React.PureComponent<WorkProps> {
+
+  constructor(props: WorkProps) {
+    super(props);
+  }
+
+  render() {
+
+    const { namespace } = this.props;
+    
+    return (
+      <section>
+        <PunctumContainer namespace={namespace} />
+        <ModalContainer namespace={namespace}>
+          <PostContainer namespace={namespace} />
+        </ModalContainer>
+      </section>
+    );
+  }
+}
 
 interface PortfolioVals {
   works: WorksType;
@@ -22,6 +56,7 @@ interface PortfolioFuncs {
 }
 
 interface PortfolioProps extends PortfolioVals, PortfolioFuncs {}
+
 
 export class Portfolio extends React.PureComponent<PortfolioProps> {
 

@@ -1,47 +1,27 @@
 import { StoreType, NavType } from "../types";
 import { createSelector } from "reselect";
+import { selectTitle } from "../about/about.selectors";
 
-import { selectTitle } from '../about/about.selectors';
+const selectStoreNavArray = (state: StoreType): NavType[] => state.nav;
 
-function buildDefaultNav(navs: Array<NavType>): NavType {
-  return { title: 'hey', links: navs }
-}
-
-function selectNavArray(state: StoreType | Array<NavType>): Array<NavType> {
-  return (<StoreType>state).hasOwnProperty('nav') ?
-    (<StoreType>state).nav :
-    (<Array<NavType>>state)
-};
-
-const selectActiveNav = createSelector(
-  [selectNavArray, selectTitle],
-  (navs: Array<NavType>, title: string): NavType => navs.filter(
-    (n: NavType): Boolean => n.title.toLowerCase() === title.toLowerCase()
-  )[0] || buildDefaultNav(navs)
+const selectMainNavLabels = createSelector(
+  [selectStoreNavArray],
+  navArray => navArray.map(nav => nav.title)
 );
 
-const selectLinksForMain = createSelector(
-  selectNavArray,
-  navs => reduceLinks(buildDefaultNav(navs))
-)
+const selectActiveNav = createSelector(
+  [selectStoreNavArray, selectTitle],
+  (navArray: NavType[], title: string): NavType => navArray.filter(
+      (n: NavType): Boolean => (n.title.toLowerCase() === title.toLowerCase())
+    )[0] || null
+);
 
-const selectLinksForActive = createSelector(
+const selectSubNavLabels = createSelector(
   [selectActiveNav],
-  (active: NavType): Array<string> => reduceLinks(active)
-)
-
-const reduceLinks = (nav: NavType): Array<string> =>
-  nav.links.map(
-    (item: NavType | string): string =>
-      (<NavType>item).hasOwnProperty('title') ?
-        (<NavType>item).title :
-        <string>item
-  )
+  (activeNav: NavType): string[] => activeNav && activeNav.labels || null
+);
 
 export {
-  selectActiveNav,
-  selectLinksForActive,
-  selectLinksForMain,
-  selectNavArray,
-  reduceLinks,
+  selectMainNavLabels,
+  selectSubNavLabels,
 }

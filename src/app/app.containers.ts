@@ -28,6 +28,7 @@ const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType) => ({
       className: '',
+      buttonClassName: '',
       labels: selectMainNavLabels(state)
     }),
     (dispatch: Function) => ({
@@ -41,9 +42,7 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
       className: '',
       title: selectTitle(state),
     }),
-    (dispatch: Function) => ({
-      handleClick: () => dispatch()
-    })
+    (dispatch: Function) => ({})
   )
   (SiteTitle);
 

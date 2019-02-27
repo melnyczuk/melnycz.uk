@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-import { MainNavContainer, SiteTitleContainer } from './app.containers';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import rootReducer from '../store/rootReducer';
 
-import { Route, BrowserRouter } from 'react-router-dom';
+import Home from './areas/home';
 import Portfolio from './areas/portfolio';
+import Research from './areas/research';
+
+import { 
+  MainNavContainer, 
+  SiteTitleContainer 
+} from './app.containers';
 
 class App extends React.PureComponent {
 
@@ -26,9 +31,9 @@ class App extends React.PureComponent {
             <SiteTitleContainer />
             <MainNavContainer />
             <main>
-              <Route component={() => (<div />)} />
+              <Route path='/' component={Home} />
               <Route path='/portfolio' component={Portfolio} />
-              <Route path='/research' render={() => (<h1>TODO</h1>)} />
+              <Route path='/research' component={Research} />
             </main>
           </div>
         </BrowserRouter>

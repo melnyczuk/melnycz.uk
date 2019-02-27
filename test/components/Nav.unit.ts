@@ -9,6 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Nav Component', () => {
   const nullProps: NavBarProps = {
     className: null,
+    buttonClassName: null,
     labels: null,
   };
 
