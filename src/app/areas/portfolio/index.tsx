@@ -43,6 +43,7 @@ export class Portfolio extends React.PureComponent<PortfolioProps> {
     return (
       <div className="portfolio">
         <SubNavContainer />
+        <Route path='/' component={WorksContainer} />
         <Route path={`/portfolio/:filter`} component={WorksContainer} />
       </div>
     );
