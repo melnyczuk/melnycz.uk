@@ -21,6 +21,7 @@ import {
   StoreType,
   WorksType,
 } from '../../../store/types';
+import { any } from 'prop-types';
 
 function filterWorks(works: WorksType, filter: string): string[] {
   return Object.keys(works).filter(
@@ -62,6 +63,31 @@ class Work extends React.PureComponent<WorkProps> {
   }
 }
 
+class Works extends React.PureComponent <{works: WorksType, match: { params: { filter: string } } }> {
+
+  constructor(props: any){
+    super(props);
+  }
+
+  render() {
+    const { works, match } = this.props;
+    const { params } = match;
+    const { filter } = params;
+    console.log(filter);
+    const filterKeys: string[] = filter? filterWorks(works, filter): Object.keys(works);
+    return generateWorks(works, filterKeys);
+  }
+
+}
+
+const WorksContainer = connect<any, any, {}>
+(
+  (state: StoreType) => ({
+    works: worksSelectors.selectWorks(state),
+  })
+)(Works);
+
+
 interface PortfolioVals {
   works: WorksType;
   filter?: string;
@@ -86,18 +112,11 @@ export class Portfolio extends React.PureComponent<PortfolioProps> {
   }
 
   render() {
-    const { works, filter } = this.props;
-
     return (
       <div className="portfolio">
         <SubNavContainer />
-        <Route exact path='/portfolio' render={
-          () => generateWorks(works, Object.keys(works))
-        } />
-        <Route path='/portfolio/:filter' render={
-          () => generateWorks(works, filterWorks(works, filter))
-        }
-        />
+        <Route exact path='/portfolio' component={WorksContainer} />
+        <Route path='/portfolio/:filter' component={WorksContainer} />
       </div>
     );
   }
@@ -107,7 +126,6 @@ export default connect<PortfolioVals, PortfolioFuncs, {}>
   (
     (state: StoreType) => ({
       works: worksSelectors.selectWorks(state),
-      filter: worksSelectors.selectWorksFilter(state),
     }),
     (dispatch: Function) => ({
       updateTitle: (title: string) => dispatch(setTitle(title))

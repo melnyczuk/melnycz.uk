@@ -9,6 +9,7 @@ import { StoreType, WorksType, WorkType } from '../../../src/store/types';
 
 function genTestState(works: WorksType): StoreType {
   return {
+    filter: null,
     about: null,
     nav: [],
     works,
