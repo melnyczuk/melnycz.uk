@@ -111,6 +111,7 @@ export interface StoreType {
   nav: NavType[];
   works: WorksType;
   media: MediaType;
+  filter: string;
 }
 
 export interface VideoType {
@@ -128,7 +129,7 @@ export interface WorkType extends DBWork {
 }
 
 export interface WorksType {
-  [key: string]: WorkType 
+  [key: string]: WorkType;
 }
 
 export interface WritingType {

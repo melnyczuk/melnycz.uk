@@ -170,10 +170,18 @@ const punctumSelectors = {
 
 };
 
-export {
+const worksSelectors = {
+  
   selectWorks,
+
+  selectWorksFilter: (state: StoreType) => state.filter,
+
+}
+
+export {
   modalSelectors,
   mediaSelectors,
   postSelectors,
   punctumSelectors,
+  worksSelectors
 };

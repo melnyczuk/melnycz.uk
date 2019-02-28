@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -11,7 +10,8 @@ import {
 import {
   NavBarVals,
   NavBarFuncs,
-  NavBar
+  NavBar,
+  NavBarProps
 } from '../../../components/Nav';
 
 import {
@@ -36,12 +36,6 @@ import {
 } from '../../../components/Punctum';
 
 import {
-  Works,
-  WorksVals,
-  WorksFuncs
-} from '../../../components/Works';
-
-import {
   selectSubNavLabels,
 } from '../../../store/nav/nav.selectors';
 
@@ -55,7 +49,6 @@ import {
   modalSelectors,
   postSelectors,
   punctumSelectors,
-  selectWorks,
 } from '../../../store/works/works.selectors';
 
 import {
@@ -63,32 +56,17 @@ import {
   ContainerType
 } from '../../../store/types';
 
-const WorksContainer = connect<WorksVals, WorksFuncs, {}>
-  (
-    (state: StoreType) => ({
-      works: selectWorks(state),
-    }),
-    (dispatch: Function) => ({
-      children: (namespace: string) => (
-        <section>
-          <PunctumContainer namespace={namespace} />
-          <ModalContainer namespace={namespace}>
-            <PostContainer namespace={namespace} />
-          </ModalContainer>
-        </section>
-      ),
-    })
-  )(Works);
-
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
-    (state: StoreType) => ({
+    (state: StoreType, props: NavBarProps) => ({
       className: '',
       buttonClassName: '',
       labels: selectSubNavLabels(state),
       title: 'portfolio',
     }),
-    (dispatch: Function) => ({})
+    (dispatch: Function, props: NavBarProps) => ({
+      
+    })
   )(NavBar);
 
 const ModalContainer = connect<ModalVals, ModalFuncs, ContainerType>
@@ -150,6 +128,9 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, ContainerType>
   )(Punctum);
 
 export {
+  ModalContainer,
+  PostContainer,
+  PortalContainer,
+  PunctumContainer,
   SubNavContainer,
-  WorksContainer,
 }

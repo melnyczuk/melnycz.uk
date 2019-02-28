@@ -4,6 +4,7 @@ import {
   NavBar,
   NavBarVals,
   NavBarFuncs,
+  NavBarProps,
 } from '../components/Nav';
 
 import {
@@ -17,29 +18,30 @@ import {
 import {
   SiteTitleVals,
   SiteTitleFuncs,
-  SiteTitle
+  SiteTitle,
+  SiteTitleProps
 } from '../components/SiteTitle';
 
 import { selectTitle } from '../store/about/about.selectors';
 
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
-    (state: StoreType) => ({
+    (state: StoreType, props: NavBarProps) => ({
       className: '',
       buttonClassName: '',
       labels: selectMainNavLabels(state),
       title: '',
     }),
-    (dispatch: Function) => ({})
+    (dispatch: Function, props: NavBarProps) => ({})
   )(NavBar);
 
 const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
   (
-    (state: StoreType) => ({
+    (state: StoreType, props: SiteTitleProps) => ({
       className: '',
       title: selectTitle(state),
     }),
-    (dispatch: Function) => ({})
+    (dispatch: Function, props: SiteTitleProps) => ({})
   )
   (SiteTitle);
 

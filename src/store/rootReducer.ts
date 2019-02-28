@@ -10,6 +10,7 @@ const rootReducer = combineReducers({
   media,
   nav,
   works,
+  filter: undefined,
 });
 
 export default rootReducer;
