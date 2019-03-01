@@ -1,0 +1,16 @@
+@import '../base.scss';
+
+.Nav {
+  fill: white;
+  width: 100%;
+}
+
+.NavButton {
+  margin: 4px;
+  padding: 4px;
+  border: 1px solid;
+  height: 32px;
+  background: none;
+  fill: white;
+  display: grid;
+}

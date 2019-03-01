@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import App from '../../src/App';
+import App from '../../src';
 import { NavBar } from '../../src/components/Nav';
-import Portfolio from '../../src/App/Portfolio';
+import Portfolio from '../../src/areas/Portfolio';
 
 
 Enzyme.configure({ adapter: new Adapter() });

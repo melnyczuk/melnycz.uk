@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ContainerType } from "../../store/types";
+import { ContainerType } from "../../types";
 import { fetchLongDescriptions } from '../../store/works/works.utils';
 
 interface PostVals {

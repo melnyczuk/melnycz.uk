@@ -2,8 +2,8 @@ import * as React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { Portfolio } from '../../src/App/Portfolio';
-import { WorksType } from '../../src/store/types';
+import { Portfolio } from '../../src/areas/Portfolio';
+import { WorksType } from '../../src/types';
 
 Enzyme.configure({ adapter: new Adapter() });
 

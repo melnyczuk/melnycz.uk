@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavType } from '../../store/types';
+import { NavType } from '../../types';
+
+import './Nav.scss';
 
 interface NavBarVals extends NavType {
   className: string;
@@ -28,11 +30,14 @@ class NavBar extends React.PureComponent<NavBarProps> {
     const prefix = title ? `/${title}` : '';
 
     return (
-      <nav className={className}>
+      <nav className={`Nav ${className}`}>
         {
           labels && labels.map(
             (label: string, i: number) => (
-              <button key={i} className={buttonClassName}>
+              <button
+                key={i}
+                className={`NavButton ${buttonClassName}`}
+              >
                 <NavLink
                   to={`${prefix}/${label.toLowerCase().replace(' ', '-')}`}
                 >

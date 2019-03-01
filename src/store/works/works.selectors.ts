@@ -17,7 +17,7 @@ import {
   ImageType,
   VideoType,
   AudioType,
-} from '../types';
+} from '../../types';
 
 const selectNamespace = (
   state: StoreType,

@@ -1,4 +1,4 @@
-import { DB, Work as DBWork } from '../../db/types';
+import { DB, Work as DBWork } from '../db/types';
 import { type } from 'os';
 
 export interface AboutType {

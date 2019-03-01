@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './Punctum.scss';
+
 interface PunctumVals {
   className: string;
   src: string;
@@ -14,9 +16,9 @@ interface PunctumProps extends PunctumVals, PunctumFuncs {
   namespace: string;
 }
 
-class Punctum extends React.PureComponent <PunctumProps> {
-  
-  constructor(props: PunctumProps){
+class Punctum extends React.PureComponent<PunctumProps> {
+
+  constructor(props: PunctumProps) {
     super(props);
   }
 
@@ -30,7 +32,13 @@ class Punctum extends React.PureComponent <PunctumProps> {
     }: PunctumProps = this.props;
 
     if (src) {
-      return (<img className={className} src={src} alt={alt} onClick={showModal} />)
+      return (
+        <img
+          className={`Punctum ${className}`}
+          src={src}
+          alt={alt}
+          onClick={showModal}
+        />)
     }
 
     return null;

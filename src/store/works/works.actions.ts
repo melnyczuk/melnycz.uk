@@ -1,7 +1,5 @@
-const { media } = require('../../../db/db.json');
 import { actionConstants } from '../constants';
-import { ActionType } from '../types';
-import Axios from 'axios';
+import { ActionType } from '../../types';
 
 const {
   SET_SHOW,

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 
-import { ImageType } from '../../store/types';
+import { ImageType } from '../../types';
 
 interface PortalVals {
   className: string;

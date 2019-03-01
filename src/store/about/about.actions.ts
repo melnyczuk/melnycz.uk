@@ -1,5 +1,5 @@
 import { actionConstants } from '../constants';
-import { ActionType } from '../types';
+import { ActionType } from '../../types';
 
 const {
   SET_TITLE,

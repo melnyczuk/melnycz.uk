@@ -1,5 +1,5 @@
 const { works: dbWorks } = require('../../../db/db.json');
-import { ActionType, WorksType } from '../types';
+import { ActionType, WorksType } from '../../types';
 import { Work } from '../../../db/types';
 
 import { actionConstants } from '../constants';

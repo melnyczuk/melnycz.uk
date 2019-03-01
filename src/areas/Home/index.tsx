@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { setTitle } from '../../store/about/about.actions';
 
-import { StoreType } from '../../store/types';
+import { StoreType } from '../../types';
 
 interface HomeVals {
   className: string;

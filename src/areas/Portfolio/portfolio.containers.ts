@@ -54,7 +54,7 @@ import {
 import {
   StoreType,
   ContainerType
-} from '../../store/types';
+} from '../../types';
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (

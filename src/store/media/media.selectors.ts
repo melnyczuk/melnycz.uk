@@ -1,5 +1,12 @@
 import { createSelector, } from 'reselect';
-import { StoreType, MediaType, ImageType, VideoType, AudioType, } from '../types';
+
+import { 
+  StoreType, 
+  MediaType, 
+  ImageType, 
+  VideoType, 
+  AudioType, 
+} from '../../types';
 
 function selectMedia(state: StoreType): MediaType {
   return state.media;

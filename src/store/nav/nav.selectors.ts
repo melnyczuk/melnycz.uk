@@ -1,4 +1,4 @@
-import { StoreType, NavType } from "../types";
+import { StoreType, NavType } from "../../types";
 import { createSelector } from "reselect";
 import { selectTitle } from "../about/about.selectors";
 

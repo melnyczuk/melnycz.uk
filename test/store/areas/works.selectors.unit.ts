@@ -5,7 +5,7 @@ import {
   punctumSelectors,
 } from '../../../src/store/works/works.selectors';
 
-import { StoreType, WorksType, WorkType } from '../../../src/store/types';
+import { StoreType, WorksType, WorkType } from '../../../src/types';
 
 function genTestState(works: WorksType): StoreType {
   return {

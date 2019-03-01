@@ -20,7 +20,7 @@ import {
 import {
   StoreType,
   WorksType,
-} from '../../store/types';
+} from '../../types';
 
 function filterWorks(works: WorksType, filter: string): string[] {
   return Object.keys(works).filter(
@@ -29,7 +29,6 @@ function filterWorks(works: WorksType, filter: string): string[] {
 }
 
 function generateWorks(works: WorksType, keys: string[]): JSX.Element[] {
-  console.log(keys);
   return keys.map(
     (key, i) => {
       const { namespace } = works[key];
@@ -70,10 +69,10 @@ class Works extends React.PureComponent <{works: WorksType, match: { params: { f
 
   render() {
     const { works, match } = this.props;
-    const { params } = match;
-    const { filter } = params;
-    console.log(filter);
+    const { filter = undefined } = match.params;
+
     const filterKeys: string[] = filter? filterWorks(works, filter): Object.keys(works);
+    
     return generateWorks(works, filterKeys);
   }
 

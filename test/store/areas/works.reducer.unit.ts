@@ -1,6 +1,6 @@
 import worksReducer from '../../../src/store/works/works.reducer';
 import { actionConstants } from '../../../src/store/constants';
-import { WorkType } from '../../../src/store/types';
+import { WorkType } from '../../../src/types';
 
 describe('Works Reducer', () => {
 

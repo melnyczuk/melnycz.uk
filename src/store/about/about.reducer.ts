@@ -1,5 +1,5 @@
 const { about } = require('../../../db/db.json');
-import { ActionType, AboutType } from '../types';
+import { ActionType, AboutType } from '../../types';
 
 import { actionConstants } from '../constants';
 const {
