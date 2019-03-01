@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { StoreType } from '../../../store/types';
-import { setTitle } from '../../../store/about/about.actions';
+import { StoreType } from '../../store/types';
+import { setTitle } from '../../store/about/about.actions';
 
 interface ResearchVals {
   className: string;

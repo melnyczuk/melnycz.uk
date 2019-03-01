@@ -3,11 +3,13 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 
+import './App.scss';
+
 import rootReducer from '../store/rootReducer';
 
-import Home from './areas/home';
-import Portfolio from './areas/portfolio';
-import Research from './areas/research';
+import Home from './Home';
+import Portfolio from './Portfolio';
+import Research from './Research';
 
 import { 
   MainNavContainer, 

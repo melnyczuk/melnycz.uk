@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { setTitle } from '../../../store/about/about.actions';
+import { setTitle } from '../../store/about/about.actions';
 
-import { StoreType } from '../../../store/types';
+import { StoreType } from '../../store/types';
 
 interface HomeVals {
   className: string;

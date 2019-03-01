@@ -11,17 +11,16 @@ import {
 
 import {
   setTitle,
-} from '../../../store/about/about.actions';
+} from '../../store/about/about.actions';
 
 import {
   worksSelectors,
-} from '../../../store/works/works.selectors';
+} from '../../store/works/works.selectors';
 
 import {
   StoreType,
   WorksType,
-} from '../../../store/types';
-import { any } from 'prop-types';
+} from '../../store/types';
 
 function filterWorks(works: WorksType, filter: string): string[] {
   return Object.keys(works).filter(

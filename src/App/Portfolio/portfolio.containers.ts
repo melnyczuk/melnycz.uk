@@ -5,56 +5,56 @@ import {
   ModalProps,
   ModalVals,
   ModalFuncs
-} from '../../../components/Modal';
+} from '../../components/Modal';
 
 import {
   NavBarVals,
   NavBarFuncs,
   NavBar,
   NavBarProps
-} from '../../../components/Nav';
+} from '../../components/Nav';
 
 import {
   Portal,
   PortalProps,
   PortalVals,
   PortalFuncs
-} from '../../../components/Portal';
+} from '../../components/Portal';
 
 import {
   Post,
   PostProps,
   PostVals,
   PostFuncs
-} from '../../../components/Post';
+} from '../../components/Post';
 
 import {
   Punctum,
   PunctumProps,
   PunctumVals,
   PunctumFuncs
-} from '../../../components/Punctum';
+} from '../../components/Punctum';
 
 import {
   selectSubNavLabels,
-} from '../../../store/nav/nav.selectors';
+} from '../../store/nav/nav.selectors';
 
 import {
   modalActions,
   postActions,
-} from '../../../store/works/works.actions';
+} from '../../store/works/works.actions';
 
 import {
   mediaSelectors,
   modalSelectors,
   postSelectors,
   punctumSelectors,
-} from '../../../store/works/works.selectors';
+} from '../../store/works/works.selectors';
 
 import {
   StoreType,
   ContainerType
-} from '../../../store/types';
+} from '../../store/types';
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
