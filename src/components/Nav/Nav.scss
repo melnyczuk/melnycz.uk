@@ -3,6 +3,8 @@
 .Nav {
   fill: white;
   width: 100%;
+  overflow: auto;
+  display: flex;
 }
 
 .NavButton {
@@ -10,7 +12,9 @@
   padding: 4px;
   border: 1px solid;
   height: 32px;
+  width: fixed;
   background: none;
   fill: white;
-  display: grid;
+  flex: auto;
+  justify-content: safe;
 }
