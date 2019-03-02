@@ -23,6 +23,7 @@ import {
 } from './components/SiteTitle';
 
 import { selectTitle } from './store/about/about.selectors';
+import { setTitle } from './store/about/about.actions';
 
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
@@ -41,7 +42,9 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
       className: 'site-title',
       title: selectTitle(state),
     }),
-    (dispatch: Function, props: SiteTitleProps) => ({})
+    (dispatch: Function, props: SiteTitleProps) => ({
+      updateTitle: () => dispatch(setTitle('hi')),
+    })
   )
   (SiteTitle);
 

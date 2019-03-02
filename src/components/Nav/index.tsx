@@ -34,16 +34,15 @@ class NavBar extends React.PureComponent<NavBarProps> {
         {
           labels && labels.map(
             (label: string, i: number) => (
-              <button
+              <NavLink
                 key={i}
                 className={`NavButton ${buttonClassName}`}
+                to={`${prefix}/${label.toLowerCase().replace(' ', '-')}`}
               >
-                <NavLink
-                  to={`${prefix}/${label.toLowerCase().replace(' ', '-')}`}
-                >
+                <h4 className='label'>
                   {label}
-                </NavLink>
-              </button>
+                </h4>
+              </NavLink>
             )
           )
         }
