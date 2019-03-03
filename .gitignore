@@ -2,7 +2,6 @@
 .DS_Store
 
 # Folders:
-dist/
 build/
 bin/
 node_modules/
