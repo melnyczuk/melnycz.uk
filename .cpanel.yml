@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/cp dist/** /home/birivcrk/public_html/
+    - /bin/cp dist/** /home/birivcrk/public_html
