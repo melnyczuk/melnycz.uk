@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, HashRouter } from 'react-router-dom';
 
 import './base.scss';
 
@@ -34,7 +34,7 @@ class App extends React.PureComponent {
   render() {
     return (
       <Provider store={this.store} >
-        <BrowserRouter>
+        <HashRouter>
           <div className="app">
             <div className="header">
               <SiteTitleContainer />
@@ -62,7 +62,7 @@ class App extends React.PureComponent {
               component={ResearchContainer}
             />
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     );
   }
