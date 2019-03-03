@@ -3,16 +3,15 @@ import {
   postSelectors,
   mediaSelectors,
   punctumSelectors,
-} from '../../../src/store/works/works.selectors';
+} from '../../../src/store/portfolio/portfolio.selectors';
 
-import { StoreType, WorksType, WorkType } from '../../../src/types';
+import { StoreType, PortfolioType, WorkType } from '../../../src/types';
 
-function genTestState(works: WorksType): StoreType {
+function genTestState(portfolio: PortfolioType): StoreType {
   return {
-    filter: null,
     about: null,
     nav: [],
-    works,
+    portfolio,
     media: {
       baseURL: '.',
     },

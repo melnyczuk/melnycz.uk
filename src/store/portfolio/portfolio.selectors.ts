@@ -10,7 +10,7 @@ import {
 import {
   StoreType,
   WorkType,
-  WorksType,
+  PortfolioType,
   ContainerType,
   DescriptionType,
   MediaIndexType,
@@ -24,13 +24,13 @@ const selectNamespace = (
   props: ContainerType
 ): string => props.namespace;
 
-const selectWorks = (
+const selectPortfolio = (
   state: StoreType
-): WorksType => state.works;
+): PortfolioType => state.portfolio;
 
 const selectWork = createSelector(
-  [selectWorks, selectNamespace],
-  (works: WorksType, namespace: string): WorkType => works[namespace]
+  [selectPortfolio, selectNamespace],
+  (portfolio: PortfolioType, namespace: string): WorkType => portfolio[namespace]
 );
 
 const selectWorkMediaIndex = createSelector(
@@ -111,7 +111,7 @@ const postSelectors = {
     [selectNamespace, selectBinBaseUrl],
     (namespace: string, baseBinUrl: string): string | null => (
       (namespace && baseBinUrl)
-        ? `${baseBinUrl}/works/${namespace}/${namespace}.txt`
+        ? `${baseBinUrl}/portfolio/${namespace}/${namespace}.txt`
         : null
     ),
   ),
@@ -163,25 +163,24 @@ const punctumSelectors = {
     [selectWork, selectNamespace, selectBinBaseUrl],
     (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
       (work && namespace && baseBinUrl && work.img)
-        ? `${baseBinUrl}/works/${namespace}/${work.img}.jpg`
+        ? `${baseBinUrl}/portfolio/${namespace}/${work.img}.jpg`
         : null
     ),
   ),
 
+  selectTitle: createSelector(
+    [selectWork, selectNamespace],
+    (work: WorkType) => (
+      (work && work.title) ? work.title : null
+    )
+  )
+
 };
-
-const worksSelectors = {
-  
-  selectWorks,
-
-  selectWorksFilter: (state: StoreType) => state.filter,
-
-}
 
 export {
   modalSelectors,
   mediaSelectors,
   postSelectors,
   punctumSelectors,
-  worksSelectors
+  selectPortfolio,
 };

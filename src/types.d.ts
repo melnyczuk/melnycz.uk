@@ -98,10 +98,6 @@ export interface NavType {
   labels: string[];
 }
 
-export interface PortfolioType extends AreaType {
-
-}
-
 export interface ResearchType extends AreaType {
 
 }
@@ -109,9 +105,8 @@ export interface ResearchType extends AreaType {
 export interface StoreType {
   about: AboutType;
   nav: NavType[];
-  works: WorksType;
+  portfolio: PortfolioType;
   media: MediaType;
-  filter: string;
 }
 
 export interface VideoType {
@@ -128,7 +123,7 @@ export interface WorkType extends DBWork {
   visible: boolean;
 }
 
-export interface WorksType {
+export interface PortfolioType {
   [key: string]: WorkType;
 }
 

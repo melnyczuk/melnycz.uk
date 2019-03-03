@@ -4,7 +4,7 @@ import {
 
 import {
   modalActions,
-} from '../../../src/store/works/works.actions';
+} from '../../../src/store/portfolio/portfolio.actions';
 
 describe('Works Action Creators', () => {
 
