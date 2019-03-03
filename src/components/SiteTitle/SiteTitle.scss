@@ -1,6 +1,9 @@
 @import '../../base.scss';
 
 .SiteTitle {
-  padding: 4px;
-  font-size: 48px;
+  margin: 4px;
+  padding: 0 8px;
+  font-size: 36px;
+  text-align: left;
+  border: $label-border;
 }

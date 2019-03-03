@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
+$mobile: 768px;
+$label-border: 1px solid black;
+
 * {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-$mobile: 768px;
 
 @mixin text {
   color: black;

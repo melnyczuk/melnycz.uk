@@ -3,24 +3,27 @@
 $text-height: 64px;
 
 .punctum {
+  position: relative;
+  width: 100%;
+  border: $label-border;
+
   &-image {
+    display: block;
     object-fit: cover;
     height: 60vw;
     width: 100%;
   }
+
   &-title {
     @include text;
-    border: 1px solid black;
     position: absolute;
+    border: 1px solid black;
     background: white;
-    padding: 8px 128px;
-    height: $text-height;
-    width: fit-content;
-    display: inline;
-    margin: 10px auto;
+    width: 80%;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
     vertical-align: middle;
     text-align: center;
     line-height: $text-height;
-    transform: translate(-110%, 150%);
   }
 }
