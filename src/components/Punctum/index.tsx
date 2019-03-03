@@ -6,6 +6,7 @@ interface PunctumVals {
   className: string;
   src: string;
   alt: string;
+  title: string;
 }
 
 interface PunctumFuncs {
@@ -28,17 +29,28 @@ class Punctum extends React.PureComponent<PunctumProps> {
       className,
       src,
       alt,
+      title,
       showModal,
     }: PunctumProps = this.props;
 
     if (src) {
       return (
-        <img
-          className={`Punctum ${className}`}
-          src={src}
-          alt={alt}
+        <div
+          className='punctum'
           onClick={showModal}
-        />)
+        >
+          <img
+            className={`punctum-image ${className}`}
+            src={src}
+            alt={alt}
+          />
+          <h2
+            className="punctum-title"
+          >
+            {title}
+          </h2>
+        </div>
+      )
     }
 
     return null;

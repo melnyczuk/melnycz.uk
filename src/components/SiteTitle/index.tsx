@@ -16,7 +16,7 @@ interface SiteTitleProps extends SiteTitleVals, SiteTitleFuncs { }
 
 const SiteTitle = ({ title, className, updateTitle }: SiteTitleProps) => (
   <Link to={'/'}>
-    <h1 className={`SiteTitle ${className}`} onClick={() => updateTitle()}>
+    <h1 className={`SiteTitle ${className}`} >
       {title}
     </h1>
   </Link>

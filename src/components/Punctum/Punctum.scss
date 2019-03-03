@@ -1,8 +1,26 @@
-@import '../base.scss';
+@import '../../base.scss';
 
-.Punctum {
-  object-fit: cover;
-  margin: 4px;
-  height: 60vw;
-  width: 100%;
+$text-height: 64px;
+
+.punctum {
+  &-image {
+    object-fit: cover;
+    height: 60vw;
+    width: 100%;
+  }
+  &-title {
+    @include text;
+    border: 1px solid black;
+    position: absolute;
+    background: white;
+    padding: 8px 128px;
+    height: $text-height;
+    width: fit-content;
+    display: inline;
+    margin: 10px auto;
+    vertical-align: middle;
+    text-align: center;
+    line-height: $text-height;
+    transform: translate(-110%, 150%);
+  }
 }

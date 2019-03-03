@@ -1,31 +1,39 @@
-@import '../base.scss';
+@import '../../base.scss';
 
 $button-height: 32px;
 
-.Nav {
+.nav {
   fill: white;
   width: 100%;
   overflow: auto;
   display: flex;
-}
 
-.NavButton {
-  margin: 4px;
-  padding: 4px;
-  border: 1px solid;
-  height: $button-height;
-  width: fixed;
-  background: none;
-  fill: white;
-  flex: auto;
-  justify-content: space-evenly;
-  
-  .label {
-    height:100%;
-    font-size: 24px;
-    line-height: $button-height;
+  @media (min-width: $mobile) {
     display: inline-block;
-    text-align: center;
-    vertical-align: middle;
+  }
+
+  &-button {
+    margin: 4px;
+    padding: 4px;
+    border: 1px solid;
+    height: $button-height;
+    width: fixed;
+    background: none;
+    fill: white;
+    flex: auto;
+    justify-content: space-evenly;
+    
+    @media (min-width: $mobile) {
+      display: block;
+      justify-content: left;
+    }
+  
+    &-label {
+      height:100%;
+      font-size: 24px;
+      line-height: $button-height;
+      text-align: center;
+      vertical-align: middle;
+    }
   }
 }
