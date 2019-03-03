@@ -27,7 +27,8 @@ $button-height: 32px;
       display: block;
       justify-content: left;
     }
-  
+
+    
     &-label {
       padding: 0 4px;
       height: 100%;
@@ -35,6 +36,14 @@ $button-height: 32px;
       line-height: $button-height;
       text-align: left;
       vertical-align: middle;
+ 
+      &_active {
+        font-size: 32px;
+        font-weight: bold;
+      }
+ 
     }
+ 
   }
+
 }

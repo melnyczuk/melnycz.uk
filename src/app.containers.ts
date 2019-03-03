@@ -11,8 +11,8 @@ import {
   StoreType,
 } from './types';
 
-import {
-  selectMainNavLabels,
+import { 
+  selectMainNavArray,
 } from './store/nav/nav.selectors';
 
 import {
@@ -23,15 +23,16 @@ import {
 } from './components/SiteTitle';
 
 import { selectTitle } from './store/about/about.selectors';
-import { setTitle } from './store/about/about.actions';
+import { selectActive } from './store/active/active.selectors';
 
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType, props: NavBarProps) => ({
+      active: selectActive(state),
+      title: '',
+      items: selectMainNavArray(state),
       className: 'main-nav',
       buttonClassName: '',
-      labels: selectMainNavLabels(state),
-      title: '',
     }),
     (dispatch: Function, props: NavBarProps) => ({})
   )(NavBar);
@@ -42,9 +43,7 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
       className: 'site-title',
       title: selectTitle(state),
     }),
-    (dispatch: Function, props: SiteTitleProps) => ({
-      updateTitle: () => dispatch(setTitle('hi')),
-    })
+    (dispatch: Function, props: SiteTitleProps) => ({})
   )
   (SiteTitle);
 

@@ -8,13 +8,11 @@ interface SiteTitleVals {
   title: string;
 }
 
-interface SiteTitleFuncs {
-  updateTitle: () => void;
-}
+interface SiteTitleFuncs {}
 
 interface SiteTitleProps extends SiteTitleVals, SiteTitleFuncs { }
 
-const SiteTitle = ({ title, className, updateTitle }: SiteTitleProps) => (
+const SiteTitle = ({ title, className }: SiteTitleProps) => (
   <Link to={'/'}>
     <h1 className={`SiteTitle ${className}`} >
       {title}

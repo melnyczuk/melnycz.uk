@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import About from "./About";
 import Home from "./Home";
 import Research from "./Research";
 import Portfolio from "./Portfolio";
@@ -18,22 +19,36 @@ import {
   NavBarProps, 
 } from "../components/Nav";
 
-import { setTitle } from "../store/about/about.actions";
-
-import { selectSubNavLabels } from "../store/nav/nav.selectors";
+import { setActive } from "../store/active/active.actions";
+import { selectActive } from "../store/active/active.selectors";
+import { selectSubNavArray } from "../store/nav/nav.selectors";
 
 import { StoreType } from "../types";
+
 
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
 (
   (state: StoreType, props: NavBarProps) => ({
+    active: selectActive(state),
+    title: 'portfolio',
+    items: selectSubNavArray(state),
     className: '',
     buttonClassName: '',
-    labels: selectSubNavLabels(state),
-    title: 'portfolio',
   }),
   (dispatch: Function, props: NavBarProps) => ({})
 )(NavBar);
+
+const AboutContainer = connect<AreaVals, AreaFuncs, {}>
+(
+  (state: StoreType, props: AreaProps) => ({
+    area: 'about',
+    title: 'About',
+    component: About,
+  }),
+  (dispatch: Function, props: AreaProps) => ({
+    updateActive: (active: string) => dispatch(setActive(active))
+  }),
+)(Area);
 
 const HomeContainer = connect<AreaVals, AreaFuncs, {}>
 (
@@ -43,7 +58,7 @@ const HomeContainer = connect<AreaVals, AreaFuncs, {}>
     component: Home,
   }),
   (dispatch: Function, props: AreaProps) => ({
-    updateTitle: (title: string) => dispatch(setTitle(title))
+    updateActive: (active: string) => dispatch(setActive(null))
   })
 )(Area);
 
@@ -55,7 +70,7 @@ const PortfolioContainer = connect<AreaVals, AreaFuncs, {}>
     component: Portfolio,
   }),
   (dispatch: Function, props: AreaProps) => ({
-    updateTitle: (title: string) => dispatch(setTitle(title))
+    updateActive: (active: string) => dispatch(setActive(active))
   })
 )(Area);
 
@@ -67,11 +82,12 @@ const ResearchContainer = connect<AreaVals, AreaFuncs, {}>
     component: Research,
   }),
   (dispatch: Function, props: AreaProps) => ({
-    updateTitle: (title: string) => dispatch(setTitle(title))
+    updateActive: (active: string) => dispatch(setActive(active))
   })
 )(Area);
 
 export {
+  AboutContainer,
   HomeContainer,
   PortfolioContainer,
   ResearchContainer,

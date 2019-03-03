@@ -10,7 +10,7 @@ interface AreaVals {
 }
 
 interface AreaFuncs {
-  updateTitle: (title: string) => void;
+  updateActive: (active: string) => void;
 }
 
 interface AreaProps extends AreaVals, AreaFuncs { }
@@ -22,13 +22,13 @@ class Area extends React.PureComponent<AreaProps> {
   }
 
   componentDidMount() {
-    const { updateTitle, title } = this.props;
-    updateTitle(title);
+    const { updateActive, title } = this.props;
+    updateActive(title);
   }
 
   componentDidUpdate() {
-    const { updateTitle, title } = this.props;
-    updateTitle(title);
+    const { updateActive, title } = this.props;
+    updateActive(title);
   }
 
   render() {

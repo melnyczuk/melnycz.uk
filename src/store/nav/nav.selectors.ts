@@ -1,38 +1,29 @@
 import { StoreType, NavType } from "../../types";
 import { createSelector } from "reselect";
-import { selectTitle } from "../about/about.selectors";
+import { selectActive } from "../active/active.selectors";
 
-const selectStoreNavArray = (state: StoreType): NavType[] => state.nav;
-
-const selectMainNavLabels = createSelector(
-  [selectStoreNavArray],
-  navArray => navArray.map(nav => nav.title)
-);
+const selectMainNavArray = (state: StoreType): NavType[] => state.nav;
 
 const selectActiveNav = createSelector(
-  [selectStoreNavArray, selectTitle],
-  (navArray: NavType[], title: string): NavType => {
-    
-    const activeNavArray = navArray.filter(
-      (n: NavType): Boolean => (n.title.toLowerCase() === title.toLowerCase())
+  [selectMainNavArray, selectActive],
+  (navArray: NavType[], active: string): NavType => {
+
+    const activeNavArray = active && navArray.filter(
+      (n: NavType): Boolean => (
+        n.label.toLowerCase() === active.toLowerCase()
+      )
     );
-    
-    return activeNavArray[0] || null
+
+    return activeNavArray && activeNavArray[0] || null;
   }
 );
 
-const selectSubNavLabels = createSelector(
+const selectSubNavArray = createSelector(
   [selectActiveNav],
-  (activeNav: NavType): string[] => activeNav && activeNav.labels || null
+  (activeNav: NavType): NavType[] => activeNav && activeNav.subnav || null
 );
 
-const selectSubNavTitle = createSelector(
-  [selectActiveNav],
-  (activeNav: NavType): string => activeNav && activeNav.title || null
-)
-
 export {
-  selectMainNavLabels,
-  selectSubNavLabels,
-  selectSubNavTitle,
+  selectMainNavArray,
+  selectSubNavArray,
 }

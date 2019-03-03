@@ -33,7 +33,7 @@ describe('Areas', () => {
           area={'test'}
           title={'Test'}
           component={null}
-          updateTitle={() => { }} />
+          updateActive={() => { }} />
       );
 
       expect(portfolio.exists()).toBe(true);

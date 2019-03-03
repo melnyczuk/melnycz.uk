@@ -1,9 +1,6 @@
-const areaConstants = {
-  DEFAULT_AREA: 'portfolio',
-  PRIMARY_AREA: 'primary',
-};
 
 const actionConstants = {
+  SET_ACTIVE: 'SET_ACTIVE',
   SET_SHOW: 'SET_SHOW',
   SET_HIDE: 'SET_HIDE',
   SET_LENGTH: 'SET_LENGTH',
@@ -13,6 +10,5 @@ const actionConstants = {
 
 
 export {
-  areaConstants,
   actionConstants,
 };

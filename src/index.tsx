@@ -8,10 +8,11 @@ import './base.scss';
 
 import rootReducer from './store/rootReducer';
 
-import { 
+import {
   HomeContainer,
   PortfolioContainer,
   ResearchContainer,
+  AboutContainer,
 } from './areas/areas.containers';
 
 import {
@@ -44,6 +45,11 @@ class App extends React.PureComponent {
               className="home"
               path='/'
               component={HomeContainer}
+            />
+            <Route
+              className="about"
+              path='/about'
+              component={AboutContainer}
             />
             <Route
               className="portfolio"

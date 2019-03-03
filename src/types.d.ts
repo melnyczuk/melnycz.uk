@@ -94,8 +94,9 @@ export interface ModalDescriptionType extends DescriptionType {
 }
 
 export interface NavType {
-  title: string;
-  labels: string[];
+  label: string;
+  path: string;
+  subnav: NavType[];
 }
 
 export interface ResearchType extends AreaType {
@@ -103,10 +104,11 @@ export interface ResearchType extends AreaType {
 }
 
 export interface StoreType {
+  active: string;
   about: AboutType;
+  media: MediaType;
   nav: NavType[];
   portfolio: PortfolioType;
-  media: MediaType;
 }
 
 export interface VideoType {

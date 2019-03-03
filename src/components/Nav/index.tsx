@@ -4,7 +4,10 @@ import { NavType } from '../../types';
 
 import './Nav.scss';
 
-interface NavBarVals extends NavType {
+interface NavBarVals {
+  active: string;
+  title: string;
+  items: NavType[];
   className: string;
   buttonClassName: string;
 }
@@ -23,8 +26,9 @@ class NavBar extends React.PureComponent<NavBarProps> {
     const {
       className,
       buttonClassName,
-      labels,
+      items,
       title,
+      active,
     }: NavBarProps = this.props;
 
     const prefix = title ? `/${title}` : '';
@@ -32,14 +36,14 @@ class NavBar extends React.PureComponent<NavBarProps> {
     return (
       <nav className={`nav ${className}`}>
         {
-          labels && labels.map(
-            (label: string, i: number) => (
+          items && items.map(
+            ({ label, path }, i: number) => (
               <NavLink
                 key={i}
                 className={`nav-button ${buttonClassName}`}
-                to={`${prefix}/${label.toLowerCase().replace(' ', '-')}`}
+                to={`${prefix}${path}`}
               >
-                <h4 className='nav-button-label'>
+                <h4 className={`nav-button-label ${active === label ? 'nav-button-label_active' : ''}`}>
                   {label}
                 </h4>
               </NavLink>
