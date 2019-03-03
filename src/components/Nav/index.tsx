@@ -9,7 +9,6 @@ interface NavBarVals {
   title: string;
   items: NavType[];
   className: string;
-  buttonClassName: string;
 }
 
 interface NavBarFuncs { }
@@ -25,7 +24,6 @@ class NavBar extends React.PureComponent<NavBarProps> {
   render() {
     const {
       className,
-      buttonClassName,
       items,
       title,
       active,
@@ -40,10 +38,11 @@ class NavBar extends React.PureComponent<NavBarProps> {
             ({ label, path }, i: number) => (
               <NavLink
                 key={i}
-                className={`nav-button ${buttonClassName}`}
+                className={'nav-button'}
                 to={`${prefix}${path}`}
               >
-                <h4 className={`nav-button-label ${active === label ? 'nav-button-label_active' : ''}`}>
+                <h4 className={`nav-button-label ${
+                  active === label ? 'nav-button-label_active' : ''}`}>
                   {label}
                 </h4>
               </NavLink>

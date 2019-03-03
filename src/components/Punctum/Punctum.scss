@@ -17,13 +17,14 @@ $text-height: 64px;
   &-title {
     @include text;
     position: absolute;
-    border: 1px solid black;
+    border: $label-border;
     background: white;
     width: 80%;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     vertical-align: middle;
     text-align: center;
-    line-height: $text-height;
+    // line-height: $te;
+    padding: 1.5*$default-padding;
   }
 }

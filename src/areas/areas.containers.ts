@@ -32,8 +32,7 @@ const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
     active: selectActive(state),
     title: 'portfolio',
     items: selectSubNavArray(state),
-    className: '',
-    buttonClassName: '',
+    className: 'sub-nav',
   }),
   (dispatch: Function, props: NavBarProps) => ({})
 )(NavBar);

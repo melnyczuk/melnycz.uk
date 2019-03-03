@@ -32,7 +32,6 @@ const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
       title: '',
       items: selectMainNavArray(state),
       className: 'main-nav',
-      buttonClassName: '',
     }),
     (dispatch: Function, props: NavBarProps) => ({})
   )(NavBar);

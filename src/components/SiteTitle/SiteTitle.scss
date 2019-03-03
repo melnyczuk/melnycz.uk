@@ -2,7 +2,7 @@
 
 .SiteTitle {
   margin: 4px;
-  padding: 0 8px;
+  padding: $default-padding 2*$default-padding;
   font-size: 36px;
   text-align: left;
   border: $label-border;
