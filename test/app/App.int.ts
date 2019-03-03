@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../../src';
 import { NavBar } from '../../src/components/Nav';
-import Portfolio from '../../src/areas/Portfolio';
+import { Area } from '../../src/areas/Area';
 
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -27,6 +27,6 @@ describe('App', () => {
   it('renders with Area component', () => {
     const element = React.createElement(App);
     const app = shallow(element);
-    expect(!!app.find(Portfolio)).toBe(true);
+    expect(!!app.find(Area)).toBe(true);
   });
 });

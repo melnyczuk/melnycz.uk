@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 
-import { fetchLongDescriptions } from '../../store/works/works.utils';
-
 export interface ModalType {
   props: ModalProps;
 }

@@ -4,18 +4,22 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-import './index.scss';
+import './base.scss';
 
 import rootReducer from './store/rootReducer';
 
-import Home from './areas/Home';
-import Portfolio from './areas/Portfolio';
-import Research from './areas/Research';
-
 import { 
-  MainNavContainer, 
-  SiteTitleContainer 
+  HomeContainer,
+  PortfolioContainer,
+  ResearchContainer,
+} from './areas/areas.containers';
+
+import {
+  MainNavContainer,
+  SiteTitleContainer
 } from './app.containers';
+
+import { SubNavContainer } from './areas/areas.containers';
 
 class App extends React.PureComponent {
 
@@ -30,14 +34,27 @@ class App extends React.PureComponent {
     return (
       <Provider store={this.store} >
         <BrowserRouter>
-          <div className="App">
-            <SiteTitleContainer />
-            <MainNavContainer />
-            <main>
-              <Route path='/' component={Home} />
-              <Route path='/portfolio' component={Portfolio} />
-              <Route path='/research' component={Research} />
-            </main>
+          <div className="app">
+            <div className="header">
+              <SiteTitleContainer />
+              <MainNavContainer />
+              <SubNavContainer />
+            </div>
+            <Route
+              className="home"
+              path='/'
+              component={HomeContainer}
+            />
+            <Route
+              className="portfolio"
+              path='/portfolio'
+              component={PortfolioContainer}
+            />
+            <Route
+              className="research"
+              path='/research'
+              component={ResearchContainer}
+            />
           </div>
         </BrowserRouter>
       </Provider>

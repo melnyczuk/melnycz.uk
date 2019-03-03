@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$mobile: 768px;
+
+@mixin text {
+  color: black;
+  text-decoration: none;
+  font-family: 'Archivos', sans-serif;
+}
+
+a {
+  @include text;
+}
+
+.app {
+  margin: 8px 8px;
+  height: 100vh;
+  color: black;
+  background: white;
+}
+
+.header {
+  text-align: center;
+  
+  @media (min-width: $mobile) {
+    float: left;
+    margin: auto;
+    width: 25%;
+    text-align: left;
+    overflow: hidden;
+  }
+}

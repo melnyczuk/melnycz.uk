@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 
 import { 
-  ModalVals, ModalFuncs, ModalProps, Modal,
+  ModalVals, 
+  ModalFuncs, 
+  ModalProps, 
+  Modal,
 } from '../../components/Modal';
 
 import {
@@ -28,14 +31,14 @@ import {
 import {
   modalActions,
   postActions,
-} from '../../store/works/works.actions';
+} from '../../store/portfolio/portfolio.actions';
 
 import {
   mediaSelectors,
   modalSelectors,
   postSelectors,
   punctumSelectors,
-} from '../../store/works/works.selectors';
+} from '../../store/portfolio/portfolio.selectors';
 
 import { StoreType } from '../../types';
 
@@ -89,6 +92,7 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
     className: '',
     alt: punctumSelectors.selectAlt(state, props),
     src: punctumSelectors.selectSrc(state, props),
+    title: punctumSelectors.selectTitle(state, props),
   }),
   (dispatch: Function, props: PunctumProps) => ({
     showModal: () => dispatch(

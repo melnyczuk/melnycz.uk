@@ -1,66 +1,98 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 
 import {
-  SubNavContainer,
-  WorksContainer,
-} from './Portfolio.containers';
+  PunctumContainer,
+  ModalContainer,
+  PostContainer,
+} from './portfolio.containers';
 
-import {
-  setTitle,
-} from '../../store/about/about.actions';
+import { 
+  selectPortfolio, 
+} from '../../store/portfolio/portfolio.selectors';
 
-import {
-  worksSelectors,
-} from '../../store/works/works.selectors';
+import { 
+  PortfolioType, 
+  StoreType, 
+} from "../../types";
 
-import {
-  StoreType,
-  WorksType,
-} from '../../types';
-
-
-interface PortfolioVals {
-  works: WorksType;
-  filter?: string;
+interface WorkProps {
+  namespace: string;
 }
 
-interface PortfolioFuncs {
-  updateTitle: (title: string) => void;
+function filterWorks(portfolio: PortfolioType, filter: string): string[] {
+  return Object.keys(portfolio).filter(
+    (key: string) => (portfolio[key].type.includes(filter))
+  );
 }
 
-interface PortfolioProps extends PortfolioVals, PortfolioFuncs { }
+function generatePortfolio(portfolio: PortfolioType, keys: string[]): JSX.Element[] {
+  return keys.map(
+    (key, i) => {
+      const { namespace } = portfolio[key];
+      return portfolio.hasOwnProperty(key) && <Work key={i} namespace={namespace} />
+    }
+  )
+};
 
+class Work extends React.PureComponent<WorkProps> {
 
-export class Portfolio extends React.PureComponent<PortfolioProps> {
-
-  constructor(props: PortfolioProps) {
+  constructor(props: WorkProps) {
     super(props);
   }
 
-  componentDidMount() {
-    const { updateTitle } = this.props;
-    updateTitle('Portfolio');
+  render() {
+    const { namespace } = this.props;
+
+    return (
+      <section className='work' id={namespace}>
+        <PunctumContainer namespace={namespace} />
+        <ModalContainer namespace={namespace}>
+          <PostContainer namespace={namespace} />
+        </ModalContainer>
+      </section>
+    )
+  }
+}
+
+interface PortfolioVals {
+  portfolio: PortfolioType;
+  match?: {
+    params?: {
+      filter?: string;
+    }
+  }
+}
+
+interface PortfolioFuncs { }
+
+interface PortfolioProps extends PortfolioVals, PortfolioFuncs {
+  filter?: string;
+}
+
+class Portfolio extends React.PureComponent<PortfolioProps> {
+
+  constructor(props: any) {
+    super(props);
   }
 
   render() {
-    return (
-      <div className="portfolio">
-        <SubNavContainer />
-        <Route exact path='/portfolio' component={WorksContainer} />
-        <Route path='/portfolio/:filter' component={WorksContainer} />
-      </div>
-    );
+    const { portfolio, filter } = this.props;
+
+    const filterKeys: string[] = filter
+      ? filterWorks(portfolio, filter)
+      : Object.keys(portfolio);
+
+    return generatePortfolio(portfolio, filterKeys);
   }
+
 }
 
 export default connect<PortfolioVals, PortfolioFuncs, {}>
   (
-    (state: StoreType) => ({
-      works: worksSelectors.selectWorks(state),
+    (state: StoreType, props: PortfolioProps) => ({
+      portfolio: selectPortfolio(state),
+      filter: props.match.params.filter,
     }),
-    (dispatch: Function) => ({
-      updateTitle: (title: string) => dispatch(setTitle(title))
-    })
+    (dispatch: Function, props: PortfolioProps) => ({}),
   )(Portfolio);

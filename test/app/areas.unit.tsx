@@ -2,8 +2,8 @@ import * as React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { Portfolio } from '../../src/areas/Portfolio';
-import { WorksType } from '../../src/types';
+import { Area } from '../../src/areas/Area';
+import { PortfolioType } from '../../src/types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,7 +13,7 @@ describe('Areas', () => {
 
     it('renders', () => {
 
-      const mockWorks: WorksType = {
+      const mockWorks: PortfolioType = {
         test: {
           visible: null,
           description: null,
@@ -28,7 +28,13 @@ describe('Areas', () => {
         }
       }
 
-      const portfolio = shallow(<Portfolio works={mockWorks} updateTitle={()=>{}} />);
+      const portfolio = shallow(
+        <Area
+          area={'test'}
+          title={'Test'}
+          component={null}
+          updateTitle={() => { }} />
+      );
 
       expect(portfolio.exists()).toBe(true);
       expect(portfolio.length).toBe(1);
