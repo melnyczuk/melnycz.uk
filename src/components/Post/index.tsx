@@ -1,11 +1,12 @@
 import * as React from 'react';
 
+import './Post.scss';
+
 import { ContainerType } from "../../types";
 import { fetchLongDescriptions } from '../../store/portfolio/portfolio.utils';
 
 interface PostVals {
   className: string;
-  title: string;
   short: string;
   long: string;
   longPath?: string;
@@ -37,7 +38,6 @@ class Post extends React.PureComponent<PostProps> {
   render() {
 
     const {
-      title,
       short,
       long,
       className,
@@ -46,10 +46,9 @@ class Post extends React.PureComponent<PostProps> {
 
     return long
       ? (
-        <article className={className}>
-          {title && <h2 key="title">{title}</h2>}
-          {short && <p key="short" className="work-desc work-desc-short">{short}</p>}
-          {long && <p>{long}</p>}
+        <article className={`post ${className}`}>
+          {short && <p className='post post-short' key='short'>{short}</p>}
+          {long && <p className='post post-long' key='long' >{long}</p>}
           {children}
         </article>
       )

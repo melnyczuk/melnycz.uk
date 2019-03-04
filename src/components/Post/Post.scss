@@ -1,0 +1,31 @@
+@import '../../base.scss';
+
+
+.post {
+  @include text;
+
+  font-size: 14px;
+  
+  @media (min-width: $mobile) {
+    font-size: 24px;
+  } 
+
+  &-short{
+    
+    @media (min-width: $mobile) {
+
+    } 
+  }
+
+  
+  &-long{
+    margin-bottom: 2*$default-margin;
+    
+    @media (min-width: $mobile) {
+      margin-bottom: 2*$default-margin-mobile;
+    } 
+  }
+
+  
+
+}

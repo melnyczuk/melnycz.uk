@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
 $mobile: 768px;
+$default-padding-mobile: 4px;
 $default-padding: 8px;
+$default-margin-mobile: 4px;
+$default-margin: 8px;
 $label-border: 1px solid black;
-$bar-button-height: 24px;
-
-@media (min-width: $mobile) {
-  $bar-button-height: 32px;
-}
+$bar-button-height-mobile: 24px;
+$bar-button-height: 32px;
 
 * {
   margin: 0;
@@ -28,6 +28,7 @@ a {
 
 .app {
   margin: 8px 8px;
+  padding: $default-padding;
   height: 100vh;
   color: black;
   background: white;
@@ -46,6 +47,7 @@ a {
 }
 
 .main {
+  width: 100%;
 
   @media (min-width: $mobile) {
     float: left;

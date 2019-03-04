@@ -47,8 +47,7 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
   (state: StoreType, props: ModalProps) => ({
     className: '',
     visible: modalSelectors.selectVisible(state, props),
-    long: postSelectors.selectLong(state, props),
-    longPath: postSelectors.selectLongPath(state, props),
+    title: postSelectors.selectTitle(state, props),
   }),
   (dispatch: Function, props: ModalProps) => ({
     hide: () => dispatch(
@@ -77,7 +76,6 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
     short: postSelectors.selectShort(state, props),
     long: postSelectors.selectLong(state, props),
     longPath: postSelectors.selectLongPath(state, props),
-    title: postSelectors.selectTitle(state, props),
   }),
   (dispatch: Function, props: PostProps) => ({
     setLong: (data) => dispatch(

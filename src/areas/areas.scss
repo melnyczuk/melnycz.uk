@@ -5,10 +5,11 @@
 }
 
 .work {
-  margin: 4px;
+  display: inline-block;
+  position: float;
+  margin: $default-margin-mobile;
 
   @media (min-width: $mobile) {
-
+    margin: $default-margin;
   }
-
 }

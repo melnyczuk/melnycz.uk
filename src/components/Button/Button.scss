@@ -1,0 +1,29 @@
+@import '../../base.scss';
+@import '../Modal/Modal.scss';
+
+.button {
+  background-color: white;
+  margin: auto;
+  padding: 0;
+  border: none;
+
+  :active, :focus, :target {
+    border: none;
+  }
+  
+  &-close {
+    &-img {
+      border: $label-border;
+      margin: 2px;
+      padding: 2px;
+      
+      width: $header-font-size-mobile;
+      height: $header-font-size-mobile;
+      
+      @media (min-width: $mobile) {
+        width: $header-font-size;
+        height: $header-font-size;;
+      }
+    }
+  }
+}

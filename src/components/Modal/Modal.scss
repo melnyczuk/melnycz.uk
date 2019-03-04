@@ -1,0 +1,56 @@
+@import '../../base.scss';
+
+$header-font-size-mobile: 18px;
+$header-font-size: 36px;
+
+.modal {
+  @include text;
+  position: fixed;
+  overflow: hidden;
+  overflow-y: auto; 
+  border: $label-border;
+  background: white;
+  z-index: 1;
+  height: auto; 
+  max-height: 90%;
+  
+  padding: $default-padding-mobile 2*$default-padding-mobile;
+  top: 26 * $default-padding-mobile;
+  left: 5 * $default-margin-mobile;
+  right: 5 * $default-margin-mobile;
+
+  @media (min-width: $mobile) {
+    padding: 2*$default-padding 4*$default-padding;
+    top: 5%;
+    left: 10%;
+    right: 10%;
+  }
+
+  &-header {
+    width: 100%;
+    height: 2*$header-font-size;
+    position: relative;
+    line-height: 2*$header-font-size;
+    
+    &-title {
+      vertical-align: middle;
+      width: fit-content;
+      float: left;
+      font-size: $header-font-size-mobile;
+
+      @media (min-width: $mobile) {
+        font-size: $header-font-size
+      }
+     }
+
+    &-button {
+      width: fit-content;
+      float: right;
+      margin: 0;
+    }
+  }
+
+  &-body {
+    width: 100%;
+  }
+}

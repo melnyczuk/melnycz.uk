@@ -2,9 +2,8 @@
 
 .punctum {
   position: relative;
-  width: 100%;
   border: $label-border;
-
+  
   &-image {
     display: block;
     object-fit: cover;
@@ -12,23 +11,34 @@
     width: 100%;
   }
 
-  &-title {
-    @include text;
-    font-size: 14px;
+  &-label {
+    background-color: white;
     position: absolute;
-    border: $label-border;
-    background: white;
     width: 80%;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
-    vertical-align: middle;
-    text-align: center;
-    padding: $default-padding;
-    height: $bar-button-height;
-    line-height: $bar-button-height;
+    border: $label-border;
+    
+    padding: $default-padding-mobile;
+    height: $bar-button-height-mobile;
+    line-height: $bar-button-height-mobile;
     
     @media (min-width: $mobile) {
-      font-size: 18px;
+      padding: $default-padding;
+      height: $bar-button-height;
+      line-height: $bar-button-height;
     }
   }
+
+    &-title {
+      @include text;
+      vertical-align: middle;
+      text-align: center;
+      
+      font-size: 14px;
+
+      @media (min-width: $mobile) {
+        font-size: 18px;
+      }
+    }
 }

@@ -44,11 +44,13 @@ class Punctum extends React.PureComponent<PunctumProps> {
             src={src}
             alt={alt}
           />
-          <h2
-            className="punctum-title"
-          >
-            {title}
-          </h2>
+          <div className="punctum-label">
+            <h2
+              className="punctum-title"
+            >
+              {title}
+            </h2>
+          </div>
         </div>
       )
     }
