@@ -35,10 +35,8 @@ class Area extends React.PureComponent<AreaProps> {
     const { area, component } = this.props;
     return (
       <>
-        <main className="main">
-          <Route exact path={`/${area}`} component={component} />
-          <Route path={`/${area}/:filter`} component={component} />
-        </main>
+        <Route exact path={`/${area}`} component={component} />
+        <Route path={`/${area}/:filter`} component={component} />
       </>
     );
   }

@@ -3,6 +3,7 @@
 $mobile: 768px;
 $default-padding: 8px;
 $label-border: 1px solid black;
+$bar-button-height: 32px;
 
 * {
   margin: 0;
@@ -14,7 +15,7 @@ $label-border: 1px solid black;
 @mixin text {
   color: black;
   text-decoration: none;
-  font-family: 'Archivos', sans-serif;
+  font-family: 'Archivo', sans-serif;
 }
 
 a {
@@ -37,5 +38,13 @@ a {
     width: 25%;
     text-align: left;
     overflow: hidden;
+  }
+}
+
+.main {
+
+  @media (min-width: $mobile) {
+    float: left;
+    width: 60%;
   }
 }

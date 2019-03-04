@@ -1,7 +1,5 @@
 @import '../../base.scss';
 
-$button-height: 32px;
-
 .nav {
   fill: white;
   width: 100%;
@@ -16,7 +14,7 @@ $button-height: 32px;
     margin: 4px;
     padding: $default-padding;
     border: $label-border;
-    height: $button-height;
+    height: $bar-button-height;
     width: fixed;
     background: none;
     fill: white;
@@ -32,8 +30,8 @@ $button-height: 32px;
     &-label {
       padding: 0 $default-padding;
       height: 100%;
-      font-size: 24px;
-      line-height: $button-height;
+      font-size: 18px;
+      line-height: $bar-button-height;
       text-align: left;
       vertical-align: middle;
  

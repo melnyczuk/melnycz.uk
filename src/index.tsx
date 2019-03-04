@@ -41,26 +41,28 @@ class App extends React.PureComponent {
               <MainNavContainer />
               <SubNavContainer />
             </div>
-            <Route
-              className="home"
-              path='/'
-              component={HomeContainer}
-            />
-            <Route
-              className="about"
-              path='/about'
-              component={AboutContainer}
-            />
-            <Route
-              className="portfolio"
-              path='/portfolio'
-              component={PortfolioContainer}
-            />
-            <Route
-              className="research"
-              path='/research'
-              component={ResearchContainer}
-            />
+            <main className="main">
+              <Route
+                className="home"
+                path='/'
+                component={HomeContainer}
+              />
+              <Route
+                className="about"
+                path='/about'
+                component={AboutContainer}
+              />
+              <Route
+                className="portfolio"
+                path='/portfolio'
+                component={PortfolioContainer}
+              />
+              <Route
+                className="research"
+                path='/research'
+                component={ResearchContainer}
+              />
+            </main>
           </div>
         </HashRouter>
       </Provider>
