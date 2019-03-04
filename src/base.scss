@@ -3,7 +3,11 @@
 $mobile: 768px;
 $default-padding: 8px;
 $label-border: 1px solid black;
-$bar-button-height: 32px;
+$bar-button-height: 24px;
+
+@media (min-width: $mobile) {
+  $bar-button-height: 32px;
+}
 
 * {
   margin: 0;

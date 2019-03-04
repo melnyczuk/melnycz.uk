@@ -3,7 +3,13 @@
 .SiteTitle {
   margin: 4px;
   padding: $default-padding 2*$default-padding;
-  font-size: 32px;
+  font-size: 24px;
   text-align: left;
   border: $label-border;
+  height: $bar-button-height;
+  line-height: $bar-button-height;
+
+  @media (min-width: $mobile) {
+    font-size: 32px;
+  }
 }

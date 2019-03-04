@@ -15,6 +15,7 @@
     padding: $default-padding;
     border: $label-border;
     height: $bar-button-height;
+    line-height: $bar-button-height;
     width: fixed;
     background: none;
     fill: white;
@@ -30,10 +31,15 @@
     &-label {
       padding: 0 $default-padding;
       height: 100%;
-      font-size: 18px;
+      font-size: 14px;
+      height: $bar-button-height;
       line-height: $bar-button-height;
       text-align: left;
       vertical-align: middle;
+      
+      @media (min-width: $mobile) {
+        font-size: 18px;
+      }
  
       &_active {
         font-style: oblique;

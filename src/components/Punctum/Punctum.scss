@@ -14,17 +14,21 @@
 
   &-title {
     @include text;
-    font-size: 18px;
+    font-size: 14px;
     position: absolute;
     border: $label-border;
-    background: blue;
+    background: white;
     width: 80%;
-    height: $bar-button-height;
-    line-height: $bar-button-height;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     vertical-align: middle;
     text-align: center;
-    padding: 1.5*$default-padding;
+    padding: $default-padding;
+    height: $bar-button-height;
+    line-height: $bar-button-height;
+    
+    @media (min-width: $mobile) {
+      font-size: 18px;
+    }
   }
 }
