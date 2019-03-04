@@ -11,7 +11,7 @@ interface ButtonProps {
 
 function switchButton(purpose: string) {
 
-  const dirPath = `${__dirname}src/components/Button`
+  const dirPath = './ssrc/components/Button';
 
   switch (purpose) {
     case ('close'): return `${dirPath}/close.svg`;
