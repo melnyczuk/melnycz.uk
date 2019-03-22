@@ -5,18 +5,18 @@ import Home from "./Home";
 import Research from "./Research";
 import Portfolio from "./Portfolio";
 
-import { 
-  Area, 
-  AreaVals, 
-  AreaFuncs, 
-  AreaProps, 
+import {
+  Area,
+  AreaVals,
+  AreaFuncs,
+  AreaProps,
 } from "./Area";
 
-import { 
-  NavBar, 
-  NavBarVals, 
-  NavBarFuncs, 
-  NavBarProps, 
+import {
+  NavBar,
+  NavBarVals,
+  NavBarFuncs,
+  NavBarProps,
 } from "../components/Nav";
 
 import { setActive } from "../store/active/active.actions";

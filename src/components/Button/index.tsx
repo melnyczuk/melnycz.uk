@@ -8,18 +8,6 @@ interface ButtonProps {
   className?: string;
 }
 
-
-function switchButton(purpose: string) {
-
-  const dirPath = './ssrc/components/Button';
-
-  switch (purpose) {
-    case ('close'): return `${dirPath}/close.svg`;
-
-    default: return (null);
-  }
-}
-
 const Button = (
   {
     purpose,
@@ -34,7 +22,7 @@ const Button = (
     >
       <img
         className={`button button-${purpose}-img`}
-        src={switchButton(purpose)}
+        src={`./svg/${purpose}.svg`}
       />
     </button>
   );

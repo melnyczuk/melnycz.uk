@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import { 
-  ModalVals, 
-  ModalFuncs, 
-  ModalProps, 
+import {
+  ModalVals,
+  ModalFuncs,
+  ModalProps,
   Modal,
 } from '../../components/Modal';
 
