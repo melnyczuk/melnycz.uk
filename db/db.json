@@ -36,63 +36,63 @@
         "id": "rrosetta",
         "index": 2,
         "alt": "",
-        "path": "works/rrosetta",
+        "path": "portfolio/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 3,
         "alt": "",
-        "path": "works/rrosetta",
+        "path": "portfolio/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 4,
         "alt": "",
-        "path": "works/rrosetta",
+        "path": "portfolio/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 6,
         "alt": "",
-        "path": "works/rrosetta",
+        "path": "portfolio/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 9,
         "alt": "",
-        "path": "works/rrosetta",
+        "path": "portfolio/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 1,
         "alt": "",
-        "path": "works/objperma",
+        "path": "portfolio/objperma",
         "ext": "jpg"
       },
       {
         "id": "objpermas",
         "index": 2,
         "alt": "",
-        "path": "works/objperma",
+        "path": "portfolio/objperma",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 3,
         "alt": "",
-        "path": "works/objperma",
+        "path": "portfolio/objperma",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 4,
         "alt": "",
-        "path": "works/objperma",
+        "path": "portfolio/objperma",
         "ext": "jpg"
       }
     ],
@@ -128,7 +128,7 @@
         "archival content"
       ],
       "media": {
-        "images": [1,2,3,4,5,6],
+        "images": [1,2,3,4],
         "video": [],
         "audio": []
       },
