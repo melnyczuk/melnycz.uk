@@ -12,7 +12,7 @@ $header-font-size: 36px;
   background: white;
   z-index: 1;
   height: auto; 
-  max-height: 90%;
+  max-height: 92%;
   
   padding: $default-padding-mobile 2*$default-padding-mobile;
   top: 26 * $default-padding-mobile;
@@ -21,7 +21,7 @@ $header-font-size: 36px;
 
   @media (min-width: $mobile) {
     padding: 2*$default-padding 4*$default-padding;
-    top: 5%;
+    top: 3*$default-margin;
     left: 10%;
     right: 10%;
   }

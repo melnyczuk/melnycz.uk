@@ -12,175 +12,118 @@ import {
   WorkType,
   PortfolioType,
   ContainerType,
-  DescriptionType,
   MediaIndexType,
   ImageType,
   VideoType,
   AudioType,
+  MediaItemType,
 } from '../../types';
 
-const selectNamespace = (
-  state: StoreType,
-  props: ContainerType
-): string => props.namespace;
+import { buildSrc } from '../../utils';
 
-const selectPortfolio = (
-  state: StoreType
-): PortfolioType => state.portfolio;
+function concatBaseBinUrlToPath(baseBinUrl: string) {
+  return (media: MediaItemType): string =>
+    `${baseBinUrl}/${media.path}`
+}
+
+function filterMediaByNamespace(namespace: string) {
+  return (media: MediaItemType): boolean => (media.id === namespace)
+}
+
+function selectNamespace(state: StoreType, props: ContainerType): string {
+  return props.namespace;
+} 
+
+function selectPortfolio(state: StoreType): PortfolioType { 
+  return state.portfolio;
+}
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType => portfolio[namespace]
+  (portfolio: PortfolioType, namespace: string): WorkType => 
+    portfolio[namespace]
 );
 
-const selectWorkMediaIndex = createSelector(
-  selectWork,
-  (work: WorkType): MediaIndexType | null => (
-    (work && work.media) ? work.media : null
-  ),
-);
-
-const selectImageKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.imageKeys) ? mediaIndex.imageKeys : []
-  ),
-);
-
-const selectVideoKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.videoKeys) ? mediaIndex.videoKeys : []
-  ),
-);
-
-const selectAudioKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.audioKeys) ? mediaIndex.audioKeys : []
-  ),
-);
-
-const selectWorkDescription = createSelector(
+const selectDescription = createSelector(
   [selectWork],
-  (work: WorkType): DescriptionType | null => (
+  (work: WorkType): string[] => (
     (work && work.description) ? work.description : null
   ),
 );
 
-
-const mediaSelectors = {
-
-  selectBinBaseUrl,
-
-  selectImages: createSelector(
-    [selectImageKeys, selectImages],
-    (
-      imageKeys: string[],
-      images: ImageType[]
-    ): ImageType[] | [] => (
-        images.filter((image) => (imageKeys.includes(image.id)))
-      ),
+const selectVisible = createSelector(
+  [selectWork],
+  (work: WorkType): boolean => (
+    (work && work.visible) ? work.visible : false
   ),
+);
 
-  selectVideos: createSelector(
-    [selectVideoKeys, selectVideos],
-    (
-      videoKeys: string[],
-      videos: VideoType[]
-    ): VideoType[] | null => (
-        videos.filter((video) => (videoKeys.includes(video.id)))
-      ),
+const selectAlt = createSelector(
+  [selectWork],
+  (work: WorkType): string => (
+    (work && work.title) ? work.title : null
   ),
+);
 
-  selectAudios: createSelector(
-    [selectAudioKeys, selectAudios],
-    (
-      audioKeys: string[],
-      audio: AudioType[]
-    ): AudioType[] | null => (
-        audio.filter((audio) => (audioKeys.includes(audio.id)))
-      ),
-  ),
-
-};
-
-const postSelectors = {
-
-  selectLongPath: createSelector(
-    [selectNamespace, selectBinBaseUrl],
-    (namespace: string, baseBinUrl: string): string | null => (
-      (namespace && baseBinUrl)
-        ? `${baseBinUrl}/portfolio/${namespace}/${namespace}.txt`
-        : null
+const selectWorkMedia = {
+  index: createSelector(
+    selectWork,
+    (work: WorkType): MediaIndexType => (
+      (work && work.media) ? work.media : null
     ),
   ),
 
-  selectLong: createSelector(
-    [selectWorkDescription],
-    (desc: DescriptionType): string | null => (
-      (desc && desc.long) ? desc.long : null
-    ),
+  images: createSelector(
+    [selectImages, selectNamespace, selectBinBaseUrl],
+    (images: ImageType[], namespace: string, baseBinUrl: string): ImageType[] => 
+      images.filter(filterMediaByNamespace(namespace))
+        .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))
+  
   ),
 
-  selectShort: createSelector(
-    [selectWorkDescription],
-    (desc: DescriptionType): string | null => (
-      (desc && desc.short) ? desc.short : null
-    ),
+  videos: createSelector(
+    [selectVideos, selectNamespace, selectBinBaseUrl],
+    (videos: VideoType[], namespace: string, baseBinUrl: string): VideoType[] =>
+      videos.filter(filterMediaByNamespace(namespace))
+        .map(vid => ({ ...vid, path: concatBaseBinUrlToPath(baseBinUrl)(vid) }))
   ),
 
-  selectTitle: createSelector(
-    [selectWork],
-    (work: WorkType): string | null => (
-      (work && work.title) ? work.title : null
-    ),
+  audios: createSelector(
+    [selectAudios, selectNamespace, selectBinBaseUrl],
+    (audio: AudioType[], namespace: string, baseBinUrl: string): AudioType[] => 
+      audio.filter(filterMediaByNamespace(namespace))
+        .map(aud => ({ ...aud, path: concatBaseBinUrlToPath(baseBinUrl)(aud) }))
   ),
+}
 
-};
-
-const modalSelectors = {
-
-  selectVisible: createSelector(
-    [selectWork],
-    (work: WorkType): boolean => (
-      (work && work.visible) ? work.visible : false
-    ),
-  ),
-
-};
-
-const punctumSelectors = {
-
-  selectAlt: createSelector(
-    [selectWork],
-    (work: WorkType): string | null => (
-      (work && work.title) ? work.title : null
-    ),
-  ),
-
-  selectSrc: createSelector(
-    [selectWork, selectNamespace, selectBinBaseUrl],
-    (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
-      (work && namespace && baseBinUrl && work.img)
-        ? `${baseBinUrl}/portfolio/${namespace}/${work.img}.jpg`
-        : null
-    ),
-  ),
-
-  selectTitle: createSelector(
-    [selectWork, selectNamespace],
-    (work: WorkType) => (
-      (work && work.title) ? work.title : null
-    )
+const selectKeyImg = createSelector(
+  [selectWork],
+  (work: WorkType): number => (
+    (work && work.img) ? work.img : null
   )
+);
 
-};
+const selectKeyImgSrc = createSelector(
+  [selectWorkMedia.images, selectKeyImg, selectBinBaseUrl],
+  (images: ImageType[], key: number, baseBinUrl: string): string => {
+    const img = images.filter(i => i.index === key);
+    return img && img[0] && buildSrc(img[0]);
+  }
+);
+
+const selectTitle = createSelector(
+  [selectWork],
+  (work: WorkType): string => (
+    (work && work.title) ? work.title : null
+  )
+);
 
 export {
-  modalSelectors,
-  mediaSelectors,
-  postSelectors,
-  punctumSelectors,
+  selectAlt,
+  selectDescription,
+  selectKeyImgSrc,
   selectPortfolio,
+  selectTitle,
+  selectWorkMedia,
+  selectVisible,
 };

@@ -2,23 +2,44 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import { ContainerType } from "../../types";
-import { fetchLongDescriptions } from '../../store/portfolio/portfolio.utils';
+import {
+  buildSrc
+} from '../../utils';
+
+import { ImageType } from '../../types';
 
 interface PostVals {
   className: string;
-  short: string;
-  long: string;
-  longPath?: string;
-  children?: ContainerType[] | JSX.Element[];
+  desc: string[];
+  imgs: ImageType[];
+  children?: JSX.Element[];
 }
 
 interface PostFuncs {
-  setLong?: (data: string) => void;
+  setLong?: (data: string[]) => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
   namespace: string;
+}
+
+function buildImg(image: ImageType, i: number): JSX.Element {
+  const { id, index, alt } = image;
+  return (
+    <img
+      key={`${id}-${index}`}
+      className={`post post-img post-img_${i}`}
+      src={buildSrc(image)}
+      alt={alt}
+    />)
+}
+
+function buildParagraph(text: string, i: number): JSX.Element {
+  return (
+    <React.Fragment key={`desc-${i}`} >
+      <p className='post post-desc' >{text}</p>
+      <br />
+    </React.Fragment>)
 }
 
 class Post extends React.PureComponent<PostProps> {
@@ -28,27 +49,27 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    if (!this.props.long && this.props.longPath) {
-      fetchLongDescriptions(this.props.longPath).then(
-        data => this.props.setLong(data)
-      );
+    if (!this.props.desc) {
+      const { namespace } = this.props;
+      fetch(`./bin/works/${namespace}/${namespace}.json`)
+        .then(resp => resp.json())
+        .then(this.props.setLong)
     }
   }
 
   render() {
-
     const {
-      short,
-      long,
+      imgs,
+      desc,
       className,
       children,
     }: PostProps = this.props;
 
-    return long
+    return desc
       ? (
         <article className={`post ${className}`}>
-          {short && <p className='post post-short' key='short'>{short}</p>}
-          {long && <p className='post post-long' key='long' >{long}</p>}
+          {desc.map(buildParagraph)}
+          {imgs && imgs.map(buildImg)}
           {children}
         </article>
       )
