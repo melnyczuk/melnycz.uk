@@ -1,6 +1,5 @@
 const { works } = require('../../../db/db.json');
-import { ActionType, PortfolioType } from '../../types';
-import { Work } from '../../../db/types';
+import { ActionType, PortfolioType, WorkType } from '../../types';
 
 import { actionConstants } from '../constants';
 
@@ -10,7 +9,7 @@ const {
   SET_LONG,
 } = actionConstants;
 
-const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: Work) => ({
+const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: WorkType) => ({
   ...map,
   [work.namespace]: {
     ...work,

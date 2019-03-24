@@ -3,7 +3,6 @@ import { createSelector } from "reselect";
 import { 
   StoreType, 
   AboutType, 
-  BioType, 
   InfoType, 
   DescriptionType 
 } from "../../types";
@@ -14,7 +13,7 @@ function selectAbout(state: StoreType): AboutType {
 
 const selectBio = createSelector(
   selectAbout,
-  (about: AboutType): BioType => about.bio
+  (about: AboutType): DescriptionType => about.bio
 );
 
 const selectInfo = createSelector(
