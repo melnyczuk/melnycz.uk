@@ -1,6 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/cp ./dist/index.html  /home/birivcrk/public_html
-    - /bin/cp ./dist/build.js /home/birivcrk/public_html
-    - /bin/cp ./svg/*.svg /home/birivcrk/public_html/svg
+    - /bin/cp -r ./dist  /home/birivcrk/public_html
