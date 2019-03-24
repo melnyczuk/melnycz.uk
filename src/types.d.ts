@@ -1,6 +1,3 @@
-import { DB, Work as DBWork } from '../db/types';
-import { type } from 'os';
-
 export interface AboutType {
   title: string;
   bio: BioType;
@@ -26,6 +23,7 @@ export interface AreasType {
 
 export interface AudioType {
   id: string;
+  index: number;
   path: string;
   ext: string;
   title?: string;
@@ -61,13 +59,19 @@ export interface ExhibitionType {
   links?: string[];
 }
 
+export interface MediaIndexType {
+  images: number[];
+  videos: number[];
+  audios: number[];
+}
+
 export interface ImageType {
   id: string;
+  index: number;
   path: string;
   ext: string;
-  title?: string;
-  rank?: number;
-  description?: DescriptionType;
+  alt: string;
+  caption?: DescriptionType;
 }
 
 export interface InfoType {
@@ -83,25 +87,13 @@ export interface MediaType {
   audios?: AudioType[];
 }
 
-export interface MediaIndexType {
-  imageKeys: string[];
-  videoKeys: string[];
-  audioKeys: string[];
-}
-
-export interface ModalDescriptionType extends DescriptionType {
-
-}
-
 export interface NavType {
   label: string;
   path: string;
   subnav: NavType[];
 }
 
-export interface ResearchType extends AreaType {
-
-}
+export interface ResearchType extends AreaType {}
 
 export interface StoreType {
   active: string;
@@ -113,16 +105,12 @@ export interface StoreType {
 
 export interface VideoType {
   id: string;
+  index: number;
   path: string;
   ext: string;
-  title?: string;
+  title: string;
   duration?: number;
   description?: DescriptionType;
-}
-
-export interface WorkType extends DBWork {
-  description: DescriptionType;
-  visible: boolean;
 }
 
 export interface PortfolioType {
@@ -131,4 +119,87 @@ export interface PortfolioType {
 
 export interface WritingType {
 
+}
+
+export interface WorkType {
+  namespace: string;
+  live: boolean;
+  title: string;
+  img: string;
+  year: number[];
+  description: DescriptionType;
+  media: MediaIndexType;
+  materials: string[];
+  type: string[];
+  visible?: boolean;
+  links?: string[];
+  exhibitions?: Exhibition[];
+}
+
+export interface Exhibition {
+  title: string;
+  space: string;
+  city: string;
+  country: string;
+  geo: number[];
+  dates: number[];
+  media: MediaIndexType;
+  curator?: string[];
+  links?: string[];
+}
+
+export interface Media {
+  baseURL: string;
+  images?: Image[];
+  videos?: Video[];
+  audios?: Audio[];
+}
+
+export interface Image {
+  id: string;
+  path: string;
+  ext: string;
+  alt: string;
+  caption?: DescriptionType;
+}
+
+export interface Video {
+  id: string;
+  path: string;
+  ext: string;
+  title?: string;
+  duration?: number;
+  description?: DescriptionType;
+}
+
+export interface Audio {
+  id: string;
+  path: string;
+  ext: string;
+  title?: string;
+  duration?: number;
+  description?: DescriptionType;
+}
+
+export interface Bio {
+  short?: string;
+  long?: string;
+}
+
+export interface Information {
+  name: string;
+  email: string;
+  handle: string;
+}
+
+export interface Writing {
+
+}
+
+export interface DB {
+  bio: Bio;
+  info: Information;
+  media: Media;
+  works: Work[];
+  writing: Writing[];
 }

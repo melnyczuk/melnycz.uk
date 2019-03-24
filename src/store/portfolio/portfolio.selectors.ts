@@ -4,7 +4,7 @@ import {
   selectBinBaseUrl,
   selectImages,
   selectVideos,
-  selectAudios,
+  selectAudios, 
 } from '../media/media.selectors';
 
 import {
@@ -42,22 +42,22 @@ const selectWorkMediaIndex = createSelector(
 
 const selectImageKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.imageKeys) ? mediaIndex.imageKeys : []
+  (mediaIndex: MediaIndexType): number[] | null[] => (
+    (mediaIndex && mediaIndex.images) ? mediaIndex.images : []
   ),
 );
 
 const selectVideoKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.videoKeys) ? mediaIndex.videoKeys : []
+  (mediaIndex: MediaIndexType): number[] | null[] => (
+    (mediaIndex && mediaIndex.videos) ? mediaIndex.videos : []
   ),
 );
 
 const selectAudioKeys = createSelector(
   [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): string[] | null => (
-    (mediaIndex && mediaIndex.audioKeys) ? mediaIndex.audioKeys : []
+  (mediaIndex: MediaIndexType): number[] | null[] => (
+    (mediaIndex && mediaIndex.audios) ? mediaIndex.audios : []
   ),
 );
 
@@ -68,119 +68,92 @@ const selectWorkDescription = createSelector(
   ),
 );
 
-
-const mediaSelectors = {
-
-  selectBinBaseUrl,
-
-  selectImages: createSelector(
-    [selectImageKeys, selectImages],
-    (
-      imageKeys: string[],
-      images: ImageType[]
-    ): ImageType[] | [] => (
-        images.filter((image) => (imageKeys.includes(image.id)))
-      ),
-  ),
-
-  selectVideos: createSelector(
-    [selectVideoKeys, selectVideos],
-    (
-      videoKeys: string[],
-      videos: VideoType[]
-    ): VideoType[] | null => (
-        videos.filter((video) => (videoKeys.includes(video.id)))
-      ),
-  ),
-
-  selectAudios: createSelector(
-    [selectAudioKeys, selectAudios],
-    (
-      audioKeys: string[],
-      audio: AudioType[]
-    ): AudioType[] | null => (
-        audio.filter((audio) => (audioKeys.includes(audio.id)))
-      ),
-  ),
-
-};
-
-const postSelectors = {
-
-  selectLongPath: createSelector(
-    [selectNamespace, selectBinBaseUrl],
-    (namespace: string, baseBinUrl: string): string | null => (
-      (namespace && baseBinUrl)
-        ? `${baseBinUrl}/portfolio/${namespace}/${namespace}.txt`
-        : null
+const selectWorkImages = createSelector(
+  [selectImageKeys, selectImages, selectNamespace],
+  (imageKeys: number[],
+    images: ImageType[]
+  ): ImageType[] | [] => (
+      images.filter((image) => (imageKeys.includes(image.index)))
     ),
-  ),
+);
 
-  selectLong: createSelector(
-    [selectWorkDescription],
-    (desc: DescriptionType): string | null => (
-      (desc && desc.long) ? desc.long : null
+const selectWorkVideos = createSelector(
+  [selectVideoKeys, selectVideos],
+  (videoKeys: number[], videos: VideoType[]): VideoType[] | null => (
+    videos.filter((video) => (videoKeys.includes(video.index)))
+  ),
+);
+
+const selectWorkAudios = createSelector(
+  [selectAudioKeys, selectAudios, selectNamespace],
+  (audioKeys: number[], audio: AudioType[]): AudioType[] | null => (
+      audio.filter((audio) => (audioKeys.includes(audio.index)))
     ),
+);
+
+const selectLongPath = createSelector(
+  [selectNamespace, selectBinBaseUrl],
+  (namespace: string, baseBinUrl: string): string | null => (
+    (namespace && baseBinUrl)
+      ? `${baseBinUrl}/portfolio/${namespace}/${namespace}.txt`
+      : null
   ),
+);
 
-  selectShort: createSelector(
-    [selectWorkDescription],
-    (desc: DescriptionType): string | null => (
-      (desc && desc.short) ? desc.short : null
-    ),
+const selectLong = createSelector(
+  [selectWorkDescription],
+  (desc: DescriptionType): string | null => (
+    (desc && desc.long) ? desc.long : null
   ),
+);
 
-  selectTitle: createSelector(
-    [selectWork],
-    (work: WorkType): string | null => (
-      (work && work.title) ? work.title : null
-    ),
+const selectShort = createSelector(
+  [selectWorkDescription],
+  (desc: DescriptionType): string | null => (
+    (desc && desc.short) ? desc.short : null
   ),
+);
 
-};
-
-const modalSelectors = {
-
-  selectVisible: createSelector(
-    [selectWork],
-    (work: WorkType): boolean => (
-      (work && work.visible) ? work.visible : false
-    ),
+const selectVisible = createSelector(
+  [selectWork],
+  (work: WorkType): boolean => (
+    (work && work.visible) ? work.visible : false
   ),
+);
 
-};
-
-const punctumSelectors = {
-
-  selectAlt: createSelector(
-    [selectWork],
-    (work: WorkType): string | null => (
-      (work && work.title) ? work.title : null
-    ),
+const selectAlt = createSelector(
+  [selectWork],
+  (work: WorkType): string | null => (
+    (work && work.title) ? work.title : null
   ),
+);
 
-  selectSrc: createSelector(
-    [selectWork, selectNamespace, selectBinBaseUrl],
-    (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
-      (work && namespace && baseBinUrl && work.img)
-        ? `${baseBinUrl}/portfolio/${namespace}/${work.img}.jpg`
-        : null
-    ),
+const selectSrc = createSelector(
+  [selectWork, selectNamespace, selectBinBaseUrl],
+  (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
+    (work && namespace && baseBinUrl && work.img)
+      ? `${baseBinUrl}/portfolio/${namespace}/${work.img}.jpg`
+      : null
   ),
+);
 
-  selectTitle: createSelector(
-    [selectWork, selectNamespace],
-    (work: WorkType) => (
-      (work && work.title) ? work.title : null
-    )
+const selectTitle = createSelector(
+  [selectWork],
+  (work: WorkType) => (
+    (work && work.title) ? work.title : null
   )
-
-};
+);
 
 export {
-  modalSelectors,
-  mediaSelectors,
-  postSelectors,
-  punctumSelectors,
+  selectAlt,
+  selectLong,
+  selectLongPath,
   selectPortfolio,
+  selectShort,
+  selectSrc,
+  selectTitle,
+  selectWorkVideos,
+  selectWorkImages,
+  selectWorkAudios,
+  selectVisible,
 };

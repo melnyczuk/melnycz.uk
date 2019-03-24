@@ -33,67 +33,67 @@
     "baseURL": "../../../bin",
     "images": [
       {
-        "id": "rrosetta_002",
-        "title": "",
+        "id": "rrosetta",
+        "index": 2,
+        "alt": "",
         "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "rrosetta_003",
-        "title": "",
+        "id": "rrosetta",
+        "index": 3,
+        "alt": "",
         "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "rrosetta_004",
-        "title": "",
+        "id": "rrosetta",
+        "index": 4,
+        "alt": "",
         "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "rrosetta_006",
-        "title": "",
+        "id": "rrosetta",
+        "index": 6,
+        "alt": "",
         "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "rrosetta_009",
-        "title": "",
+        "id": "rrosetta",
+        "index": 9,
+        "alt": "",
         "path": "works/rrosetta/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "objperma-1",
-        "title": "",
+        "id": "objperma",
+        "index": 1,
+        "alt": "",
         "path": "works/objperma/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "objperma-2",
-        "title": "",
+        "id": "objpermas",
+        "index": 2,
+        "alt": "",
         "path": "works/objperma/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "objperma-3",
-        "title": "",
+        "id": "objperma",
+        "index": 3,
+        "alt": "",
         "path": "works/objperma/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       },
       {
-        "id": "objperma-4",
-        "title": "",
+        "id": "objperma",
+        "index": 4,
+        "alt": "",
         "path": "works/objperma/",
-        "ext": "jpg",
-        "rank": -1
+        "ext": "jpg"
       }
     ],
     "video": [
@@ -132,14 +132,7 @@
         "mid": ""
       },
       "media": {
-        "images": [
-          "objperma-001",
-          "objperma-002",
-          "objperma-003",
-          "objperma-004",
-          "objperma-005",
-          "objperma-006"
-        ],
+        "images": [1,2,3,4,5,6],
         "video": [],
         "audio": []
       },
@@ -147,7 +140,7 @@
       "exhibitions": [
         {
           "title": "Digital Design Weekend 2018",
-          "curator": "irini papadimitriou",
+          "curator": "Irini Papadimitriou",
           "space": "Victoria & Albert Museum",
           "city": "London",
           "country": "United Kingdom",
@@ -184,13 +177,7 @@
         "mid": "Rrosetta is a digital artwork. It consists of a data-driven application that seeks to analyse sensitive personal information to create a unique and cherishable publication. Coming out of the niche and often intimate subculture of zine-making and self-publishing, Rrosetta also offers a way for me as an artist and publisher to critically explore wider cultural narratives arising out of the proliferation of the tech industry. On setting out on this project, it was crucial that I pay close attention to any questions arising from the intersection between two distinct fields of concern: the strengths and shortcomings of technological approaches to autonomy, craft and agency, and a focus on the price, cost and value of art and data."
       },
       "media": {
-        "images": [
-          "rrosetta_002",
-          "rrosetta_003",
-          "rrosetta_004",
-          "rrosetta_006",
-          "rrosetta_009"
-        ],
+        "images": [2,3,4,6,9],
         "video": [],
         "audio": []
       },
