@@ -4,7 +4,6 @@ import {
   StoreType, 
   AboutType, 
   InfoType, 
-  DescriptionType 
 } from "../../types";
 
 function selectAbout(state: StoreType): AboutType {
@@ -13,7 +12,7 @@ function selectAbout(state: StoreType): AboutType {
 
 const selectBio = createSelector(
   selectAbout,
-  (about: AboutType): DescriptionType => about.bio
+  (about: AboutType): string[] => about.bio
 );
 
 const selectInfo = createSelector(
@@ -23,7 +22,7 @@ const selectInfo = createSelector(
 
 const selectStatement = createSelector(
   selectAbout,
-  (about: AboutType): DescriptionType => about.statement
+  (about: AboutType): string[] => about.statement
 );
 
 const selectTitle = createSelector(

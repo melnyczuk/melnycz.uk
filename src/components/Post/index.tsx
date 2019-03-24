@@ -2,28 +2,44 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import { 
-  fetchLongDescriptions, 
-  buildSrc 
-} from '../../store/portfolio/portfolio.utils';
+import {
+  buildSrc
+} from '../../utils';
 
 import { ImageType } from '../../types';
 
 interface PostVals {
   className: string;
-  short: string;
-  longPath: string;
-  long: string;
+  desc: string[];
   imgs: ImageType[];
   children?: JSX.Element[];
 }
 
 interface PostFuncs {
-  setLong?: (data: string) => void;
+  setLong?: (data: string[]) => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
   namespace: string;
+}
+
+function buildImg(image: ImageType, i: number): JSX.Element {
+  const { id, index, alt } = image;
+  return (
+    <img
+      key={`${id}-${index}`}
+      className={`post post-img post-img_${i}`}
+      src={buildSrc(image)}
+      alt={alt}
+    />)
+}
+
+function buildParagraph(text: string, i: number): JSX.Element {
+  return (
+    <React.Fragment key={`desc-${i}`} >
+      <p className='post post-desc' >{text}</p>
+      <br />
+    </React.Fragment>)
 }
 
 class Post extends React.PureComponent<PostProps> {
@@ -33,44 +49,27 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    const {
-      longPath
-    } = this.props;
-
-    if (!this.props.long && longPath) {
-      fetchLongDescriptions(longPath).then(
-        data => this.props.setLong(data)
-      );
+    if (!this.props.desc) {
+      const { namespace } = this.props;
+      fetch(`./bin/works/${namespace}/${namespace}.json`)
+        .then(resp => resp.json())
+        .then(this.props.setLong)
     }
   }
-
-  buildImg(image: ImageType, i: number): JSX.Element {
-      const { id, index, alt } = image;
-      return (
-      <img
-        key={`${id}-${index}`}
-        className={`post post-img post-img_${i}`}
-        src={buildSrc(image)}
-        alt={alt}
-      />)
-  }
-
 
   render() {
     const {
       imgs,
-      short,
-      long,
+      desc,
       className,
       children,
     }: PostProps = this.props;
 
-    return long
+    return desc
       ? (
         <article className={`post ${className}`}>
-          {short && <p className='post post-short' key='short'>{short}</p>}
-          {long && <p className='post post-long' key='long' >{long}</p>}
-          {imgs && imgs.map(this.buildImg)}
+          {desc.map(buildParagraph)}
+          {imgs && imgs.map(buildImg)}
           {children}
         </article>
       )

@@ -1,8 +1,8 @@
 export interface AboutType {
   title: string;
-  bio: DescriptionType;
+  bio: string[];
   info: InfoType;
-  statement?: DescriptionType;
+  statement?: string[];
 }
 
 export interface ActionType {
@@ -30,12 +30,6 @@ export interface InfoType {
 export interface ContainerType {
   namespace: string;
   children?: ContainerType | JSX.Element | ContainerType[] | JSX.Element[];
-}
-
-export interface DescriptionType {
-  short: string;
-  long?: string;
-  mid?: string;
 }
 
 export interface ExhibitionType {
@@ -78,13 +72,13 @@ export interface ImageType extends MediaItemType {
 export interface VideoType extends MediaItemType {
   title: string;
   duration?: number;
-  description?: DescriptionType;
+  description?: string[];
 }
 
 export interface AudioType extends MediaItemType {
   title?: string;
   duration?: number;
-  description?: DescriptionType;
+  description?: string[];
 }
 
 export interface NavType {
@@ -118,10 +112,10 @@ export interface WorkType {
   title: string;
   img: number;
   year: number[];
-  description: DescriptionType;
   media: MediaIndexType;
   materials: string[];
   type: string[];
+  description?: string[];
   visible?: boolean;
   links?: string[];
   exhibitions?: Exhibition[];
@@ -156,7 +150,7 @@ export interface Writing {
 }
 
 export interface DB {
-  bio: DescriptionType;
+  bio: string[];
   info: Information;
   media: MediaType;
   works: WorkType[];

@@ -12,7 +12,6 @@ import {
   WorkType,
   PortfolioType,
   ContainerType,
-  DescriptionType,
   MediaIndexType,
   ImageType,
   VideoType,
@@ -20,7 +19,7 @@ import {
   MediaItemType,
 } from '../../types';
 
-import { buildSrc } from './portfolio.utils';
+import { buildSrc } from '../../utils';
 
 function concatBaseBinUrlToPath(baseBinUrl: string) {
   return (media: MediaItemType): string =>
@@ -45,33 +44,10 @@ const selectWork = createSelector(
     portfolio[namespace]
 );
 
-const selectWorkDescription = createSelector(
+const selectDescription = createSelector(
   [selectWork],
-  (work: WorkType): DescriptionType => (
+  (work: WorkType): string[] => (
     (work && work.description) ? work.description : null
-  ),
-);
-
-const selectLongPath = createSelector(
-  [selectNamespace, selectBinBaseUrl],
-  (namespace: string, baseBinUrl: string): string => (
-    (namespace && baseBinUrl)
-      ? `${baseBinUrl}/works/${namespace}/${namespace}.txt`
-      : null
-  ),
-);
-
-const selectLong = createSelector(
-  [selectWorkDescription],
-  (desc: DescriptionType): string => (
-    (desc && desc.long) ? desc.long : null
-  ),
-);
-
-const selectShort = createSelector(
-  [selectWorkDescription],
-  (desc: DescriptionType): string | null => (
-    (desc && desc.short) ? desc.short : null
   ),
 );
 
@@ -144,11 +120,9 @@ const selectTitle = createSelector(
 
 export {
   selectAlt,
+  selectDescription,
   selectKeyImgSrc,
-  selectLong,
-  selectLongPath,
   selectPortfolio,
-  selectShort,
   selectTitle,
   selectWorkMedia,
   selectVisible,

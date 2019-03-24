@@ -24,7 +24,7 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
   }
 
   const { type, namespace, data } = action;
-  
+
   switch (type) {
 
     default: { return state; }
@@ -44,10 +44,7 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
     case (SET_LONG): return Object.keys(state)
       .reduce((next, key: string) => ({
         ...next, [key]: {
-          ...state[key], description: {
-            ...state[key].description,
-            long: key === namespace && data
-          }
+          ...state[key], description: key === namespace && data
         }
       }), {});
   }
