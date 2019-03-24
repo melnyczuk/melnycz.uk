@@ -1,6 +1,6 @@
 export interface AboutType {
   title: string;
-  bio: BioType;
+  bio: DescriptionType;
   info: InfoType;
   statement?: DescriptionType;
 }
@@ -21,19 +21,10 @@ export interface AreasType {
   research: ResearchType;
 }
 
-export interface AudioType {
-  id: string;
-  index: number;
-  path: string;
-  ext: string;
-  title?: string;
-  duration?: number;
-  description?: DescriptionType;
-}
-
-export interface BioType {
-  short?: string;
-  long?: string;
+export interface InfoType {
+  name: string;
+  email: string;
+  handle: string;
 }
 
 export interface ContainerType {
@@ -59,32 +50,41 @@ export interface ExhibitionType {
   links?: string[];
 }
 
+export interface MediaType {
+  baseURL: string;
+  images?: ImageType[];
+  videos?: VideoType[];
+  audios?: AudioType[];
+}
+
 export interface MediaIndexType {
   images: number[];
   videos: number[];
   audios: number[];
 }
 
-export interface ImageType {
+export interface MediaItemType {
   id: string;
   index: number;
   path: string;
   ext: string;
+}
+
+export interface ImageType extends MediaItemType {
   alt: string;
-  caption?: DescriptionType;
+  caption?: string;
 }
 
-export interface InfoType {
-  name: string;
-  email: string;
-  handle: string;
+export interface VideoType extends MediaItemType {
+  title: string;
+  duration?: number;
+  description?: DescriptionType;
 }
 
-export interface MediaType {
-  baseURL: string;
-  images?: ImageType[];
-  videos?: VideoType[];
-  audios?: AudioType[];
+export interface AudioType extends MediaItemType {
+  title?: string;
+  duration?: number;
+  description?: DescriptionType;
 }
 
 export interface NavType {
@@ -103,15 +103,6 @@ export interface StoreType {
   portfolio: PortfolioType;
 }
 
-export interface VideoType {
-  id: string;
-  index: number;
-  path: string;
-  ext: string;
-  title: string;
-  duration?: number;
-  description?: DescriptionType;
-}
 
 export interface PortfolioType {
   [key: string]: WorkType;
@@ -125,7 +116,7 @@ export interface WorkType {
   namespace: string;
   live: boolean;
   title: string;
-  img: string;
+  img: number;
   year: number[];
   description: DescriptionType;
   media: MediaIndexType;
@@ -148,38 +139,6 @@ export interface Exhibition {
   links?: string[];
 }
 
-export interface Media {
-  baseURL: string;
-  images?: Image[];
-  videos?: Video[];
-  audios?: Audio[];
-}
-
-export interface Image {
-  id: string;
-  path: string;
-  ext: string;
-  alt: string;
-  caption?: DescriptionType;
-}
-
-export interface Video {
-  id: string;
-  path: string;
-  ext: string;
-  title?: string;
-  duration?: number;
-  description?: DescriptionType;
-}
-
-export interface Audio {
-  id: string;
-  path: string;
-  ext: string;
-  title?: string;
-  duration?: number;
-  description?: DescriptionType;
-}
 
 export interface Bio {
   short?: string;
@@ -197,9 +156,9 @@ export interface Writing {
 }
 
 export interface DB {
-  bio: Bio;
+  bio: DescriptionType;
   info: Information;
-  media: Media;
-  works: Work[];
+  media: MediaType;
+  works: WorkType[];
   writing: Writing[];
 }

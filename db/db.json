@@ -36,63 +36,63 @@
         "id": "rrosetta",
         "index": 2,
         "alt": "",
-        "path": "works/rrosetta/",
+        "path": "works/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 3,
         "alt": "",
-        "path": "works/rrosetta/",
+        "path": "works/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 4,
         "alt": "",
-        "path": "works/rrosetta/",
+        "path": "works/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 6,
         "alt": "",
-        "path": "works/rrosetta/",
+        "path": "works/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "rrosetta",
         "index": 9,
         "alt": "",
-        "path": "works/rrosetta/",
+        "path": "works/rrosetta",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 1,
         "alt": "",
-        "path": "works/objperma/",
+        "path": "works/objperma",
         "ext": "jpg"
       },
       {
         "id": "objpermas",
         "index": 2,
         "alt": "",
-        "path": "works/objperma/",
+        "path": "works/objperma",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 3,
         "alt": "",
-        "path": "works/objperma/",
+        "path": "works/objperma",
         "ext": "jpg"
       },
       {
         "id": "objperma",
         "index": 4,
         "alt": "",
-        "path": "works/objperma/",
+        "path": "works/objperma",
         "ext": "jpg"
       }
     ],
@@ -108,7 +108,7 @@
       "namespace": "objperma",
       "live": false,
       "title": "Object Permanence",
-      "img": "objperma-3",
+      "img": 3,
       "year": [
         2018
       ],
@@ -157,7 +157,7 @@
       "namespace": "rrosetta",
       "live": false,
       "title": "Rrosetta",
-      "img": "rrosetta_009",
+      "img": 9,
       "year": [
         2017
       ],
