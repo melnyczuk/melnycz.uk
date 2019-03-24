@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button } from '../Button';
 
 import { ImageType } from '../../types';
-import { buildSrc } from '../../store/portfolio/portfolio.utils';
+import { buildSrc } from '../../utils';
 
 interface PortalVals {
   className: string;

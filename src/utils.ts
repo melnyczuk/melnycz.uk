@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { MediaItemType } from "../../types";
+import { MediaItemType } from "./types";
 
 const fetchLongDescriptions = (path: string) => Axios.get(path).then(
   ({ data }) => data
