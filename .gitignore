@@ -3,7 +3,7 @@
 
 # Folders:
 build/
-bin/
+./bin/
 node_modules/
 __pycache__/
 coverage
@@ -31,3 +31,5 @@ npm-debug.log
 *.wav
 *.txt
 *.wg
+
+!dist/**
