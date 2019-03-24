@@ -2,7 +2,11 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import { fetchLongDescriptions } from '../../store/portfolio/portfolio.utils';
+import { 
+  fetchLongDescriptions, 
+  buildSrc 
+} from '../../store/portfolio/portfolio.utils';
+
 import { ImageType } from '../../types';
 
 interface PostVals {
@@ -40,19 +44,19 @@ class Post extends React.PureComponent<PostProps> {
     }
   }
 
-  buildImg({ id, path, ext, alt }: ImageType, i: number): JSX.Element {
-    return (
+  buildImg(image: ImageType, i: number): JSX.Element {
+      const { id, index, alt } = image;
+      return (
       <img
-        key={id}
+        key={`${id}-${index}`}
         className={`post post-img post-img_${i}`}
-        src={`${path}/${id}.${ext}`}
+        src={buildSrc(image)}
         alt={alt}
       />)
   }
 
 
   render() {
-
     const {
       imgs,
       short,
@@ -60,15 +64,6 @@ class Post extends React.PureComponent<PostProps> {
       className,
       children,
     }: PostProps = this.props;
-
-    // export interface ImageType {
-    //   id: string;
-    //   path: string;
-    //   ext: string;
-    //   title?: string;
-    //   rank?: number;
-    //   description?: DescriptionType;
-    // }
 
     return long
       ? (

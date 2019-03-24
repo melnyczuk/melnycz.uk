@@ -37,11 +37,11 @@ import {
   selectAlt,
   selectVisible,
   selectTitle,
-  selectWorkImages,
+  selectWorkMedia,
   selectShort,
   selectLong,
   selectLongPath,
-  selectSrc,
+  selectKeyImgSrc,
 } from '../../store/portfolio/portfolio.selectors';
 
 import {
@@ -51,62 +51,62 @@ import {
 import { StoreType } from '../../types';
 
 const ModalContainer = connect<ModalVals, ModalFuncs, {}>
-(
-  (state: StoreType, props: ModalProps) => ({
-    className: '',
-    visible: selectVisible(state, props),
-    title: selectTitle(state, props),
-  }),
-  (dispatch: Function, props: ModalProps) => ({
-    hide: () => dispatch(
-      modalActions.setModalHide(props.namespace)
-    ),
-    setLong: (data) => dispatch(
-      postActions.setPostLong(props.namespace, data)
-    ),
-  })
-)(Modal);
+  (
+    (state: StoreType, props: ModalProps) => ({
+      className: '',
+      visible: selectVisible(state, props),
+      title: selectTitle(state, props),
+    }),
+    (dispatch: Function, props: ModalProps) => ({
+      hide: () => dispatch(
+        modalActions.setModalHide(props.namespace)
+      ),
+      setLong: (data) => dispatch(
+        postActions.setPostLong(props.namespace, data)
+      ),
+    })
+  )(Modal);
 
 const PortalContainer = connect<PortalVals, PortalFuncs, {}>
-(
-  (state: StoreType, props: PortalProps) => ({
-    className: '',
-    baseBinUrl: selectBinBaseUrl(state),
-    images: selectWorkImages(state, props),
-  }),
-  (dispatch: Function, props: PortalProps) => ({})
-)(Portal);
+  (
+    (state: StoreType, props: PortalProps) => ({
+      className: '',
+      baseBinUrl: selectBinBaseUrl(state),
+      images: selectWorkMedia.images(state, props),
+    }),
+    (dispatch: Function, props: PortalProps) => ({})
+  )(Portal);
 
 const PostContainer = connect<PostVals, PostFuncs, {}>
-(
-  (state: StoreType, props: PostProps) => ({
-    className: '',
-    imgs: selectWorkImages(state, props),
-    short: selectShort(state, props),
-    long: selectLong(state, props),
-    longPath: selectLongPath(state, props),
-  }),
-  (dispatch: Function, props: PostProps) => ({
-    setLong: (data) => dispatch(
-      postActions.setPostLong(props.namespace, data)
-    ),
-  })
-)(Post);
+  (
+    (state: StoreType, props: PostProps) => ({
+      className: '',
+      imgs: selectWorkMedia.images(state, props),
+      short: selectShort(state, props),
+      long: selectLong(state, props),
+      longPath: selectLongPath(state, props),
+    }),
+    (dispatch: Function, props: PostProps) => ({
+      setLong: (data) => dispatch(
+        postActions.setPostLong(props.namespace, data)
+      ),
+    })
+  )(Post);
 
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
-(
-  (state: StoreType, props: PunctumProps) => ({
-    className: '',
-    alt: selectAlt(state, props),
-    src: selectSrc(state, props),
-    title: selectTitle(state, props),
-  }),
-  (dispatch: Function, props: PunctumProps) => ({
-    showModal: () => dispatch(
-      modalActions.setModalShow(props.namespace)
-    )
-  })
-)(Punctum);
+  (
+    (state: StoreType, props: PunctumProps) => ({
+      className: '',
+      alt: selectAlt(state, props),
+      src: selectKeyImgSrc(state, props),
+      title: selectTitle(state, props),
+    }),
+    (dispatch: Function, props: PunctumProps) => ({
+      showModal: () => dispatch(
+        modalActions.setModalShow(props.namespace)
+      )
+    })
+  )(Punctum);
 
 export {
   ModalContainer,

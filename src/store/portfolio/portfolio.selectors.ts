@@ -4,7 +4,7 @@ import {
   selectBinBaseUrl,
   selectImages,
   selectVideos,
-  selectAudios, 
+  selectAudios,
 } from '../media/media.selectors';
 
 import {
@@ -17,92 +17,53 @@ import {
   ImageType,
   VideoType,
   AudioType,
+  MediaItemType,
 } from '../../types';
 
-const selectNamespace = (
-  state: StoreType,
-  props: ContainerType
-): string => props.namespace;
+import { buildSrc } from './portfolio.utils';
 
-const selectPortfolio = (
-  state: StoreType
-): PortfolioType => state.portfolio;
+function concatBaseBinUrlToPath(baseBinUrl: string) {
+  return (media: MediaItemType): string =>
+    `${baseBinUrl}/${media.path}`
+}
+
+function filterMediaByNamespace(namespace: string) {
+  return (media: MediaItemType): boolean => (media.id === namespace)
+}
+
+function selectNamespace(state: StoreType, props: ContainerType): string {
+  return props.namespace;
+} 
+
+function selectPortfolio(state: StoreType): PortfolioType { 
+  return state.portfolio;
+}
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType => portfolio[namespace]
-);
-
-const selectWorkMediaIndex = createSelector(
-  selectWork,
-  (work: WorkType): MediaIndexType | null => (
-    (work && work.media) ? work.media : null
-  ),
-);
-
-const selectImageKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): number[] | null[] => (
-    (mediaIndex && mediaIndex.images) ? mediaIndex.images : []
-  ),
-);
-
-const selectVideoKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): number[] | null[] => (
-    (mediaIndex && mediaIndex.videos) ? mediaIndex.videos : []
-  ),
-);
-
-const selectAudioKeys = createSelector(
-  [selectWorkMediaIndex],
-  (mediaIndex: MediaIndexType): number[] | null[] => (
-    (mediaIndex && mediaIndex.audios) ? mediaIndex.audios : []
-  ),
+  (portfolio: PortfolioType, namespace: string): WorkType => 
+    portfolio[namespace]
 );
 
 const selectWorkDescription = createSelector(
   [selectWork],
-  (work: WorkType): DescriptionType | null => (
+  (work: WorkType): DescriptionType => (
     (work && work.description) ? work.description : null
   ),
 );
 
-const selectWorkImages = createSelector(
-  [selectImageKeys, selectImages, selectNamespace],
-  (imageKeys: number[],
-    images: ImageType[]
-  ): ImageType[] | [] => (
-      images.filter((image) => (imageKeys.includes(image.index)))
-    ),
-);
-
-const selectWorkVideos = createSelector(
-  [selectVideoKeys, selectVideos],
-  (videoKeys: number[], videos: VideoType[]): VideoType[] | null => (
-    videos.filter((video) => (videoKeys.includes(video.index)))
-  ),
-);
-
-const selectWorkAudios = createSelector(
-  [selectAudioKeys, selectAudios, selectNamespace],
-  (audioKeys: number[], audio: AudioType[]): AudioType[] | null => (
-      audio.filter((audio) => (audioKeys.includes(audio.index)))
-    ),
-);
-
 const selectLongPath = createSelector(
   [selectNamespace, selectBinBaseUrl],
-  (namespace: string, baseBinUrl: string): string | null => (
+  (namespace: string, baseBinUrl: string): string => (
     (namespace && baseBinUrl)
-      ? `${baseBinUrl}/portfolio/${namespace}/${namespace}.txt`
+      ? `${baseBinUrl}/works/${namespace}/${namespace}.txt`
       : null
   ),
 );
 
 const selectLong = createSelector(
   [selectWorkDescription],
-  (desc: DescriptionType): string | null => (
+  (desc: DescriptionType): string => (
     (desc && desc.long) ? desc.long : null
   ),
 );
@@ -123,37 +84,72 @@ const selectVisible = createSelector(
 
 const selectAlt = createSelector(
   [selectWork],
-  (work: WorkType): string | null => (
+  (work: WorkType): string => (
     (work && work.title) ? work.title : null
   ),
 );
 
-const selectSrc = createSelector(
-  [selectWork, selectNamespace, selectBinBaseUrl],
-  (work: WorkType, namespace: string, baseBinUrl: string): string | null => (
-    (work && namespace && baseBinUrl && work.img)
-      ? `${baseBinUrl}/portfolio/${namespace}/${work.img}.jpg`
-      : null
+const selectWorkMedia = {
+  index: createSelector(
+    selectWork,
+    (work: WorkType): MediaIndexType => (
+      (work && work.media) ? work.media : null
+    ),
   ),
+
+  images: createSelector(
+    [selectImages, selectNamespace, selectBinBaseUrl],
+    (images: ImageType[], namespace: string, baseBinUrl: string): ImageType[] => 
+      images.filter(filterMediaByNamespace(namespace))
+        .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))
+  
+  ),
+
+  videos: createSelector(
+    [selectVideos, selectNamespace, selectBinBaseUrl],
+    (videos: VideoType[], namespace: string, baseBinUrl: string): VideoType[] =>
+      videos.filter(filterMediaByNamespace(namespace))
+        .map(vid => ({ ...vid, path: concatBaseBinUrlToPath(baseBinUrl)(vid) }))
+  ),
+
+  audios: createSelector(
+    [selectAudios, selectNamespace, selectBinBaseUrl],
+    (audio: AudioType[], namespace: string, baseBinUrl: string): AudioType[] => 
+      audio.filter(filterMediaByNamespace(namespace))
+        .map(aud => ({ ...aud, path: concatBaseBinUrlToPath(baseBinUrl)(aud) }))
+  ),
+}
+
+const selectKeyImg = createSelector(
+  [selectWork],
+  (work: WorkType): number => (
+    (work && work.img) ? work.img : null
+  )
+);
+
+const selectKeyImgSrc = createSelector(
+  [selectWorkMedia.images, selectKeyImg, selectBinBaseUrl],
+  (images: ImageType[], key: number, baseBinUrl: string): string => {
+    const img = images.filter(i => i.index === key);
+    return img && img[0] && buildSrc(img[0]);
+  }
 );
 
 const selectTitle = createSelector(
   [selectWork],
-  (work: WorkType) => (
+  (work: WorkType): string => (
     (work && work.title) ? work.title : null
   )
 );
 
 export {
   selectAlt,
+  selectKeyImgSrc,
   selectLong,
   selectLongPath,
   selectPortfolio,
   selectShort,
-  selectSrc,
   selectTitle,
-  selectWorkVideos,
-  selectWorkImages,
-  selectWorkAudios,
+  selectWorkMedia,
   selectVisible,
 };
