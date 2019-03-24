@@ -51,7 +51,7 @@ class Post extends React.PureComponent<PostProps> {
   componentDidMount() {
     if (!this.props.desc) {
       const { namespace } = this.props;
-      fetch(`./bin/works/${namespace}/${namespace}.json`)
+      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
         .then(resp => resp.json())
         .then(this.props.setLong)
     }
