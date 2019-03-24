@@ -8,31 +8,25 @@ const {
   SET_LONG,
 } = actionConstants;
 
-const modalActions = {
+const setModalShow = (namespace: string): ActionType => (
+  { type: SET_SHOW, namespace }
+);
 
-  setModalShow: (namespace: string): ActionType => (
-    { type: SET_SHOW, namespace }
-  ),
+const setModalHide = (namespace: string): ActionType => (
+  { type: SET_HIDE, namespace }
+);
 
-  setModalHide: (namespace: string): ActionType => (
-    { type: SET_HIDE, namespace }
-  ),
+const setPostLength = (namespace: string): ActionType => (
+  { type: SET_LENGTH, namespace }
+);
 
-}
-
-const postActions = {
-
-  setPostLength: (namespace: string): ActionType => (
-    { type: SET_LENGTH, namespace }
-  ),
-
-  setPostLong: (namespace: string, data: string): ActionType => (
-    { type: SET_LONG, namespace, data }
-  ),
-
-}
+const setPostLong = (namespace: string, data: string[]): ActionType => (
+  { type: SET_LONG, namespace, data }
+);
 
 export {
-  modalActions,
-  postActions,
+  setModalHide,
+  setModalShow,
+  setPostLength,
+  setPostLong,
 };

@@ -1,36 +1,37 @@
 import { connect } from 'react-redux';
 
 import {
+  Modal,
+  ModalProps,
   ModalVals,
   ModalFuncs,
-  ModalProps,
-  Modal,
 } from '../../components/Modal';
 
 import {
   Portal,
   PortalProps,
   PortalVals,
-  PortalFuncs
+  PortalFuncs,
 } from '../../components/Portal';
 
 import {
   Post,
   PostProps,
   PostVals,
-  PostFuncs
+  PostFuncs,
 } from '../../components/Post';
 
 import {
   Punctum,
   PunctumProps,
   PunctumVals,
-  PunctumFuncs
+  PunctumFuncs,
 } from '../../components/Punctum';
 
-import {
-  modalActions,
-  postActions,
+import { 
+  setModalHide, 
+  setPostLong, 
+  setModalShow
 } from '../../store/portfolio/portfolio.actions';
 
 import {
@@ -38,9 +39,7 @@ import {
   selectVisible,
   selectTitle,
   selectWorkMedia,
-  selectShort,
-  selectLong,
-  selectLongPath,
+  selectDescription,
   selectKeyImgSrc,
 } from '../../store/portfolio/portfolio.selectors';
 
@@ -58,12 +57,8 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
-      hide: () => dispatch(
-        modalActions.setModalHide(props.namespace)
-      ),
-      setLong: (data) => dispatch(
-        postActions.setPostLong(props.namespace, data)
-      ),
+      hide: () => dispatch(setModalHide(props.namespace)),
+      setLong: (data: string[]) => dispatch(setPostLong(props.namespace, data)),
     })
   )(Modal);
 
@@ -82,14 +77,10 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
     (state: StoreType, props: PostProps) => ({
       className: '',
       imgs: selectWorkMedia.images(state, props),
-      short: selectShort(state, props),
-      long: selectLong(state, props),
-      longPath: selectLongPath(state, props),
+      desc: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setLong: (data) => dispatch(
-        postActions.setPostLong(props.namespace, data)
-      ),
+      setLong: (data) => dispatch(setPostLong(props.namespace, data)),
     })
   )(Post);
 
@@ -102,9 +93,7 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(
-        modalActions.setModalShow(props.namespace)
-      )
+      showModal: () => dispatch(setModalShow(props.namespace)),
     })
   )(Punctum);
 
