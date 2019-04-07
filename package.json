@@ -7,13 +7,10 @@
     "test": "jest --silent --noStackTrace",
     "test:v": "jest",
     "debug": "webpack-dev-server --config webpack.config.js --mode development --hot",
-    "build": "webpack --mode production .",
+    "build": "webpack --mode production . && cp db.json dist && cp -r bin dist",
     "lint": "eslint --ignore-path .gitignore .",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -38,6 +35,24 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/preset-react",
+      "@babel/typescript"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/proposal-object-rest-spread"
+    ]
+  },
+  "eslintConfig":{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "jest": true
     }
   },
   "devDependencies": {

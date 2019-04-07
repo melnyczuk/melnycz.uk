@@ -10,7 +10,7 @@
     font-size: 24px;
   } 
 
-  &-short{
+  &-short {
     
     @media (min-width: $mobile) {
 
@@ -18,7 +18,7 @@
   }
 
   
-  &-long{
+  &-long {
     margin-bottom: 2*$default-margin;
     
     @media (min-width: $mobile) {
@@ -26,6 +26,10 @@
     } 
   }
 
-  
-
+  &-img {
+    width: 100%;
+    
+    @media (min-width: $mobile) {
+    } 
+  }
 }

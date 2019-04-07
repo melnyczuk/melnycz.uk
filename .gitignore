@@ -3,13 +3,12 @@
 
 # Folders:
 build/
-bin/
+./bin/
 node_modules/
 __pycache__/
 coverage
 
 # Node / npm:
-package-lock.json
 npm-debug.log
 
 # VSCode:
@@ -32,3 +31,5 @@ npm-debug.log
 *.wav
 *.txt
 *.wg
+
+!dist/**
