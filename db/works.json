@@ -1,0 +1,229 @@
+[
+  {
+    "namespace": "objperma",
+    "repo": null,
+    "title": "Object Permanence",
+    "year": [2018],
+    "media": {
+      "punctum": 3,
+      "images": [1,2,3,4],
+      "videos": [],
+      "audios": []
+    },
+    "type": [
+      "installation",
+      "networks",
+      "computational",
+      "archive"
+    ],
+    "materials": [
+      "webserver",
+      "two channel projections",
+      "three channel audio",
+      "found images",
+      "found text",
+      "found audio",
+      "archival content"
+    ],
+    "exhibitions": [2018092201]
+  },
+  {
+    "namespace": "rrosetta",
+    "title": "Rrosetta",
+    "repo": null,
+    "year": [
+      2017
+    ],
+    "type": [
+      "installation",
+      "webart"
+    ],
+    "materials": [
+      "webserver",
+      "commercial printer",
+      "paper",
+      "found images",
+      "found text"
+    ],
+    "media": {
+      "punctum": 9,
+      "images": [2,3,4,6,9],
+      "videos": [],
+      "audios": []
+    },
+    "exhibitions": [2017090701,2017101401]
+  },
+  {
+    "namespace": "hiresroc",
+    "title": "ahirespngofarock",
+    "repo": null,
+    "year": [
+      2017
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "website"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "justwatc",
+    "name": "Just Watched And Felt",
+    "repo": null,
+    "year": [
+      2017
+    ],
+    "materials": [],
+    "type": [
+      "website"
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "exhibitions": []
+  },
+  {
+    "namespace": "fanewday",
+    "name": "Like The Dawning Of A New Day",
+    "repo": null,
+    "year": [
+      2017
+    ],
+    "materials": [],
+    "type": [
+      "website"
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "exhibitions": []
+  },
+  {
+    "namespace": "westanti",
+    "title": "West Antarctic Ice Sheet",
+    "repo": null,
+    "year": [
+      2016
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "website",
+      "pdf"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "enscenlo",
+    "title": "Endless Scrolling / Enduring Love",
+    "repo": null,
+    "year": [
+      2013
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "website"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "texcache",
+    "title": "Texture Cache",
+    "repo": null,
+    "year": [
+      2016
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "website",
+      "rendering"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "eiatasay",
+    "title": "Everything Is A Thing As Soon As You Think It A Thing",
+    "repo": null,
+    "year": [
+      2016
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "pdf"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "ermdmalm",
+    "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
+    "repo": null,
+    "year": [
+      2016
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "video"
+    ],
+    "exhibitions": []
+  },
+  {
+    "namespace": "otsmiasm",
+    "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
+    "repo": null,
+    "year": [
+      2016
+    ],
+    "media": {
+      "punctum": null,
+      "images": [],
+      "videos": [],
+      "audios": []
+    },
+    "materials": [],
+    "type": [
+      "video"
+    ],
+    "exhibitions": []
+  }
+]

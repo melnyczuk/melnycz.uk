@@ -16,7 +16,7 @@ interface PostVals {
 }
 
 interface PostFuncs {
-  setLong?: (data: string[]) => void;
+  setDesc?: () => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
@@ -50,13 +50,9 @@ class Post extends React.PureComponent<PostProps> {
 
   componentDidMount() {
     if (!this.props.desc) {
-      const { namespace } = this.props;
-      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
-        .then(resp => resp.json())
-        .then(this.props.setLong)
+        this.props.setDesc();
     }
   }
-
   render() {
     const {
       imgs,

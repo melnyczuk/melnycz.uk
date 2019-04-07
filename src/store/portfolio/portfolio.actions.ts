@@ -20,13 +20,13 @@ const setPostLength = (namespace: string): ActionType => (
   { type: SET_LENGTH, namespace }
 );
 
-const setPostLong = (namespace: string, data: string[]): ActionType => (
-  { type: SET_LONG, namespace, data }
+const setPostDesc = (namespace: string): ActionType => (
+  { type: SET_LONG, namespace }
 );
 
 export {
   setModalHide,
   setModalShow,
   setPostLength,
-  setPostLong,
+  setPostDesc,
 };

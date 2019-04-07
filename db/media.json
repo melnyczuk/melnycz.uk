@@ -1,0 +1,74 @@
+{
+  "baseURL": "../../../bin",
+  "images": [
+    {
+      "id": "rrosetta",
+      "index": 2,
+      "alt": "",
+      "path": "portfolio/rrosetta",
+      "ext": "jpg"
+    },
+    {
+      "id": "rrosetta",
+      "index": 3,
+      "alt": "",
+      "path": "portfolio/rrosetta",
+      "ext": "jpg"
+    },
+    {
+      "id": "rrosetta",
+      "index": 4,
+      "alt": "",
+      "path": "portfolio/rrosetta",
+      "ext": "jpg"
+    },
+    {
+      "id": "rrosetta",
+      "index": 6,
+      "alt": "",
+      "path": "portfolio/rrosetta",
+      "ext": "jpg"
+    },
+    {
+      "id": "rrosetta",
+      "index": 9,
+      "alt": "",
+      "path": "portfolio/rrosetta",
+      "ext": "jpg"
+    },
+    {
+      "id": "objperma",
+      "index": 1,
+      "alt": "",
+      "path": "portfolio/objperma",
+      "ext": "jpg"
+    },
+    {
+      "id": "objpermas",
+      "index": 2,
+      "alt": "",
+      "path": "portfolio/objperma",
+      "ext": "jpg"
+    },
+    {
+      "id": "objperma",
+      "index": 3,
+      "alt": "",
+      "path": "portfolio/objperma",
+      "ext": "jpg"
+    },
+    {
+      "id": "objperma",
+      "index": 4,
+      "alt": "",
+      "path": "portfolio/objperma",
+      "ext": "jpg"
+    }
+  ],
+  "video": [
+    {
+      "url": "https://vimeo.com/239667082"
+    }
+  ],
+  "audio": []
+}

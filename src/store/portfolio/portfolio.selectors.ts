@@ -32,15 +32,15 @@ function filterMediaByNamespace(namespace: string) {
 
 function selectNamespace(state: StoreType, props: ContainerType): string {
   return props.namespace;
-} 
+}
 
-function selectPortfolio(state: StoreType): PortfolioType { 
+function selectPortfolio(state: StoreType): PortfolioType {
   return state.portfolio;
 }
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType => 
+  (portfolio: PortfolioType, namespace: string): WorkType =>
     portfolio[namespace]
 );
 
@@ -75,10 +75,9 @@ const selectWorkMedia = {
 
   images: createSelector(
     [selectImages, selectNamespace, selectBinBaseUrl],
-    (images: ImageType[], namespace: string, baseBinUrl: string): ImageType[] => 
+    (images: ImageType[], namespace: string, baseBinUrl: string): ImageType[] =>
       images.filter(filterMediaByNamespace(namespace))
         .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))
-  
   ),
 
   videos: createSelector(
@@ -90,24 +89,17 @@ const selectWorkMedia = {
 
   audios: createSelector(
     [selectAudios, selectNamespace, selectBinBaseUrl],
-    (audio: AudioType[], namespace: string, baseBinUrl: string): AudioType[] => 
+    (audio: AudioType[], namespace: string, baseBinUrl: string): AudioType[] =>
       audio.filter(filterMediaByNamespace(namespace))
         .map(aud => ({ ...aud, path: concatBaseBinUrlToPath(baseBinUrl)(aud) }))
   ),
-}
+};
 
-const selectKeyImg = createSelector(
-  [selectWork],
-  (work: WorkType): number => (
-    (work && work.img) ? work.img : null
-  )
-);
-
-const selectKeyImgSrc = createSelector(
-  [selectWorkMedia.images, selectKeyImg, selectBinBaseUrl],
-  (images: ImageType[], key: number, baseBinUrl: string): string => {
-    const img = images.filter(i => i.index === key);
-    return img && img[0] && buildSrc(img[0]);
+const selectPunctumSrc = createSelector(
+  [selectWorkMedia.images, selectWorkMedia.index],
+  (images: ImageType[], media: MediaIndexType): string => {
+    const punctum = images.filter(img => img.index === media.punctum)[0];
+    return buildSrc(punctum);
   }
 );
 
@@ -121,8 +113,8 @@ const selectTitle = createSelector(
 export {
   selectAlt,
   selectDescription,
-  selectKeyImgSrc,
   selectPortfolio,
+  selectPunctumSrc,
   selectTitle,
   selectWorkMedia,
   selectVisible,

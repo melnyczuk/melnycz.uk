@@ -1,7 +1,6 @@
-const works = require('../../../db/works.json');
-import { ActionType, PortfolioType } from '../../types';
-import { Work } from '../../../db/types';
-
+import path from 'path';
+import * as works from '../../../db/works.json';
+import { ActionType, PortfolioType, WorkType } from '../../types';
 import { actionConstants } from '../constants';
 
 const {
@@ -10,7 +9,7 @@ const {
   SET_LONG,
 } = actionConstants;
 
-const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: WorkType) => ({
+const portfolio: PortfolioType = Object.values(works).reduce((map: PortfolioType, work: WorkType) => ({
   ...map,
   [work.namespace]: {
     ...work,
@@ -43,11 +42,16 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
 
 
     case (SET_LONG): return Object.keys(state)
-      .reduce((next, key: string) => ({
-        ...next, [key]: {
-          ...state[key], description: key === namespace && data
+      .reduce( async (next: PortfolioType, key: string) => {
+        const p = path.join(__dirname, `/bin/portfolio/${namespace}.json`);
+        return {
+          ...next,
+          [key]: {
+            ...state[key],
+            description: key === namespace && await fetch(p).then(({json}) => json),
+          }
         }
-      }), {});
+      }, {});
   }
 
 };
