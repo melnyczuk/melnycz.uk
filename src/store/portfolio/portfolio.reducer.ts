@@ -1,4 +1,4 @@
-const { works } = require('../../../db/db.json');
+const works = require('../../../db/works.json');
 import { ActionType, PortfolioType } from '../../types';
 import { Work } from '../../../db/types';
 
@@ -25,7 +25,7 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
   }
 
   const { type, namespace, data } = action;
-  
+
   switch (type) {
 
     default: { return state; }

@@ -1,4 +1,4 @@
-const { about } = require('../../../db/db.json');
+const about = require('../../../db/about.json');
 import { ActionType, AboutType } from '../../types';
 
 import { actionConstants } from '../constants';

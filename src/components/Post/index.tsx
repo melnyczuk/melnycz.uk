@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import { ContainerType } from "../../types";
 import { fetchLongDescriptions } from '../../store/portfolio/portfolio.utils';
 
 interface PostVals {
@@ -10,7 +9,7 @@ interface PostVals {
   short: string;
   long: string;
   longPath?: string;
-  children?: ContainerType[] | JSX.Element[];
+  children?: JSX.Element[];
 }
 
 interface PostFuncs {
