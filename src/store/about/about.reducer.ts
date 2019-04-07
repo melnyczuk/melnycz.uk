@@ -1,4 +1,4 @@
-import * as about from '../../../db/about.json';
+import { about } from '../../../db/about.json';
 import { ActionType, AboutType } from '../../types';
 
 import { actionConstants } from '../constants';

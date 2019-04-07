@@ -1,5 +1,5 @@
 import path from 'path';
-import * as works from '../../../db/works.json';
+import { works } from '../../../db/works.json';
 import { ActionType, PortfolioType, WorkType } from '../../types';
 import { actionConstants } from '../constants';
 
@@ -9,7 +9,7 @@ const {
   SET_LONG,
 } = actionConstants;
 
-const portfolio: PortfolioType = Object.values(works).reduce((map: PortfolioType, work: WorkType) => ({
+const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: WorkType) => ({
   ...map,
   [work.namespace]: {
     ...work,
@@ -23,7 +23,7 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
     return state;
   }
 
-  const { type, namespace, data } = action;
+  const { type, namespace } = action;
 
   switch (type) {
 

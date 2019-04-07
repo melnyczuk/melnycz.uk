@@ -22,12 +22,11 @@ import {
 import { buildSrc } from '../../utils';
 
 function concatBaseBinUrlToPath(baseBinUrl: string) {
-  return (media: MediaItemType): string =>
-    `${baseBinUrl}/${media.path}`
+  return ({ path }: MediaItemType): string => `${baseBinUrl}/${path}`;
 }
 
 function filterMediaByNamespace(namespace: string) {
-  return (media: MediaItemType): boolean => (media.id === namespace)
+  return ({ id }: MediaItemType): boolean => (id === namespace);
 }
 
 function selectNamespace(state: StoreType, props: ContainerType): string {
@@ -97,9 +96,10 @@ const selectWorkMedia = {
 
 const selectPunctumSrc = createSelector(
   [selectWorkMedia.images, selectWorkMedia.index],
-  (images: ImageType[], media: MediaIndexType): string => {
+  (images: ImageType[], media: MediaIndexType): string | null => {
     const punctum = images.filter(img => img.index === media.punctum)[0];
-    return buildSrc(punctum);
+    console.log('punc', punctum);
+    return punctum ? buildSrc(punctum) : null;
   }
 );
 
