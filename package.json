@@ -48,7 +48,7 @@
       "@babel/proposal-object-rest-spread"
     ]
   },
-  "eslintConfig":{
+  "eslintConfig": {
     "extends": "airbnb",
     "parser": "babel-eslint",
     "env": {

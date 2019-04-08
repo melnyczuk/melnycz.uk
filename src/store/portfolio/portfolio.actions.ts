@@ -5,7 +5,7 @@ const {
   SET_SHOW,
   SET_HIDE,
   SET_LENGTH,
-  SET_LONG,
+  SET_DESC,
 } = actionConstants;
 
 const setModalShow = (namespace: string): ActionType => (
@@ -20,8 +20,8 @@ const setPostLength = (namespace: string): ActionType => (
   { type: SET_LENGTH, namespace }
 );
 
-const setPostDesc = (namespace: string): ActionType => (
-  { type: SET_LONG, namespace }
+const setPostDesc = (namespace: string, data: string[]): ActionType => (
+  { type: SET_DESC, namespace, data }
 );
 
 export {
