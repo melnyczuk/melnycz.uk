@@ -2,9 +2,7 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import {
-  buildSrc
-} from '../../utils';
+import { buildSrc } from '../../utils';
 
 import { ImageType } from '../../types';
 
@@ -16,7 +14,7 @@ interface PostVals {
 }
 
 interface PostFuncs {
-  setDesc?: () => void;
+  setDesc?: (data: string[]) => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
@@ -35,6 +33,7 @@ function buildImg(image: ImageType, i: number): JSX.Element {
 }
 
 function buildParagraph(text: string, i: number): JSX.Element {
+  console.log('wtf');
   return (
     <React.Fragment key={`desc-${i}`} >
       <p className='post post-desc' >{text}</p>
@@ -49,10 +48,18 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    if (!this.props.desc) {
-        this.props.setDesc();
+    const { namespace, desc } = this.props;
+    if (!desc) {
+      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
+        .then(async resp => await resp.json())
+        .then(({ desc }) => {
+          console.log(typeof desc);
+          return desc;
+        })
+        .then(this.props.setDesc);
     }
   }
+
   render() {
     const {
       imgs,

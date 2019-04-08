@@ -8,6 +8,7 @@ export interface AboutType {
 export interface ActionType {
   type: string;
   namespace: string;
+  data?: string[];
 }
 
 export interface AreaType {

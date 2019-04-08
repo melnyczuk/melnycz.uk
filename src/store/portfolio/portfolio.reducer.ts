@@ -6,7 +6,7 @@ import { actionConstants } from '../constants';
 const {
   SET_SHOW,
   SET_HIDE,
-  SET_LONG,
+  SET_DESC,
 } = actionConstants;
 
 const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: WorkType) => ({
@@ -23,7 +23,9 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
     return state;
   }
 
-  const { type, namespace } = action;
+  const { type, namespace, data } = action;
+
+  console.log('action', type, namespace, data);
 
   switch (type) {
 
@@ -41,14 +43,13 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
       }), {});
 
 
-    case (SET_LONG): return Object.keys(state)
+    case (SET_DESC): return Object.keys(state)
       .reduce( async (next: PortfolioType, key: string) => {
-        const p = path.join(__dirname, `/bin/portfolio/${namespace}.json`);
         return {
           ...next,
           [key]: {
             ...state[key],
-            description: key === namespace && await fetch(p).then(({json}) => json),
+            description: key === namespace && data,
           }
         }
       }, {});

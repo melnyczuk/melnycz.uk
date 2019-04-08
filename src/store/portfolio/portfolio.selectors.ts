@@ -29,47 +29,40 @@ function filterMediaByNamespace(namespace: string) {
   return ({ id }: MediaItemType): boolean => (id === namespace);
 }
 
-function selectNamespace(state: StoreType, props: ContainerType): string {
-  return props.namespace;
+function selectNamespace(state: StoreType, { namespace }: ContainerType): string {
+  return namespace;
 }
 
-function selectPortfolio(state: StoreType): PortfolioType {
-  return state.portfolio;
+function selectPortfolio({ portfolio }: StoreType): PortfolioType {
+  return portfolio;
 }
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType =>
-    portfolio[namespace]
+  (portfolio: PortfolioType, namespace: string): WorkType => {
+    return portfolio[namespace]
+  }
 );
 
 const selectDescription = createSelector(
   [selectWork],
-  (work: WorkType): string[] => (
-    (work && work.description) ? work.description : null
-  ),
+  ({ description = null }: WorkType): string[] => description,
 );
 
 const selectVisible = createSelector(
   [selectWork],
-  (work: WorkType): boolean => (
-    (work && work.visible) ? work.visible : false
-  ),
+  ({ visible = false }: WorkType): boolean => visible,
 );
 
 const selectAlt = createSelector(
   [selectWork],
-  (work: WorkType): string => (
-    (work && work.title) ? work.title : null
-  ),
+  ({ title = null }: WorkType): string => title,
 );
 
 const selectWorkMedia = {
   index: createSelector(
     selectWork,
-    (work: WorkType): MediaIndexType => (
-      (work && work.media) ? work.media : null
-    ),
+    ({ media = null }: WorkType): MediaIndexType => media,
   ),
 
   images: createSelector(
@@ -98,16 +91,13 @@ const selectPunctumSrc = createSelector(
   [selectWorkMedia.images, selectWorkMedia.index],
   (images: ImageType[], media: MediaIndexType): string | null => {
     const punctum = images.filter(img => img.index === media.punctum)[0];
-    console.log('punc', punctum);
     return punctum ? buildSrc(punctum) : null;
   }
 );
 
 const selectTitle = createSelector(
   [selectWork],
-  (work: WorkType): string => (
-    (work && work.title) ? work.title : null
-  )
+  ({ title = null }: WorkType): string => title,
 );
 
 export {
