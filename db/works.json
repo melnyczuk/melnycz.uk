@@ -35,7 +35,8 @@
       ],
       "exhibitions": [
         2018092201
-      ]
+      ],
+      "description": null
     },
     {
       "namespace": "rrosetta",
@@ -70,7 +71,8 @@
       "exhibitions": [
         2017090701,
         2017101401
-      ]
+      ],
+      "description": null
     },
     {
       "namespace": "hiresroc",
@@ -108,7 +110,8 @@
         "videos": [],
         "audios": []
       },
-      "exhibitions": []
+      "exhibitions": [],
+      "description": null
     },
     {
       "namespace": "fanewday",
@@ -127,7 +130,8 @@
         "videos": [],
         "audios": []
       },
-      "exhibitions": []
+      "exhibitions": [],
+      "description": null
     },
     {
       "namespace": "westanti",
