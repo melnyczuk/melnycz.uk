@@ -8,36 +8,28 @@ import {
   AudioType, 
 } from '../../types';
 
-function selectMedia(state: StoreType): MediaType {
-  return state.media;
+function selectMedia({ media = null }: StoreType): MediaType {
+  return media;
 }
 
 const selectBinBaseUrl = createSelector(
   selectMedia,
-  (media: MediaType): string => (
-    media.baseURL ? media.baseURL : null
-  ),
+  ({ baseURL = null}: MediaType): string => baseURL
 );
 
 const selectImages = createSelector(
   selectMedia,
-  (media: MediaType): ImageType[] => (
-    media.images ? media.images : null
-  ),
+  ({ images = null }: MediaType): ImageType[] => images
 );
 
 const selectVideos = createSelector(
   selectMedia,
-  (media: MediaType): VideoType[] => (
-    media.videos ? media.videos : null
-  ),
+  ({ videos = null }: MediaType): VideoType[] => videos
 );
 
 const selectAudios = createSelector(
   selectMedia,
-  (media: MediaType): AudioType[] => (
-    media.audios ? media.audios : null
-  ),
+  ({ audios }: MediaType): AudioType[] => audios
 );
 
 export {

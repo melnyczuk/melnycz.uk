@@ -30,7 +30,7 @@ import {
 
 import { 
   setModalHide, 
-  setPostLong, 
+  setPostDesc, 
   setModalShow
 } from '../../store/portfolio/portfolio.actions';
 
@@ -40,7 +40,6 @@ import {
   selectTitle,
   selectWorkMedia,
   selectDescription,
-  selectKeyImgSrc,
 } from '../../store/portfolio/portfolio.selectors';
 
 import {
@@ -57,8 +56,7 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
-      hide: () => dispatch(setModalHide(props.namespace)),
-      setLong: (data: string[]) => dispatch(setPostLong(props.namespace, data)),
+      hide: () => dispatch(setModalHide(props)),
     })
   )(Modal);
 
@@ -80,7 +78,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       desc: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setLong: (data) => dispatch(setPostLong(props.namespace, data)),
+      setDesc: (desc) => dispatch(setPostDesc(props, desc)),
     })
   )(Post);
 
@@ -88,12 +86,12 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
       className: '',
+      img: selectWorkMedia.punctum(state, props),
       alt: selectAlt(state, props),
-      src: selectKeyImgSrc(state, props),
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(props.namespace)),
+      showModal: () => dispatch(setModalShow(props))
     })
   )(Punctum);
 

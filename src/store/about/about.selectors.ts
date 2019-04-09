@@ -3,31 +3,32 @@ import { createSelector } from "reselect";
 import { 
   StoreType, 
   AboutType, 
-  InfoType, 
+  InfoType,
+  BioType, 
 } from "../../types";
 
-function selectAbout(state: StoreType): AboutType {
-  return state.about;
+function selectAbout({ about }: StoreType): AboutType {
+  return about;
 }
 
 const selectBio = createSelector(
   selectAbout,
-  (about: AboutType): string[] => about.bio
+  ({ bio }: AboutType): BioType => bio
 );
 
 const selectInfo = createSelector(
   selectAbout,
-  (about: AboutType): InfoType => about.info
+  ({ info }: AboutType): InfoType => info
 );
 
 const selectStatement = createSelector(
   selectAbout,
-  (about: AboutType): string[] => about.statement
+  ({ statement }: AboutType): string[] => statement
 );
 
 const selectTitle = createSelector(
   selectAbout,
-  (about: AboutType): string => about.title
+  ({ title }: AboutType): string => title
 );
 
 export {

@@ -2,8 +2,8 @@ import {
   StoreType, 
 } from "../../types";
 
-function selectActive(state: StoreType): string {
-  return state.active;
+function selectActive({ active }: StoreType): string {
+  return active;
 }
 
 export {
