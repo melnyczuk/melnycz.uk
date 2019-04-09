@@ -8,7 +8,7 @@ const {
   SET_SHOW,
   SET_HIDE,
   SET_LENGTH,
-  SET_LONG,
+  SET_DESC,
 } = actionConstants;
 
 const setModalShow = ({ namespace }: PunctumProps): ActionType => (
@@ -23,13 +23,13 @@ const setPostLength = ({ namespace }: PostProps): ActionType => (
   { type: SET_LENGTH, namespace }
 );
 
-// const setPostLong = ({namespace}: PostProps): ActionType => (
-//   { type: SET_LONG, namespace }
-// );
+const setPostDesc = ({namespace}: PostProps): ActionType => (
+  { type: SET_DESC, namespace }
+);
 
 export {
   setModalHide,
   setModalShow,
   setPostLength,
-  // setPostLong,
+  setPostDesc,
 };

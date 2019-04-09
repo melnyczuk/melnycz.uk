@@ -30,7 +30,7 @@ import {
 
 import { 
   setModalHide, 
-  // setPostLong, 
+  setPostDesc, 
   setModalShow
 } from '../../store/portfolio/portfolio.actions';
 
@@ -78,7 +78,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       desc: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      // setLong: (data) => dispatch(setPostLong(props, data)),
+      setDesc: (desc) => dispatch(setPostDesc(props, desc)),
     })
   )(Post);
 
