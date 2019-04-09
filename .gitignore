@@ -3,7 +3,6 @@
 
 # Folders:
 build/
-./bin/
 node_modules/
 __pycache__/
 coverage
@@ -19,15 +18,8 @@ npm-debug.log
 !.vscode/extensions.json
 
 # Filetypes:
-*.jpg
-*.png
-*.gif
-*.pdf
 *.indd
 *.psd
-*.avi
-*.mp3
-*.mp4
 *.wav
 *.txt
 *.wg
