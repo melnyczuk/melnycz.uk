@@ -1,4 +1,4 @@
-const { nav } = require('../../../db.json');
+const { nav } = require('../../../db/nav.json');
 
 import { ActionType, NavType } from '../../types';
 

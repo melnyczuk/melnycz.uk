@@ -7,7 +7,7 @@
     "test": "jest --silent --noStackTrace",
     "test:v": "jest",
     "debug": "webpack-dev-server --config webpack.config.js --mode development --hot",
-    "build": "webpack --mode production . && cp db.json dist && cp -r bin dist",
+    "build": "webpack --mode production . ",
     "lint": "eslint --ignore-path .gitignore .",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
@@ -110,6 +110,7 @@
     "@types/react-router": "^4.4.3",
     "@types/react-router-dom": "^4.3.1",
     "axios": "^0.18.0",
+    "js-yaml": "^3.13.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",

@@ -1,4 +1,4 @@
-const { works } = require('../../../db.json');
+const { works } = require('../../../db/works.json');
 import { ActionType, PortfolioType, WorkType } from '../../types';
 
 import { actionConstants } from '../constants';

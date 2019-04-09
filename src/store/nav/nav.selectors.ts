@@ -18,7 +18,7 @@ const selectActiveNav = createSelector(
 
 const selectSubNavArray = createSelector(
   [selectActiveNav],
-  ({ subnav = [] }: NavType): NavType[] => subnav
+  (nav: NavType): NavType[] => nav && nav.subnav || null
 );
 
 export {

@@ -65,8 +65,6 @@ class Post extends React.PureComponent<PostProps> {
       children,
     }: PostProps = this.props;
 
-    console.log(desc);
-
     return desc
       ? (
         <article className={`post ${className}`}>
