@@ -16,7 +16,7 @@ interface PostVals {
 }
 
 interface PostFuncs {
-  setLong?: (data: string[]) => void;
+  // setLong?: (data: string[]) => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
@@ -48,14 +48,14 @@ class Post extends React.PureComponent<PostProps> {
     super(props);
   }
 
-  componentDidMount() {
-    if (!this.props.desc) {
-      const { namespace } = this.props;
-      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
-        .then(resp => resp.json())
-        .then(this.props.setLong)
-    }
-  }
+  // componentDidMount() {
+  //   if (!this.props.desc) {
+  //     const { namespace } = this.props;
+  //     fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
+  //       .then(resp => resp.json())
+  //       .then(this.props.setLong)
+  //   }
+  // }
 
   render() {
     const {

@@ -106,9 +106,8 @@
   "works": [
     {
       "namespace": "objperma",
-      "live": false,
       "title": "Object Permanence",
-      "img": 3,
+      "repo":"",
       "year": [
         2018
       ],
@@ -128,6 +127,7 @@
         "archival content"
       ],
       "media": {
+        "punctum": 3,
         "images": [1,2,3,4],
         "video": [],
         "audio": []
@@ -151,9 +151,8 @@
     },
     {
       "namespace": "rrosetta",
-      "live": false,
+      "repo":"",
       "title": "Rrosetta",
-      "img": 9,
       "year": [
         2017
       ],
@@ -169,6 +168,7 @@
         "found text"
       ],
       "media": {
+        "punctum": 9,
         "images": [2,3,4,6,9],
         "video": [],
         "audio": []
@@ -211,9 +211,8 @@
     },
     {
       "namespace": "hiresroc",
-      "live": true,
+      "repo":"",
       "title": "ahirespngofarock",
-      "img": "",
       "year": [
         2017
       ],
@@ -221,6 +220,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -233,8 +233,7 @@
     {
       "namespace": "justwatc",
       "name": "Just Watched And Felt",
-      "img": "",
-      "live": true,
+      "repo":"",
       "year": [
         2017
       ],
@@ -242,6 +241,7 @@
         "website"
       ],
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -250,7 +250,6 @@
     {
       "namespace": "fanewday",
       "name": "Like The Dawning Of A New Day",
-      "img": "",
       "live": true,
       "year": [
         2017
@@ -259,6 +258,7 @@
         "website"
       ],
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -266,9 +266,8 @@
     },
     {
       "namespace": "westanti",
-      "live": false,
+      "repo": "",
       "title": "West Antarctic Ice Sheet",
-      "img": "",
       "year": [
         2016
       ],
@@ -276,6 +275,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -288,9 +288,8 @@
     },
     {
       "namespace": "enscenlo",
-      "live": false,
+      "repo": "",
       "title": "Endless Scrolling / Enduring Love",
-      "img": "",
       "year": [
         2013
       ],
@@ -298,6 +297,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -312,9 +312,8 @@
     },
     {
       "namespace": "texcache",
-      "live": false,
+      "repo": "",
       "title": "Texture Cache",
-      "img": "",
       "year": [
         2016
       ],
@@ -322,6 +321,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -344,6 +344,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -355,9 +356,8 @@
     },
     {
       "namespace": "ermdmalm",
-      "live": false,
+      "repo": "",
       "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
-      "img": "",
       "year": [
         2016
       ],
@@ -365,6 +365,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []
@@ -376,9 +377,8 @@
     },
     {
       "namespace": "otsmiasm",
-      "live": false,
+      "repo": "",
       "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
-      "img": "",
       "year": [
         2016
       ],
@@ -386,6 +386,7 @@
         "short": ""
       },
       "media": {
+        "punctum": null,
         "images": [],
         "video": [],
         "audio": []

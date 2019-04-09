@@ -1,6 +1,6 @@
 export interface AboutType {
   title: string;
-  bio: string[];
+  bio: BioType;
   info: InfoType;
   statement?: string[];
 }
@@ -52,6 +52,7 @@ export interface MediaType {
 }
 
 export interface MediaIndexType {
+  punctum: number;
   images: number[];
   videos: number[];
   audios: number[];
@@ -118,10 +119,10 @@ export interface WorkType {
   description?: string[];
   visible?: boolean;
   links?: string[];
-  exhibitions?: Exhibition[];
+  exhibitions?: ExhibitionType[];
 }
 
-export interface Exhibition {
+export interface ExhibitionType {
   title: string;
   space: string;
   city: string;
@@ -134,25 +135,15 @@ export interface Exhibition {
 }
 
 
-export interface Bio {
+export interface BioType {
   short?: string;
-  long?: string;
-}
-
-export interface Information {
-  name: string;
-  email: string;
-  handle: string;
-}
-
-export interface Writing {
-
+  long?: string[];
 }
 
 export interface DB {
-  bio: string[];
-  info: Information;
+  bio: BioType;
+  info: InfoType;
   media: MediaType;
   works: WorkType[];
-  writing: Writing[];
+  writing: WritingType[];
 }

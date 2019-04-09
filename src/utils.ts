@@ -5,8 +5,7 @@ const fetchLongDescriptions = (path: string) => Axios.get(path).then(
   ({ data }) => data
 );
 
-const buildSrc = (media: MediaItemType): string => {
-  const { path, id, index, ext } = media;
+const buildSrc = ({ path = '', id = '', index = 0, ext = '' }: MediaItemType): string => {
   return `${path}/${id}-${index}.${ext}`
 }
 
