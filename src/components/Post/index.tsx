@@ -2,10 +2,6 @@ import * as React from 'react';
 
 import './Post.scss';
 
-import {
-  buildSrc
-} from '../../utils';
-
 import { ImageType } from '../../types';
 
 interface PostVals {
@@ -23,11 +19,15 @@ interface PostProps extends PostVals, PostFuncs {
   namespace: string;
 }
 
+const buildSrc = ({ path = '', namespace = '', index = 0, ext = '' }: ImageType): string => {
+  return `${path}/${namespace}-${index}.${ext}`
+}
+
 function buildImg(image: ImageType, i: number): JSX.Element {
-  const { id, index, alt } = image;
+  const { namespace, index, alt } = image;
   return (
     <img
-      key={`${id}-${index}`}
+      key={`${namespace}-${index}`}
       className={`post post-img post-img_${i}`}
       src={buildSrc(image)}
       alt={alt}
@@ -51,7 +51,7 @@ class Post extends React.PureComponent<PostProps> {
   componentDidMount() {
     if (!this.props.desc) {
       const { namespace } = this.props;
-      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
+      fetch(`./bin/portfolio/descriptions/${namespace}.json`)
         .then(resp => resp.json())
         .then(this.props.setDesc)
     }
@@ -64,6 +64,8 @@ class Post extends React.PureComponent<PostProps> {
       className,
       children,
     }: PostProps = this.props;
+
+    console.log(desc);
 
     return desc
       ? (

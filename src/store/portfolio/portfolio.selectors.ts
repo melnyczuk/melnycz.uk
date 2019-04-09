@@ -19,15 +19,13 @@ import {
   MediaItemType,
 } from '../../types';
 
-import { buildSrc } from '../../utils';
-
 function concatBaseBinUrlToPath(baseBinUrl: string) {
   return ({ path }: MediaItemType): string => `${baseBinUrl}/${path}`
 }
 
 function filterMedia(namespace: string, indices: number[]) {
-  return ({ id, index }: MediaItemType): boolean => 
-    ((id === namespace) && (indices.includes(index)))
+  return (media: MediaItemType): boolean => 
+    ((media.namespace === namespace) && (indices.includes(media.index)))
 }
 
 function selectNamespace(state: StoreType, { namespace }: ContainerType): string {

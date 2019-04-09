@@ -23,8 +23,8 @@ const setPostLength = ({ namespace }: PostProps): ActionType => (
   { type: SET_LENGTH, namespace }
 );
 
-const setPostDesc = ({namespace}: PostProps): ActionType => (
-  { type: SET_DESC, namespace }
+const setPostDesc = ({namespace}: PostProps, data: string[]): ActionType => (
+  { type: SET_DESC, namespace, data }
 );
 
 export {

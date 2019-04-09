@@ -59,7 +59,7 @@ export interface MediaIndexType {
 }
 
 export interface MediaItemType {
-  id: string;
+  namespace: string;
   index: number;
   path: string;
   ext: string;

@@ -19,9 +19,7 @@ const portfolio: PortfolioType = works.reduce((map: PortfolioType, work: WorkTyp
 
 export default (state: PortfolioType = portfolio, action: ActionType) => {
 
-  if (!action) {
-    return state;
-  }
+  if (!action) { return state; }
 
   const { type, namespace, data } = action;
 
@@ -34,12 +32,10 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
         ...next, [key]: { ...state[key], visible: (key === namespace) }
       }), {});
 
-
     case (SET_HIDE): return Object.keys(state)
       .reduce((next, key: string) => ({
         ...next, [key]: { ...state[key], visible: false }
       }), {});
-
 
     case (SET_DESC): return Object.keys(state)
       .reduce((next, key: string) => ({

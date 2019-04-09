@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import './Punctum.scss';
 import { ImageType } from '../../types';
-import { buildSrc } from '../../utils';
 
 interface PunctumVals {
   className: string;
@@ -17,6 +16,10 @@ interface PunctumFuncs {
 
 interface PunctumProps extends PunctumVals, PunctumFuncs {
   namespace: string;
+}
+
+const buildSrc = ({ path = '', namespace = '', index = 0, ext = '' }: ImageType): string => {
+  return `${path}/thumbs/${namespace}-${index}.${ext}`
 }
 
 class Punctum extends React.PureComponent<PunctumProps> {
