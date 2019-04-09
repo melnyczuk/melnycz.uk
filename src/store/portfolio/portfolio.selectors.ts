@@ -61,7 +61,7 @@ const selectAlt = createSelector(
 
 const selectMediaIndicies = createSelector(
   selectWork,
-  ({ media = null }: WorkType): MediaIndexType => { console.log(media); return media}
+  ({ media = null }: WorkType): MediaIndexType => media
 );
 
 const selectWorkMedia = {

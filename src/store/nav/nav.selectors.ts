@@ -2,23 +2,23 @@ import { StoreType, NavType } from "../../types";
 import { createSelector } from "reselect";
 import { selectActive } from "../active/active.selectors";
 
-const selectMainNavArray = (state: StoreType): NavType[] => state.nav;
+const selectMainNavArray = ({ nav }: StoreType): NavType => nav;
 
 const selectActiveNav = createSelector(
   [selectMainNavArray, selectActive],
-  (navArray: NavType[], active: string): NavType => {
+  (navArray: NavType, active: string): NavType => {
 
     const activeNavArray = active && navArray.filter(
-      ({ label }: NavType): Boolean => label.toLowerCase() === active.toLowerCase()
+      ({ label }: NavType): Boolean => label && label.toLowerCase() === active.toLowerCase()
     );
 
-    return activeNavArray && activeNavArray[0] || null;
+    return activeNavArray && activeNavArray[0] || {};
   }
 );
 
 const selectSubNavArray = createSelector(
   [selectActiveNav],
-  ({ subnav = null }: NavType): NavType[] => subnav
+  ({ subnav = {} }: NavType): NavType => subnav
 );
 
 export {
