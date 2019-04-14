@@ -35,6 +35,7 @@ function buildImg(image: ImageType, i: number): JSX.Element {
 }
 
 function buildParagraph(text: string, i: number): JSX.Element {
+  console.log('wtf');
   return (
     <React.Fragment key={`desc-${i}`} >
       <p className='post post-desc' >{text}</p>
@@ -49,17 +50,18 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    if (!this.props.desc) {
-<<<<<<< HEAD
-        this.props.setDesc();
-=======
-      const { namespace } = this.props;
-      fetch(`./bin/portfolio/descriptions/${namespace}.json`)
-        .then(resp => resp.json())
-        .then(this.props.setDesc)
->>>>>>> master
+    const { namespace, desc } = this.props;
+    if (!desc) {
+      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
+        .then(async resp => await resp.json())
+        .then(({ desc }) => {
+          console.log(typeof desc);
+          return desc;
+        })
+        .then(this.props.setDesc);
     }
   }
+
   render() {
     const {
       imgs,

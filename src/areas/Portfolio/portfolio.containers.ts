@@ -78,8 +78,8 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       imgs: selectWorkMedia.images(state, props),
       desc: selectDescription(state, props),
     }),
-    (dispatch: Function, props: PostProps) => ({
-      setDesc: (desc) => dispatch(setPostDesc(props, desc)),
+    (dispatch: Function, { namespace }: PostProps) => ({
+      setDesc: (data: string[]) => dispatch(setPostDesc(namespace, data)),
     })
   )(Post);
 
@@ -91,8 +91,8 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
       alt: selectAlt(state, props),
       title: selectTitle(state, props),
     }),
-    (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(props))
+    (dispatch: Function, { namespace }: PunctumProps) => ({
+      showModal: () => dispatch(setModalShow(namespace)),
     })
   )(Punctum);
 

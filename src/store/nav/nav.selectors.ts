@@ -9,7 +9,9 @@ const selectActiveNav = createSelector(
   (navArray: NavType[], active: string): NavType => {
 
     const activeNavArray = active && navArray.filter(
-      ({ label }: NavType): Boolean => label && label.toLowerCase() === active.toLowerCase()
+      (n: NavType): Boolean => {
+        return n && n.label && n.label.toLowerCase() === active.toLowerCase()
+  }
     );
 
     return activeNavArray && activeNavArray[0] || null;

@@ -8,7 +8,7 @@ export interface AboutType {
 export interface ActionType {
   type: string;
   namespace: string;
-  data?: any;
+  data?: string[];
 }
 
 export interface AreaType {
@@ -60,7 +60,7 @@ export interface MediaIndexType {
 }
 
 export interface MediaItemType {
-  id: ;
+  id: string;
   namespace: string;
   index: number;
   path: string;
