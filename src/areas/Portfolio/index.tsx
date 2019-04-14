@@ -5,35 +5,33 @@ import {
   PunctumContainer,
   ModalContainer,
   PostContainer,
-} from './portfolio.containers';
+} from './containers';
 
-import { 
-  selectPortfolio, 
-} from '../../store/portfolio/portfolio.selectors';
+import {
+  selectPortfolio,
+} from '../../store/portfolio/selectors';
 
-import { 
-  PortfolioType, 
-  StoreType, 
+import {
+  PortfolioType,
+  StoreType,
 } from "../../types";
 
 interface WorkProps {
   namespace: string;
 }
 
-function filterWorks(portfolio: PortfolioType, filter: string): string[] {
-  return Object.keys(portfolio).filter(
+const filterWorks = (portfolio: PortfolioType, filter: string): string[] =>
+  Object.keys(portfolio).filter(
     (key: string) => (portfolio[key].type.includes(filter))
   );
-}
 
-function generatePortfolio(portfolio: PortfolioType, keys: string[]): JSX.Element[] {
-  return keys.map(
+const generatePortfolio = (portfolio: PortfolioType, keys: string[]): JSX.Element[] =>
+  keys.map(
     (key, i) => {
       const { namespace } = portfolio[key];
       return portfolio.hasOwnProperty(key) && <Work key={i} namespace={namespace} />
     }
-  )
-};
+  );
 
 class Work extends React.PureComponent<WorkProps> {
 

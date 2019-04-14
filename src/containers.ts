@@ -11,9 +11,9 @@ import {
   StoreType,
 } from './types';
 
-import { 
+import {
   selectMainNavArray,
-} from './store/nav/nav.selectors';
+} from './store/nav/selectors';
 
 import {
   SiteTitleVals,
@@ -22,8 +22,8 @@ import {
   SiteTitleProps
 } from './components/SiteTitle';
 
-import { selectTitle } from './store/about/about.selectors';
-import { selectActive } from './store/active/active.selectors';
+import { selectTitle } from './store/about/selectors';
+import { selectActive } from './store/active/selectors';
 
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (

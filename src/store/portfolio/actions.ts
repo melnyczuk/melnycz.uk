@@ -7,29 +7,23 @@ import { PunctumProps } from '../../components/Punctum';
 const {
   SET_SHOW,
   SET_HIDE,
-  SET_LENGTH,
   SET_DESC,
 } = actionConstants;
 
-const setModalShow = ({ namespace }: PunctumProps): ActionType => (
+const setShow = ({ namespace }: PunctumProps): ActionType => (
   { type: SET_SHOW, namespace }
 );
 
-const setModalHide = ({ namespace }: ModalProps): ActionType => (
+const setHide = ({ namespace }: ModalProps): ActionType => (
   { type: SET_HIDE, namespace }
 );
 
-const setPostLength = ({ namespace }: PostProps): ActionType => (
-  { type: SET_LENGTH, namespace }
-);
-
-const setPostDesc = ({ namespace }: PostProps, data: string[]): ActionType => (
+const setDescription = ({ namespace }: PostProps, data: string[]): ActionType => (
   { type: SET_DESC, namespace, data }
 );
 
 export {
-  setModalHide,
-  setModalShow,
-  setPostLength,
-  setPostDesc,
+  setHide,
+  setShow,
+  setDescription,
 };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, BrowserRouter, HashRouter } from 'react-router-dom';
+import { Route, HashRouter } from 'react-router-dom';
 
 import './base.scss';
 
@@ -13,14 +13,14 @@ import {
   PortfolioContainer,
   ResearchContainer,
   AboutContainer,
-} from './areas/areas.containers';
+} from './areas/containers';
 
 import {
   MainNavContainer,
   SiteTitleContainer
-} from './app.containers';
+} from './containers';
 
-import { SubNavContainer } from './areas/areas.containers';
+import { SubNavContainer } from './areas/containers';
 
 class App extends React.PureComponent {
 
