@@ -29,16 +29,16 @@ import {
 } from '../../components/Punctum';
 
 import {
-  setModalHide,
-  setPostDesc,
-  setModalShow
+  setHide,
+  setDescription,
+  setShow
 } from '../../store/portfolio/actions';
 
 import {
   selectAlt,
   selectVisible,
   selectTitle,
-  selectWorkMedia,
+  selectMedia,
   selectDescription,
 } from '../../store/portfolio/selectors';
 
@@ -56,7 +56,7 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
-      hide: () => dispatch(setModalHide(props)),
+      hide: () => dispatch(setHide(props)),
     })
   )(Modal);
 
@@ -65,7 +65,7 @@ const PortalContainer = connect<PortalVals, PortalFuncs, {}>
     (state: StoreType, props: PortalProps) => ({
       className: '',
       baseURL: selectBinBaseUrl(state),
-      images: selectWorkMedia.images(state, props),
+      images: selectMedia.images(state, props),
     }),
     (dispatch: Function, props: PortalProps) => ({})
   )(Portal);
@@ -75,11 +75,11 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
     (state: StoreType, props: PostProps) => ({
       className: '',
       baseURL: selectBinBaseUrl(state),
-      imgs: selectWorkMedia.images(state, props),
-      desc: selectDescription(state, props),
+      imgs: selectMedia.images(state, props),
+      description: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setDesc: (data: string[]) => dispatch(setPostDesc(props, data)),
+      setDesc: (data: string[]) => dispatch(setDescription(props, data)),
     })
   )(Post);
 
@@ -88,12 +88,12 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
     (state: StoreType, props: PunctumProps) => ({
       className: '',
       baseURL: selectBinBaseUrl(state),
-      img: selectWorkMedia.punctum(state, props),
+      img: selectMedia.punctum(state, props),
       alt: selectAlt(state, props),
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(props)),
+      show: () => dispatch(setShow(props)),
     })
   )(Punctum);
 

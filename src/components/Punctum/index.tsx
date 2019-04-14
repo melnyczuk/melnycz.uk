@@ -13,7 +13,7 @@ interface PunctumVals {
 }
 
 interface PunctumFuncs {
-  showModal: () => void;
+  show: () => void;
 }
 
 interface PunctumProps extends PunctumVals, PunctumFuncs {
@@ -34,32 +34,28 @@ class Punctum extends React.PureComponent<PunctumProps> {
       img,
       alt,
       title,
-      showModal,
+      show: showModal,
     }: PunctumProps = this.props;
 
-    if (baseURL && img) {
-      return (
-        <div
-          className='punctum'
-          onClick={showModal}
-        >
+    return (baseURL && img)
+      ? (
+        <div className="punctum" onClick={showModal} >
           <img
             className={`punctum-image ${className}`}
             src={buildSrc(baseURL, 'thumbs')(img)}
             alt={alt}
           />
-          <div className="punctum-label">
-            <h2
-              className="punctum-title"
-            >
-              {title}
-            </h2>
-          </div>
+          {
+            title &&
+            <div className="punctum-label">
+              <h2 className="punctum-title">
+                {title}
+              </h2>
+            </div>
+          }
         </div>
       )
-    }
-
-    return null;
+      : null;
   }
 
 }

@@ -55,6 +55,12 @@
         "index": 4,
         "alt": "",
         "ext": "jpg"
+      },
+      {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": "jpg"
       }
     ],
     "video": [

@@ -1,9 +1,9 @@
 export interface AboutType {
   title: string;
-  bio: string[];
   info: InfoType;
-  statement?: string[];
-  img: string;
+  media: MediaIndexType;
+  visible?: boolean;
+  description?: string[];
 }
 
 export interface ActionType {

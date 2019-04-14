@@ -4,15 +4,19 @@ import {
   StoreType,
   AboutType,
   InfoType,
+  MediaIndexType,
+  ImageType,
 } from "../../types";
 
-function selectAbout({ about }: StoreType): AboutType {
-  return about;
-}
+import { selectImageArray, filterMedia } from "../media/selectors";
 
-const selectBio = createSelector(
+import { selectNamespace } from "../portfolio/selectors";
+
+const selectAbout = ({ about }: StoreType): AboutType => about;
+
+const selectDescription = createSelector(
   [selectAbout],
-  ({ bio = null }: AboutType): string[] => bio,
+  ({ description = null }: AboutType): string[] => description
 );
 
 const selectInfo = createSelector(
@@ -25,15 +29,34 @@ const selectTitle = createSelector(
   ({ title }: AboutType): string => title
 );
 
-const selectImage = createSelector(
+const selectVisible = createSelector(
   [selectAbout],
-  ({ img }: AboutType): string => img
+  ({ visible = false }: AboutType): boolean => visible,
 );
+
+const selectMediaIndicies = createSelector(
+  [selectAbout],
+  ({ media = null }: AboutType): MediaIndexType => media
+);
+
+const selectMedia = {
+  index: createSelector(
+    [selectAbout],
+    ({ media = null }: AboutType): MediaIndexType => media,
+  ),
+
+  punctum: createSelector(
+    [selectImageArray, selectNamespace, selectMediaIndicies],
+    (images: ImageType[], namespace: string, { punctum }): ImageType =>
+      images.filter(filterMedia(namespace, [punctum]))[0]
+  ),
+};
 
 export {
   selectAbout,
-  selectBio,
-  selectImage,
+  selectDescription,
   selectInfo,
   selectTitle,
+  selectMedia,
+  selectVisible,
 }

@@ -9,11 +9,6 @@
       "label": "Portfolio",
       "path": "/portfolio",
       "subnav": []
-    },
-    {
-      "label": "Research",
-      "path": "/research",
-      "subnav": []
     }
   ]
 }
