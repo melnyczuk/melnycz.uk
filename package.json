@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --silent --noStackTrace",
     "test:v": "jest",
-    "debug": "webpack-dev-server --config webpack.config.js --mode development --hot",
+    "start": "webpack-dev-server --config webpack.config.js --mode development --hot",
     "build": "webpack --mode production . ",
     "lint": "eslint --ignore-path .gitignore .",
     "type-check": "tsc --noEmit",

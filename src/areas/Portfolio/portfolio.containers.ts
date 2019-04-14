@@ -40,7 +40,6 @@ import {
   selectTitle,
   selectWorkMedia,
   selectDescription,
-  selectPunctumSrc,
 } from '../../store/portfolio/portfolio.selectors';
 
 import {
@@ -78,8 +77,8 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       imgs: selectWorkMedia.images(state, props),
       desc: selectDescription(state, props),
     }),
-    (dispatch: Function, { namespace }: PostProps) => ({
-      setDesc: (data: string[]) => dispatch(setPostDesc(namespace, data)),
+    (dispatch: Function, props: PostProps) => ({
+      setDesc: (data: string[]) => dispatch(setPostDesc(props, data)),
     })
   )(Post);
 
@@ -91,8 +90,8 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
       alt: selectAlt(state, props),
       title: selectTitle(state, props),
     }),
-    (dispatch: Function, { namespace }: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(namespace)),
+    (dispatch: Function, props: PunctumProps) => ({
+      showModal: () => dispatch(setModalShow(props)),
     })
   )(Punctum);
 

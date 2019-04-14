@@ -58,10 +58,23 @@ const selectAlt = createSelector(
   ({ title = null }: WorkType): string => title,
 );
 
+const selectMediaIndicies = createSelector(
+  [selectWork],
+  ({ media = null }: WorkType): MediaIndexType => media
+);
+
 const selectWorkMedia = {
   index: createSelector(
     selectWork,
     ({ media = null }: WorkType): MediaIndexType => media,
+  ),
+
+  punctum: createSelector(
+    [selectImages, selectNamespace, selectMediaIndicies, selectBinBaseUrl],
+    (images: ImageType[], namespace: string, { punctum }, baseBinUrl: string): ImageType =>
+      images
+        .filter(filterMedia(namespace, [punctum]))
+        .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))[0]
   ),
 
   images: createSelector(
@@ -85,14 +98,6 @@ const selectWorkMedia = {
         .map(aud => ({ ...aud, path: concatBaseBinUrlToPath(baseBinUrl)(aud) }))
   ),
 };
-
-const selectPunctumSrc = createSelector(
-  [selectWorkMedia.images, selectWorkMedia.index],
-  (images: ImageType[], media: MediaIndexType): string | null => {
-    const punctum = images.filter(img => img.index === media.punctum)[0];
-    return punctum ? buildSrc(punctum) : null;
-  }
-);
 
 const selectTitle = createSelector(
   [selectWork],
