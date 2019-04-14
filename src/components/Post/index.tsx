@@ -1,4 +1,5 @@
 import * as React from 'react';
+import yaml from 'js-yaml';
 
 import './Post.scss';
 
@@ -50,9 +51,10 @@ class Post extends React.PureComponent<PostProps> {
   componentDidMount() {
     const { namespace, description, setDesc } = this.props;
     if (!description) {
-      fetch(`./bin/copy/${namespace}.json`)
-        .then(async resp => await resp.json())
-        .then(({ description }) => description)
+      fetch(`./bin/copy/${namespace}.yaml`)
+        .then(async resp => await resp.text())
+        .then(yaml.load)
+        .then(({ description }: any) => description)
         .then(setDesc);
     }
   }
