@@ -1,11 +1,5 @@
-import { 
-  StoreType, 
-} from "../../types";
+import { StoreType } from "../../types";
 
-function selectActive({ active }: StoreType): string {
-  return active;
-}
+const selectActive = ({ active }: StoreType): string => active;
 
-export {
-  selectActive,
-}
+export { selectActive }

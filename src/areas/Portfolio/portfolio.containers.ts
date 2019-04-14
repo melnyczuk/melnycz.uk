@@ -28,9 +28,9 @@ import {
   PunctumFuncs,
 } from '../../components/Punctum';
 
-import { 
-  setModalHide, 
-  setPostDesc, 
+import {
+  setModalHide,
+  setPostDesc,
   setModalShow
 } from '../../store/portfolio/portfolio.actions';
 
@@ -78,7 +78,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       desc: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setDesc: (desc) => dispatch(setPostDesc(props, desc)),
+      setDesc: (data: string[]) => dispatch(setPostDesc(props, data)),
     })
   )(Post);
 
@@ -91,7 +91,7 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(props))
+      showModal: () => dispatch(setModalShow(props)),
     })
   )(Punctum);
 

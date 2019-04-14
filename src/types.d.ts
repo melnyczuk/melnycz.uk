@@ -8,7 +8,7 @@ export interface AboutType {
 export interface ActionType {
   type: string;
   namespace: string;
-  data?: any;
+  data?: string[];
 }
 
 export interface AreaType {
@@ -46,6 +46,7 @@ export interface ExhibitionType {
 
 export interface MediaType {
   baseURL: string;
+  punctum?: ImageType;
   images?: ImageType[];
   videos?: VideoType[];
   audios?: AudioType[];
@@ -59,6 +60,7 @@ export interface MediaIndexType {
 }
 
 export interface MediaItemType {
+  id: string;
   namespace: string;
   index: number;
   path: string;
@@ -98,20 +100,16 @@ export interface StoreType {
   portfolio: PortfolioType;
 }
 
-
 export interface PortfolioType {
   [key: string]: WorkType;
 }
 
-export interface WritingType {
-
-}
+export interface WritingType {}
 
 export interface WorkType {
   namespace: string;
-  live: boolean;
   title: string;
-  img: number;
+  repo: string;
   year: number[];
   media: MediaIndexType;
   materials: string[];

@@ -1,5 +1,4 @@
 import { ActionType } from '../../types';
-
 import { actionConstants } from '../constants';
 
 const {

@@ -13,7 +13,6 @@ describe('Post Component', () => {
     title: null,
     short: null,
     long: null,
-    setLong: () => {},
   };
 
   it('renders', () => {

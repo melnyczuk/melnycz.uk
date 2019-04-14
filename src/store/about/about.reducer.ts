@@ -2,6 +2,7 @@ const { about } = require('../../../db/about.json');
 import { ActionType, AboutType } from '../../types';
 
 import { actionConstants } from '../constants';
+
 const {
   SET_TITLE,
 } = actionConstants;

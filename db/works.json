@@ -30,20 +30,9 @@
       },
       "links": [],
       "exhibitions": [
-        {
-          "title": "Digital Design Weekend 2018",
-          "curator": "Irini Papadimitriou",
-          "space": "Victoria & Albert Museum",
-          "city": "London",
-          "country": "United Kingdom",
-          "geo": "",
-          "date": [
-            20180922,
-            20180923
-          ],
-          "links": []
-        }
-      ]
+        2018092201
+      ],
+      "description": null
     },
     {
       "namespace": "rrosetta",
@@ -70,40 +59,10 @@
         "audio": []
       },
       "exhibitions": [
-        {
-          "name": "Overlap",
-          "curator": "Howard Melnyczuk",
-          "location": "St James Hatcham Building, New Cross, London",
-          "city": "London",
-          "country": "United Kingdom",
-          "geo": "",
-          "date": [
-            "20170907",
-            "20170908",
-            "20170909",
-            "20170910"
-          ],
-          "video": [],
-          "links": [
-            "http://www.overlap.show"
-          ]
-        },
-        {
-          "name": "Virtuality Mortality",
-          "curator": "XAP",
-          "location": "Ugly Duck, 47/49 Tanner Street, Bermondsey, London",
-          "city": "London",
-          "country": "United Kingdom",
-          "date": [
-            "20171014",
-            "20171015"
-          ],
-          "links": [
-            "http://uglyduck.org.uk/portfolio_page/virtuality-mortality/"
-          ]
-        }
+        2017090701,
+        2017101401
       ],
-      "links": []
+      "description": null
     },
     {
       "namespace": "hiresroc",
@@ -139,9 +98,11 @@
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
-      }
+        "videos": [],
+        "audios": []
+      },
+      "exhibitions": [],
+      "description": null
     },
     {
       "namespace": "fanewday",
@@ -156,9 +117,11 @@
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
-      }
+        "videos": [],
+        "audios": []
+      },
+      "exhibitions": [],
+      "description": null
     },
     {
       "namespace": "westanti",

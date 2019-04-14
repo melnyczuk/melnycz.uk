@@ -1,10 +1,10 @@
 import { createSelector } from "reselect";
 
-import { 
-  StoreType, 
-  AboutType, 
+import {
+  StoreType,
+  AboutType,
   InfoType,
-  BioType, 
+  BioType,
 } from "../../types";
 
 function selectAbout({ about }: StoreType): AboutType {

@@ -24,56 +24,62 @@ function concatBaseBinUrlToPath(baseBinUrl: string) {
 }
 
 function filterMedia(namespace: string, indices: number[]) {
-  return (media: MediaItemType): boolean => 
+  return (media: MediaItemType): boolean =>
     ((media.namespace === namespace) && (indices.includes(media.index)))
 }
 
 function selectNamespace(state: StoreType, { namespace }: ContainerType): string {
   return namespace;
-} 
+}
 
-function selectPortfolio({ portfolio }: StoreType): PortfolioType { 
+function selectPortfolio({ portfolio }: StoreType): PortfolioType {
   return portfolio;
 }
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType => 
-    portfolio[namespace]
+  (portfolio: PortfolioType, namespace: string): WorkType => {
+    return portfolio[namespace]
+  }
 );
 
 const selectDescription = createSelector(
   [selectWork],
-  ({ description = null }: WorkType): string[] => description
+  ({ description = null }: WorkType): string[] => description,
 );
 
 const selectVisible = createSelector(
   [selectWork],
-  ({ visible = false }: WorkType): boolean => visible
+  ({ visible = false }: WorkType): boolean => visible,
 );
 
 const selectAlt = createSelector(
   [selectWork],
-  ({ title = null }: WorkType): string => title
+  ({ title = null }: WorkType): string => title,
 );
 
 const selectMediaIndicies = createSelector(
-  selectWork,
+  [selectWork],
   ({ media = null }: WorkType): MediaIndexType => media
 );
 
 const selectWorkMedia = {
+  index: createSelector(
+    selectWork,
+    ({ media = null }: WorkType): MediaIndexType => media,
+  ),
+
   punctum: createSelector(
     [selectImages, selectNamespace, selectMediaIndicies, selectBinBaseUrl],
-    (images: ImageType[], namespace: string, { punctum }, baseBinUrl: string): ImageType => 
-    images
-      .filter(filterMedia(namespace, [punctum]))
-      .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))[0]
+    (images: ImageType[], namespace: string, { punctum }, baseBinUrl: string): ImageType =>
+      images
+        .filter(filterMedia(namespace, [punctum]))
+        .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))[0]
   ),
 
   images: createSelector(
     [selectImages, selectNamespace, selectMediaIndicies, selectBinBaseUrl],
-    (imgs: ImageType[], namespace: string, { images }, baseBinUrl: string): ImageType[] => 
+    (imgs: ImageType[], namespace: string, { images }, baseBinUrl: string): ImageType[] =>
       imgs.filter(filterMedia(namespace, images))
         .map(img => ({ ...img, path: concatBaseBinUrlToPath(baseBinUrl)(img) }))
   ),
@@ -87,15 +93,15 @@ const selectWorkMedia = {
 
   audios: createSelector(
     [selectAudios, selectNamespace, selectMediaIndicies, selectBinBaseUrl],
-    (auds: AudioType[], namespace: string, { audios }, baseBinUrl: string): AudioType[] => 
+    (auds: AudioType[], namespace: string, { audios }, baseBinUrl: string): AudioType[] =>
       auds.filter(filterMedia(namespace, audios))
         .map(aud => ({ ...aud, path: concatBaseBinUrlToPath(baseBinUrl)(aud) }))
   ),
-}
+};
 
 const selectTitle = createSelector(
   [selectWork],
-  ({ title = null }: WorkType): string => title
+  ({ title = null }: WorkType): string => title,
 );
 
 export {
