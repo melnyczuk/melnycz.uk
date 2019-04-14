@@ -2,6 +2,6 @@
 deployment:
   tasks:
     - /bin/cp -r ./dist /home/user/public_html/
-    - /bin/cp -r ./bin /home/user/public_html/
-    - /bin/cp -r ./svg /home/user/public_html/
-    - /bin/cp -r ./db /home/user/public_html/
+    - /bin/cp -r ./bin /home/user/public_html/bin
+    - /bin/cp -r ./svg /home/user/public_html/svg
+    - /bin/cp -r ./db /home/user/public_html/db
