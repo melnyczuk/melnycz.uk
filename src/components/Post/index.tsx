@@ -3,11 +3,13 @@ import * as React from 'react';
 import './Post.scss';
 
 import { ImageType } from '../../types';
+import { buildSrc } from '../../utils';
 
 interface PostVals {
+  baseURL: string;
   className: string;
   desc: string[];
-  imgs: ImageType[];
+  imgs?: ImageType[];
   children?: JSX.Element[];
 }
 
@@ -19,20 +21,17 @@ interface PostProps extends PostVals, PostFuncs {
   namespace: string;
 }
 
-const buildSrc = ({ path = '', namespace = '', index = 0, ext = '' }: ImageType): string => {
-  return `${path}/${namespace}-${index}.${ext}`
-}
-
-function buildImg(image: ImageType, i: number): JSX.Element {
-  const { namespace, index, alt } = image;
-  return (
-    <img
-      key={`${namespace}-${index}`}
-      className={`post post-img post-img_${i}`}
-      src={buildSrc(image)}
-      alt={alt}
-    />)
-}
+const buildImg = (baseUrl: string, type: string) =>
+    (image: ImageType, i: number): JSX.Element => {
+      const { namespace, index, alt } = image;
+      return (
+        <img
+          key={`${namespace}-${index}`}
+          className={`post post-img post-img_${i}`}
+          src={buildSrc(baseUrl, type)(image)}
+          alt={alt}
+        />);
+    };
 
 function buildParagraph(text: string, i: number): JSX.Element {
   console.log('wtf');
@@ -50,20 +49,18 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    const { namespace, desc } = this.props;
+    const { namespace, desc, setDesc } = this.props;
     if (!desc) {
-      fetch(`./bin/portfolio/${namespace}/${namespace}.json`)
+      fetch(`./bin/copy/${namespace}.json`)
         .then(async resp => await resp.json())
-        .then(({ desc }) => {
-          console.log(typeof desc);
-          return desc;
-        })
-        .then(this.props.setDesc);
+        .then(({ desc }) => desc)
+        .then(setDesc);
     }
   }
 
   render() {
     const {
+      baseURL,
       imgs,
       desc,
       className,
@@ -74,14 +71,13 @@ class Post extends React.PureComponent<PostProps> {
       ? (
         <article className={`post ${className}`}>
           {desc.map(buildParagraph)}
-          {imgs && imgs.map(buildImg)}
+          {imgs && imgs.map(buildImg(baseURL, 'images'))}
           {children}
         </article>
       )
       : null;
   }
 };
-
 
 export {
   Post,

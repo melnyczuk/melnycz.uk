@@ -1,14 +1,14 @@
 {
   "about": {
     "title": "Howard Melnyczuk",
-    "bio": {
-      "long": "",
-      "short": ""
-    },
+    "bio": null,
     "info": {
       "name": "Howard Melnyczuk",
       "email": "h.melnyczuk@gmail.com",
       "handle": "@melnyczuk"
+    },
+    "media": {
+      "punctum": 0
     }
   }
 }

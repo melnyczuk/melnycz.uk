@@ -32,7 +32,7 @@ import {
   setModalHide,
   setPostDesc,
   setModalShow
-} from '../../store/portfolio/portfolio.actions';
+} from '../../store/portfolio/actions';
 
 import {
   selectAlt,
@@ -40,11 +40,11 @@ import {
   selectTitle,
   selectWorkMedia,
   selectDescription,
-} from '../../store/portfolio/portfolio.selectors';
+} from '../../store/portfolio/selectors';
 
 import {
   selectBinBaseUrl,
-} from '../../store/media/media.selectors';
+} from '../../store/media/selectors';
 
 import { StoreType } from '../../types';
 
@@ -64,7 +64,7 @@ const PortalContainer = connect<PortalVals, PortalFuncs, {}>
   (
     (state: StoreType, props: PortalProps) => ({
       className: '',
-      baseBinUrl: selectBinBaseUrl(state),
+      baseURL: selectBinBaseUrl(state),
       images: selectWorkMedia.images(state, props),
     }),
     (dispatch: Function, props: PortalProps) => ({})
@@ -74,6 +74,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: PostProps) => ({
       className: '',
+      baseURL: selectBinBaseUrl(state),
       imgs: selectWorkMedia.images(state, props),
       desc: selectDescription(state, props),
     }),
@@ -86,6 +87,7 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
       className: '',
+      baseURL: selectBinBaseUrl(state),
       img: selectWorkMedia.punctum(state, props),
       alt: selectAlt(state, props),
       title: selectTitle(state, props),

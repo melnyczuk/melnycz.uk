@@ -5,15 +5,15 @@ import {
   PunctumContainer,
   ModalContainer,
   PostContainer,
-} from './portfolio.containers';
+} from './containers';
 
-import { 
-  selectPortfolio, 
-} from '../../store/portfolio/portfolio.selectors';
+import {
+  selectPortfolio,
+} from '../../store/portfolio/selectors';
 
-import { 
-  PortfolioType, 
-  StoreType, 
+import {
+  PortfolioType,
+  StoreType,
 } from "../../types";
 
 interface WorkProps {

@@ -4,7 +4,6 @@ import {
   StoreType,
   AboutType,
   InfoType,
-  BioType,
 } from "../../types";
 
 function selectAbout({ about }: StoreType): AboutType {
@@ -12,29 +11,29 @@ function selectAbout({ about }: StoreType): AboutType {
 }
 
 const selectBio = createSelector(
-  selectAbout,
-  ({ bio }: AboutType): BioType => bio
+  [selectAbout],
+  ({ bio = null }: AboutType): string[] => bio,
 );
 
 const selectInfo = createSelector(
-  selectAbout,
+  [selectAbout],
   ({ info }: AboutType): InfoType => info
 );
 
-const selectStatement = createSelector(
-  selectAbout,
-  ({ statement }: AboutType): string[] => statement
+const selectTitle = createSelector(
+  [selectAbout],
+  ({ title }: AboutType): string => title
 );
 
-const selectTitle = createSelector(
-  selectAbout,
-  ({ title }: AboutType): string => title
+const selectImage = createSelector(
+  [selectAbout],
+  ({ img }: AboutType): string => img
 );
 
 export {
   selectAbout,
   selectBio,
+  selectImage,
   selectInfo,
-  selectStatement,
   selectTitle,
 }

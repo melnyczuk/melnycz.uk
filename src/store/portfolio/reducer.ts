@@ -37,7 +37,13 @@ export default (state: PortfolioType = portfolio, action: ActionType) => {
       }), {});
 
     case (SET_DESC): return Object.keys(state)
-      .reduce((next, key: string) => ({...next, [key]: { ...state[key], description: key === namespace && data } }), {});
+      .reduce((next, key: string) => ({
+        ...next,
+        [key]: {
+          ...state[key],
+          description: key === namespace && data
+        }
+      }), {});
   }
 
 };

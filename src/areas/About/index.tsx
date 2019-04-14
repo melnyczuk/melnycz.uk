@@ -1,3 +1,16 @@
 import * as React from 'react';
 
-export default () => (<div className='about' />);
+import {
+  PunctumContainer,
+  ModalContainer,
+  PostContainer,
+} from './containers';
+
+export default () => (
+  <div className='about'>
+    <PunctumContainer namespace='aboutbio' />
+    <ModalContainer namespace='aboutbio' >
+      <PostContainer namespace='aboutbio' />
+    </ModalContainer>
+  </div>
+);

@@ -1,8 +1,9 @@
 export interface AboutType {
   title: string;
-  bio: BioType;
+  bio: string[];
   info: InfoType;
   statement?: string[];
+  img: string;
 }
 
 export interface ActionType {
@@ -60,26 +61,23 @@ export interface MediaIndexType {
 }
 
 export interface MediaItemType {
-  id: string;
   namespace: string;
   index: number;
-  path: string;
   ext: string;
+  alt: string;
+  path?: string;
 }
 
 export interface ImageType extends MediaItemType {
-  alt: string;
   caption?: string;
 }
 
 export interface VideoType extends MediaItemType {
-  title: string;
   duration?: number;
   description?: string[];
 }
 
 export interface AudioType extends MediaItemType {
-  title?: string;
   duration?: number;
   description?: string[];
 }
@@ -133,13 +131,8 @@ export interface ExhibitionType {
 }
 
 
-export interface BioType {
-  short?: string;
-  long?: string[];
-}
-
 export interface DB {
-  bio: BioType;
+  bio: string[];
   info: InfoType;
   media: MediaType;
   works: WorkType[];

@@ -19,9 +19,9 @@ import {
   NavBarProps,
 } from "../components/Nav";
 
-import { setActive } from "../store/active/active.actions";
-import { selectActive } from "../store/active/active.selectors";
-import { selectSubNavArray } from "../store/nav/nav.selectors";
+import { setActive } from "../store/active/actions";
+import { selectActive } from "../store/active/selectors";
+import { selectSubNavArray } from "../store/nav/selectors";
 
 import { StoreType } from "../types";
 
