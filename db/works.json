@@ -2,22 +2,11 @@
   "works": [
     {
       "namespace": "objperma",
-      "repo": null,
       "title": "Object Permanence",
+      "repo":"",
       "year": [
         2018
       ],
-      "media": {
-        "punctum": 3,
-        "images": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "videos": [],
-        "audios": []
-      },
       "type": [
         "installation",
         "networks",
@@ -33,14 +22,33 @@
         "found audio",
         "archival content"
       ],
+      "media": {
+        "punctum": 3,
+        "images": [1,2,3,4],
+        "video": [],
+        "audio": []
+      },
+      "links": [],
       "exhibitions": [
-        2018092201
+        {
+          "title": "Digital Design Weekend 2018",
+          "curator": "Irini Papadimitriou",
+          "space": "Victoria & Albert Museum",
+          "city": "London",
+          "country": "United Kingdom",
+          "geo": "",
+          "date": [
+            20180922,
+            20180923
+          ],
+          "links": []
+        }
       ]
     },
     {
       "namespace": "rrosetta",
+      "repo":"",
       "title": "Rrosetta",
-      "repo": null,
       "year": [
         2017
       ],
@@ -57,193 +65,232 @@
       ],
       "media": {
         "punctum": 9,
-        "images": [
-          2,
-          3,
-          4,
-          6,
-          9
-        ],
-        "videos": [],
-        "audios": []
+        "images": [2,3,4,6,9],
+        "video": [],
+        "audio": []
       },
       "exhibitions": [
-        2017090701,
-        2017101401
-      ]
+        {
+          "name": "Overlap",
+          "curator": "Howard Melnyczuk",
+          "location": "St James Hatcham Building, New Cross, London",
+          "city": "London",
+          "country": "United Kingdom",
+          "geo": "",
+          "date": [
+            "20170907",
+            "20170908",
+            "20170909",
+            "20170910"
+          ],
+          "video": [],
+          "links": [
+            "http://www.overlap.show"
+          ]
+        },
+        {
+          "name": "Virtuality Mortality",
+          "curator": "XAP",
+          "location": "Ugly Duck, 47/49 Tanner Street, Bermondsey, London",
+          "city": "London",
+          "country": "United Kingdom",
+          "date": [
+            "20171014",
+            "20171015"
+          ],
+          "links": [
+            "http://uglyduck.org.uk/portfolio_page/virtuality-mortality/"
+          ]
+        }
+      ],
+      "links": []
     },
     {
       "namespace": "hiresroc",
+      "repo":"",
       "title": "ahirespngofarock",
-      "repo": null,
       "year": [
         2017
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "website"
-      ],
-      "exhibitions": []
+      ]
     },
     {
       "namespace": "justwatc",
       "name": "Just Watched And Felt",
-      "repo": null,
+      "repo":"",
       "year": [
         2017
       ],
-      "materials": [],
       "type": [
         "website"
       ],
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
-      },
-      "exhibitions": []
+        "video": [],
+        "audio": []
+      }
     },
     {
       "namespace": "fanewday",
       "name": "Like The Dawning Of A New Day",
-      "repo": null,
+      "live": true,
       "year": [
         2017
       ],
-      "materials": [],
       "type": [
         "website"
       ],
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
-      },
-      "exhibitions": []
+        "video": [],
+        "audio": []
+      }
     },
     {
       "namespace": "westanti",
+      "repo": "",
       "title": "West Antarctic Ice Sheet",
-      "repo": null,
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "website",
         "pdf"
-      ],
-      "exhibitions": []
+      ]
     },
     {
       "namespace": "enscenlo",
+      "repo": "",
       "title": "Endless Scrolling / Enduring Love",
-      "repo": null,
       "year": [
         2013
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "website"
       ],
-      "exhibitions": []
+      "exhibitions": [
+        "yes"
+      ]
     },
     {
       "namespace": "texcache",
+      "repo": "",
       "title": "Texture Cache",
-      "repo": null,
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "website",
         "rendering"
-      ],
-      "exhibitions": []
+      ]
     },
     {
       "namespace": "eiatasay",
+      "live": true,
       "title": "Everything Is A Thing As Soon As You Think It A Thing",
-      "repo": null,
+      "img": "",
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "pdf"
-      ],
-      "exhibitions": []
+      ]
     },
     {
       "namespace": "ermdmalm",
+      "repo": "",
       "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
-      "repo": null,
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "video"
-      ],
-      "exhibitions": []
+      ]
     },
     {
       "namespace": "otsmiasm",
+      "repo": "",
       "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
-      "repo": null,
       "year": [
         2016
       ],
+      "description": {
+        "short": ""
+      },
       "media": {
         "punctum": null,
         "images": [],
-        "videos": [],
-        "audios": []
+        "video": [],
+        "audio": []
       },
       "materials": [],
       "type": [
         "video"
-      ],
-      "exhibitions": []
+      ]
     }
   ]
 }

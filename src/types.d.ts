@@ -8,6 +8,7 @@ export interface AboutType {
 export interface ActionType {
   type: string;
   namespace: string;
+  data?: any;
 }
 
 export interface AreaType {
@@ -59,7 +60,8 @@ export interface MediaIndexType {
 }
 
 export interface MediaItemType {
-  id: string;
+  id: ;
+  namespace: string;
   index: number;
   path: string;
   ext: string;
@@ -112,12 +114,13 @@ export interface WorkType {
   media: MediaIndexType;
   materials: string[];
   type: string[];
-  exhibitions: number[];
   description?: string[];
   visible?: boolean;
+  links?: string[];
+  exhibitions?: ExhibitionType[];
 }
 
-export interface Exhibition {
+export interface ExhibitionType {
   title: string;
   space: string;
   city: string;
@@ -129,15 +132,16 @@ export interface Exhibition {
   links?: string[];
 }
 
+
 export interface BioType {
   short?: string;
-  long?: string;
+  long?: string[];
 }
 
 export interface DB {
-  bio: string[];
+  bio: BioType;
   info: InfoType;
   media: MediaType;
   works: WorkType[];
-  writing: WritingType;
+  writing: WritingType[];
 }

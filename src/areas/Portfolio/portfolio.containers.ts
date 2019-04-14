@@ -57,7 +57,7 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
-      hide: () => dispatch(setModalHide(props.namespace)),
+      hide: () => dispatch(setModalHide(props)),
     })
   )(Modal);
 
@@ -79,7 +79,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
       desc: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
-      setDesc: () => dispatch(setPostDesc(props.namespace)),
+      setDesc: (desc) => dispatch(setPostDesc(props, desc)),
     })
   )(Post);
 
@@ -87,12 +87,12 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
       className: '',
+      img: selectWorkMedia.punctum(state, props),
       alt: selectAlt(state, props),
-      src: selectPunctumSrc(state, props),
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
-      showModal: () => dispatch(setModalShow(props.namespace)),
+      showModal: () => dispatch(setModalShow(props))
     })
   )(Punctum);
 
