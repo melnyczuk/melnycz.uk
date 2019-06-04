@@ -1,17 +1,15 @@
-import { DB, Work as DBWork } from '../db/types';
-import { type } from 'os';
-
 export interface AboutType {
   title: string;
-  bio: BioType;
   info: InfoType;
-  statement?: DescriptionType;
+  media: MediaIndexType;
+  visible?: boolean;
+  description?: string[];
 }
 
 export interface ActionType {
   type: string;
   namespace: string;
-  data?: any;
+  data?: string[];
 }
 
 export interface AreaType {
@@ -24,29 +22,15 @@ export interface AreasType {
   research: ResearchType;
 }
 
-export interface AudioType {
-  id: string;
-  path: string;
-  ext: string;
-  title?: string;
-  duration?: number;
-  description?: DescriptionType;
-}
-
-export interface BioType {
-  short?: string;
-  long?: string;
+export interface InfoType {
+  name: string;
+  email: string;
+  handle: string;
 }
 
 export interface ContainerType {
   namespace: string;
   children?: ContainerType | JSX.Element | ContainerType[] | JSX.Element[];
-}
-
-export interface DescriptionType {
-  short: string;
-  long?: string;
-  mid?: string;
 }
 
 export interface ExhibitionType {
@@ -61,36 +45,41 @@ export interface ExhibitionType {
   links?: string[];
 }
 
-export interface ImageType {
-  id: string;
-  path: string;
-  ext: string;
-  title?: string;
-  rank?: number;
-  description?: DescriptionType;
-}
-
-export interface InfoType {
-  name: string;
-  email: string;
-  handle: string;
-}
-
 export interface MediaType {
   baseURL: string;
+  punctum?: ImageType;
   images?: ImageType[];
   videos?: VideoType[];
   audios?: AudioType[];
 }
 
 export interface MediaIndexType {
-  imageKeys: string[];
-  videoKeys: string[];
-  audioKeys: string[];
+  punctum: number;
+  images: number[];
+  videos: number[];
+  audios: number[];
 }
 
-export interface ModalDescriptionType extends DescriptionType {
+export interface MediaItemType {
+  namespace: string;
+  index: number;
+  ext: string;
+  alt: string;
+  path?: string;
+}
 
+export interface ImageType extends MediaItemType {
+  caption?: string;
+}
+
+export interface VideoType extends MediaItemType {
+  duration?: number;
+  description?: string[];
+}
+
+export interface AudioType extends MediaItemType {
+  duration?: number;
+  description?: string[];
 }
 
 export interface NavType {
@@ -99,9 +88,7 @@ export interface NavType {
   subnav: NavType[];
 }
 
-export interface ResearchType extends AreaType {
-
-}
+export interface ResearchType extends AreaType {}
 
 export interface StoreType {
   active: string;
@@ -111,24 +98,43 @@ export interface StoreType {
   portfolio: PortfolioType;
 }
 
-export interface VideoType {
-  id: string;
-  path: string;
-  ext: string;
-  title?: string;
-  duration?: number;
-  description?: DescriptionType;
-}
-
-export interface WorkType extends DBWork {
-  description: DescriptionType;
-  visible: boolean;
-}
-
 export interface PortfolioType {
   [key: string]: WorkType;
 }
 
-export interface WritingType {
+export interface WritingType {}
 
+export interface WorkType {
+  namespace: string;
+  title: string;
+  repo: string;
+  year: number[];
+  media: MediaIndexType;
+  materials: string[];
+  type: string[];
+  description?: string[];
+  visible?: boolean;
+  links?: string[];
+  exhibitions?: ExhibitionType[];
+}
+
+export interface ExhibitionType {
+  title: string;
+  space: string;
+  city: string;
+  country: string;
+  geo: number[];
+  dates: number[];
+  media: MediaIndexType;
+  curator?: string[];
+  links?: string[];
+}
+
+
+export interface DB {
+  bio: string[];
+  info: InfoType;
+  media: MediaType;
+  works: WorkType[];
+  writing: WritingType[];
 }

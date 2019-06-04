@@ -6,14 +6,11 @@
   "scripts": {
     "test": "jest --silent --noStackTrace",
     "test:v": "jest",
-    "debug": "webpack-dev-server --config webpack.config.js --mode development --hot",
-    "build": "webpack --mode production .",
+    "start": "webpack-dev-server --config webpack.config.js --mode development --hot",
+    "build": "webpack --mode production . ",
     "lint": "eslint --ignore-path .gitignore .",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -40,6 +37,24 @@
       "\\.(css|less)$": "identity-obj-proxy"
     }
   },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/preset-react",
+      "@babel/typescript"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/proposal-object-rest-spread"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "jest": true
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
@@ -53,6 +68,7 @@
     "@types/enzyme": "^3.1.16",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^24.0.0",
+    "@types/js-yaml": "^3.12.1",
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.0",
     "@types/react-redux": "^7.0.1",
@@ -74,16 +90,16 @@
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.1.0",
-    "jest-cli": "^24.1.0",
+    "jest-cli": "^24.7.1",
     "mini-css-extract-plugin": "^0.4.3",
-    "node-sass": "^4.10.0",
-    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-test-renderer": "^16.8.1",
     "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
-    "ts-jest": "^21.2.4",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
@@ -95,6 +111,7 @@
     "@types/react-router": "^4.4.3",
     "@types/react-router-dom": "^4.3.1",
     "axios": "^0.18.0",
+    "js-yaml": "^3.13.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",

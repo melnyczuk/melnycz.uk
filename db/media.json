@@ -1,0 +1,73 @@
+{
+  "media": {
+    "baseURL": "../../../bin",
+    "images": [
+      {
+        "namespace": "rrosetta",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 6,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 9,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "objperma",
+        "index": 1,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "objpermas",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "objperma",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "objperma",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg"
+      },
+      {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": "jpg"
+      }
+    ],
+    "video": [
+      {
+        "url": "https://vimeo.com/239667082"
+      }
+    ],
+    "audio": []
+  }
+}

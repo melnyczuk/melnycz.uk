@@ -1,25 +1,46 @@
 import * as React from 'react';
+import yaml from 'js-yaml';
 
 import './Post.scss';
 
-import { ContainerType } from "../../types";
-import { fetchLongDescriptions } from '../../store/portfolio/portfolio.utils';
+import { ImageType } from '../../types';
+import { buildSrc } from '../../utils';
 
 interface PostVals {
+  baseURL: string;
   className: string;
-  short: string;
-  long: string;
-  longPath?: string;
-  children?: ContainerType[] | JSX.Element[];
+  description: string[];
+  imgs?: ImageType[];
+  children?: JSX.Element[];
 }
 
 interface PostFuncs {
-  setLong?: (data: string) => void;
+  setDesc?: (data: string[]) => void;
 }
 
 interface PostProps extends PostVals, PostFuncs {
   namespace: string;
 }
+
+const buildImg = (baseUrl: string, type: string) =>
+  (image: ImageType, i: number): JSX.Element => {
+    const { namespace, index, alt } = image;
+    return (
+      <img
+        key={`${namespace}-${index}`}
+        className={`post post-img post-img_${i}`}
+        src={buildSrc(baseUrl, type)(image)}
+        alt={alt}
+      />);
+  };
+
+const buildParagraph = (text: string, i: number): JSX.Element => (
+  <React.Fragment key={`desc-${i}`} >
+    <p className='post post-desc' >{text}</p>
+    <br />
+  </React.Fragment>
+);
+
 
 class Post extends React.PureComponent<PostProps> {
 
@@ -28,34 +49,36 @@ class Post extends React.PureComponent<PostProps> {
   }
 
   componentDidMount() {
-    if (!this.props.long && this.props.longPath) {
-      fetchLongDescriptions(this.props.longPath).then(
-        data => this.props.setLong(data)
-      );
+    const { namespace, description, setDesc } = this.props;
+    if (!description) {
+      fetch(`./bin/copy/${namespace}.yaml`)
+        .then(async resp => await resp.text())
+        .then(yaml.load)
+        .then(({ description }: any) => description)
+        .then(setDesc);
     }
   }
 
   render() {
-
     const {
-      short,
-      long,
+      baseURL,
+      imgs,
+      description,
       className,
       children,
     }: PostProps = this.props;
 
-    return long
-      ? (
+    const buildImages = buildImg(baseURL, 'images');
+
+    return (
         <article className={`post ${className}`}>
-          {short && <p className='post post-short' key='short'>{short}</p>}
-          {long && <p className='post post-long' key='long' >{long}</p>}
+          {description && description.map(buildParagraph)}
+          {imgs && imgs.map(buildImages)}
           {children}
         </article>
-      )
-      : null;
+      );
   }
 };
-
 
 export {
   Post,

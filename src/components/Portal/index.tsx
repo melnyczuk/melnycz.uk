@@ -3,10 +3,11 @@ import * as React from 'react';
 import { Button } from '../Button';
 
 import { ImageType } from '../../types';
+import { buildSrc } from '../../utils';
 
 interface PortalVals {
+  baseURL: string;
   className: string;
-  baseBinUrl: string;
   images: ImageType[];
 }
 
@@ -20,7 +21,7 @@ interface PortalProps extends PortalVals, PortalFuncs {
 
 const Portal = (
   {
-    baseBinUrl,
+    baseURL,
     images,
     scrollPortal,
     className,
@@ -30,11 +31,8 @@ const Portal = (
     <Button purpose="scroll-left" onClick={scrollPortal('<-')} />
     {
       images && images.map((image: ImageType) => {
-        const {
-          id, path, ext, title,
-        } = image;
-        const src = `${baseBinUrl}/${path}/${id}.${ext}`;
-        return <img key={id} src={src} alt={title} />;
+        const { namespace, index, alt } = image;
+        return <img key={`${namespace}-${index}`} src={buildSrc(baseURL, 'image')(image)} alt={alt} />;
       })
     }
     <Button purpose="scroll-right" onClick={scrollPortal('->')} />

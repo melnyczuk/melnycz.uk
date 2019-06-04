@@ -19,7 +19,6 @@ interface ModalVals {
 
 interface ModalFuncs {
   hide: () => void;
-  setLong?: (data: string) => void;
 }
 
 interface ModalProps extends ModalVals, ModalFuncs {

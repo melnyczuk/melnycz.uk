@@ -3,13 +3,11 @@
 
 # Folders:
 build/
-bin/
-node_modules/
+node_modules
 __pycache__/
 coverage
 
 # Node / npm:
-package-lock.json
 npm-debug.log
 
 # VSCode:
@@ -20,15 +18,10 @@ npm-debug.log
 !.vscode/extensions.json
 
 # Filetypes:
-*.jpg
-*.png
-*.gif
-*.pdf
 *.indd
 *.psd
-*.avi
-*.mp3
-*.mp4
 *.wav
 *.txt
 *.wg
+
+!dist/**

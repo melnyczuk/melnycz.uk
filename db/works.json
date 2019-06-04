@@ -1,0 +1,259 @@
+{
+  "works": [
+    {
+      "namespace": "objperma",
+      "title": "Object Permanence",
+      "repo":"",
+      "year": [
+        2018
+      ],
+      "type": [
+        "installation",
+        "networks",
+        "computational",
+        "archive"
+      ],
+      "materials": [
+        "webserver",
+        "two channel projections",
+        "three channel audio",
+        "found images",
+        "found text",
+        "found audio",
+        "archival content"
+      ],
+      "media": {
+        "punctum": 3,
+        "images": [1,2,3,4],
+        "video": [],
+        "audio": []
+      },
+      "links": [],
+      "exhibitions": [
+        2018092201
+      ],
+      "description": null
+    },
+    {
+      "namespace": "rrosetta",
+      "repo":"",
+      "title": "Rrosetta",
+      "year": [
+        2017
+      ],
+      "type": [
+        "installation",
+        "webart"
+      ],
+      "materials": [
+        "webserver",
+        "commercial printer",
+        "paper",
+        "found images",
+        "found text"
+      ],
+      "media": {
+        "punctum": 9,
+        "images": [2,3,4,6,9],
+        "video": [],
+        "audio": []
+      },
+      "exhibitions": [
+        2017090701,
+        2017101401
+      ],
+      "description": null
+    },
+    {
+      "namespace": "hiresroc",
+      "repo":"",
+      "title": "ahirespngofarock",
+      "year": [
+        2017
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "website"
+      ]
+    },
+    {
+      "namespace": "justwatc",
+      "name": "Just Watched And Felt",
+      "repo":"",
+      "year": [
+        2017
+      ],
+      "type": [
+        "website"
+      ],
+      "media": {
+        "punctum": null,
+        "images": [],
+        "videos": [],
+        "audios": []
+      },
+      "exhibitions": [],
+      "description": null
+    },
+    {
+      "namespace": "fanewday",
+      "name": "Like The Dawning Of A New Day",
+      "live": true,
+      "year": [
+        2017
+      ],
+      "type": [
+        "website"
+      ],
+      "media": {
+        "punctum": null,
+        "images": [],
+        "videos": [],
+        "audios": []
+      },
+      "exhibitions": [],
+      "description": null
+    },
+    {
+      "namespace": "westanti",
+      "repo": "",
+      "title": "West Antarctic Ice Sheet",
+      "year": [
+        2016
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "website",
+        "pdf"
+      ]
+    },
+    {
+      "namespace": "enscenlo",
+      "repo": "",
+      "title": "Endless Scrolling / Enduring Love",
+      "year": [
+        2013
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "website"
+      ],
+      "exhibitions": [
+        "yes"
+      ]
+    },
+    {
+      "namespace": "texcache",
+      "repo": "",
+      "title": "Texture Cache",
+      "year": [
+        2016
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "website",
+        "rendering"
+      ]
+    },
+    {
+      "namespace": "eiatasay",
+      "live": true,
+      "title": "Everything Is A Thing As Soon As You Think It A Thing",
+      "img": "",
+      "year": [
+        2016
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "pdf"
+      ]
+    },
+    {
+      "namespace": "ermdmalm",
+      "repo": "",
+      "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
+      "year": [
+        2016
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "video"
+      ]
+    },
+    {
+      "namespace": "otsmiasm",
+      "repo": "",
+      "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
+      "year": [
+        2016
+      ],
+      "description": {
+        "short": ""
+      },
+      "media": {
+        "punctum": null,
+        "images": [],
+        "video": [],
+        "audio": []
+      },
+      "materials": [],
+      "type": [
+        "video"
+      ]
+    }
+  ]
+}
