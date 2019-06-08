@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  width: 92vw;
+  height: 100vh;
+  padding: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  display: block;
+  float: left;
+  overflow: visible;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+  border-bottom: 1px solid grey;
+}
+
+main {
+  display: block;
+  width: 92vw;
+  overflow: visible;
+}
+
+footer {
+  border-top: 1px solid grey;
+  width: 100%;
+  clear: both;
+}
+footer p {
+  vertical-align: middle;
+  font-size: 16px;
+  text-align: center;
+  margin: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 2px 0;
+}
+
+li {
+  padding: 2px 0;
+}
+
+.col {
+  margin: 0 4px;
+}
+
+.left-col {
+  width: 16.56vw;
+  height: 100vh;
+  float: left;
+}
+
+.right-col {
+  width: 71.76vw;
+  height: 100vh;
+  float: right;
+}
+.right-col--sub {
+  width: 48%;
+}
+.right-col--l {
+  float: left;
+}
+.right-col--r {
+  float: right;
+}
+
+.heading--name {
+  font-size: 48px;
+  float: left;
+}
+
+.subheading {
+  float: right;
+  margin-top: 8px;
+  text-align: right;
+}
+.subheading--vocation {
+  font-size: 40px;
+}
+.subheading--age {
+  font-size: 18px;
+}
+
+.contact {
+  padding: 8px 0;
+  width: 100%;
+  display: inline-block;
+  float: none;
+}
+.contact--item {
+  width: 22.4390243902vw;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+}
+.sect--heading {
+  font-size: 32px;
+  border-bottom: 1px solid grey;
+  padding: 16px 0;
+}
+
+#spirable {
+  border-bottom: none;
+}
+
+.education {
+  border-bottom: 1px solid grey;
+}
+.education--uni {
+  padding: 16px 0;
+}
+.education--course {
+  font-size: 24px;
+}
+.education--institution {
+  font-size: 16px;
+}
+.education--dates {
+  font-size: 12px;
+}
+
+.work {
+  padding: 16px 0;
+  border-bottom: 1px solid grey;
+}
+.work--title {
+  font-size: 32px;
+}
+.work--role {
+  font-size: 24px;
+}
+.work--dates {
+  font-size: 18px;
+  margin: 4px 0;
+}
+.work--desc {
+  font-size: 12px;
+}
+.work--resp {
+  font-size: 12px;
+}
+.work--resp--title {
+  font-size: 18px;
+}
+
+.tech {
+  width: inherit;
+  border-bottom: 1px solid grey;
+}
+.tech--list {
+  padding: 16px 0;
+}
+.tech--item {
+  padding-left: 16px;
+  font-size: 12px;
+}
+.tech--item--key {
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=cv.css.map */
