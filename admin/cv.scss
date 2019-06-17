@@ -7,10 +7,11 @@ $h2: 40px;
 $h3: 32px;
 $h4: 24px;
 $h5: 18px;
-$p1: 16px;
+$h6: 16px;
+$p1: 15px;
 $p2: 14px;
 $p3: 12px;
-$rule_style: 1px solid grey;
+$rule_style: 0;//1px solid black;
 $buffer_pad: 16px 0;
 
 
@@ -32,6 +33,10 @@ body {
   display: block;
   float: left;
   overflow: visible;
+
+  @media print {
+    font-size: $p3;
+  }
 }
 
 header{
@@ -41,7 +46,6 @@ header{
 }
 
 main {
-  display: block;
   width: $page_width;
   overflow: visible;
 }
@@ -69,40 +73,115 @@ li {
 }
 
 .col {
-  margin: 0 4px;
+  clear: both;
+
+  @media (min-width: 768px) {
+    clear: none;
+  }
 }
 
 .left-col {
-  width: $page_width * 0.18;
-  height: $page_height;
-  float: left;
+  width: $page_width;
+  height: auto;
+  margin: 0 4px;
+
+  @media (max-width: 768px) {
+    // Todo: make this not use max-width
+    .tech {
+      float: left;
+      width: 50%;
+      border-bottom: 0
+    }
+
+    .education {
+      float: right;
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: $page_width * 0.24;
+    height: $page_height;
+    float: left;
+    clear: none;
+  }
+
+  @media print {
+    width: $page_width * 0.24;
+    float: left;
+    clear: none;
+
+    .tech {
+      float: left;
+      width: inherit;
+      border-bottom: 0
+    }
+
+    .education {
+      position: absolute;
+      float: left;
+      width: inherit;
+      top: $page_height * 2;
+      margin-top: $page_gutter * 4;
+    }
+  }
 }
 
 .right-col {
-  width: $page_width * 0.78;
-  height: $page_height;
-  float: right;
+  width: $page_width;
+  height: auto;
+
+  @media (min-width: 768px) {
+    width: $page_width * 0.74;
+    height: $page_height;
+    float: right;
+    clear: none;
+  }
+
+  @media print {
+    width: $page_width * 0.74;
+    height: $page_height;
+    float: right;
+    clear: none;
+  }
 
   &--sub{
-    width: 48%;
+    @media (min-width: 768px) {
+      width: 48%;
+    }
   }
 
   &--l {
-    float: left;
+    margin: 0 4px;
+    @media (min-width: 768px) {
+      float: left;
+    }
   }
 
   &--r {
-    float: right;
+    margin: 0 4px;
+
+    @media (min-width: 768px)  {
+      float: right;
+    }
+
+    @media print {
+      position: absolute;
+      height: auto;
+      top: $page_height * 2;
+      margin-top: $page_gutter * 4;
+    }
   }
 }
 
-
-
 .heading {
-
   &--name {
     font-size: $h1;
     float: left;
+
+    @media print {
+      font-size: $h2;
+    }
   }
 }
 
@@ -113,6 +192,10 @@ li {
 
   &--vocation {
     font-size: $h2;
+
+    @media print {
+      font-size: $h3;
+    }
   }
 
   &--age {
@@ -127,16 +210,16 @@ li {
   float: none;
 
   &--item {
-    width: $page_width / 4.1;
     display: inline-block;
-    text-align: center;
     font-size: $p1;
-  }
+    text-align: left;
+    width: 100%;
 
-  &--telephone {}
-  &--email {}
-  &--website {}
-  &--github {}
+    @media (min-width: 768px) {
+      width: $page_width / 4.1;
+      text-align: center;
+    }
+  }
 }
 
 .sect{
@@ -144,50 +227,111 @@ li {
     font-size: $h3;
     border-bottom: $rule_style;
     padding: $buffer_pad;
+
+    @media print {
+      font-size: $h4;
+    }
+  }
+}
+
+#spirable{
+  @media (min-width: 768px) {
+    border-bottom: none;
+  }
+}
+
+.pg_two{
+  @media print {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: $page_height;
+    left: 4px;
+    margin: $page_gutter * 2 $page_gutter;
+  }
+}
+
+#bomachat {
+  border-bottom: none;
+
+  @media (min-width: 768px) {
+    border-bottom: $rule_style;
   }
 }
 
 .experience {
-  &--title{}
-}
+  &--title{
+    border-top: $rule_style;
 
-#spirable{
-  border-bottom: none;
+    @media (min-width: 768px) {
+      border-top: 0
+    }
+  }
+
+  .pg_two {
+    @media print {
+      overflow-wrap: break-word;
+      width: 100vw;
+    }
+  }
 }
 
 .education{
   border-bottom: $rule_style;
+
   &--uni{
     padding: $buffer_pad;
   }
+
   &--course {
     font-size: $h4;
+
+    @media print {
+      font-size: $h5;
+    }
   }
+
   &--institution {
     font-size: $p1;
+
+    @media print {
+      font-size: $p2;
+    }
   }
+
   &--dates{
     font-size: $p3;
   }
 }
-
-.personal{}
 
 .work{
   padding: $buffer_pad;
   border-bottom: $rule_style;
 
   &--title{
-    font-size: $h3;
+    font-size: $h4;
+
+    @media print {
+      font-size: $h5;
+    }
   }
 
   &--role{
-    font-size: $h4;
+    font-size: $h5;
+    margin: 4px 0;
+
+    @media print {
+      font-size: $h6;
+    }
   }
 
   &--dates{
-    font-size: $h5;
+    font-size: $h6;
     margin: 4px 0;
+
+    @media print {
+      font-size: $h5;
+    }
   }
 
   &--desc{
@@ -198,7 +342,7 @@ li {
     font-size: $p3;
 
     &--title {
-      font-size: $h5;
+      font-size: $h6;
     }
   }
 }
@@ -211,16 +355,13 @@ li {
     padding: 16px 0;
   }
 
+  &--key{
+    font-size: $p1;
+  }
+
   &--item{
     padding-left: 16px;
     font-size: $p3;
-
-    &--key{
-      font-size: $p2;
-    }
+    font-weight: normal;
   }
-
-  &--title{}
 }
-
-.skills{}
