@@ -1,9 +1,10 @@
 import { MediaItemType } from "./types";
 
-const buildSrc = (baseUrl: string, type: string) =>
-  (media: MediaItemType): string => {
-    const { namespace, index, ext } = media;
-    return `${baseUrl}/${type}/${namespace}-${index}.${ext}`
-  }
+const buildSrcWithBaseUrl =
+  (baseUrl: string) =>
+    (type: string) =>
+      (size: number) =>
+        ({ namespace, index, ext }: MediaItemType): string =>
+          `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
-export { buildSrc }
+export { buildSrcWithBaseUrl }

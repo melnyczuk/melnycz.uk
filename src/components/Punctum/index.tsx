@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import './Punctum.scss';
 import { ImageType } from '../../types';
-import { buildSrc } from '../../utils';
+import Picture from '../Picture';
+import Label from '../Label';
 
 interface PunctumVals {
-  baseURL: string;
   className: string;
-  img: ImageType;
-  alt: string;
+  image: ImageType;
+  baseUrl: string;
   title: string;
 }
 
@@ -20,6 +20,7 @@ interface PunctumProps extends PunctumVals, PunctumFuncs {
   namespace: string;
 }
 
+
 class Punctum extends React.PureComponent<PunctumProps> {
 
   constructor(props: PunctumProps) {
@@ -27,37 +28,21 @@ class Punctum extends React.PureComponent<PunctumProps> {
   }
 
   render() {
-
     const {
-      baseURL,
       className,
-      img,
-      alt,
+      image,
+      baseUrl,
       title,
       show: showModal,
     }: PunctumProps = this.props;
 
-    return (baseURL && img)
-      ? (
-        <div className="punctum" onClick={showModal} >
-          <img
-            className={`punctum-image ${className}`}
-            src={buildSrc(baseURL, 'thumbs')(img)}
-            alt={alt}
-          />
-          {
-            title &&
-            <div className="punctum-label">
-              <h2 className="punctum-title">
-                {title}
-              </h2>
-            </div>
-          }
-        </div>
-      )
-      : null;
+    return image ? (
+      <div className="punctum" onClick={showModal}>
+        <Picture image={image} baseUrl={baseUrl} className={className} />
+        {title && <Label title={title} type="punctum" />}
+      </div>
+    ) : null;
   }
-
 }
 
 export {
