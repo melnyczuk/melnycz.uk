@@ -25,9 +25,7 @@ const selectPortfolio = ({ portfolio }: StoreType): PortfolioType => portfolio;
 
 const selectWork = createSelector(
   [selectPortfolio, selectNamespace],
-  (portfolio: PortfolioType, namespace: string): WorkType => {
-    return portfolio[namespace]
-  }
+  (portfolio: PortfolioType, namespace: string): WorkType => portfolio[namespace]
 );
 
 const selectDescription = createSelector(
@@ -57,7 +55,7 @@ const selectMediaIndicies = createSelector(
 
 const selectMedia = {
   index: createSelector(
-    selectWork,
+    [selectWork],
     ({ media = null }: WorkType): MediaIndexType => media,
   ),
 

@@ -9,17 +9,17 @@ import {
   MediaItemType,
 } from '../../types';
 
-const selectMedia = ({ media = null }: StoreType): MediaType => media;
+const selectMedia = ({ media = null }: StoreType, props: any): MediaType => media;
+
+const selectBaseUrl = createSelector(
+  [selectMedia],
+  ({ baseUrl = '' }: MediaType): string => baseUrl,
+)
 
 const filterMedia = (namespace: string, indices: number[]) => {
   return (media: MediaItemType): boolean =>
     ((media.namespace === namespace) && (indices.includes(media.index)))
 }
-
-const selectBinBaseUrl = createSelector(
-  [selectMedia],
-  ({ baseURL = null }: MediaType): string => baseURL
-);
 
 const selectImageArray = createSelector(
   [selectMedia],
@@ -38,7 +38,7 @@ const selectAudioArray = createSelector(
 
 export {
   filterMedia,
-  selectBinBaseUrl,
+  selectBaseUrl,
   selectAudioArray,
   selectVideoArray,
   selectImageArray,
