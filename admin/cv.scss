@@ -1,6 +1,6 @@
 $fontface: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$page_width: 92vw;
-$page_height: 100vh;
+$page_width: 97vw;
+$page_height: 100%;
 $page_gutter: 16px;
 $h1: 48px;
 $h2: 40px;
@@ -12,7 +12,7 @@ $p1: 15px;
 $p2: 14px;
 $p3: 12px;
 $rule_style: 0;//1px solid black;
-$buffer_pad: 16px 0;
+$buffer_pad: 16px 0 0;
 
 
 * {
@@ -26,12 +26,10 @@ $buffer_pad: 16px 0;
 
 body {
   width: $page_width;
-  height: $page_height;
   padding: $page_gutter;
   font-family:  $fontface;
   font-size: $h5;
-  display: block;
-  float: left;
+  display: inline-block;
   overflow: visible;
 
   @media print {
@@ -46,20 +44,23 @@ header{
 }
 
 main {
-  width: $page_width;
+  width: 100%;
+  display: inline-block;
   overflow: visible;
 }
 
 footer {
-  border-top: $rule_style;
-  width: 100%;
-  clear:both;
+  position: relative;
+  bottom: 0;
+  width: $page_width;
+  height: auto;
 
   p {
-    vertical-align: middle;
-    font-size: $p1;
-    text-align: center;
-    margin: 16px;
+    padding: 4px;
+    font-size: $h5;
+    text-align: left;
+    margin: 16px 0;
+    width: 100%;
   }
 }
 
@@ -121,8 +122,10 @@ li {
       position: absolute;
       float: left;
       width: inherit;
-      top: $page_height * 2;
-      margin-top: $page_gutter * 4;
+      height: auto;
+      top: $page_height;
+      left: 4px;
+      margin: 0 $page_gutter;
     }
   }
 }
@@ -169,7 +172,7 @@ li {
       position: absolute;
       height: auto;
       top: $page_height * 2;
-      margin-top: $page_gutter * 4;
+      margin-top: $page_gutter;
     }
   }
 }
@@ -219,6 +222,11 @@ li {
       width: $page_width / 4.1;
       text-align: center;
     }
+
+    @media print {
+      width: $page_width / 4.1;
+      text-align: center;
+    }
   }
 }
 
@@ -240,14 +248,23 @@ li {
   }
 }
 
-.pg_two{
-  @media print {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: $page_height;
-    left: 4px;
-    margin: $page_gutter * 2 $page_gutter;
+.pg{
+  &--two{
+    @media print {
+      width: 100%;
+      height: auto;
+      top: $page_height;
+      margin: $page_gutter * 2 $page_gutter;
+    }
+  }
+
+  &--break {
+    display: none;
+
+    @media print {
+      display: block;
+      height: $page_gutter * 1.5;
+    }
   }
 }
 
@@ -268,7 +285,7 @@ li {
     }
   }
 
-  .pg_two {
+  .pg--two {
     @media print {
       overflow-wrap: break-word;
       width: 100vw;
@@ -304,37 +321,31 @@ li {
   }
 }
 
-.work{
+.work {
   padding: $buffer_pad;
   border-bottom: $rule_style;
 
-  &--title{
+  &--title {
     font-size: $h4;
-
-    @media print {
-      font-size: $h5;
-    }
   }
 
-  &--role{
+  &--role {
     font-size: $h5;
     margin: 4px 0;
-
-    @media print {
-      font-size: $h6;
-    }
   }
 
-  &--dates{
+  &--dates {
     font-size: $h6;
     margin: 4px 0;
+  }
 
+  &--team {
     @media print {
       font-size: $h5;
     }
   }
 
-  &--desc{
+  &--desc {
     font-size: $p3;
   }
 

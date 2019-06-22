@@ -8,13 +8,11 @@
 }
 
 body {
-  width: 92vw;
-  height: 100vh;
+  width: 97vw;
   padding: 16px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  display: block;
-  float: left;
+  display: inline-block;
   overflow: visible;
 }
 @media print {
@@ -30,20 +28,23 @@ header {
 }
 
 main {
-  width: 92vw;
+  width: 100%;
+  display: inline-block;
   overflow: visible;
 }
 
 footer {
-  border-top: 0;
-  width: 100%;
-  clear: both;
+  position: relative;
+  bottom: 0;
+  width: 97vw;
+  height: auto;
 }
 footer p {
-  vertical-align: middle;
-  font-size: 15px;
-  text-align: center;
-  margin: 16px;
+  padding: 4px;
+  font-size: 18px;
+  text-align: left;
+  margin: 16px 0;
+  width: 100%;
 }
 
 ul {
@@ -65,7 +66,7 @@ li {
 }
 
 .left-col {
-  width: 92vw;
+  width: 97vw;
   height: auto;
   margin: 0 4px;
 }
@@ -82,15 +83,15 @@ li {
 }
 @media (min-width: 768px) {
   .left-col {
-    width: 22.08vw;
-    height: 100vh;
+    width: 23.28vw;
+    height: 100%;
     float: left;
     clear: none;
   }
 }
 @media print {
   .left-col {
-    width: 22.08vw;
+    width: 23.28vw;
     float: left;
     clear: none;
   }
@@ -103,27 +104,29 @@ li {
     position: absolute;
     float: left;
     width: inherit;
-    top: 200vh;
-    margin-top: 64px;
+    height: auto;
+    top: 100%;
+    left: 4px;
+    margin: 0 16px;
   }
 }
 
 .right-col {
-  width: 92vw;
+  width: 97vw;
   height: auto;
 }
 @media (min-width: 768px) {
   .right-col {
-    width: 68.08vw;
-    height: 100vh;
+    width: 71.78vw;
+    height: 100%;
     float: right;
     clear: none;
   }
 }
 @media print {
   .right-col {
-    width: 68.08vw;
-    height: 100vh;
+    width: 71.78vw;
+    height: 100%;
     float: right;
     clear: none;
   }
@@ -153,8 +156,8 @@ li {
   .right-col--r {
     position: absolute;
     height: auto;
-    top: 200vh;
-    margin-top: 64px;
+    top: 200%;
+    margin-top: 16px;
   }
 }
 
@@ -199,7 +202,13 @@ li {
 }
 @media (min-width: 768px) {
   .contact--item {
-    width: 22.4390243902vw;
+    width: 23.6585365854vw;
+    text-align: center;
+  }
+}
+@media print {
+  .contact--item {
+    width: 23.6585365854vw;
     text-align: center;
   }
 }
@@ -207,7 +216,7 @@ li {
 .sect--heading {
   font-size: 32px;
   border-bottom: 0;
-  padding: 16px 0;
+  padding: 16px 0 0;
 }
 @media print {
   .sect--heading {
@@ -222,13 +231,20 @@ li {
 }
 
 @media print {
-  .pg_two {
-    position: absolute;
+  .pg--two {
     width: 100%;
     height: auto;
-    top: 100vh;
-    left: 4px;
+    top: 100%;
     margin: 32px 16px;
+  }
+}
+.pg--break {
+  display: none;
+}
+@media print {
+  .pg--break {
+    display: block;
+    height: 24px;
   }
 }
 
@@ -250,7 +266,7 @@ li {
   }
 }
 @media print {
-  .experience .pg_two {
+  .experience .pg--two {
     overflow-wrap: break-word;
     width: 100vw;
   }
@@ -260,7 +276,7 @@ li {
   border-bottom: 0;
 }
 .education--uni {
-  padding: 16px 0;
+  padding: 16px 0 0;
 }
 .education--course {
   font-size: 24px;
@@ -283,32 +299,22 @@ li {
 }
 
 .work {
-  padding: 16px 0;
+  padding: 16px 0 0;
   border-bottom: 0;
 }
 .work--title {
   font-size: 24px;
 }
-@media print {
-  .work--title {
-    font-size: 18px;
-  }
-}
 .work--role {
   font-size: 18px;
   margin: 4px 0;
-}
-@media print {
-  .work--role {
-    font-size: 16px;
-  }
 }
 .work--dates {
   font-size: 16px;
   margin: 4px 0;
 }
 @media print {
-  .work--dates {
+  .work--team {
     font-size: 18px;
   }
 }
