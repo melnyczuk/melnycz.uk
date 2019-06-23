@@ -24,7 +24,7 @@ const Picture = ({image, baseUrl, className}: PictureProps) => {
     <picture>
       {getSources(image, buildSrc)}
       <img
-        className={`punctum-image ${className}`}
+        className={`${className}`}
         src={buildSrc(640)(image)}
         alt={image.alt}
       />

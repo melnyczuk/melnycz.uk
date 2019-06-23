@@ -83,7 +83,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
-      className: '',
+      className: 'punctum-image',
       image: selectMedia.punctum(state, props),
       baseUrl: selectBaseUrl(state, props),
       title: selectTitle(state, props),

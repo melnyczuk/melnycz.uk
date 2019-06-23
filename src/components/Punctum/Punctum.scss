@@ -3,7 +3,7 @@
 .punctum {
   position: relative;
   border: $label-border;
-  
+
   &-image {
     display: block;
     object-fit: cover;
@@ -18,11 +18,11 @@
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     border: $label-border;
-    
+
     padding: $default-padding-mobile;
     height: $bar-button-height-mobile;
     line-height: $bar-button-height-mobile;
-    
+
     @media (min-width: $mobile) {
       padding: $default-padding;
       height: $bar-button-height;
@@ -34,7 +34,7 @@
       @include text;
       vertical-align: middle;
       text-align: center;
-      
+
       font-size: 14px;
 
       @media (min-width: $mobile) {

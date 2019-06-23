@@ -5,31 +5,30 @@
   @include text;
 
   font-size: 14px;
-  
+
   @media (min-width: $mobile) {
     font-size: 24px;
-  } 
-
-  &-short {
-    
-    @media (min-width: $mobile) {
-
-    } 
   }
 
-  
+  &-short {
+    @media (min-width: $mobile) {
+    }
+  }
+
+
   &-long {
     margin-bottom: 2*$default-margin;
-    
+
     @media (min-width: $mobile) {
       margin-bottom: 2*$default-margin-mobile;
-    } 
+    }
   }
 
   &-img {
     width: 100%;
-    
+    height: auto;
+
     @media (min-width: $mobile) {
-    } 
+    }
   }
 }
