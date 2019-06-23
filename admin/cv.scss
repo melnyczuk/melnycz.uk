@@ -1,5 +1,6 @@
 $fontface: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $page_width: 100vw;
+$max_width: 1280px;
 $page_height: 100%;
 $page_gutter: 16px;
 $h1: 48px;
@@ -40,6 +41,11 @@ body {
 
   @media (min-width: 768px) {
     @include set-width($page_width);
+  }
+
+  @media (min-width: $max_width) {
+    max-width: $max_width;
+    margin: 0 calc((#{$page_width} - #{$max_width}) * 0.5);
   }
 
   @media print {

@@ -21,6 +21,12 @@ body {
     width: calc(100vw - 16px);
   }
 }
+@media (min-width: 1280px) {
+  body {
+    max-width: 1280px;
+    margin: 0 calc((100vw - 1280px) * 0.5);
+  }
+}
 @media print {
   body {
     font-size: 12px;
