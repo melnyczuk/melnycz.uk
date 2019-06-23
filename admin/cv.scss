@@ -1,5 +1,5 @@
-$fontface: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$page_width: 97vw;
+$fontface: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$page_width: 100vw;
 $page_height: 100%;
 $page_gutter: 16px;
 $h1: 48px;
@@ -11,36 +11,46 @@ $h6: 16px;
 $p1: 15px;
 $p2: 14px;
 $p3: 12px;
-$rule_style: 0;//1px solid black;
+$rule_style: 0; //1px solid black;
 $buffer_pad: 16px 0 0;
+$default_pad: 0 4px;
 
+// #{$page_width}
+@mixin set-width($w) {
+  width: calc(#{$w} - #{$page_gutter});
+}
 
 * {
   margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 body {
   width: $page_width;
   padding: $page_gutter;
-  font-family:  $fontface;
+  font-family: $fontface;
   font-size: $h5;
   display: inline-block;
   overflow: visible;
+
+  @media (min-width: 768px) {
+    @include set-width($page_width);
+  }
 
   @media print {
     font-size: $p3;
   }
 }
 
-header{
+header {
   width: 100%;
   display: inline-block;
-  border-bottom: $rule_style;
+  padding: $default_pad;
 }
 
 main {
@@ -50,27 +60,27 @@ main {
 }
 
 footer {
+  width: 100%;
   position: relative;
   bottom: 0;
-  width: $page_width;
   height: auto;
 
   p {
+    width: 100%;
     padding: 4px;
     font-size: $h5;
     text-align: left;
     margin: 16px 0;
-    width: 100%;
   }
 }
 
-ul{
+ul {
   list-style-type: none;
   padding: 2px 0;
 }
 
 li {
-  padding:2px 0;
+  padding: 2px 0;
 }
 
 .col {
@@ -79,104 +89,97 @@ li {
   @media (min-width: 768px) {
     clear: none;
   }
-}
 
-.left-col {
-  width: $page_width;
-  height: auto;
-  margin: 0 4px;
+  @media print {
+    padding: 0;
+  }
 
-  @media (max-width: 768px) {
-    // Todo: make this not use max-width
+  &--left {
+    width: 100%;
+    height: auto;
+
+    &--item {
+      width: 100%;
+      padding: $default_pad;
+    }
+
     .tech {
       float: left;
-      width: 50%;
-      border-bottom: 0
     }
 
     .education {
       float: right;
-      width: 50%;
-    }
-  }
-
-  @media (min-width: 768px) {
-    width: $page_width * 0.24;
-    height: $page_height;
-    float: left;
-    clear: none;
-  }
-
-  @media print {
-    width: $page_width * 0.24;
-    float: left;
-    clear: none;
-
-    .tech {
-      float: left;
-      width: inherit;
-      border-bottom: 0
     }
 
-    .education {
-      position: absolute;
-      float: left;
-      width: inherit;
-      height: auto;
-      top: $page_height;
-      left: 4px;
-      margin: 0 $page_gutter;
-    }
-  }
-}
-
-.right-col {
-  width: $page_width;
-  height: auto;
-
-  @media (min-width: 768px) {
-    width: $page_width * 0.74;
-    height: $page_height;
-    float: right;
-    clear: none;
-  }
-
-  @media print {
-    width: $page_width * 0.74;
-    height: $page_height;
-    float: right;
-    clear: none;
-  }
-
-  &--sub{
     @media (min-width: 768px) {
-      width: 48%;
-    }
-  }
-
-  &--l {
-    margin: 0 4px;
-    @media (min-width: 768px) {
+      width: 25%;
       float: left;
-    }
-  }
-
-  &--r {
-    margin: 0 4px;
-
-    @media (min-width: 768px)  {
-      float: right;
+      clear: none;
     }
 
     @media print {
-      position: absolute;
-      height: auto;
-      top: $page_height * 2;
-      margin-top: $page_gutter;
+      width: 24%;
+      float: left;
+      clear: none;
+
+      .tech {
+        float: left;
+      }
+
+      .education {
+        position: absolute;
+        width: 20%;
+        float: left;
+        padding-right: 4px;
+        top: $page_height;
+      }
+    }
+  }
+
+  &--right {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 75%;
+      float: right;
+      clear: none;
+    }
+
+    @media print {
+      width: 75%;
+      float: right;
+      clear: none;
+    }
+
+    &--sub {
+      padding: $default_pad;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    &--l {
+      @media (min-width: 768px) {
+        float: left;
+      }
+    }
+
+    &--r {
+      @media (min-width: 768px) {
+        float: right;
+      }
+
+      @media print {
+        position: absolute;
+        width: inherit;
+        margin: inherit;
+        top: $page_height * 2;
+        padding-right: 32px;
+      }
     }
   }
 }
-
 .heading {
   &--name {
     font-size: $h1;
@@ -189,12 +192,17 @@ li {
 }
 
 .subheading {
-  float: right;
-  margin-top: 8px;
-  text-align: right;
+  float: left;
+  text-align: left;
+
+  @media (min-width: 768px) {
+    float: right;
+    text-align: right;
+  }
 
   &--vocation {
     font-size: $h2;
+    margin: 8px 0 0;
 
     @media print {
       font-size: $h3;
@@ -202,38 +210,38 @@ li {
   }
 
   &--age {
+    margin: 8px 0 0;
     font-size: $h5;
   }
 }
 
 .contact {
-  padding: 8px 0;
   width: 100%;
   display: inline-block;
   float: none;
+  margin: 8px 0 0;
 
   &--item {
+    width: 100%;
     display: inline-block;
     font-size: $p1;
     text-align: left;
-    width: 100%;
 
     @media (min-width: 768px) {
-      width: $page_width / 4.1;
+      width: 24%;
       text-align: center;
     }
 
     @media print {
-      width: $page_width / 4.1;
+      @include set-width($page_width * 0.25);
       text-align: center;
     }
   }
 }
 
-.sect{
-  &--heading{
+.sect {
+  &--heading {
     font-size: $h3;
-    border-bottom: $rule_style;
     padding: $buffer_pad;
 
     @media print {
@@ -242,61 +250,19 @@ li {
   }
 }
 
-#spirable{
-  @media (min-width: 768px) {
-    border-bottom: none;
-  }
-}
-
-.pg{
-  &--two{
-    @media print {
-      width: 100%;
-      height: auto;
-      top: $page_height;
-      margin: $page_gutter * 2 $page_gutter;
-    }
-  }
-
+.pg {
   &--break {
     display: none;
 
     @media print {
       display: block;
-      height: $page_gutter * 1.5;
+      height: $page_gutter * 2.5;
     }
   }
 }
 
-#bomachat {
-  border-bottom: none;
-
-  @media (min-width: 768px) {
-    border-bottom: $rule_style;
-  }
-}
-
-.experience {
-  &--title{
-    border-top: $rule_style;
-
-    @media (min-width: 768px) {
-      border-top: 0
-    }
-  }
-
-  .pg--two {
-    @media print {
-      overflow-wrap: break-word;
-      width: 100vw;
-    }
-  }
-}
-
-.education{
-  border-bottom: $rule_style;
-
-  &--uni{
+.education {
+  &--uni {
     padding: $buffer_pad;
   }
 
@@ -316,14 +282,13 @@ li {
     }
   }
 
-  &--dates{
+  &--dates {
     font-size: $p3;
   }
 }
 
 .work {
   padding: $buffer_pad;
-  border-bottom: $rule_style;
 
   &--title {
     font-size: $h4;
@@ -358,19 +323,22 @@ li {
   }
 }
 
-.tech{
-  width: inherit;
-  border-bottom: $rule_style;
+.tech {
+  width: 100%;
 
-  &--list{
-    padding: 16px 0;
+  &--list {
+    padding: 0;
+
+    @media (min-width: 768px) {
+      padding: 16px 0;
+    }
   }
 
-  &--key{
+  &--key {
     font-size: $p1;
   }
 
-  &--item{
+  &--item {
     padding-left: 16px;
     font-size: $p3;
     font-weight: normal;
