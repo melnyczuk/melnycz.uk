@@ -42,11 +42,8 @@ import {
   selectDescription,
 } from '../../store/portfolio/selectors';
 
-import {
-  selectBinBaseUrl,
-} from '../../store/media/selectors';
-
 import { StoreType } from '../../types';
+import { selectBaseUrl } from '../../store/media/selectors';
 
 const ModalContainer = connect<ModalVals, ModalFuncs, {}>
   (
@@ -64,7 +61,7 @@ const PortalContainer = connect<PortalVals, PortalFuncs, {}>
   (
     (state: StoreType, props: PortalProps) => ({
       className: '',
-      baseURL: selectBinBaseUrl(state),
+      baseUrl: selectBaseUrl(state, props),
       images: selectMedia.images(state, props),
     }),
     (dispatch: Function, props: PortalProps) => ({})
@@ -74,8 +71,8 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: PostProps) => ({
       className: '',
-      baseURL: selectBinBaseUrl(state),
-      imgs: selectMedia.images(state, props),
+      images: selectMedia.images(state, props),
+      baseUrl: selectBaseUrl(state, props),
       description: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
@@ -86,10 +83,9 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
-      className: '',
-      baseURL: selectBinBaseUrl(state),
-      img: selectMedia.punctum(state, props),
-      alt: selectAlt(state, props),
+      className: 'punctum-image',
+      image: selectMedia.punctum(state, props),
+      baseUrl: selectBaseUrl(state, props),
       title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({

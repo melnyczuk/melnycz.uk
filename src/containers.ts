@@ -28,9 +28,9 @@ import { selectActive } from './store/active/selectors';
 const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType, props: NavBarProps) => ({
-      active: selectActive(state),
+      active: selectActive(state, props),
       title: '',
-      items: selectMainNavArray(state),
+      items: selectMainNavArray(state, props),
       className: 'main-nav',
     }),
     (dispatch: Function, props: NavBarProps) => ({})
@@ -40,7 +40,7 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
   (
     (state: StoreType, props: SiteTitleProps) => ({
       className: 'site-title',
-      title: selectTitle(state),
+      title: selectTitle(state, props),
     }),
     (dispatch: Function, props: SiteTitleProps) => ({})
   )

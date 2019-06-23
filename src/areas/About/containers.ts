@@ -3,10 +3,10 @@ import { StoreType, ActionType } from '../../types';
 import { PostVals, PostFuncs, PostProps, Post } from '../../components/Post';
 import { ModalVals, ModalFuncs, ModalProps, Modal } from '../../components/Modal';
 import { PunctumVals, PunctumFuncs, PunctumProps, Punctum } from '../../components/Punctum';
-import { selectBinBaseUrl } from '../../store/media/selectors';
 import { selectDescription, selectMedia, selectVisible } from '../../store/about/selectors';
 import { setDescription } from '../../store/portfolio/actions';
 import { setHide, setShow } from '../../store/about/actions';
+import { selectBaseUrl } from '../../store/media/selectors';
 
 const placeholderAction: ActionType = {
   type: null,
@@ -17,8 +17,8 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: PostProps) => ({
       className: '',
-      baseURL: selectBinBaseUrl(state),
-      description: selectDescription(state),
+      baseUrl: selectBaseUrl(state, props),
+      description: selectDescription(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
       setDesc: (data: string[]) => dispatch(setDescription(props, data)),
@@ -29,7 +29,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: ModalProps) => ({
       className: '',
-      visible: selectVisible(state),
+      visible: selectVisible(state, props),
       title: 'About Howard Melnyczuk',
     }),
     (dispatch: Function, props: ModalProps) => ({
@@ -40,10 +40,9 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
-      className: '',
-      baseURL: selectBinBaseUrl(state),
-      img: selectMedia.punctum(state, props),
-      alt: '',
+      className: 'punctum-image',
+      baseUrl: selectBaseUrl(state, props),
+      image: selectMedia.punctum(state, props),
       title: '',
     }),
     (dispatch: Function, props: PunctumProps) => ({

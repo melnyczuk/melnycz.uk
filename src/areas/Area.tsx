@@ -15,21 +15,16 @@ interface AreaFuncs {
 
 interface AreaProps extends AreaVals, AreaFuncs { }
 
+const runUpdateActive = ({ updateActive, title }) => updateActive(title);
+
 class Area extends React.PureComponent<AreaProps> {
 
   constructor(props: AreaProps) {
     super(props);
   }
 
-  componentDidMount() {
-    const { updateActive, title } = this.props;
-    updateActive(title);
-  }
-
-  componentDidUpdate() {
-    const { updateActive, title } = this.props;
-    updateActive(title);
-  }
+  componentDidMount  = () => runUpdateActive(this.props);
+  componentDidUpdate = () => runUpdateActive(this.props);
 
   render() {
     const { area, component } = this.props;

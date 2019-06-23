@@ -46,7 +46,7 @@ export interface ExhibitionType {
 }
 
 export interface MediaType {
-  baseURL: string;
+  baseUrl: string;
   punctum?: ImageType;
   images?: ImageType[];
   videos?: VideoType[];
@@ -69,6 +69,7 @@ export interface MediaItemType {
 }
 
 export interface ImageType extends MediaItemType {
+  sizes: number[];
   caption?: string;
 }
 

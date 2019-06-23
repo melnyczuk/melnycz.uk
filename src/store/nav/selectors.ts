@@ -2,7 +2,7 @@ import { StoreType, NavType } from "../../types";
 import { createSelector } from "reselect";
 import { selectActive } from "../active/selectors";
 
-const selectMainNavArray = ({ nav }: StoreType): NavType[] => nav;
+const selectMainNavArray = ({ nav }: StoreType, props: any): NavType[] => nav;
 
 const selectActiveNav = createSelector(
   [selectMainNavArray, selectActive],

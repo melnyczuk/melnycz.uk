@@ -1,4 +1,3 @@
-
 const actionConstants = {
   SET_ACTIVE: 'SET_ACTIVE',
   SET_SHOW: 'SET_SHOW',
@@ -7,7 +6,4 @@ const actionConstants = {
   SET_TITLE: 'SET_TITLE',
 };
 
-
-export {
-  actionConstants,
-};
+export { actionConstants };

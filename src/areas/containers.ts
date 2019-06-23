@@ -29,9 +29,9 @@ import { StoreType } from "../types";
 const SubNavContainer = connect<NavBarVals, NavBarFuncs, {}>
 (
   (state: StoreType, props: NavBarProps) => ({
-    active: selectActive(state),
+    active: selectActive(state, props),
     title: 'portfolio',
-    items: selectSubNavArray(state),
+    items: selectSubNavArray(state, props),
     className: 'sub-nav',
   }),
   (dispatch: Function, props: NavBarProps) => ({})
@@ -57,7 +57,7 @@ const HomeContainer = connect<AreaVals, AreaFuncs, {}>
     component: Home,
   }),
   (dispatch: Function, props: AreaProps) => ({
-    updateActive: (active: string) => dispatch(setActive(null))
+    updateActive: (active: string) => dispatch(setActive(null)),
   })
 )(Area);
 

@@ -4,13 +4,13 @@ import yaml from 'js-yaml';
 import './Post.scss';
 
 import { ImageType } from '../../types';
-import { buildSrc } from '../../utils';
+import Picture from '../Picture';
 
 interface PostVals {
-  baseURL: string;
   className: string;
   description: string[];
-  imgs?: ImageType[];
+  baseUrl: string;
+  images?: ImageType[];
   children?: JSX.Element[];
 }
 
@@ -22,21 +22,22 @@ interface PostProps extends PostVals, PostFuncs {
   namespace: string;
 }
 
-const buildImg = (baseUrl: string, type: string) =>
-  (image: ImageType, i: number): JSX.Element => {
-    const { namespace, index, alt } = image;
-    return (
-      <img
-        key={`${namespace}-${index}`}
-        className={`post post-img post-img_${i}`}
-        src={buildSrc(baseUrl, type)(image)}
-        alt={alt}
-      />);
-  };
+const buildImages =
+  (baseUrl: string) =>
+    (image: ImageType, i: number): JSX.Element => {
+      const { namespace, index } = image;
+      return (
+        <Picture
+          key={`${namespace}-${index}`}
+          image={image}
+          baseUrl={baseUrl}
+          className={`post post-img post-img_${i}`}
+        />);
+    };
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
   <React.Fragment key={`desc-${i}`} >
-    <p className='post post-desc' >{text}</p>
+    <p className='post post-desc'>{text}</p>
     <br />
   </React.Fragment>
 );
@@ -61,19 +62,17 @@ class Post extends React.PureComponent<PostProps> {
 
   render() {
     const {
-      baseURL,
-      imgs,
+      images,
+      baseUrl,
       description,
       className,
       children,
     }: PostProps = this.props;
 
-    const buildImages = buildImg(baseURL, 'images');
-
     return (
-        <article className={`post ${className}`}>
+        <article className={`post${className && ' ' + className}`}>
           {description && description.map(buildParagraph)}
-          {imgs && imgs.map(buildImages)}
+          {images && images.map(buildImages(baseUrl))}
           {children}
         </article>
       );

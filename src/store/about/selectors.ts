@@ -12,7 +12,7 @@ import { selectImageArray, filterMedia } from "../media/selectors";
 
 import { selectNamespace } from "../portfolio/selectors";
 
-const selectAbout = ({ about }: StoreType): AboutType => about;
+const selectAbout = ({ about }: StoreType, props: any): AboutType => about;
 
 const selectDescription = createSelector(
   [selectAbout],
