@@ -1,0 +1,352 @@
+$fontface: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$page_width: 100vw;
+$max_width: 1280px;
+$page_height: 100%;
+$page_gutter: 16px;
+$h1: 48px;
+$h2: 40px;
+$h3: 32px;
+$h4: 24px;
+$h5: 18px;
+$h6: 16px;
+$p1: 15px;
+$p2: 14px;
+$p3: 12px;
+$rule_style: 0; //1px solid black;
+$buffer_pad: 16px 0 0;
+$default_pad: 0 4px;
+
+// #{$page_width}
+@mixin set-width($w) {
+  width: calc(#{$w} - #{$page_gutter});
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+body {
+  width: $page_width;
+  padding: $page_gutter;
+  font-family: $fontface;
+  font-size: $h5;
+  display: inline-block;
+  overflow: visible;
+
+  @media (min-width: 768px) {
+    @include set-width($page_width);
+  }
+
+  @media (min-width: $max_width) {
+    max-width: $max_width;
+    margin: 0 calc((#{$page_width} - #{$max_width}) * 0.5);
+  }
+
+  @media print {
+    font-size: $p3;
+  }
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+  padding: $default_pad;
+}
+
+main {
+  width: 100%;
+  display: inline-block;
+  overflow: visible;
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  height: auto;
+
+  p {
+    width: 100%;
+    padding: 4px;
+    font-size: $h5;
+    text-align: left;
+    margin: 16px 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 2px 0;
+}
+
+li {
+  padding: 2px 0;
+}
+
+.col {
+  clear: both;
+
+  @media (min-width: 768px) {
+    clear: none;
+  }
+
+  @media print {
+    padding: 0;
+  }
+
+  &--left {
+    width: 100%;
+    height: auto;
+
+    &--item {
+      width: 100%;
+      padding: $default_pad;
+    }
+
+    .tech {
+      float: left;
+    }
+
+    .education {
+      float: right;
+    }
+
+    @media (min-width: 768px) {
+      width: 25%;
+      float: left;
+      clear: none;
+    }
+
+    @media print {
+      width: 24%;
+      float: left;
+      clear: none;
+
+      .tech {
+        float: left;
+      }
+
+      .education {
+        position: absolute;
+        width: 20%;
+        float: left;
+        padding-right: 4px;
+        top: $page_height;
+      }
+    }
+  }
+
+  &--right {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 75%;
+      float: right;
+      clear: none;
+    }
+
+    @media print {
+      width: 75%;
+      float: right;
+      clear: none;
+    }
+
+    &--sub {
+      padding: $default_pad;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    &--l {
+      @media (min-width: 768px) {
+        float: left;
+      }
+    }
+
+    &--r {
+      @media (min-width: 768px) {
+        float: right;
+      }
+
+      @media print {
+        position: absolute;
+        width: inherit;
+        margin: inherit;
+        top: $page_height * 2;
+        padding-right: 32px;
+      }
+    }
+  }
+}
+.heading {
+  &--name {
+    font-size: $h1;
+    float: left;
+
+    @media print {
+      font-size: $h2;
+    }
+  }
+}
+
+.subheading {
+  float: left;
+  text-align: left;
+
+  @media (min-width: 768px) {
+    float: right;
+    text-align: right;
+  }
+
+  &--vocation {
+    font-size: $h2;
+    margin: 8px 0 0;
+
+    @media print {
+      font-size: $h3;
+    }
+  }
+
+  &--age {
+    margin: 8px 0 0;
+    font-size: $h5;
+  }
+}
+
+.contact {
+  width: 100%;
+  display: inline-block;
+  float: none;
+  margin: 8px 0 0;
+
+  &--item {
+    width: 100%;
+    display: inline-block;
+    font-size: $p1;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      width: 24%;
+      text-align: center;
+    }
+
+    @media print {
+      @include set-width($page_width * 0.25);
+      text-align: center;
+    }
+  }
+}
+
+.sect {
+  &--heading {
+    font-size: $h3;
+    padding: $buffer_pad;
+
+    @media print {
+      font-size: $h4;
+    }
+  }
+}
+
+.pg {
+  &--break {
+    display: none;
+
+    @media print {
+      display: block;
+      height: $page_gutter * 2.5;
+    }
+  }
+}
+
+.education {
+  &--uni {
+    padding: $buffer_pad;
+  }
+
+  &--course {
+    font-size: $h4;
+
+    @media print {
+      font-size: $h5;
+    }
+  }
+
+  &--institution {
+    font-size: $p1;
+
+    @media print {
+      font-size: $p2;
+    }
+  }
+
+  &--dates {
+    font-size: $p3;
+  }
+}
+
+.work {
+  padding: $buffer_pad;
+
+  &--title {
+    font-size: $h4;
+  }
+
+  &--role {
+    font-size: $h5;
+    margin: 4px 0;
+  }
+
+  &--dates {
+    font-size: $h6;
+    margin: 4px 0;
+  }
+
+  &--team {
+    @media print {
+      font-size: $h5;
+    }
+  }
+
+  &--desc {
+    font-size: $p3;
+  }
+
+  &--resp {
+    font-size: $p3;
+
+    &--title {
+      font-size: $h6;
+    }
+  }
+}
+
+.tech {
+  width: 100%;
+
+  &--list {
+    padding: 0;
+
+    @media (min-width: 768px) {
+      padding: 16px 0;
+    }
+  }
+
+  &--key {
+    font-size: $p1;
+  }
+
+  &--item {
+    padding-left: 16px;
+    font-size: $p3;
+    font-weight: normal;
+  }
+}
