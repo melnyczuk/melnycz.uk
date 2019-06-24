@@ -108,15 +108,11 @@ export interface WritingType {}
 export interface WorkType {
   namespace: string;
   title: string;
-  repo: string;
   year: number[];
   media: MediaIndexType;
-  materials: string[];
-  type: string[];
+  tags: string[];
   description?: string[];
   visible?: boolean;
-  links?: string[];
-  exhibitions?: ExhibitionType[];
 }
 
 export interface ExhibitionType {
