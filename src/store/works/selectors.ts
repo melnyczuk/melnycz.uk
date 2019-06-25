@@ -18,6 +18,7 @@ import {
 import {
   selectNamespace,
 } from '../active/selectors';
+import { AreaProps } from '../../areas/Area';
 
 const selectWorks= ({ works }: StoreType, props): WorkType[] => works;
 
@@ -26,6 +27,13 @@ const selectWork = createSelector(
   (works: WorkType[], name: string): WorkType => works.filter(
     ({ namespace }: WorkType): Boolean => namespace === name
   )[0]
+);
+
+const selectAreaLabel = (state: StoreType, { label }: AreaProps) => label;
+
+const selectAreaWorks = createSelector(
+  [selectWorks, selectAreaLabel],
+  (works, label) => works.filter(({ area }) => area === label)
 );
 
 const selectDescription = createSelector(
@@ -47,6 +55,8 @@ const selectTitle = createSelector(
   [selectWork],
   ({ title = null }: WorkType): string => title,
 );
+
+const selectSiteTitle = createSelector([], (): string => 'Howard Melnyczuk');
 
 const selectMediaIndicies = createSelector(
   [selectWork],
@@ -86,9 +96,11 @@ const selectMedia = {
 
 export {
   selectAlt,
+  selectAreaWorks,
   selectDescription,
   selectNamespace,
   selectWorks,
+  selectSiteTitle,
   selectTitle,
   selectVisible,
   selectMedia,

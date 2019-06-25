@@ -1,29 +1,15 @@
-import { StoreType, NavType } from "../../types";
+import { StoreType } from "../../types";
 import { createSelector } from "reselect";
 import { selectActive } from "../active/selectors";
 
-const selectMainNavArray = ({ nav }: StoreType, props: any): NavType[] => nav;
+const selectNavArray = ({ nav }: StoreType, props: any): string[] => nav;
 
 const selectActiveNav = createSelector(
-  [selectMainNavArray, selectActive],
-  (navArray: NavType[], active: string): NavType => {
-
-    const activeNavArray = active && navArray.filter(
-      (n: NavType): Boolean => {
-        return n && n.label && n.label.toLowerCase() === active.toLowerCase()
-  }
-    );
-
-    return activeNavArray && activeNavArray[0] || null;
+  [selectNavArray, selectActive],
+  (navArray: string[], active: string): string[] => {
+    return active && navArray.filter((n: string): Boolean =>
+      n && n.toLowerCase() === active.toLowerCase());
   }
 );
 
-const selectSubNavArray = createSelector(
-  [selectActiveNav],
-  (nav: NavType): NavType[] => nav && nav.subnav || null
-);
-
-export {
-  selectMainNavArray,
-  selectSubNavArray,
-}
+export { selectNavArray, selectActiveNav }

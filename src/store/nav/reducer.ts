@@ -1,5 +1,6 @@
-const { nav } = require('../../../db/nav.json');
+import { works } from '../../../db/works.json';
+import { ActionType, WorkType } from '../../types';
 
-import { ActionType, NavType } from '../../types';
+const nav = [...new Set<string>(works.map(({ area }: WorkType) => area))];
 
-export default (state: NavType[] = nav, action: ActionType) => state;
+export default (state: string[] = nav, action: ActionType) => state;

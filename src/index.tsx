@@ -7,68 +7,34 @@ import { Route, HashRouter } from 'react-router-dom';
 import './base.scss';
 
 import rootReducer from './store/rootReducer';
+import { NavContainer, SiteTitleContainer } from './containers';
+import { AreaContainer } from './areas/containers';
 
-import {
-  HomeContainer,
-  PortfolioContainer,
-  ResearchContainer,
-  AboutContainer,
-} from './areas/containers';
+const areas = ['about', 'portfolio'];
 
-import {
-  MainNavContainer,
-  SiteTitleContainer
-} from './containers';
-
-import { SubNavContainer } from './areas/containers';
-
-class App extends React.PureComponent {
-
-  private store: any;
-
-  constructor(props: any) {
-    super(props);
-    this.store = createStore(rootReducer);
-  }
-
-  render() {
-    return (
-      <Provider store={this.store} >
-        <HashRouter>
-          <div className="app">
-            <div className="header">
-              <SiteTitleContainer />
-              <MainNavContainer />
-              <SubNavContainer />
-            </div>
-            <main className="main">
-              <Route
-                className="home"
-                path='/'
-                component={HomeContainer}
-              />
-              <Route
-                className="about"
-                path='/about'
-                component={AboutContainer}
-              />
-              <Route
-                className="portfolio"
-                path='/portfolio'
-                component={PortfolioContainer}
-              />
-              <Route
-                className="research"
-                path='/research'
-                component={ResearchContainer}
-              />
-            </main>
+const App: React.FunctionComponent<any> =
+  ({store = createStore(rootReducer)}) => (
+    <Provider store={store} >
+      <HashRouter>
+        <div className="app">
+          <div className="header">
+            <SiteTitleContainer />
+            <NavContainer />
           </div>
-        </HashRouter>
-      </Provider>
-    );
-  }
-};
+          <main className="main">
+            <Route exact path='/' render={() => (<AreaContainer label='home' />)} />
+            {
+              areas.map((route) => (
+                <Route key={route} path={`/${route}`}
+                  render={() => (<AreaContainer label={route}/>)}
+                />
+              ))
+            }
+          </main>
+        </div>
+      </HashRouter>
+    </Provider>
+  );
 
 export default App;
 

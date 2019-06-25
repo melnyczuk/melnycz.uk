@@ -1,45 +1,21 @@
-import * as React from 'react';
-import { Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 import './areas.scss';
+import { WorkType } from '../types';
+import Work from './Works/Work';
 
-interface AreaVals {
-  area: string;
-  title: string;
-  component: any;
-}
+interface AreaVals { works: WorkType[]; }
+interface AreaFuncs { updateActive: (active: string) => void; }
+interface AreaProps extends AreaVals, AreaFuncs { label: string; }
 
-interface AreaFuncs {
-  updateActive: (active: string) => void;
-}
-
-interface AreaProps extends AreaVals, AreaFuncs { }
-
-const runUpdateActive = ({ updateActive, title }) => updateActive(title);
-
-class Area extends React.PureComponent<AreaProps> {
-
-  constructor(props: AreaProps) {
-    super(props);
-  }
-
-  componentDidMount  = () => runUpdateActive(this.props);
-  componentDidUpdate = () => runUpdateActive(this.props);
-
-  render() {
-    const { area, component } = this.props;
+const Area: React.FunctionComponent<AreaProps> =
+  ({ label, works, updateActive }) => {
+    useEffect(()=> { updateActive(label) });
     return (
-      <>
-        <Route exact path={`/${area}`} component={component} />
-        <Route path={`/${area}/:filter`} component={component} />
-      </>
+      <div className={label}>
+        {works.map(({ namespace }) => (<Work namespace={namespace} />))}
+      </div>
     );
   }
-}
 
-export {
-  AreaVals,
-  AreaFuncs,
-  AreaProps,
-  Area,
-}
+export { Area, AreaVals, AreaFuncs, AreaProps }
