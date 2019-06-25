@@ -19,13 +19,13 @@ import {
   selectNamespace,
 } from '../active/selectors';
 
-const selectPortfolio = ({ works }: StoreType, props): WorkType[] => works;
+const selectWorks= ({ works }: StoreType, props): WorkType[] => works;
 
 const selectWork = createSelector(
-  [selectPortfolio, selectNamespace],
+  [selectWorks, selectNamespace],
   (works: WorkType[], name: string): WorkType => works.filter(
     ({ namespace }: WorkType): Boolean => namespace === name
-  )
+  )[0]
 );
 
 const selectDescription = createSelector(
@@ -73,13 +73,13 @@ const selectMedia = {
 
   videos: createSelector(
     [selectVideoArray, selectNamespace, selectMediaIndicies],
-    (vids: VideoType[], namespace: string, { videos }): VideoType[] =>
+    (vids: AVType[], namespace: string, { videos }): AVType[] =>
       vids.filter(filterMedia(namespace, videos))
   ),
 
   audios: createSelector(
     [selectAudioArray, selectNamespace, selectMediaIndicies],
-    (auds: AudioType[], namespace: string, { audios }): AudioType[] =>
+    (auds: AVType[], namespace: string, { audios }): AVType[] =>
       auds.filter(filterMedia(namespace, audios))
   ),
 };
@@ -88,7 +88,7 @@ export {
   selectAlt,
   selectDescription,
   selectNamespace,
-  selectPortfolio,
+  selectWorks,
   selectTitle,
   selectVisible,
   selectMedia,
