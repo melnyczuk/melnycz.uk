@@ -7,9 +7,9 @@ import { ImageType } from '../../types';
 import Picture from '../Picture';
 
 interface PostVals {
-  className: string;
   description: string[];
   baseUrl: string;
+  title?: string;
   images?: ImageType[];
   children?: JSX.Element[];
 }
@@ -31,19 +31,19 @@ const buildImages =
           key={`${namespace}-${index}`}
           image={image}
           baseUrl={baseUrl}
-          className={`post post-img post-img_${i}`}
+          className={`post post--img post--img__${i}`}
         />);
     };
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
   <React.Fragment key={`desc-${i}`} >
-    <p className='post post-desc'>{text}</p>
+    <p className='post post--desc'>{text}</p>
     <br />
   </React.Fragment>
 );
 
 const Post: React.FunctionComponent<PostProps> =
-  ({ namespace, images, baseUrl, description, className, children, setDesc }) =>
+  ({ namespace, title, images, baseUrl, description, children, setDesc }) =>
     {
       useEffect((): void => {
         (async () => {
@@ -58,7 +58,8 @@ const Post: React.FunctionComponent<PostProps> =
       });
 
       return (
-        <article className={`post${className && ' ' + className}`}>
+        <article className='post'>
+          {title && <h2 className='post-header-title'>{title}</h2>}
           {description && description.map(buildParagraph)}
           {images && images.map(buildImages(baseUrl))}
           {children}

@@ -29,7 +29,6 @@ const Modal: React.FunctionComponent<ModalProps> =
     ? (
       <div className={`modal ${className}`}>
         <div className='modal-header'>
-          {title && <h2 className='modal-header-title' key='title'>{title}</h2>}
           <Button purpose='close' onClick={hide}
             className='modal-header-button'/>
         </div>
