@@ -5,7 +5,6 @@ export interface ActionType {
 }
 
 export interface AreaType {
-  nav: NavType;
   works: WorkType[];
 }
 
@@ -28,10 +27,10 @@ export interface ExhibitionType {
 
 export interface MediaStoreType {
   baseUrl: string;
-  punctum?: ImageType;
-  images?: ImageType[];
-  videos?: AVType[];
-  audios?: AVType[];
+  punctum: ImageType;
+  images: ImageType[];
+  videos: AVType[];
+  audios: AVType[];
 }
 
 export interface MediaIndexType {
@@ -59,20 +58,15 @@ export interface AVType extends MediaItemType {
   description?: string[];
 }
 
-export interface NavType {
-  label: string;
-  path: string;
-  subnav: NavType[];
-}
-
 export interface StoreType {
   active: string;
   media: MediaStoreType;
-  nav: NavType[];
+  nav: string[];
   works: WorkType[];
 }
 
 export interface WorkType {
+  area: string;
   namespace: string;
   title: string;
   year: number[];
