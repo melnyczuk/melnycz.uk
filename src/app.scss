@@ -1,25 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo');
-
-$mobile: 768px;
-$default-padding-mobile: 4px;
-$default-padding: 8px;
-$default-margin-mobile: 4px;
-$default-margin: 8px;
-$label-border: 1px solid black;
-$bar-button-height-mobile: 24px;
-$bar-button-height: 32px;
+@import './index.scss';
 
 * {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@mixin text {
-  color: black;
-  text-decoration: none;
-  font-family: 'Archivo', sans-serif;
 }
 
 a {
@@ -52,5 +37,15 @@ a {
   @media (min-width: $mobile) {
     float: left;
     width: 60%;
+  }
+}
+
+.work {
+  display: inline-block;
+  position: float;
+  margin: $default-margin-mobile;
+
+  @media (min-width: $mobile) {
+    margin: $default-margin;
   }
 }
