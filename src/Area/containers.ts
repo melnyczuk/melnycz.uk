@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
-import { Modal, ModalProps, ModalVals, ModalFuncs } from '../../components/Modal';
-import { Portal, PortalProps, PortalVals, PortalFuncs } from '../../components/Portal';
-import { Post, PostProps, PostVals, PostFuncs } from '../../components/Post';
-import { Punctum, PunctumProps, PunctumVals, PunctumFuncs } from '../../components/Punctum';
-import { setHide, setDescription, setShow } from '../../store/works/actions';
-import { selectVisible, selectTitle, selectMedia, selectDescription } from '../../store/works/selectors';
-import { StoreType } from '../../types';
-import { selectBaseUrl } from '../../store/media/selectors';
+import { Modal, ModalProps, ModalVals, ModalFuncs } from '../components/Modal';
+import { Portal, PortalProps, PortalVals, PortalFuncs } from '../components/Portal';
+import { Post, PostProps, PostVals, PostFuncs } from '../components/Post';
+import { Punctum, PunctumProps, PunctumVals, PunctumFuncs } from '../components/Punctum';
+import { setHide, setDescription, setShow } from '../store/works/actions';
+import { selectVisible, selectTitle, selectMedia, selectDescription } from '../store/works/selectors';
+import { StoreType } from '../types';
+import { selectBaseUrl } from '../store/media/selectors';
 
 const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: PostProps) => ({
-      className: '',
       images: selectMedia.images(state, props),
       baseUrl: selectBaseUrl(state, props),
       description: selectDescription(state, props),
+      title: selectTitle(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
       setDesc: (data: string[]) => dispatch(setDescription(props, data)),
@@ -26,7 +26,6 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
     (state: StoreType, props: ModalProps) => ({
       className: '',
       visible: selectVisible(state, props),
-      title: selectTitle(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
       hide: () => dispatch(setHide(props)),
@@ -56,9 +55,4 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
     })
   )(Punctum);
 
-export {
-  ModalContainer,
-  PortalContainer,
-  PostContainer,
-  PunctumContainer,
-}
+export { ModalContainer, PortalContainer, PostContainer, PunctumContainer }

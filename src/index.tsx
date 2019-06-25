@@ -4,13 +4,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Route, HashRouter } from 'react-router-dom';
 
-import './base.scss';
+import './app.scss';
 
 import rootReducer from './store/rootReducer';
-import { NavContainer, SiteTitleContainer } from './containers';
-import { AreaContainer } from './areas/containers';
-
-const areas = ['about', 'portfolio'];
+import { NavContainer, SiteTitleContainer, AreaContainer } from './containers';
+import { PostContainer } from './Area/containers';
 
 const App: React.FunctionComponent<any> =
   ({store = createStore(rootReducer)}) => (
@@ -22,14 +20,11 @@ const App: React.FunctionComponent<any> =
             <NavContainer />
           </div>
           <main className="main">
-            <Route exact path='/' render={() => (<AreaContainer label='home' />)} />
-            {
-              areas.map((route) => (
-                <Route key={route} path={`/${route}`}
-                  render={() => (<AreaContainer label={route}/>)}
-                />
-              ))
-            }
+            <Route path='/:area' exact component={AreaContainer} />
+            {/* <Route path='/:area/:filter' component={AreaContainer} /> */}
+            <Route path='/:area/:namespace' render={
+              ({match}) => <PostContainer namespace={match.params.namespace} />
+            } />
           </main>
         </div>
       </HashRouter>

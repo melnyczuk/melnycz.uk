@@ -18,18 +18,19 @@ import {
 import {
   selectNamespace,
 } from '../active/selectors';
-import { AreaProps } from '../../areas/Area';
+import { AreaProps } from '../../Area';
 
 const selectWorks= ({ works }: StoreType, props): WorkType[] => works;
 
 const selectWork = createSelector(
   [selectWorks, selectNamespace],
   (works: WorkType[], name: string): WorkType => works.filter(
-    ({ namespace }: WorkType): Boolean => namespace === name
+    ({ namespace: namespace }: WorkType): Boolean => namespace === name
   )[0]
 );
 
-const selectAreaLabel = (state: StoreType, { label }: AreaProps) => label;
+const selectAreaLabel =
+  (state: StoreType, { match: { params: { area } } }: AreaProps) => area;
 
 const selectAreaWorks = createSelector(
   [selectWorks, selectAreaLabel],
