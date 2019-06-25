@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import yaml from 'js-yaml';
 
 import './Post.scss';
@@ -42,42 +42,27 @@ const buildParagraph = (text: string, i: number): JSX.Element => (
   </React.Fragment>
 );
 
+const Post: React.FunctionComponent<PostProps> =
+  ({ namespace, images, baseUrl, description, className, children, setDesc }) =>
+    {
+      useEffect(() => {
+        if (!description) {
+          fetch(`./bin/copy/${namespace}.yaml`)
+            .then(async resp => await resp.text())
+            .then(yaml.load)
+            .then(({ description }: any) => description)
+            .then(setDesc);
+        }
+      });
 
-class Post extends React.PureComponent<PostProps> {
-
-  constructor(props: PostProps) {
-    super(props);
-  }
-
-  componentDidMount() {
-    const { namespace, description, setDesc } = this.props;
-    if (!description) {
-      fetch(`./bin/copy/${namespace}.yaml`)
-        .then(async resp => await resp.text())
-        .then(yaml.load)
-        .then(({ description }: any) => description)
-        .then(setDesc);
-    }
-  }
-
-  render() {
-    const {
-      images,
-      baseUrl,
-      description,
-      className,
-      children,
-    }: PostProps = this.props;
-
-    return (
+      return (
         <article className={`post${className && ' ' + className}`}>
           {description && description.map(buildParagraph)}
           {images && images.map(buildImages(baseUrl))}
           {children}
         </article>
       );
-  }
-};
+    }
 
 export {
   Post,

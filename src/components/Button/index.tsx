@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import './Button.scss';
 
 interface ButtonProps {
@@ -8,26 +7,14 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button = (
-  {
-    purpose,
-    className = '',
-    onClick,
-  }: ButtonProps,
-): JSX.Element | null => (
-    <button
-      type="button"
-      className={`button button-${purpose} ${className}`}
-      onClick={onClick}
-    >
-      <img
-        className={`button button-${purpose}-img`}
-        src={`./svg/${purpose}.svg`}
-      />
-    </button>
-  );
+const Button: React.FunctionComponent<ButtonProps> =
+  ({ purpose, className = '', onClick }) =>
+    (
+      <button type="button" onClick={onClick}
+          className={`button button-${purpose} ${className}`}>
+        <img src={`./svg/${purpose}.svg`}
+          className={`button button-${purpose}-img`}/>
+      </button>
+    );
 
-export {
-  Button,
-  ButtonProps,
-}
+export { Button, ButtonProps }

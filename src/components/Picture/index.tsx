@@ -18,18 +18,19 @@ const getSources = (image: ImageType, buildSrc: Function) =>
   )
 );
 
-const Picture = ({image, baseUrl, className}: PictureProps) => {
-  const buildSrc = buildSrcWithBaseUrl(baseUrl)('images');
-  return (
-    <picture>
-      {getSources(image, buildSrc)}
-      <img
-        className={`${className}`}
-        src={buildSrc(640)(image)}
-        alt={image.alt}
-      />
-    </picture>
-  );
-}
+const Picture: React.FunctionComponent<PictureProps> =
+  ({image, baseUrl, className}) => {
+    const buildSrc = buildSrcWithBaseUrl(baseUrl)('images');
+    return (
+      <picture>
+        {getSources(image, buildSrc)}
+        <img
+          className={`${className}`}
+          src={buildSrc(640)(image)}
+          alt={image.alt}
+        />
+      </picture>
+    );
+  }
 
 export default Picture;

@@ -15,34 +15,15 @@ interface NavBarFuncs { }
 
 interface NavBarProps extends NavBarVals, NavBarFuncs { }
 
-class NavBar extends React.PureComponent<NavBarProps> {
-
-  constructor(props: NavBarProps) {
-    super(props);
-  }
-
-  render() {
-    const {
-      className,
-      items,
-      title,
-      active,
-    }: NavBarProps = this.props;
-
-    const prefix = title ? `/${title}` : '';
-
-    return (
+const NavBar: React.FunctionComponent<NavBarProps> =
+  ({ className, items, title, active }) =>
+    (
       <nav className={`nav ${className}`}>
         {
-          items && items.map(
-            ({ label, path }, i: number) => (
-              <NavLink
-                key={i}
-                className={'nav-button'}
-                to={`${prefix}${path}`}
-              >
-                <h4 className={`nav-button-label ${
-                  active === label ? 'nav-button-label_active' : ''}`}>
+          items && items.map(({ label, path }, i: number) =>
+            (
+              <NavLink key={i} className={'nav-button'} to={`${title ? `/${title}` : ''}${path}`}>
+                <h4 className={`nav-button-label ${active === label ? 'nav-button-label_active' : ''}`}>
                   {label}
                 </h4>
               </NavLink>
@@ -51,9 +32,6 @@ class NavBar extends React.PureComponent<NavBarProps> {
         }
       </nav>
     );
-  };
-
-}
 
 export {
   NavBar,
