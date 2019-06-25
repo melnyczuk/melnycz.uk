@@ -1,7 +1,7 @@
 const { media } = require('../../../db/media.json');
-import { ActionType, MediaType } from '../../types';
+import { ActionType, MediaStoreType } from '../../types';
 
-export default (state: MediaType = media, action: ActionType) => {
+export default (state: MediaStoreType = media, action: ActionType) => {
   const { type } = action;
   switch (type) {
     default: return state;

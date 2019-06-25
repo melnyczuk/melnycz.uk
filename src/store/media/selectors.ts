@@ -2,18 +2,17 @@ import { createSelector, } from 'reselect';
 
 import {
   StoreType,
-  MediaType,
+  MediaStoreType,
   ImageType,
-  VideoType,
-  AudioType,
+  AVType,
   MediaItemType,
 } from '../../types';
 
-const selectMedia = ({ media = null }: StoreType, props: any): MediaType => media;
+const selectMedia = ({ media = null }: StoreType, props: any): MediaStoreType => media;
 
 const selectBaseUrl = createSelector(
   [selectMedia],
-  ({ baseUrl = '' }: MediaType): string => baseUrl,
+  ({ baseUrl = '' }: MediaStoreType): string => baseUrl,
 )
 
 const filterMedia = (namespace: string, indices: number[]) => {
@@ -23,17 +22,17 @@ const filterMedia = (namespace: string, indices: number[]) => {
 
 const selectImageArray = createSelector(
   [selectMedia],
-  ({ images = null }: MediaType): ImageType[] => images
+  ({ images = null }: MediaStoreType): ImageType[] => images
 );
 
 const selectVideoArray = createSelector(
   [selectMedia],
-  ({ videos = null }: MediaType): VideoType[] => videos
+  ({ videos = null }: MediaStoreType): AVType[] => videos
 );
 
 const selectAudioArray = createSelector(
   [selectMedia],
-  ({ audios }: MediaType): AudioType[] => audios
+  ({ audios }: MediaStoreType): AVType[] => audios
 );
 
 export {
