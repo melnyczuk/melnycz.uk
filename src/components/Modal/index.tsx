@@ -25,7 +25,8 @@ interface ModalProps extends ModalVals, ModalFuncs {
 
 const Modal: React.FunctionComponent<ModalProps> =
   ({ visible, className, hide, title, children }) =>
-    visible && (
+    visible
+    ? (
       <div className={`modal ${className}`}>
         <div className='modal-header'>
           {title && <h2 className='modal-header-title' key='title'>{title}</h2>}
@@ -34,6 +35,6 @@ const Modal: React.FunctionComponent<ModalProps> =
         </div>
         <div className='modal-body'>{children && children}</div>
       </div>
-    );
+    ) : null;
 
 export { Modal, ModalProps, ModalVals, ModalFuncs };

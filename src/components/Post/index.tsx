@@ -45,14 +45,16 @@ const buildParagraph = (text: string, i: number): JSX.Element => (
 const Post: React.FunctionComponent<PostProps> =
   ({ namespace, images, baseUrl, description, className, children, setDesc }) =>
     {
-      useEffect(() => {
-        if (!description) {
-          fetch(`./bin/copy/${namespace}.yaml`)
-            .then(async resp => await resp.text())
-            .then(yaml.load)
-            .then(({ description }: any) => description)
-            .then(setDesc);
-        }
+      useEffect((): void => {
+        (async () => {
+          if (!description) {
+            await fetch(`./bin/copy/${namespace}.yaml`)
+              .then(async resp => await resp.text())
+              .then(yaml.load)
+              .then(({ description }: any) => description)
+              .then(setDesc);
+          }
+        })();
       });
 
       return (

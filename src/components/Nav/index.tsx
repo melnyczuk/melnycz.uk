@@ -1,30 +1,31 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavType } from '../../types';
 
 import './Nav.scss';
 
 interface NavBarVals {
   active: string;
-  title: string;
-  items: NavType[];
-  className: string;
+  labels: string[];
 }
 
 interface NavBarFuncs { }
 
 interface NavBarProps extends NavBarVals, NavBarFuncs { }
 
+const getClass = (active) => active
+  ? 'nav-button-label nav-button-label_active'
+  : 'nav-button-label';
+
 const NavBar: React.FunctionComponent<NavBarProps> =
-  ({ className, items, title, active }) =>
+  ({labels, active }) =>
     (
-      <nav className={`nav ${className}`}>
+      <nav className={`nav`}>
         {
-          items && items.map(({ label, path }, i: number) =>
+          labels && labels.map((label, i: number) =>
             (
-              <NavLink key={i} className={'nav-button'} to={`${title ? `/${title}` : ''}${path}`}>
-                <h4 className={`nav-button-label ${active === label ? 'nav-button-label_active' : ''}`}>
-                  {label}
+              <NavLink key={i} className={'nav-button'} to={`/${label}`}>
+                <h4 className={getClass(active === label)}>
+                  {label.replace(/[a-z]/, (t) => t.toUpperCase())}
                 </h4>
               </NavLink>
             )

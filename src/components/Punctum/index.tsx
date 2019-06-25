@@ -22,11 +22,13 @@ interface PunctumProps extends PunctumVals, PunctumFuncs {
 
 const Punctum: React.FunctionComponent<PunctumProps> =
   ({ className, image, baseUrl, title, show: showModal }) =>
-    image && (
+    image
+    ? (
       <div className="punctum" onClick={showModal}>
         <Picture image={image} baseUrl={baseUrl} className={className} />
         {title && <Label title={title} type="punctum" />}
       </div>
-    );
+    )
+    : null;
 
 export { Punctum, PunctumProps, PunctumVals, PunctumFuncs }
