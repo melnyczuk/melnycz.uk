@@ -4,15 +4,33 @@
       "area": "about",
       "namespace": "aboutbio",
       "title": "About Howard Melnyczuk",
-      "description": null,
-      "media": { "punctum": 0 },
-      "tags": [],
-      "year": null
+      "year": [],
+      "media": {
+        "punctum": 0,
+        "images": [],
+        "videos": [],
+        "audios": []
+      },
+      "tags": []
     },
     {
       "area": "portfolio",
       "namespace": "objperma",
       "title": "Object Permanence",
+      "year": [
+        2018
+      ],
+      "media": {
+        "punctum": 3,
+        "images": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "videos": [],
+        "audios": []
+      },
       "tags": [
         "installation",
         "networks",
@@ -25,16 +43,6 @@
         "found text",
         "found audio",
         "archival content"
-      ],
-      "media": {
-        "punctum": 3,
-        "images": [1,2,3,4],
-        "video": [],
-        "audio": []
-      },
-      "description": null,
-      "year": [
-        2018
       ]
     },
     {
@@ -55,11 +63,16 @@
       ],
       "media": {
         "punctum": 9,
-        "images": [2,3,4,6,9],
-        "video": [],
-        "audio": []
-      },
-      "description": null
+        "images": [
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "videos": [],
+        "audios": []
+      }
     },
     {
       "area": "portfolio",
@@ -68,14 +81,11 @@
       "year": [
         2017
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "website"
@@ -84,7 +94,7 @@
     {
       "area": "portfolio",
       "namespace": "justwatc",
-      "name": "Just Watched And Felt",
+      "title": "Just Watched And Felt",
       "year": [
         2017
       ],
@@ -96,13 +106,12 @@
         "images": [],
         "videos": [],
         "audios": []
-      },
-      "description": null
+      }
     },
     {
       "area": "portfolio",
       "namespace": "fanewday",
-      "name": "Like The Dawning Of A New Day",
+      "title": "Like The Dawning Of A New Day",
       "year": [
         2017
       ],
@@ -114,8 +123,7 @@
         "images": [],
         "videos": [],
         "audios": []
-      },
-      "description": null
+      }
     },
     {
       "area": "portfolio",
@@ -124,14 +132,11 @@
       "year": [
         2016
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "website",
@@ -145,34 +150,28 @@
       "year": [
         2013
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "website"
       ]
     },
     {
-      "about": "portfolio",
+      "area": "portfolio",
       "namespace": "texcache",
       "title": "Texture Cache",
       "year": [
         2016
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "website",
@@ -186,54 +185,45 @@
       "year": [
         2016
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "pdf"
       ]
     },
     {
-      "about": "portfolio",
+      "area": "portfolio",
       "namespace": "ermdmalm",
       "title": "Everytime I Repeat Mistakes I Dislike Myself A Little More",
       "year": [
         2016
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "video"
       ]
     },
     {
-      "about": "portfolio",
+      "area": "portfolio",
       "namespace": "otsmiasm",
       "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
       "year": [
         2016
       ],
-      "description": {
-        "short": ""
-      },
       "media": {
         "punctum": null,
         "images": [],
-        "video": [],
-        "audio": []
+        "videos": [],
+        "audios": []
       },
       "tags": [
         "video"
