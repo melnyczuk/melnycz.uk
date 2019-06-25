@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-      "allowJs": true,
-      "checkJs": false,
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "noImplicitAny": false,
-      "module": "commonjs",
-      "target": "es2017",
-      "jsx": "react",
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es2017",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "./src/**/*",

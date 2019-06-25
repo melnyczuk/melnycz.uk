@@ -3,9 +3,8 @@ import { ActionType } from '../../types';
 
 const { SET_ACTIVE } = actionConstants;
 
-const setActive = (active: string): ActionType => ({
-  type: SET_ACTIVE,
-  namespace: active
-});
+const setActive = (active: string): ActionType => (
+  {type: SET_ACTIVE, id: active, data: null}
+);
 
 export { setActive };
