@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, HashRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import './app.scss';
 
@@ -13,7 +13,7 @@ import { PostContainer } from './Area/containers';
 const App: React.FunctionComponent<any> =
   ({store = createStore(rootReducer)}) => (
     <Provider store={store} >
-      <HashRouter>
+      <BrowserRouter>
         <div className="app">
           <div className="header">
             <SiteTitleContainer />
@@ -27,7 +27,7 @@ const App: React.FunctionComponent<any> =
             } />
           </main>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   );
 
