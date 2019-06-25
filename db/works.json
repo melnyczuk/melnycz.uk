@@ -70,7 +70,7 @@
           6,
           9
         ],
-        "videos": [],
+        "videos": [0],
         "audios": []
       }
     },
@@ -176,6 +176,23 @@
       "tags": [
         "website",
         "rendering"
+      ]
+    },
+    {
+      "area": "portfolio",
+      "namespace": "body_cam",
+      "title": "_bodycam",
+      "year": [
+        2016
+      ],
+      "media": {
+        "punctum": null,
+        "images": [],
+        "videos": [],
+        "audios": []
+      },
+      "tags": [
+        "pdf"
       ]
     },
     {
