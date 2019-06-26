@@ -2,6 +2,7 @@
 
 .post {
   @include text;
+  padding: 4px $mobile-padding;
 
   font-size: 14px;
 
@@ -13,6 +14,10 @@
     vertical-align: middle;
     width: fit-content;
     float: left;
+    height: 40px;
+    width: auto;
+    margin: 0;
+
     font-size: $header-font-size-mobile;
 
     @media (min-width: $mobile) {
