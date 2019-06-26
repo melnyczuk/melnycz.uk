@@ -1,3 +1,6 @@
+import { SiteTitle } from "./components/SiteTitle";
+import { string } from "prop-types";
+
 export interface ActionType {
   type: string;
   id: string;
@@ -27,7 +30,6 @@ export interface ExhibitionType {
 
 export interface MediaStoreType {
   baseUrl: string;
-  punctum: ImageType;
   images: ImageType[];
   videos: AVType[];
   audios: AVType[];
@@ -46,6 +48,7 @@ export interface MediaItemType {
   ext: string;
   alt: string;
   path?: string;
+  url?: string;
 }
 
 export interface ImageType extends MediaItemType {
@@ -58,10 +61,15 @@ export interface AVType extends MediaItemType {
   description?: string[];
 }
 
-export interface StoreType {
+export interface NavType {
   active: string;
+  sitetitle: string;
+  labels: string[];
+}
+
+export interface StoreType {
   media: MediaStoreType;
-  nav: string[];
+  nav: NavType;
   works: WorkType[];
 }
 
