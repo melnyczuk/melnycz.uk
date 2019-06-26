@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
+$work-width: 640px;
+
 $desktop: 768px;
+
+$img-ratio: 0.67;
 
 $mobile-padding: 8px;
 $desktop-padding: 16px;
@@ -8,7 +12,8 @@ $desktop-padding: 16px;
 $mobile-margin: 4px;
 $desktop-margin: 8px;
 
-$label-border: 1px solid black;
+$label-border-width: 1px;
+$label-border: $label-border-width solid black;
 
 $bar-button-height_m: 24px;
 $bar-button-height: 32px;

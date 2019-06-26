@@ -26,7 +26,7 @@ const Portal: React.FunctionComponent<PortalProps> =
             key={`${image.namespace}-${image.index}`}
             image={image}
             parent='portal'
-            max={480}
+            max={640}
           />
         ))
       }
