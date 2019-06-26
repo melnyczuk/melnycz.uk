@@ -1,31 +1,14 @@
-export interface AboutType {
-  title: string;
-  info: InfoType;
-  media: MediaIndexType;
-  visible?: boolean;
-  description?: string[];
-}
+import { SiteTitle } from "./components/SiteTitle";
+import { string } from "prop-types";
 
 export interface ActionType {
   type: string;
-  namespace: string;
-  data?: string[];
+  id: string;
+  data: string[];
 }
 
 export interface AreaType {
-  nav: NavType;
-}
-
-export interface AreasType {
-  active: string;
-  portfolio: PortfolioType;
-  research: ResearchType;
-}
-
-export interface InfoType {
-  name: string;
-  email: string;
-  handle: string;
+  works: WorkType[];
 }
 
 export interface ContainerType {
@@ -63,8 +46,10 @@ export interface MediaItemType {
   index: number;
   ext: string;
   alt: string;
-  baseUrl?: string;
+  type: string;
+  baseUrl: string;
   path?: string;
+  url?: string;
 }
 
 export interface ImageType extends MediaItemType {
@@ -72,50 +57,32 @@ export interface ImageType extends MediaItemType {
   caption?: string;
 }
 
-export interface VideoType extends MediaItemType {
-  duration?: number;
-  description?: string[];
-}
-
-export interface AudioType extends MediaItemType {
+export interface AVType extends MediaItemType {
   duration?: number;
   description?: string[];
 }
 
 export interface NavType {
-  label: string;
-  path: string;
-  subnav: NavType[];
+  active: string;
+  sitetitle: string;
+  labels: string[];
 }
-
-export interface ResearchType extends AreaType {}
 
 export interface StoreType {
-  active: string;
-  about: AboutType;
-  media: MediaType;
-  nav: NavType[];
-  portfolio: PortfolioType;
+  media: MediaStoreType;
+  nav: NavType;
+  works: WorkType[];
 }
-
-export interface PortfolioType {
-  [key: string]: WorkType;
-}
-
-export interface WritingType {}
 
 export interface WorkType {
+  area: string;
   namespace: string;
   title: string;
-  repo: string;
   year: number[];
   media: MediaIndexType;
-  materials: string[];
-  type: string[];
+  tags: string[];
   description?: string[];
   visible?: boolean;
-  links?: string[];
-  exhibitions?: ExhibitionType[];
 }
 
 export interface ExhibitionType {

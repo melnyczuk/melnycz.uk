@@ -1,49 +1,31 @@
-import * as React from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavType } from '../../types';
 
 import './Nav.scss';
 
 interface NavBarVals {
   active: string;
-  title: string;
-  items: NavType[];
-  className: string;
+  labels: string[];
 }
 
 interface NavBarFuncs { }
 
 interface NavBarProps extends NavBarVals, NavBarFuncs { }
 
-class NavBar extends React.PureComponent<NavBarProps> {
+const getClass = (active) => active
+  ? 'nav--button--label nav--button--label__active'
+  : 'nav--button--label';
 
-  constructor(props: NavBarProps) {
-    super(props);
-  }
-
-  render() {
-    const {
-      className,
-      items,
-      title,
-      active,
-    }: NavBarProps = this.props;
-
-    const prefix = title ? `/${title}` : '';
-
-    return (
-      <nav className={`nav ${className}`}>
+const NavBar: React.FunctionComponent<NavBarProps> =
+  ({labels, active }) =>
+    (
+      <nav className='nav'>
         {
-          items && items.map(
-            ({ label, path }, i: number) => (
-              <NavLink
-                key={i}
-                className={'nav-button'}
-                to={`${prefix}${path}`}
-              >
-                <h4 className={`nav-button-label ${
-                  active === label ? 'nav-button-label_active' : ''}`}>
-                  {label}
+          labels && labels.map((label, i: number) =>
+            (
+              <NavLink key={i} className='nav--button' to={`/${label}`}>
+                <h4 className={getClass(active === label)}>
+                  {label.replace(/[a-z]/, (t) => t.toUpperCase())}
                 </h4>
               </NavLink>
             )
@@ -51,13 +33,5 @@ class NavBar extends React.PureComponent<NavBarProps> {
         }
       </nav>
     );
-  };
 
-}
-
-export {
-  NavBar,
-  NavBarProps,
-  NavBarVals,
-  NavBarFuncs,
-}
+export { NavBar, NavBarProps, NavBarVals, NavBarFuncs }

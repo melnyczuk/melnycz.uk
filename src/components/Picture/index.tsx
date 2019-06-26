@@ -1,22 +1,18 @@
 import React from 'react';
 import { ImageType } from '../../types';
-import { buildSrcWithBaseUrl } from '../../utils';
+import { buildSrc } from '../../utils';
 
 interface PictureProps {
   image: ImageType;
-  baseUrl: string;
-  className: string;
+  parent: string;
 }
 
-const getSources = (image: ImageType, buildSrc: Function) =>
-  image.sizes.map((size, i) => (
-    <source
-      key={`source-${i}`}
-      srcSet={buildSrc(size)(image)}
-      media={`(max-width: ${size * 0.8}px)`}
-    />
-  )
-);
+
+const getSources =
+  (bSrc) =>
+    (size, i) =>
+      (<source key={`source-${i}`} media={`(max-width: ${size * 0.8}px)`}
+          srcSet={bSrc(size)} />);
 
 const getClass =
   (parent: string) =>
@@ -27,18 +23,17 @@ const getClass =
 
 const Picture: React.FunctionComponent<PictureProps> =
   ({ image, parent }) => {
-    const buildSrc = buildSrcWithBaseUrl(baseUrl)('images');
     const getClassForElm = getClass(parent)
+    const buildSource = buildSrc(image);
+    const getSrcs = getSources(buildSource);
     return (
       <picture className={getClassForElm('picture')}>
-        {getSources(image, buildSrc)}
-        <img
-          className={getClassForElm('image')}
-          src={buildSrc(640)(image)}
-          alt={image.alt}
-        />
+        {image.sizes.map(getSrcs)}
+        <img src={buildSource(640)} alt={image.alt}
+          className={getClassForElm('image')} />
       </picture>
     );
   }
 
-export default Picture;
+
+export { Picture, PictureProps };

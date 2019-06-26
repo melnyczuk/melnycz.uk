@@ -1,17 +1,15 @@
-import * as React from 'react';
-
-import { Button } from '../Button';
+import React from 'react';
 
 import { ImageType } from '../../types';
-import Picture from '../Picture';
-import { basename } from 'path';
+import { Button } from '../Button';
+import { Picture } from '../Picture';
 
 interface PortalVals {
   images: ImageType[];
 }
 
 interface PortalFuncs {
-  scrollPortal?: Function;
+  scroll?: Function;
 }
 
 interface PortalProps extends PortalVals, PortalFuncs {
@@ -35,9 +33,4 @@ const Portal: React.FunctionComponent<PortalProps> =
     </figure>
   );
 
-export {
-  Portal,
-  PortalProps,
-  PortalVals,
-  PortalFuncs,
-}
+export { Portal, PortalProps, PortalVals, PortalFuncs }

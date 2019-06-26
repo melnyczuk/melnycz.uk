@@ -1,33 +1,28 @@
-import * as React from 'react';
-
+import React from 'react';
 import './Button.scss';
 
 interface ButtonProps {
+  parent: string;
   purpose: string;
   onClick: () => void;
-  className?: string;
 }
 
-const Button = (
-  {
-    purpose,
-    className = '',
-    onClick,
-  }: ButtonProps,
-): JSX.Element | null => (
-    <button
-      type="button"
-      className={`button button-${purpose} ${className}`}
-      onClick={onClick}
-    >
-      <img
-        className={`button button-${purpose}-img`}
-        src={`./svg/${purpose}.svg`}
-      />
-    </button>
-  );
+const getClassForParent =
+  (parent) =>
+    (purpose) =>
+      (elm) =>
+        `button ${parent}--button button--${purpose}${elm === 'img' && '--img'}`;
 
-export {
-  Button,
-  ButtonProps,
-}
+const Button: React.FunctionComponent<ButtonProps> =
+  ({ parent, purpose, onClick }) =>{
+    const getClassForElm = getClassForParent(parent)(purpose);
+    return (
+      <button type="button" onClick={onClick}
+      className={getClassForElm('main')}>
+        <img src={`./svg/${purpose}.svg`}
+          className={getClassForElm('img')}/>
+      </button>
+    );
+  }
+
+export { Button, ButtonProps }

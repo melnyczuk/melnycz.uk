@@ -1,5 +1,4 @@
-@import '../../base.scss';
-
+@import '../../index.scss';
 
 .post {
   @include text;
@@ -10,21 +9,18 @@
     font-size: 24px;
   }
 
-  &-short {
-    @media (min-width: $mobile) {
-    }
-  }
-
-
-  &-long {
-    margin-bottom: 2*$default-margin;
+  &--title {
+    vertical-align: middle;
+    width: fit-content;
+    float: left;
+    font-size: $header-font-size-mobile;
 
     @media (min-width: $mobile) {
-      margin-bottom: 2*$default-margin-mobile;
+      font-size: $header-font-size
     }
-  }
+   }
 
-  &-img {
+  &--image {
     width: 100%;
     height: auto;
 

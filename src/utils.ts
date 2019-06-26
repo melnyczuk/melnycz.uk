@@ -1,11 +1,10 @@
-import { MediaItemType, WorkType, ImageType, AVType } from "./types";
+import { MediaItemType, WorkType, AVType, ImageType } from './types';
 
-const buildSrcWithBaseUrl =
-  (baseUrl: string) =>
-    (type: string) =>
-      (size: number) =>
-        ({ namespace, index, ext }: MediaItemType): string =>
-          `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
+
+const buildSrc =
+  ({ type, baseUrl, namespace, index, ext }: MediaItemType) =>
+    (size: number = null) =>
+      `${baseUrl}/${type}${size && `/${size}`}/${namespace}-${index}.${ext}`;
 
 const filterMedia =
   (indices: number[]) =>
@@ -20,8 +19,9 @@ const filterWorks =
 
 const getBaseUrlAppender =
   (baseUrl: string) =>
-    (mediaItem: ImageType | AVType, index: number): ImageType | AVType =>
-      ({ ...mediaItem, baseUrl });
+    (type: string) =>
+      (mediaItem): ImageType | AVType =>
+        ({ ...mediaItem, baseUrl, type });
 
 
-export { buildSrcWithBaseUrl, filterMedia, filterWorks, getBaseUrlAppender }
+export { buildSrc, filterMedia, filterWorks, getBaseUrlAppender }

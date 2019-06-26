@@ -6,7 +6,7 @@ import { works as WorksDB } from '../../db/works.json';
 
 import { actionConstants } from './constants';
 import { ActionType, MediaStoreType, WorkType, NavType, ImageType, AVType } from '../types';
-import { getBaseUrlAppender } from '../utils.js';
+import { getBaseUrlAppender } from '../utils';
 
 const {
   SET_ACTIVE,
@@ -21,16 +21,18 @@ const appendBaseUrl = getBaseUrlAppender(MediaDB.baseUrl);
 
 const init = {
   media: {
-    audios: Array<AVType>(MediaDB.audios.map(appendBaseUrl)),
-    images: Array<ImageType>(MediaDB.images.map(appendBaseUrl)),
-    videos: Array<AVType>(MediaDB.videos.map(appendBaseUrl)),
+    audios: MediaDB.audios.map(appendBaseUrl('audios')) as    AVType[],
+    images: MediaDB.images.map(appendBaseUrl('images')) as ImageType[],
+    videos: MediaDB.videos.map(appendBaseUrl('videos')) as    AVType[],
   },
   nav: {
-    active: NavDB.sitetitle,
-    labels: [...new Set<string>(WorksDB.map(({ area }: WorkType) => area))],
-    sitetitle: NavDB.sitetitle,
+    active: NavDB.sitetitle as string,
+    labels: [...new Set(WorksDB.map(({ area }: WorkType) => area))] as string[],
+    sitetitle: NavDB.sitetitle as string,
   },
-  works: WorksDB.map((work: WorkType) => ({ ...work, visible: false })),
+  works: WorksDB.map(
+    (work: WorkType) => ({ ...work, visible: false })
+  ) as WorkType[],
 }
 
 const media = (state: MediaStoreType = init.media, action: ActionType) => {

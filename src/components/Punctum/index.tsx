@@ -1,12 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 
 import './Punctum.scss';
 import { ImageType } from '../../types';
-import Picture from '../Picture';
-import Label from '../Label';
+import { Picture } from '../Picture';
+import { Label } from '../Label';
 
 interface PunctumVals {
-  className: string;
   image: ImageType;
   title: string;
 }
@@ -27,13 +26,7 @@ const Punctum: React.FunctionComponent<PunctumProps> =
         <Picture image={image} parent='punctum' />
         {title && <Label title={title} parent='punctum' />}
       </div>
-    ) : null;
-  }
-}
+    )
+    : null;
 
-export {
-  Punctum,
-  PunctumProps,
-  PunctumVals,
-  PunctumFuncs,
-}
+export { Punctum, PunctumProps, PunctumVals, PunctumFuncs }

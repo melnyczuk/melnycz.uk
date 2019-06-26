@@ -1,14 +1,6 @@
 {
-  "nav": [
-    {
-      "label": "About",
-      "path": "/about",
-      "subnav": []
-    },
-    {
-      "label": "Portfolio",
-      "path": "/portfolio",
-      "subnav": []
-    }
-  ]
+  "nav": {
+    "active": "home",
+    "sitetitle": "Howard Melnyczuk"
+  }
 }

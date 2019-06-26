@@ -1,17 +1,17 @@
-@import '../../base.scss';
+@import '../../index.scss';
 
 .punctum {
   position: relative;
   border: $label-border;
 
-  &-image {
+  &--image {
     display: block;
     object-fit: cover;
     height: 60vw;
     width: 100%;
   }
 
-  &-label {
+  &--label {
     background-color: white;
     position: absolute;
     width: 80%;
@@ -30,15 +30,15 @@
     }
   }
 
-    &-title {
-      @include text;
-      vertical-align: middle;
-      text-align: center;
+  &--title {
+    @include text;
+    vertical-align: middle;
+    text-align: center;
 
-      font-size: 14px;
+    font-size: 14px;
 
-      @media (min-width: $mobile) {
-        font-size: 18px;
-      }
+    @media (min-width: $mobile) {
+      font-size: 18px;
     }
+  }
 }
