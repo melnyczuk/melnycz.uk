@@ -17,6 +17,8 @@ interface AreaFuncs {
 }
 interface AreaProps extends AreaVals, AreaFuncs {}
 
+const getClass = (area: string): string => `area area__${area}`;
+
 const Area: React.FunctionComponent<AreaProps> =
   ({ match, works, updateActive }) => {
 
@@ -29,7 +31,7 @@ const Area: React.FunctionComponent<AreaProps> =
     useEffect(()=> { updateActive(area) });
 
     return (
-      <div className={`area area__${area}`}>
+      <div className={getClass(area)}>
         {
           works.map(
             ({ namespace }) =>

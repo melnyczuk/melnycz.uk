@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './Nav.scss';
@@ -23,7 +23,7 @@ const NavBar: React.FunctionComponent<NavBarProps> =
         {
           labels && labels.map((label, i: number) =>
             (
-              <NavLink key={i} className={'nav--button'} to={`/${label}`}>
+              <NavLink key={i} className='nav--button' to={`/${label}`}>
                 <h4 className={getClass(active === label)}>
                   {label.replace(/[a-z]/, (t) => t.toUpperCase())}
                 </h4>
@@ -34,9 +34,4 @@ const NavBar: React.FunctionComponent<NavBarProps> =
       </nav>
     );
 
-export {
-  NavBar,
-  NavBarProps,
-  NavBarVals,
-  NavBarFuncs,
-}
+export { NavBar, NavBarProps, NavBarVals, NavBarFuncs }

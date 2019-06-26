@@ -3,8 +3,8 @@ import { ImageType } from '../../types';
 import { buildSrcWithBaseUrl } from '../../utils';
 
 interface PictureProps {
-  image: ImageType;
   baseUrl: string;
+  image: ImageType;
   parent: string;
 }
 
@@ -18,14 +18,22 @@ const getSources = (image: ImageType, buildSrc: Function) =>
   )
 );
 
+const getClass =
+  (parent: string) =>
+    (elm: string): string =>
+      elm === 'picture'
+      ? `picture ${parent}--picture`
+      : `picture--${elm} ${parent}--${elm}`;
+
 const Picture: React.FunctionComponent<PictureProps> =
-  ({image, baseUrl, parent}) => {
+  ({ baseUrl, image, parent }) => {
     const buildSrc = buildSrcWithBaseUrl(baseUrl)('images');
+    const getClassForElm = getClass(parent)
     return (
-      <picture className={`picture ${parent}--picture`}>
+      <picture className={getClassForElm('picture')}>
         {getSources(image, buildSrc)}
         <img
-          className={`picture--image ${parent}--image`}
+          className={getClassForElm('image')}
           src={buildSrc(640)(image)}
           alt={image.alt}
         />
@@ -33,4 +41,4 @@ const Picture: React.FunctionComponent<PictureProps> =
     );
   }
 
-export default Picture;
+export { Picture, PictureProps };
