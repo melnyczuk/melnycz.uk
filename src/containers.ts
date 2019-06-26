@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { NavBar, NavBarVals, NavBarFuncs, NavBarProps } from './components/Nav';
-import { SiteTitleVals, SiteTitleFuncs, SiteTitle, SiteTitleProps } from './components/SiteTitle';
-import { Area, AreaVals, AreaFuncs, AreaProps } from './Area';
+import { Area, AreaProps, AreaVals, AreaFuncs } from './Area';
+import { NavBar, NavBarProps, NavBarVals, NavBarFuncs } from './components/Nav';
+import { SiteTitle, SiteTitleProps, SiteTitleVals, SiteTitleFuncs } from './components/SiteTitle';
 import { StoreType } from './types';
+import { setActive } from './store/actions';
 import selectNav from './store/selectors/nav';
 import selectArea from './store/selectors/area';
-import { setActive } from './store/actions';
 
 
 const NavContainer = connect<NavBarVals, NavBarFuncs, {}>
@@ -36,9 +36,5 @@ const AreaContainer = connect<AreaVals, AreaFuncs, {}>
     }),
   )(Area);
 
-  export { AreaContainer };
 
-export {
-  NavContainer,
-  SiteTitleContainer,
-}
+export { AreaContainer, NavContainer, SiteTitleContainer }

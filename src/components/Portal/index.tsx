@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 
 import { ImageType } from '../../types';
 import { Button } from '../Button';
-import Picture from '../Picture';
+import { Picture } from '../Picture';
 
 interface PortalVals {
   baseUrl: string;
@@ -10,7 +10,7 @@ interface PortalVals {
 }
 
 interface PortalFuncs {
-  scrollPortal?: Function;
+  scroll?: Function;
 }
 
 interface PortalProps extends PortalVals, PortalFuncs {
@@ -18,10 +18,9 @@ interface PortalProps extends PortalVals, PortalFuncs {
 }
 
 const Portal: React.FunctionComponent<PortalProps> =
-  ({ images, baseUrl, scrollPortal }) => (
+  ({ images, baseUrl, scroll }) => (
     <figure className='portal'>
-      <Button parent='portal' purpose="scroll-left"
-        onClick={scrollPortal('<-')} />
+      <Button parent='portal' purpose="scroll-left" onClick={scroll('<-')} />
       {
         images && images.map((image: ImageType) => (
           <Picture
@@ -32,8 +31,7 @@ const Portal: React.FunctionComponent<PortalProps> =
           />
         ))
       }
-      <Button parent='portal' purpose="scroll-right"
-        onClick={scrollPortal('->')} />
+      <Button parent='portal' purpose="scroll-right" onClick={scroll('->')} />
     </figure>
   );
 

@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 
 import './Punctum.scss';
 import { ImageType } from '../../types';
-import Picture from '../Picture';
-import Label from '../Label';
+import { Picture } from '../Picture';
+import { Label } from '../Label';
 
 interface PunctumVals {
   image: ImageType;

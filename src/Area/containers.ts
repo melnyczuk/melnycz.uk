@@ -8,18 +8,6 @@ import { setHide, setDescription, setShow } from '../store/actions';
 import selectWork from '../store/selectors/work';
 import selectMedia from '../store/selectors/media';
 
-const PostContainer = connect<PostVals, PostFuncs, {}>
-  (
-    (state: StoreType, props: PostProps) => ({
-      images: selectWork.media.images(state, props),
-      baseUrl: selectMedia.baseUrl(state, props),
-      description: selectWork.description(state, props),
-      title: selectWork.title(state, props),
-    }),
-    (dispatch: Function, props: PostProps) => ({
-      setDesc: (data: string[]) => dispatch(setDescription(props, data)),
-    })
-  )(Post);
 
 const ModalContainer = connect<ModalVals, ModalFuncs, {}>
   (
@@ -37,8 +25,23 @@ const PortalContainer = connect<PortalVals, PortalFuncs, {}>
       baseUrl: selectMedia.baseUrl(state, props),
       images: selectMedia.images(state, props),
     }),
-    (dispatch: Function, props: PortalProps) => ({})
+    (dispatch: Function, props: PortalProps) => ({
+      scroll: null,
+    })
   )(Portal);
+
+const PostContainer = connect<PostVals, PostFuncs, {}>
+  (
+    (state: StoreType, props: PostProps) => ({
+      images: selectWork.media.images(state, props),
+      baseUrl: selectMedia.baseUrl(state, props),
+      description: selectWork.description(state, props),
+      title: selectWork.title(state, props),
+    }),
+    (dispatch: Function, props: PostProps) => ({
+      setDesc: (data: string[]) => dispatch(setDescription(props, data)),
+    })
+  )(Post);
 
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
@@ -51,5 +54,6 @@ const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
       show: () => dispatch(setShow(props)),
     })
   )(Punctum);
+
 
 export { ModalContainer, PortalContainer, PostContainer, PunctumContainer }
