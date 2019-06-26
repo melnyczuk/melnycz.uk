@@ -27,6 +27,7 @@ const buildImages =
       key={`${image.namespace}-${image.index}`}
       image={image}
       parent='post'
+      max={480}
     />
   );
 
@@ -42,10 +43,10 @@ const Post: React.FunctionComponent<PostProps> =
     useEffect((): void => {
       (async (): Promise<void> => {
         if (!description) {
-          await fetch(`./bin/copy/${namespace}.yaml`)
+          await fetch(`/bin/copy/${namespace}.yaml`)
             .then(async (resp): Promise<string> => await resp.text())
             .then(yaml.load)
-            .then(({ description: d }): string[] => d)
+            .then(yam => yam.description)
             .then(setDesc);
         }
       })();
@@ -53,7 +54,7 @@ const Post: React.FunctionComponent<PostProps> =
 
     return (
       <article className='post'>
-        {title && <h2 className='post-header-title'>{title}</h2>}
+        {title && <h2 className='post--title'>{title}</h2>}
         {description && description.map(buildParagraph)}
         {images && images.map(buildImages)}
         {children}

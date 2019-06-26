@@ -7,7 +7,7 @@
 
   display: flex;
 
-  @media (min-width: $mobile) {
+  @media (min-width: $desktop) {
     display: inline-block;
   }
 
@@ -18,31 +18,31 @@
     fill: white;
     flex: auto;
     justify-content: space-evenly;
-    height: $bar-button-height-mobile;
-    line-height: $bar-button-height-mobile;
-    margin: $default-margin-mobile;
-    padding: $default-padding-mobile;
+    height: $bar-button-height_m;
+    line-height: $bar-button-height_m;
+    margin: $mobile-margin;
+    padding: $mobile-padding;
 
-    @media (min-width: $mobile) {
+    @media (min-width: $desktop) {
       display: block;
       justify-content: left;
       height: $bar-button-height;
       line-height: $bar-button-height;
-      margin: $default-margin;
-      padding: $default-padding;
+      margin: $desktop-margin;
+      padding: $desktop-padding;
     }
 
     &--label {
       text-align: left;
       vertical-align: middle;
       font-size: 14px;
-      padding: 0 $default-padding-mobile;
-      height: $bar-button-height-mobile;
-      line-height: $bar-button-height-mobile;
+      padding: 0 $mobile-padding;
+      height: $bar-button-height_m;
+      line-height: $bar-button-height_m;
 
-      @media (min-width: $mobile) {
+      @media (min-width: $desktop) {
         font-size: 18px;
-        padding: 0 $default-padding;
+        padding: 0 $desktop-padding;
         height: $bar-button-height;
         line-height: $bar-button-height;
       }

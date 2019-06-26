@@ -2,29 +2,41 @@
 
 .post {
   @include text;
+  padding: $mobile-padding;
 
-  font-size: 14px;
+  font-size: $p3;
 
-  @media (min-width: $mobile) {
-    font-size: 24px;
+  @media (min-width: $desktop) {
+    font-size: $p1;
   }
 
   &--title {
     vertical-align: middle;
     width: fit-content;
     float: left;
-    font-size: $header-font-size-mobile;
+    height: 40px;
+    width: auto;
+    margin: $mobile-margin 0;
 
-    @media (min-width: $mobile) {
-      font-size: $header-font-size
+    font-size: $h1_m;
+
+    @media (min-width: $desktop) {
+      font-size: $h1
     }
-   }
+  }
+
+  &--desc {
+    width: 100%;
+    float: left;
+    padding: 0;
+    padding-bottom: 16px;
+  }
 
   &--image {
     width: 100%;
     height: auto;
 
-    @media (min-width: $mobile) {
+    @media (min-width: $desktop) {
     }
   }
 }
