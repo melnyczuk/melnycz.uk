@@ -60,7 +60,7 @@
         "single"
       ],
       "semi": [
-        1,
+        2,
         "always"
       ]
     }
