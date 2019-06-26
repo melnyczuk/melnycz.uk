@@ -2,7 +2,7 @@
 
 .punctum {
   position: relative;
-  border: 0;// $label-border;
+  border: 0;
   @include fade_in;
 
   &--image {
