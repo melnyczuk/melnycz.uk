@@ -23,7 +23,7 @@ const Punctum: React.FunctionComponent<PunctumProps> =
   ({ image, baseUrl, title, show: showModal }) =>
     image
     ? (
-      <div className="punctum" onClick={showModal}>
+      <div className='punctum' onClick={showModal}>
         <Picture image={image} baseUrl={baseUrl} parent='punctum' />
         {title && <Label title={title} parent='punctum' />}
       </div>

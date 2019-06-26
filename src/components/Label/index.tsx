@@ -11,8 +11,8 @@ const Label: React.FunctionComponent<LabelProps> =
   ({ parent, title }) =>{
     const getClassForElm = getClass(parent);
     return (
-      <div className={getClassForElm('link')}>
-        <h2 className={getClassForElm('link')}>
+      <div className={getClassForElm('label')}>
+        <h2 className={getClassForElm('title')}>
           {title}
         </h2>
       </div>
