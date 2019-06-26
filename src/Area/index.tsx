@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import './area.scss';
 import { WorkType } from '../types';
 import Work from './Work';
 
@@ -28,7 +29,7 @@ const Area: React.FunctionComponent<AreaProps> =
     useEffect(()=> { updateActive(area) });
 
     return (
-      <div className={area}>
+      <div className={`area area__${area}`}>
         {
           works.map(
             ({ namespace }) =>

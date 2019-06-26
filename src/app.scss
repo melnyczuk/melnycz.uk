@@ -39,13 +39,3 @@ a {
     width: 60%;
   }
 }
-
-.work {
-  display: inline-block;
-  position: float;
-  margin: $default-margin-mobile;
-
-  @media (min-width: $mobile) {
-    margin: $default-margin;
-  }
-}
