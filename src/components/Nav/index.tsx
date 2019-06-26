@@ -19,11 +19,11 @@ const getClass = (active) => active
 const NavBar: React.FunctionComponent<NavBarProps> =
   ({labels, active }) =>
     (
-      <nav className={`nav`}>
+      <nav className='nav'>
         {
           labels && labels.map((label, i: number) =>
             (
-              <NavLink key={i} className={'nav-button'} to={`/${label}`}>
+              <NavLink key={i} className={'nav--button'} to={`/${label}`}>
                 <h4 className={getClass(active === label)}>
                   {label.replace(/[a-z]/, (t) => t.toUpperCase())}
                 </h4>

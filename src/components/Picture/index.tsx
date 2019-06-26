@@ -5,7 +5,7 @@ import { buildSrcWithBaseUrl } from '../../utils';
 interface PictureProps {
   image: ImageType;
   baseUrl: string;
-  className: string;
+  parent: string;
 }
 
 const getSources = (image: ImageType, buildSrc: Function) =>
@@ -19,13 +19,13 @@ const getSources = (image: ImageType, buildSrc: Function) =>
 );
 
 const Picture: React.FunctionComponent<PictureProps> =
-  ({image, baseUrl, className}) => {
+  ({image, baseUrl, parent}) => {
     const buildSrc = buildSrcWithBaseUrl(baseUrl)('images');
     return (
-      <picture>
+      <picture className={`picture ${parent}--picture`}>
         {getSources(image, buildSrc)}
         <img
-          className={`${className}`}
+          className={`picture--image ${parent}--image`}
           src={buildSrc(640)(image)}
           alt={image.alt}
         />

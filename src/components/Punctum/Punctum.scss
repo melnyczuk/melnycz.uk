@@ -4,14 +4,14 @@
   position: relative;
   border: $label-border;
 
-  &-image {
+  &--image {
     display: block;
     object-fit: cover;
     height: 60vw;
     width: 100%;
   }
 
-  &-label {
+  &--label {
     background-color: white;
     position: absolute;
     width: 80%;
@@ -30,7 +30,7 @@
     }
   }
 
-    &-title {
+    &--title {
       @include text;
       vertical-align: middle;
       text-align: center;

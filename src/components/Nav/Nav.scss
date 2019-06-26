@@ -11,13 +11,12 @@
     display: inline-block;
   }
 
-  &-button {
+  &--button {
     border: $label-border;
     width: fixed;
     background: none;
     fill: white;
     flex: auto;
-
     justify-content: space-evenly;
     height: $bar-button-height-mobile;
     line-height: $bar-button-height-mobile;
@@ -25,7 +24,6 @@
     padding: $default-padding-mobile;
 
     @media (min-width: $mobile) {
-
       display: block;
       justify-content: left;
       height: $bar-button-height;
@@ -34,11 +32,9 @@
       padding: $default-padding;
     }
 
-
-    &-label {
+    &--label {
       text-align: left;
       vertical-align: middle;
-
       font-size: 14px;
       padding: 0 $default-padding-mobile;
       height: $bar-button-height-mobile;
@@ -51,12 +47,9 @@
         line-height: $bar-button-height;
       }
 
-      &_active {
+      &__active {
         font-style: oblique;
       }
-
     }
-
   }
-
 }

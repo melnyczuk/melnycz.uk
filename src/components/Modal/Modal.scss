@@ -30,14 +30,14 @@
     position: relative;
     line-height: 2*$header-font-size;
 
-    &-button {
+    &--button {
       width: fit-content;
       float: right;
       margin: 0;
     }
   }
 
-  &-body {
+  &--body {
     width: 100%;
   }
 }

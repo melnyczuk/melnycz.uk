@@ -31,7 +31,7 @@ const buildImages =
           key={`${namespace}-${index}`}
           image={image}
           baseUrl={baseUrl}
-          className={`post post--img post--img__${i}`}
+          parent='post'
         />);
     };
 

@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 import './SiteTitle.scss';
 
-interface SiteTitleVals { className: string; title: string; }
+interface SiteTitleVals { title: string; }
 interface SiteTitleFuncs {}
 interface SiteTitleProps extends SiteTitleVals, SiteTitleFuncs {}
 
 const SiteTitle: React.FunctionComponent<SiteTitleProps> =
-  ({ title, className }: SiteTitleProps) =>
+  ({ title }: SiteTitleProps) =>
     (
       <Link to={'/'}>
-        <h1 className={`SiteTitle ${className}`} >
+        <h1 className='site-title' >
           {title}
         </h1>
       </Link>

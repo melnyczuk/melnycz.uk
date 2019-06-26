@@ -5,7 +5,6 @@ import { Button } from '../Button';
 import Picture from '../Picture';
 
 interface PortalVals {
-  className: string;
   baseUrl: string;
   images: ImageType[];
 }
@@ -19,23 +18,22 @@ interface PortalProps extends PortalVals, PortalFuncs {
 }
 
 const Portal: React.FunctionComponent<PortalProps> =
-  ({ images, baseUrl, scrollPortal, className }) => (
-    <figure className={className}>
-      <Button purpose="scroll-left" onClick={scrollPortal('<-')} />
+  ({ images, baseUrl, scrollPortal }) => (
+    <figure className='portal'>
+      <Button parent='portal' purpose="scroll-left"
+        onClick={scrollPortal('<-')} />
       {
-        images && images.map((image: ImageType) => {
-          const { namespace, index } = image;
-          return (
-            <Picture
-              key={`${namespace}-${index}`}
-              image={image}
-              baseUrl={baseUrl}
-              className={""}
-            />
-          );
-        })
+        images && images.map((image: ImageType) => (
+          <Picture
+            key={`${image.namespace}-${image.index}`}
+            image={image}
+            baseUrl={baseUrl}
+            parent='portal'
+          />
+        ))
       }
-      <Button purpose="scroll-right" onClick={scrollPortal('->')} />
+      <Button parent='portal' purpose="scroll-right"
+        onClick={scrollPortal('->')} />
     </figure>
   );
 

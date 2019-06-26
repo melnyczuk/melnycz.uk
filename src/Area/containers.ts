@@ -3,18 +3,18 @@ import { Modal, ModalProps, ModalVals, ModalFuncs } from '../components/Modal';
 import { Portal, PortalProps, PortalVals, PortalFuncs } from '../components/Portal';
 import { Post, PostProps, PostVals, PostFuncs } from '../components/Post';
 import { Punctum, PunctumProps, PunctumVals, PunctumFuncs } from '../components/Punctum';
-import { setHide, setDescription, setShow } from '../store/works/actions';
-import { selectVisible, selectTitle, selectMedia, selectDescription } from '../store/works/selectors';
 import { StoreType } from '../types';
-import { selectBaseUrl } from '../store/media/selectors';
+import { setHide, setDescription, setShow } from '../store/actions';
+import selectWork from '../store/selectors/work';
+import selectMedia from '../store/selectors/media';
 
 const PostContainer = connect<PostVals, PostFuncs, {}>
   (
     (state: StoreType, props: PostProps) => ({
-      images: selectMedia.images(state, props),
-      baseUrl: selectBaseUrl(state, props),
-      description: selectDescription(state, props),
-      title: selectTitle(state, props),
+      images: selectWork.media.images(state, props),
+      baseUrl: selectMedia.baseUrl(state, props),
+      description: selectWork.description(state, props),
+      title: selectWork.title(state, props),
     }),
     (dispatch: Function, props: PostProps) => ({
       setDesc: (data: string[]) => dispatch(setDescription(props, data)),
@@ -24,8 +24,7 @@ const PostContainer = connect<PostVals, PostFuncs, {}>
 const ModalContainer = connect<ModalVals, ModalFuncs, {}>
   (
     (state: StoreType, props: ModalProps) => ({
-      className: '',
-      visible: selectVisible(state, props),
+      visible: selectWork.visible(state, props),
     }),
     (dispatch: Function, props: ModalProps) => ({
       hide: () => dispatch(setHide(props)),
@@ -35,8 +34,7 @@ const ModalContainer = connect<ModalVals, ModalFuncs, {}>
 const PortalContainer = connect<PortalVals, PortalFuncs, {}>
   (
     (state: StoreType, props: PortalProps) => ({
-      className: '',
-      baseUrl: selectBaseUrl(state, props),
+      baseUrl: selectMedia.baseUrl(state, props),
       images: selectMedia.images(state, props),
     }),
     (dispatch: Function, props: PortalProps) => ({})
@@ -45,10 +43,9 @@ const PortalContainer = connect<PortalVals, PortalFuncs, {}>
 const PunctumContainer = connect<PunctumVals, PunctumFuncs, {}>
   (
     (state: StoreType, props: PunctumProps) => ({
-      className: 'punctum-image',
-      image: selectMedia.punctum(state, props),
-      baseUrl: selectBaseUrl(state, props),
-      title: selectTitle(state, props),
+      image: selectWork.media.punctum(state, props),
+      baseUrl: selectMedia.baseUrl(state, props),
+      title: selectWork.title(state, props),
     }),
     (dispatch: Function, props: PunctumProps) => ({
       show: () => dispatch(setShow(props)),

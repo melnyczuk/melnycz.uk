@@ -2,14 +2,14 @@ import React from 'react';
 
 interface LabelProps {
   title: string;
-  type: string;
+  parent: string;
 }
 
 const Label: React.FunctionComponent<LabelProps> =
-  ({title, type}) =>
+  ({title, parent}) =>
     (
-      <div className={`${type}-label`}>
-        <h2 className={`${type}-title`}>
+      <div className={`${parent}--label`}>
+        <h2 className={`${parent}--title`}>
           {title}
         </h2>
       </div>

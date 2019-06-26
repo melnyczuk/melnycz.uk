@@ -3,17 +3,16 @@ import { NavBar, NavBarVals, NavBarFuncs, NavBarProps } from './components/Nav';
 import { SiteTitleVals, SiteTitleFuncs, SiteTitle, SiteTitleProps } from './components/SiteTitle';
 import { Area, AreaVals, AreaFuncs, AreaProps } from './Area';
 import { StoreType } from './types';
-import { selectActive } from './store/active/selectors';
-import { selectNavArray } from './store/nav/selectors';
-import { selectSiteTitle, selectAreaWorks } from './store/works/selectors';
-import { setActive } from './store/active/actions';
+import selectNav from './store/selectors/nav';
+import selectArea from './store/selectors/area';
+import { setActive } from './store/actions';
 
 
 const NavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType, props: NavBarProps) => ({
-      active: selectActive(state, props),
-      labels: selectNavArray(state, props),
+      active: selectNav.active(state, props),
+      labels: selectNav.labels(state, props),
     }),
     (dispatch: Function, props: NavBarProps) => ({})
   )(NavBar);
@@ -21,8 +20,7 @@ const NavContainer = connect<NavBarVals, NavBarFuncs, {}>
 const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
   (
     (state: StoreType, props: SiteTitleProps) => ({
-      className: 'site-title',
-      title: selectSiteTitle(state),
+      title: selectNav.title(state, props),
     }),
     (dispatch: Function, props: SiteTitleProps) => ({})
   )
@@ -31,7 +29,7 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
 const AreaContainer = connect<AreaVals, AreaFuncs, {}>
   (
     (state: StoreType, props: AreaProps) => ({
-      works: selectAreaWorks(state, props),
+      works: selectArea.works(state, props),
     }),
     (dispatch: Function, props: AreaProps) => ({
       updateActive: (active: string) => dispatch(setActive(active))

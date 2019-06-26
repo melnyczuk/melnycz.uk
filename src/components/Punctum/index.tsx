@@ -6,7 +6,6 @@ import Picture from '../Picture';
 import Label from '../Label';
 
 interface PunctumVals {
-  className: string;
   image: ImageType;
   baseUrl: string;
   title: string;
@@ -21,12 +20,12 @@ interface PunctumProps extends PunctumVals, PunctumFuncs {
 }
 
 const Punctum: React.FunctionComponent<PunctumProps> =
-  ({ className, image, baseUrl, title, show: showModal }) =>
+  ({ image, baseUrl, title, show: showModal }) =>
     image
     ? (
       <div className="punctum" onClick={showModal}>
-        <Picture image={image} baseUrl={baseUrl} className={className} />
-        {title && <Label title={title} type="punctum" />}
+        <Picture image={image} baseUrl={baseUrl} parent='punctum' />
+        {title && <Label title={title} parent='punctum' />}
       </div>
     )
     : null;
