@@ -1,4 +1,4 @@
-import { createSelector, } from 'reselect';
+import { createSelector } from 'reselect';
 import selectRoot from './root';
 import { MediaStoreType, ImageType, AVType } from '../../types';
 
@@ -6,19 +6,19 @@ import { MediaStoreType, ImageType, AVType } from '../../types';
 const selectImages = createSelector(
   [selectRoot.media],
   ({ images = null }: MediaStoreType): ImageType[] =>
-    images
+    images,
 );
 
 const selectVideos = createSelector(
   [selectRoot.media],
   ({ videos = null }: MediaStoreType): AVType[] =>
-    videos
+    videos,
 );
 
 const selectAudios = createSelector(
   [selectRoot.media],
   ({ audios }: MediaStoreType): AVType[] =>
-    audios
+    audios,
 );
 
 
@@ -26,4 +26,4 @@ export default {
   audios: selectAudios,
   images: selectImages,
   videos: selectVideos,
-}
+};

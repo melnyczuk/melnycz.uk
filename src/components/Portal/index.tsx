@@ -19,7 +19,7 @@ interface PortalProps extends PortalVals, PortalFuncs {
 const Portal: React.FunctionComponent<PortalProps> =
   ({ images, scroll }) => (
     <figure className='portal'>
-      <Button parent='portal' purpose="scroll-left" onClick={scroll('<-')} />
+      <Button parent='portal' purpose='scroll-left' onClick={scroll('<-')} />
       {
         images && images.map((image: ImageType) => (
           <Picture
@@ -29,8 +29,8 @@ const Portal: React.FunctionComponent<PortalProps> =
           />
         ))
       }
-      <Button parent='portal' purpose="scroll-right" onClick={scroll('->')} />
+      <Button parent='portal' purpose='scroll-right' onClick={scroll('->')} />
     </figure>
   );
 
-export { Portal, PortalProps, PortalVals, PortalFuncs }
+export { Portal, PortalProps, PortalVals, PortalFuncs };

@@ -15,13 +15,13 @@ const {
 
 
 const setActive = (active: string): ActionType =>
-  ({type: SET_ACTIVE, id: active, data: null});
+  ({ type: SET_ACTIVE, id: active, data: null });
 
 const setDescription = ({ namespace }: PostProps, desc: string[]): ActionType =>
-({ type: SET_DESC, id: namespace, data: desc });
+  ({ type: SET_DESC, id: namespace, data: desc });
 
 const setHide = ({ namespace }: ModalProps): ActionType =>
-  ({ type: SET_HIDE, id: namespace, data: null  });
+  ({ type: SET_HIDE, id: namespace, data: null });
 
 const setShow = ({ namespace }: PunctumProps): ActionType =>
   ({ type: SET_SHOW, id: namespace, data: null });

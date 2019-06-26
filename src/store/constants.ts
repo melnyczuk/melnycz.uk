@@ -8,4 +8,4 @@ const actionConstants = {
 };
 
 
-export { actionConstants };
+export default actionConstants;

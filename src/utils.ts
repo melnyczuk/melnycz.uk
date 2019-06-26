@@ -3,7 +3,7 @@ import { MediaItemType, WorkType, AVType, ImageType } from './types';
 
 const buildSrc =
   ({ type, baseUrl, namespace, index, ext }: MediaItemType) =>
-    (size: number = null) =>
+    (size: number = null): string =>
       `${baseUrl}/${type}${size && `/${size}`}/${namespace}-${index}.${ext}`;
 
 const filterMedia =
@@ -14,7 +14,7 @@ const filterMedia =
 
 const filterWorks =
   (works: WorkType[]) =>
-    (label: string) =>
+    (label: string): WorkType[] =>
       works.filter(({ area }) => area === label);
 
 const getBaseUrlAppender =

@@ -8,7 +8,7 @@
     "test:v": "jest",
     "start": "webpack-dev-server --config webpack.config.js --mode development --hot",
     "build": "webpack --mode production . ",
-    "lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore --fix .",
+    "lint": "eslint -c .eslintrc.js . --ext .ts --ext .tsx",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
@@ -48,23 +48,6 @@
       "@babel/proposal-object-rest-spread"
     ]
   },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "parser": "babel-eslint",
-    "env": {
-      "jest": true
-    },
-    "rules": {
-      "quotes": [
-        2,
-        "single"
-      ],
-      "semi": [
-        2,
-        "always"
-      ]
-    }
-  },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
@@ -82,6 +65,8 @@
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.0",
     "@types/react-redux": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "acorn": "^6.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",

@@ -8,7 +8,7 @@ interface LabelProps {
 const getClass = (parent: string) => (elm: string) => `${parent}--${elm}`;
 
 const Label: React.FunctionComponent<LabelProps> =
-  ({ parent, title }) =>{
+  ({ parent, title }) => {
     const getClassForElm = getClass(parent);
     return (
       <div className={getClassForElm('label')}>
@@ -17,6 +17,6 @@ const Label: React.FunctionComponent<LabelProps> =
         </h2>
       </div>
     );
-  }
+  };
 
 export { Label, LabelProps };

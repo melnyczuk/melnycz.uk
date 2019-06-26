@@ -1,4 +1,4 @@
-import { StoreType, ContainerType, MediaStoreType, WorkType, NavType } from "../../types";
+import { StoreType, MediaStoreType, WorkType, NavType } from '../../types';
 
 // Root Selectors
 const selectMedia =
@@ -10,7 +10,7 @@ const selectNav =
     nav;
 
 const selectWorks =
-  ({ works }: StoreType, props): WorkType[] =>
+  ({ works }: StoreType, props: any): WorkType[] =>
     works;
 
 export default {

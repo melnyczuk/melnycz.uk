@@ -50,3 +50,27 @@
     }
   ]
 }
+
+export interface ExhibitionType {
+  title: string;
+  space: string;
+  city: string;
+  country: string;
+  geo: number[];
+  dates: number[];
+  media: MediaIndexType;
+  curator?: string[];
+  links?: string[];
+}
+
+export interface ExhibitionType {
+  name: string;
+  curator?: string[];
+  place: string;
+  city: string;
+  country: string;
+  geo: number[];
+  date: number[];
+  media: MediaIndexType;
+  links?: string[];
+}

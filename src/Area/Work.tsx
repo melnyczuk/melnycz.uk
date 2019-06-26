@@ -1,7 +1,7 @@
 import React from 'react';
-import { PunctumContainer, ModalContainer, PostContainer } from "./containers";
+import { PunctumContainer, ModalContainer, PostContainer } from './containers';
 
-const Work: React.FunctionComponent<{ namespace: string; }> =
+const Work: React.FunctionComponent<{ namespace: string }> =
   ({ namespace }) =>
     (
       <section className='work' id={namespace}>

@@ -8,7 +8,7 @@ export interface ModalType {
 
 interface ModalVals {
   visible: boolean;
-  children?: any,
+  children?: any;
 }
 
 interface ModalFuncs {
@@ -21,14 +21,14 @@ interface ModalProps extends ModalVals, ModalFuncs {
 
 const Modal: React.FunctionComponent<ModalProps> =
   ({ visible, hide, children }) =>
-    visible
-    ? (
-      <div className='modal'>
-        <div className='modal--header'>
-          <Button parent='modal--header' purpose='close' onClick={hide}/>
+    (visible
+      ? (
+        <div className='modal'>
+          <div className='modal--header'>
+            <Button parent='modal--header' purpose='close' onClick={hide} />
+          </div>
+          <div className='modal--body'>{children && children}</div>
         </div>
-        <div className='modal--body'>{children && children}</div>
-      </div>
-    ) : null;
+      ) : null);
 
 export { Modal, ModalProps, ModalVals, ModalFuncs };
