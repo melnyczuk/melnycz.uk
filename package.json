@@ -8,7 +8,7 @@
     "test:v": "jest",
     "start": "webpack-dev-server --config webpack.config.js --mode development --hot",
     "build": "webpack --mode production . ",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore --fix .",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
@@ -53,6 +53,16 @@
     "parser": "babel-eslint",
     "env": {
       "jest": true
+    },
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ],
+      "semi": [
+        1,
+        "always"
+      ]
     }
   },
   "devDependencies": {
@@ -82,7 +92,7 @@
     "css-loader": "^1.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.0",
-    "eslint": "^5.13.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
@@ -110,6 +120,7 @@
   "dependencies": {
     "@types/react-router": "^4.4.3",
     "@types/react-router-dom": "^4.3.1",
+    "eslint-config-airbnb": "^17.1.0",
     "js-yaml": "^3.13.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

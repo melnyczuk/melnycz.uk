@@ -24,4 +24,4 @@ const getBaseUrlAppender =
         ({ ...mediaItem, baseUrl, type });
 
 
-export { buildSrc, filterMedia, filterWorks, getBaseUrlAppender }
+export { buildSrc, filterMedia, filterWorks, getBaseUrlAppender };
