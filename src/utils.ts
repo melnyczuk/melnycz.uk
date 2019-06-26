@@ -1,4 +1,4 @@
-import { MediaItemType, WorkType } from "./types";
+import { MediaItemType, WorkType } from './types';
 
 const buildSrcWithBaseUrl =
   (baseUrl: string) =>
