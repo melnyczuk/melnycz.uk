@@ -8,7 +8,6 @@ import Label from '../Label';
 interface PunctumVals {
   className: string;
   image: ImageType;
-  baseUrl: string;
   title: string;
 }
 
@@ -20,26 +19,13 @@ interface PunctumProps extends PunctumVals, PunctumFuncs {
   namespace: string;
 }
 
-
-class Punctum extends React.PureComponent<PunctumProps> {
-
-  constructor(props: PunctumProps) {
-    super(props);
-  }
-
-  render() {
-    const {
-      className,
-      image,
-      baseUrl,
-      title,
-      show: showModal,
-    }: PunctumProps = this.props;
-
-    return image ? (
+const Punctum: React.FunctionComponent<PunctumProps> =
+  ({ image, title, show: showModal }) =>
+    image
+    ? (
       <div className="punctum" onClick={showModal}>
-        <Picture image={image} baseUrl={baseUrl} className={className} />
-        {title && <Label title={title} type="punctum" />}
+        <Picture image={image} parent='punctum' />
+        {title && <Label title={title} parent='punctum' />}
       </div>
     ) : null;
   }

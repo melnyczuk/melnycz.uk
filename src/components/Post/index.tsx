@@ -4,12 +4,16 @@ import yaml from 'js-yaml';
 import './Post.scss';
 
 import { ImageType } from '../../types';
-import Picture from '../Picture';
+import { Picture } from '../Picture';
 
 interface PostVals {
   className: string;
   description: string[];
+<<<<<<< Updated upstream
   baseUrl: string;
+=======
+  title?: string;
+>>>>>>> Stashed changes
   images?: ImageType[];
   children?: JSX.Element[];
 }
@@ -23,17 +27,13 @@ interface PostProps extends PostVals, PostFuncs {
 }
 
 const buildImages =
-  (baseUrl: string) =>
-    (image: ImageType, i: number): JSX.Element => {
-      const { namespace, index } = image;
-      return (
-        <Picture
-          key={`${namespace}-${index}`}
-          image={image}
-          baseUrl={baseUrl}
-          className={`post post-img post-img_${i}`}
-        />);
-    };
+  (image: ImageType, i: number): JSX.Element => (
+    <Picture
+      key={`${image.namespace}-${image.index}`}
+      image={image}
+      parent='post'
+    />
+  );
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
   <React.Fragment key={`desc-${i}`} >
@@ -42,6 +42,20 @@ const buildParagraph = (text: string, i: number): JSX.Element => (
   </React.Fragment>
 );
 
+const Post: React.FunctionComponent<PostProps> =
+  ({ namespace, title, images, description, children, setDesc }) =>
+    {
+      useEffect((): void => {
+        (async () => {
+          if (!description) {
+            await fetch(`./bin/copy/${namespace}.yaml`)
+              .then(async resp => await resp.text())
+              .then(yaml.load)
+              .then(({ description }: any) => description)
+              .then(setDesc);
+          }
+        })();
+      });
 
 class Post extends React.PureComponent<PostProps> {
 
@@ -72,7 +86,7 @@ class Post extends React.PureComponent<PostProps> {
     return (
         <article className={`post${className && ' ' + className}`}>
           {description && description.map(buildParagraph)}
-          {images && images.map(buildImages(baseUrl))}
+          {images && images.map(buildImages)}
           {children}
         </article>
       );

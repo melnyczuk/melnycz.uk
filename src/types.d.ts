@@ -45,12 +45,10 @@ export interface ExhibitionType {
   links?: string[];
 }
 
-export interface MediaType {
-  baseUrl: string;
-  punctum?: ImageType;
-  images?: ImageType[];
-  videos?: VideoType[];
-  audios?: AudioType[];
+export interface MediaStoreType {
+  images: ImageType[];
+  videos: AVType[];
+  audios: AVType[];
 }
 
 export interface MediaIndexType {
@@ -65,6 +63,7 @@ export interface MediaItemType {
   index: number;
   ext: string;
   alt: string;
+  baseUrl?: string;
   path?: string;
 }
 
@@ -129,13 +128,4 @@ export interface ExhibitionType {
   media: MediaIndexType;
   curator?: string[];
   links?: string[];
-}
-
-
-export interface DB {
-  bio: string[];
-  info: InfoType;
-  media: MediaType;
-  works: WorkType[];
-  writing: WritingType[];
 }

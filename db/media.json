@@ -78,6 +78,14 @@
         "url": "https://vimeo.com/239667082"
       }
     ],
-    "audio": []
+    "audios": [
+      {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": null,
+        "url": "https://vimeo.com/239667082"
+      }
+    ]
   }
 }
