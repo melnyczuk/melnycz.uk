@@ -1,5 +1,6 @@
 # Files:
 .DS_Store
+.cpanel.yml
 
 # Folders:
 build/
