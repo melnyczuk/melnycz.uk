@@ -2,7 +2,7 @@
 
 .post {
   @include text;
-  padding: $mobile-padding;
+  padding: 4px $mobile-padding;
 
   font-size: $p3;
 
@@ -16,7 +16,7 @@
     float: left;
     height: 40px;
     width: auto;
-    margin: $mobile-margin 0;
+    margin: 0;
 
     font-size: $h1_m;
 

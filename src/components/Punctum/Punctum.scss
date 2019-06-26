@@ -2,7 +2,7 @@
 
 .punctum {
   position: relative;
-  border: $label-border;
+  border: 0;
   @include fade_in;
 
   &--image {
@@ -10,8 +10,8 @@
     object-fit: cover;
     height: 60vw;
     width: 100%;
-    max-width: 512px;
-    max-height: 384px;
+    max-width: $work-width;
+    max-height: $work-width * $img-ratio;
   }
 
   &--label {

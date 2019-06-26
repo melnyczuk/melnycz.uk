@@ -12,7 +12,7 @@ a {
 }
 
 .app {
-  margin: 8px 8px;
+  margin: $desktop-margin;
   padding: $desktop-padding;
   height: 100vh;
   color: black;
@@ -37,5 +37,27 @@ a {
   @media (min-width: $desktop) {
     float: left;
     width: 60%;
+  }
+}
+
+.home {
+  display: inline-block;
+  position: float;
+  margin: $mobile-margin;
+  border: 0;
+
+  @media (min-width: $desktop) {
+    margin: $desktop-margin;
+  }
+
+  &--image {
+    @include fade_in;
+
+    display: block;
+    object-fit: cover;
+    height: 60vw;
+    width: 100%;
+    max-width: $work-width;
+    max-height: $work-width * $img-ratio;
   }
 }

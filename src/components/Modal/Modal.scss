@@ -17,7 +17,7 @@
   right: 20px;
 
   @media (min-width: $desktop) {
-    max-width: 480px;
+    max-width: $work-width - 2 * ($desktop-padding + $label-border-width);
     max-height: 95%;
     padding: $desktop-padding;
     top: 32px;
