@@ -13,8 +13,8 @@ interface NavBarFuncs { }
 interface NavBarProps extends NavBarVals, NavBarFuncs { }
 
 const getClass = (active) => active
-  ? 'nav-button-label nav-button-label_active'
-  : 'nav-button-label';
+  ? 'nav--button--label nav--button--label__active'
+  : 'nav--button--label';
 
 const NavBar: React.FunctionComponent<NavBarProps> =
   ({labels, active }) =>
