@@ -4,14 +4,14 @@ import yaml from 'js-yaml';
 import './Post.scss';
 
 import { ImageType } from '../../types';
-import Picture from '../Picture';
+import { Picture } from '../Picture';
 
 interface PostVals {
-  description: string[];
   baseUrl: string;
-  title?: string;
-  images?: ImageType[];
   children?: JSX.Element[];
+  description: string[];
+  images?: ImageType[];
+  title?: string;
 }
 
 interface PostFuncs {
@@ -67,9 +67,4 @@ const Post: React.FunctionComponent<PostProps> =
       );
     }
 
-export {
-  Post,
-  PostProps,
-  PostVals,
-  PostFuncs,
-};
+export { Post, PostProps, PostVals, PostFuncs };
