@@ -7,4 +7,5 @@ const actionConstants = {
   SET_TITLE: 'SET_TITLE',
 };
 
-export { actionConstants };
+
+export default actionConstants;

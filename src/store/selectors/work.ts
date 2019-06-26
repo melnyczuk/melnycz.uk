@@ -4,6 +4,7 @@ import selectMedia from './media';
 import selectRoot from './root';
 import { filterMedia } from '../../utils';
 
+
 const selectNamespace =
   (state: StoreType, { namespace }: ContainerType): string =>
     namespace;
@@ -11,26 +12,25 @@ const selectNamespace =
 const selectWork = createSelector(
   [selectRoot.works, selectNamespace],
   (works: WorkType[], name: string): WorkType =>
-    works.filter(({ namespace: namespace }: WorkType): Boolean =>
-      namespace === name)[0]
+    works.filter(({ namespace }): boolean => namespace === name)[0],
 );
 
 const selectArea = createSelector(
   [selectWork],
-  ({ area }) =>
-    area
+  ({ area }): string =>
+    area,
 );
 
 const selectYear = createSelector(
   [selectWork],
-  ({ year }) =>
-    year
+  ({ year }): number[] =>
+    year,
 );
 
 const selectTags = createSelector(
   [selectWork],
-  ({ tags }) =>
-    tags
+  ({ tags }): string[] =>
+    tags,
 );
 
 const selectDescription = createSelector(
@@ -59,26 +59,27 @@ const selectMediaIndicies = createSelector(
 const selectPunctum = createSelector(
   [selectMedia.images, selectNamespace, selectMediaIndicies],
   (images: ImageType[], namespace: string, { punctum }): ImageType =>
-    images.filter(filterMedia([punctum])(namespace))[0]
+    images.filter(filterMedia([punctum])(namespace))[0],
 );
 
 const selectImages = createSelector(
   [selectMedia.images, selectNamespace, selectMediaIndicies],
   (imgs: ImageType[], namespace: string, { images }): ImageType[] =>
-    imgs.filter(filterMedia(images)(namespace))
+    imgs.filter(filterMedia(images)(namespace)),
 );
 
 const selectVideos = createSelector(
   [selectMedia.videos, selectNamespace, selectMediaIndicies],
   (vids: AVType[], namespace: string, { videos }): AVType[] =>
-    vids.filter(filterMedia(videos)(namespace))
+    vids.filter(filterMedia(videos)(namespace)),
 );
 
 const selectAudios = createSelector(
   [selectMedia.audios, selectNamespace, selectMediaIndicies],
   (auds: AVType[], namespace: string, { audios }): AVType[] =>
-    auds.filter(filterMedia(audios)(namespace))
+    auds.filter(filterMedia(audios)(namespace)),
 );
+
 
 export default {
   area: selectArea,
@@ -94,4 +95,4 @@ export default {
     videos: selectVideos,
     audios: selectAudios,
   },
-}
+};

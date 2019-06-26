@@ -12,26 +12,24 @@ interface NavBarFuncs { }
 
 interface NavBarProps extends NavBarVals, NavBarFuncs { }
 
-const getClass = (active) => active
+const getClass = active => (active
   ? 'nav--button--label nav--button--label__active'
-  : 'nav--button--label';
+  : 'nav--button--label');
 
 const NavBar: React.FunctionComponent<NavBarProps> =
-  ({labels, active }) =>
+  ({ labels, active }) =>
     (
       <nav className='nav'>
         {
-          labels && labels.map((label, i: number) =>
-            (
-              <NavLink key={i} className='nav--button' to={`/${label}`}>
-                <h4 className={getClass(active === label)}>
-                  {label.replace(/[a-z]/, (t) => t.toUpperCase())}
-                </h4>
-              </NavLink>
-            )
-          )
+          labels && labels.map(label => (
+            <NavLink key={label} className='nav--button' to={`/${label}`}>
+              <h4 className={getClass(active === label)}>
+                {label.replace(/[a-z]/, t => t.toUpperCase())}
+              </h4>
+            </NavLink>
+          ))
         }
       </nav>
     );
 
-export { NavBar, NavBarProps, NavBarVals, NavBarFuncs }
+export { NavBar, NavBarProps, NavBarVals, NavBarFuncs };

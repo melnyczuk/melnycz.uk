@@ -8,21 +8,27 @@ interface ButtonProps {
 }
 
 const getClassForParent =
-  (parent) =>
-    (purpose) =>
-      (elm) =>
+  parent =>
+    purpose =>
+      elm =>
         `button ${parent}--button button--${purpose}${elm === 'img' && '--img'}`;
 
 const Button: React.FunctionComponent<ButtonProps> =
-  ({ parent, purpose, onClick }) =>{
+  ({ parent, purpose, onClick }) => {
     const getClassForElm = getClassForParent(parent)(purpose);
     return (
-      <button type="button" onClick={onClick}
-      className={getClassForElm('main')}>
-        <img src={`./svg/${purpose}.svg`}
-          className={getClassForElm('img')}/>
+      <button
+        type='button'
+        onClick={onClick}
+        className={getClassForElm('main')}
+      >
+        <img
+          alt={purpose}
+          src={`./svg/${purpose}.svg`}
+          className={getClassForElm('img')}
+        />
       </button>
     );
-  }
+  };
 
-export { Button, ButtonProps }
+export { Button, ButtonProps };

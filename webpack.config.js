@@ -34,11 +34,11 @@ module.exports = {
             loader: 'css-loader',
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
-          }
+          },
         ],
       },
     ],
@@ -49,6 +49,6 @@ module.exports = {
     }),
   ],
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
 };

@@ -1,6 +1,3 @@
-import { SiteTitle } from "./components/SiteTitle";
-import { string } from "prop-types";
-
 export interface ActionType {
   type: string;
   id: string;
@@ -16,20 +13,7 @@ export interface ContainerType {
   children?: ContainerType | JSX.Element | ContainerType[] | JSX.Element[];
 }
 
-export interface ExhibitionType {
-  name: string;
-  curator?: string[];
-  place: string;
-  city: string;
-  country: string;
-  geo: number[];
-  date: number[];
-  media: MediaIndexType;
-  links?: string[];
-}
-
 export interface MediaStoreType {
-  baseUrl: string;
   images: ImageType[];
   videos: AVType[];
   audios: AVType[];
@@ -47,6 +31,8 @@ export interface MediaItemType {
   index: number;
   ext: string;
   alt: string;
+  type: string;
+  baseUrl: string;
   path?: string;
   url?: string;
 }
@@ -82,21 +68,4 @@ export interface WorkType {
   tags: string[];
   description?: string[];
   visible?: boolean;
-}
-
-export interface ExhibitionType {
-  title: string;
-  space: string;
-  city: string;
-  country: string;
-  geo: number[];
-  dates: number[];
-  media: MediaIndexType;
-  curator?: string[];
-  links?: string[];
-}
-
-export interface DB {
-  media: MediaStoreType;
-  works: WorkType[];
 }

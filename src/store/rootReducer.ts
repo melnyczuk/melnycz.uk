@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 
 import { media as MediaDB } from '../../db/media.json';
-import { nav as NavDB } from '../../db/nav.json'
+import { nav as NavDB } from '../../db/nav.json';
 import { works as WorksDB } from '../../db/works.json';
 
-import { actionConstants } from './constants';
-import { ActionType, MediaStoreType, WorkType, NavType } from '../types';
+import actionConstants from './constants';
+import {
+  ActionType, MediaStoreType, WorkType, NavType, ImageType, AVType,
+} from '../types';
+import { getBaseUrlAppender } from '../utils';
 
 const {
   SET_ACTIVE,
@@ -16,23 +19,32 @@ const {
   SET_TITLE,
 } = actionConstants;
 
-const initNav: NavType = {
-  active: NavDB.sitetitle,
-  labels: [...new Set<string>(WorksDB.map(({ area }: WorkType) => area))],
-  sitetitle: NavDB.sitetitle,
-}
+const appendBaseUrl = getBaseUrlAppender(MediaDB.baseUrl);
 
-const initWorks: WorkType[] = WorksDB.map(
-  (work: WorkType) => ({ ...work, visible: false }));
+const init = {
+  media: {
+    audios: MediaDB.audios.map(appendBaseUrl('audios')) as AVType[],
+    images: MediaDB.images.map(appendBaseUrl('images')) as ImageType[],
+    videos: MediaDB.videos.map(appendBaseUrl('videos')) as AVType[],
+  },
+  nav: {
+    active: NavDB.sitetitle as string,
+    labels: [...new Set(WorksDB.map(({ area }: WorkType): string => area))] as string[],
+    sitetitle: NavDB.sitetitle as string,
+  },
+  works: WorksDB.map(
+    (work): WorkType => ({ ...work, visible: false }),
+  ) as WorkType[],
+};
 
-const media = (state: MediaStoreType = MediaDB, action: ActionType) => {
+const media = (state: MediaStoreType = init.media, action: ActionType): MediaStoreType => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-const nav = (state: NavType = initNav, action: ActionType) => {
+const nav = (state: NavType = init.nav, action: ActionType): NavType => {
   switch (action.type) {
     default:
       return state;
@@ -43,20 +55,21 @@ const nav = (state: NavType = initNav, action: ActionType) => {
   }
 };
 
-const works = (state: WorkType[] = initWorks, action: ActionType) => {
+const works = (state: WorkType[] = init.works, action: ActionType): WorkType[] => {
   switch (action.type) {
     default:
       return state;
     case (SET_TITLE):
-      return ({ ...state, title: action.id });
+      return state.map((work): WorkType =>
+        ({ ...work, title: action.id }));
     case (SET_SHOW):
-      return state.map(work =>
+      return state.map((work): WorkType =>
         ({ ...work, visible: (action.id === work.namespace) }));
     case (SET_HIDE):
-      return state.map(work =>
+      return state.map((work): WorkType =>
         ({ ...work, visible: false }));
     case (SET_DESC):
-      return state.map(work =>
+      return state.map((work): WorkType =>
         ({ ...work, description: action.id === work.namespace && action.data }));
   }
 };

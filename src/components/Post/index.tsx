@@ -7,7 +7,6 @@ import { ImageType } from '../../types';
 import { Picture } from '../Picture';
 
 interface PostVals {
-  baseUrl: string;
   children?: JSX.Element[];
   description: string[];
   images?: ImageType[];
@@ -23,48 +22,43 @@ interface PostProps extends PostVals, PostFuncs {
 }
 
 const buildImages =
-  (baseUrl: string) =>
-    (image: ImageType, i: number): JSX.Element => {
-      const { namespace, index } = image;
-      return (
-        <Picture
-          key={`${namespace}-${index}`}
-          image={image}
-          baseUrl={baseUrl}
-          parent='post'
-        />);
-    };
+  (image: ImageType) => (
+    <Picture
+      key={`${image.namespace}-${image.index}`}
+      image={image}
+      parent='post'
+    />
+  );
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
-  <React.Fragment key={`desc-${i}`} >
+  <React.Fragment key={`desc-${i}`}>
     <p className='post post--desc'>{text}</p>
     <br />
   </React.Fragment>
 );
 
 const Post: React.FunctionComponent<PostProps> =
-  ({ namespace, title, images, baseUrl, description, children, setDesc }) =>
-    {
-      useEffect((): void => {
-        (async () => {
-          if (!description) {
-            await fetch(`./bin/copy/${namespace}.yaml`)
-              .then(async resp => await resp.text())
-              .then(yaml.load)
-              .then(({ description }: any) => description)
-              .then(setDesc);
-          }
-        })();
-      });
+  ({ namespace, title, images, description, children, setDesc }) => {
+    useEffect((): void => {
+      (async (): Promise<void> => {
+        if (!description) {
+          await fetch(`./bin/copy/${namespace}.yaml`)
+            .then(async (resp): Promise<string> => await resp.text())
+            .then(yaml.load)
+            .then(({ description: d }): string[] => d)
+            .then(setDesc);
+        }
+      })();
+    });
 
-      return (
-        <article className='post'>
-          {title && <h2 className='post-header-title'>{title}</h2>}
-          {description && description.map(buildParagraph)}
-          {images && images.map(buildImages(baseUrl))}
-          {children}
-        </article>
-      );
-    }
+    return (
+      <article className='post'>
+        {title && <h2 className='post-header-title'>{title}</h2>}
+        {description && description.map(buildParagraph)}
+        {images && images.map(buildImages)}
+        {children}
+      </article>
+    );
+  };
 
 export { Post, PostProps, PostVals, PostFuncs };
