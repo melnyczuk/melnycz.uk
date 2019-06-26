@@ -23,7 +23,7 @@ const App: React.FunctionComponent<any> =
             <NavContainer />
           </div>
           <main className='main'>
-            <Route path='/' exact compoent={HomeContainer} />
+            <Route path='/' exact component={HomeContainer} />
             <Route path='/:area' exact component={AreaContainer} />
             <Route
               path='/:area/:namespace'
