@@ -6,9 +6,10 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 import './app.scss';
 
-import rootReducer from './store/rootReducer';
 import { NavContainer, SiteTitleContainer, AreaContainer } from './containers';
 import { PostContainer } from './Area/containers';
+
+import rootReducer from './store/rootReducer';
 
 const App: React.FunctionComponent<any> =
   ({ store = createStore(rootReducer) }) => (
@@ -21,7 +22,6 @@ const App: React.FunctionComponent<any> =
           </div>
           <main className='main'>
             <Route path='/:area' exact component={AreaContainer} />
-            {/* <Route path='/:area/:filter' component={AreaContainer} /> */}
             <Route
               path='/:area/:namespace'
               render={

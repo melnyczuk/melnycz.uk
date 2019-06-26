@@ -1,4 +1,7 @@
 import React from 'react';
+
+import './Picture.scss';
+
 import { ImageType } from '../../types';
 import { buildSrc } from '../../utils';
 
@@ -28,7 +31,7 @@ const getClass =
         : `picture--${elm} ${parent}--${elm}`);
 
 const Picture: React.FunctionComponent<PictureProps> =
-  ({ image, max, parent }: PictureProps) => {
+  ({ image, max, parent }) => {
     const getClassForElm = getClass(parent);
     const buildSource = buildSrc(image);
     const getSrcs = getSources(buildSource, max);

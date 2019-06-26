@@ -1,8 +1,17 @@
 import { connect } from 'react-redux';
-import { Area, AreaProps, AreaVals, AreaFuncs } from './Area';
-import { NavBar, NavBarProps, NavBarVals, NavBarFuncs } from './components/Nav';
-import { SiteTitle, SiteTitleProps, SiteTitleVals, SiteTitleFuncs } from './components/SiteTitle';
+
+import {
+  Area, AreaProps, AreaVals, AreaFuncs,
+} from './Area';
+import {
+  NavBar, NavBarProps, NavBarVals, NavBarFuncs,
+} from './components/Nav';
+import {
+  SiteTitle, SiteTitleProps, SiteTitleVals, SiteTitleFuncs,
+} from './components/SiteTitle';
+
 import { StoreType } from './types';
+
 import { setActive } from './store/actions';
 import selectNav from './store/selectors/nav';
 import selectArea from './store/selectors/area';
@@ -20,7 +29,9 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>(
   (state: StoreType, props: SiteTitleProps) => ({
     title: selectNav.title(state, props),
   }),
-  (dispatch: Function, props: SiteTitleProps) => ({}),
+  (dispatch: Function, props: SiteTitleProps) => ({
+    handleClick: active => dispatch(setActive(active)),
+  }),
 )(SiteTitle);
 
 const AreaContainer = connect<AreaVals, AreaFuncs, {}>(

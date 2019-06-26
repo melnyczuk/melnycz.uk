@@ -1,15 +1,14 @@
 @import '../index.scss';
 
 .area {
-  
 }
 
 .work {
   display: inline-block;
   position: float;
-  margin: $default-margin-mobile;
+  margin: $mobile-margin;
 
-  @media (min-width: $mobile) {
-    margin: $default-margin;
+  @media (min-width: $desktop) {
+    margin: $desktop-margin;
   }
 }

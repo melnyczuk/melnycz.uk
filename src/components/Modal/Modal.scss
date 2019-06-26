@@ -1,6 +1,7 @@
 @import '../../index.scss';
 
 .modal {
+  @include fade_in;
   @include text;
   position: fixed;
   overflow: hidden;
@@ -9,31 +10,37 @@
   background: white;
   z-index: 1;
   height: auto;
-  max-height: 92%;
+  max-height: 80%;
 
-  padding: $default-padding-mobile 2*$default-padding-mobile;
-  top: 26 * $default-padding-mobile;
-  left: 5 * $default-margin-mobile;
-  right: 5 * $default-margin-mobile;
+  top: 20px;
+  left: 20px;
+  right: 20px;
 
-  @media (min-width: $mobile) {
-    padding: 2*$default-padding 4*$default-padding;
-    top: 3*$default-margin;
-    left: 10%;
-    right: 10%;
+  @media (min-width: $desktop) {
+    max-width: 480px;
+    max-height: 95%;
+    padding: $desktop-padding;
+    top: 32px;
+    bottom: 32px;
+    left: auto;
+    right: auto;
   }
 
   &--header {
+    height: $header-height;
+    position: relative;
+    line-height: $header-height;
+    border: 0;
+
     width: auto;
     float: right;
-    height: 2*$header-font-size;
-    position: relative;
-    line-height: 2*$header-font-size;
 
     &--button {
       width: fit-content;
       float: right;
       margin: 0;
+      padding: 0;
+      top: 0;
     }
   }
 
