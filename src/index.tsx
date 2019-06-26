@@ -6,9 +6,12 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 import './app.scss';
 
-import rootReducer from './store/rootReducer';
-import { NavContainer, SiteTitleContainer, AreaContainer, HomeContainer } from './containers';
+import {
+  NavContainer, SiteTitleContainer, AreaContainer, HomeContainer,
+} from './containers';
 import { PostContainer } from './Area/containers';
+
+import rootReducer from './store/rootReducer';
 
 const App: React.FunctionComponent<any> =
   ({ store = createStore(rootReducer) }) => (

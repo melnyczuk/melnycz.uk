@@ -13,7 +13,7 @@ a {
 
 .app {
   margin: 8px 8px;
-  padding: $default-padding;
+  padding: $desktop-padding;
   height: 100vh;
   color: black;
   background: white;
@@ -22,7 +22,7 @@ a {
 .header {
   text-align: center;
 
-  @media (min-width: $mobile) {
+  @media (min-width: $desktop) {
     float: left;
     margin: auto;
     width: 25%;
@@ -34,7 +34,7 @@ a {
 .main {
   width: 100%;
 
-  @media (min-width: $mobile) {
+  @media (min-width: $desktop) {
     float: left;
     width: 60%;
   }

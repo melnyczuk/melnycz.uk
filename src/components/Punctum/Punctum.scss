@@ -3,12 +3,15 @@
 .punctum {
   position: relative;
   border: $label-border;
+  @include fade_in;
 
   &--image {
     display: block;
     object-fit: cover;
     height: 60vw;
     width: 100%;
+    max-width: 512px;
+    max-height: 384px;
   }
 
   &--label {
@@ -19,12 +22,12 @@
     transform: translate(-50%, -50%);
     border: $label-border;
 
-    padding: $default-padding-mobile;
-    height: $bar-button-height-mobile;
-    line-height: $bar-button-height-mobile;
+    padding: $mobile-padding;
+    height: $bar-button-height_m;
+    line-height: $bar-button-height_m;
 
-    @media (min-width: $mobile) {
-      padding: $default-padding;
+    @media (min-width: $desktop) {
+      padding: $desktop-padding;
       height: $bar-button-height;
       line-height: $bar-button-height;
     }
@@ -37,7 +40,7 @@
 
     font-size: 14px;
 
-    @media (min-width: $mobile) {
+    @media (min-width: $desktop) {
       font-size: 18px;
     }
   }

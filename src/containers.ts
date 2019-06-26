@@ -49,7 +49,9 @@ const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>(
   (state: StoreType, props: SiteTitleProps) => ({
     title: selectNav.title(state, props),
   }),
-  (dispatch: Function, props: SiteTitleProps) => ({}),
+  (dispatch: Function, props: SiteTitleProps) => ({
+    handleClick: active => dispatch(setActive(active)),
+  }),
 )(SiteTitle);
 
 

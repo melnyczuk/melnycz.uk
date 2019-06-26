@@ -13,16 +13,16 @@
 
   &--close{
     &--img {
-      border: $label-border;
-      margin: 2px;
-      padding: 2px;
+      border: 0;
+      margin: 4px;
+      padding: 4px;
 
-      width: $header-font-size-mobile;
-      height: $header-font-size-mobile;
+      width: $h1_m;
+      height: $h1_m;
 
-      @media (min-width: $mobile) {
-        width: $header-font-size;
-        height: $header-font-size;;
+      @media (min-width: $desktop) {
+        width: $h1;
+        height: $h1;;
       }
     }
   }

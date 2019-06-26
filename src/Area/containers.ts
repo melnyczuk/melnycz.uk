@@ -1,9 +1,20 @@
 import { connect } from 'react-redux';
-import { Modal, ModalProps, ModalVals, ModalFuncs } from '../components/Modal';
-import { Portal, PortalProps, PortalVals, PortalFuncs } from '../components/Portal';
-import { Post, PostProps, PostVals, PostFuncs } from '../components/Post';
-import { Punctum, PunctumProps, PunctumVals, PunctumFuncs } from '../components/Punctum';
+
+import {
+  Modal, ModalProps, ModalVals, ModalFuncs,
+} from '../components/Modal';
+import {
+  Portal, PortalProps, PortalVals, PortalFuncs,
+} from '../components/Portal';
+import {
+  Post, PostProps, PostVals, PostFuncs,
+} from '../components/Post';
+import {
+  Punctum, PunctumProps, PunctumVals, PunctumFuncs,
+} from '../components/Punctum';
+
 import { StoreType } from '../types';
+
 import { setHide, setDescription, setShow } from '../store/actions';
 import selectWork from '../store/selectors/work';
 import selectMedia from '../store/selectors/media';
