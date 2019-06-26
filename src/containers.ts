@@ -1,37 +1,18 @@
 import { connect } from 'react-redux';
+import { Area, AreaProps, AreaVals, AreaFuncs } from './Area';
+import { NavBar, NavBarProps, NavBarVals, NavBarFuncs } from './components/Nav';
+import { SiteTitle, SiteTitleProps, SiteTitleVals, SiteTitleFuncs } from './components/SiteTitle';
+import { StoreType } from './types';
+import { setActive } from './store/actions';
+import selectNav from './store/selectors/nav';
+import selectArea from './store/selectors/area';
 
-import {
-  NavBar,
-  NavBarVals,
-  NavBarFuncs,
-  NavBarProps,
-} from './components/Nav';
 
-import {
-  StoreType,
-} from './types';
-
-import {
-  selectMainNavArray,
-} from './store/nav/selectors';
-
-import {
-  SiteTitleVals,
-  SiteTitleFuncs,
-  SiteTitle,
-  SiteTitleProps
-} from './components/SiteTitle';
-
-import { selectTitle } from './store/about/selectors';
-import { selectActive } from './store/active/selectors';
-
-const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
+const NavContainer = connect<NavBarVals, NavBarFuncs, {}>
   (
     (state: StoreType, props: NavBarProps) => ({
-      active: selectActive(state, props),
-      title: '',
-      items: selectMainNavArray(state, props),
-      className: 'main-nav',
+      active: selectNav.active(state, props),
+      labels: selectNav.labels(state, props),
     }),
     (dispatch: Function, props: NavBarProps) => ({})
   )(NavBar);
@@ -39,14 +20,21 @@ const MainNavContainer = connect<NavBarVals, NavBarFuncs, {}>
 const SiteTitleContainer = connect<SiteTitleVals, SiteTitleFuncs, {}>
   (
     (state: StoreType, props: SiteTitleProps) => ({
-      className: 'site-title',
-      title: selectTitle(state, props),
+      title: selectNav.title(state, props),
     }),
     (dispatch: Function, props: SiteTitleProps) => ({})
   )
   (SiteTitle);
 
-export {
-  MainNavContainer,
-  SiteTitleContainer,
-}
+const AreaContainer = connect<AreaVals, AreaFuncs, {}>
+  (
+    (state: StoreType, props: AreaProps) => ({
+      works: selectArea.works(state, props),
+    }),
+    (dispatch: Function, props: AreaProps) => ({
+      updateActive: (active: string) => dispatch(setActive(active))
+    }),
+  )(Area);
+
+
+export { AreaContainer, NavContainer, SiteTitleContainer }

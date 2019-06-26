@@ -1,4 +1,4 @@
-@import '../../base.scss';
+@import '../../index.scss';
 @import '../Modal/Modal.scss';
 
 .button {
@@ -10,16 +10,16 @@
   :active, :focus, :target {
     border: none;
   }
-  
-  &-close {
-    &-img {
+
+  &--close{
+    &--img {
       border: $label-border;
       margin: 2px;
       padding: 2px;
-      
+
       width: $header-font-size-mobile;
       height: $header-font-size-mobile;
-      
+
       @media (min-width: $mobile) {
         width: $header-font-size;
         height: $header-font-size;;

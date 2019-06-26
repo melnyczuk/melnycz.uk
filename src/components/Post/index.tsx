@@ -1,17 +1,17 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import yaml from 'js-yaml';
 
 import './Post.scss';
 
 import { ImageType } from '../../types';
-import Picture from '../Picture';
+import { Picture } from '../Picture';
 
 interface PostVals {
-  className: string;
-  description: string[];
   baseUrl: string;
-  images?: ImageType[];
   children?: JSX.Element[];
+  description: string[];
+  images?: ImageType[];
+  title?: string;
 }
 
 interface PostFuncs {
@@ -31,57 +31,40 @@ const buildImages =
           key={`${namespace}-${index}`}
           image={image}
           baseUrl={baseUrl}
-          className={`post post-img post-img_${i}`}
+          parent='post'
         />);
     };
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
   <React.Fragment key={`desc-${i}`} >
-    <p className='post post-desc'>{text}</p>
+    <p className='post post--desc'>{text}</p>
     <br />
   </React.Fragment>
 );
 
+const Post: React.FunctionComponent<PostProps> =
+  ({ namespace, title, images, baseUrl, description, children, setDesc }) =>
+    {
+      useEffect((): void => {
+        (async () => {
+          if (!description) {
+            await fetch(`./bin/copy/${namespace}.yaml`)
+              .then(async resp => await resp.text())
+              .then(yaml.load)
+              .then(({ description }: any) => description)
+              .then(setDesc);
+          }
+        })();
+      });
 
-class Post extends React.PureComponent<PostProps> {
-
-  constructor(props: PostProps) {
-    super(props);
-  }
-
-  componentDidMount() {
-    const { namespace, description, setDesc } = this.props;
-    if (!description) {
-      fetch(`./bin/copy/${namespace}.yaml`)
-        .then(async resp => await resp.text())
-        .then(yaml.load)
-        .then(({ description }: any) => description)
-        .then(setDesc);
-    }
-  }
-
-  render() {
-    const {
-      images,
-      baseUrl,
-      description,
-      className,
-      children,
-    }: PostProps = this.props;
-
-    return (
-        <article className={`post${className && ' ' + className}`}>
+      return (
+        <article className='post'>
+          {title && <h2 className='post-header-title'>{title}</h2>}
           {description && description.map(buildParagraph)}
           {images && images.map(buildImages(baseUrl))}
           {children}
         </article>
       );
-  }
-};
+    }
 
-export {
-  Post,
-  PostProps,
-  PostVals,
-  PostFuncs,
-};
+export { Post, PostProps, PostVals, PostFuncs };

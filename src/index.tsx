@@ -1,74 +1,35 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, HashRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
-import './base.scss';
+import './app.scss';
 
 import rootReducer from './store/rootReducer';
+import { NavContainer, SiteTitleContainer, AreaContainer } from './containers';
+import { PostContainer } from './Area/containers';
 
-import {
-  HomeContainer,
-  PortfolioContainer,
-  ResearchContainer,
-  AboutContainer,
-} from './areas/containers';
-
-import {
-  MainNavContainer,
-  SiteTitleContainer
-} from './containers';
-
-import { SubNavContainer } from './areas/containers';
-
-class App extends React.PureComponent {
-
-  private store: any;
-
-  constructor(props: any) {
-    super(props);
-    this.store = createStore(rootReducer);
-  }
-
-  render() {
-    return (
-      <Provider store={this.store} >
-        <HashRouter>
-          <div className="app">
-            <div className="header">
-              <SiteTitleContainer />
-              <MainNavContainer />
-              <SubNavContainer />
-            </div>
-            <main className="main">
-              <Route
-                className="home"
-                path='/'
-                component={HomeContainer}
-              />
-              <Route
-                className="about"
-                path='/about'
-                component={AboutContainer}
-              />
-              <Route
-                className="portfolio"
-                path='/portfolio'
-                component={PortfolioContainer}
-              />
-              <Route
-                className="research"
-                path='/research'
-                component={ResearchContainer}
-              />
-            </main>
+const App: React.FunctionComponent<any> =
+  ({store = createStore(rootReducer)}) => (
+    <Provider store={store} >
+      <BrowserRouter>
+        <div className="app">
+          <div className="header">
+            <SiteTitleContainer />
+            <NavContainer />
           </div>
-        </HashRouter>
-      </Provider>
-    );
-  }
-};
+          <main className="main">
+            <Route path='/:area' exact component={AreaContainer} />
+            {/* <Route path='/:area/:filter' component={AreaContainer} /> */}
+            <Route path='/:area/:namespace' render={
+              ({match}) => <PostContainer namespace={match.params.namespace} />
+            } />
+          </main>
+        </div>
+      </BrowserRouter>
+    </Provider>
+  );
 
 export default App;
 

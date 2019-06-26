@@ -1,14 +1,14 @@
-@import '../../base.scss';
+@import '../../index.scss';
 
-.SiteTitle {
+.site-title {
   text-align: left;
   border: $label-border;
-  
+
   margin: $default-margin-mobile;
   padding: $default-padding-mobile 2*$default-padding-mobile;
   font-size: 24px;
   line-height: $bar-button-height-mobile;
-  
+
   @media (min-width: $mobile) {
     margin: $default-margin;
     padding: $default-padding 2*$default-padding;
