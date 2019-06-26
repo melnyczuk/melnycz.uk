@@ -1,4 +1,4 @@
-import { actionConstants } from './constants';
+import actionConstants from './constants';
 import { ActionType } from '../types';
 import { PostProps } from '../components/Post';
 import { ModalProps } from '../components/Modal';
