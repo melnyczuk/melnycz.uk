@@ -31,7 +31,7 @@ const getClass =
         : `picture--${elm} ${parent}--${elm}`);
 
 const Picture: React.FunctionComponent<PictureProps> =
-  ({ image, parent, max }: PictureProps): JSX.Element => {
+  ({ image, max, parent }) => {
     const getClassForElm = getClass(parent);
     const buildSource = buildSrc(image);
     const getSrcs = getSources(buildSource, max);
