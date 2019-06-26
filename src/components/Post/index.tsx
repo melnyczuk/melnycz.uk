@@ -27,6 +27,7 @@ const buildImages =
       key={`${image.namespace}-${image.index}`}
       image={image}
       parent='post'
+      max={480}
     />
   );
 
