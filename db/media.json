@@ -73,11 +73,15 @@
         "sizes": [160,320,640,960,1280,1600,1920,2560]
       }
     ],
-    "video": [
+    "videos": [
       {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": null,
         "url": "https://vimeo.com/239667082"
       }
     ],
-    "audio": []
+    "audios": []
   }
 }
