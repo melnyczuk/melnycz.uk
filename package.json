@@ -7,7 +7,8 @@
     "test": "jest --silent --noStackTrace",
     "test:v": "jest",
     "start": "webpack-dev-server --config webpack.config.js --mode development --hot",
-    "build": "webpack --mode production . ",
+    "build": "webpack --mode production . && npm run post-build",
+    "post-build": "cp -r ./bin ./dist/ && cp -r ./db ./dist/ &&  cp -r ./svg ./dist/",
     "lint": "eslint -c .eslintrc.js . --ext .ts --ext .tsx",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"

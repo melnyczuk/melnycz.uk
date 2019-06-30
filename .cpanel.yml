@@ -2,6 +2,3 @@
 deployment:
   tasks:
     - /bin/cp -r ./dist/* /home/birivcrk/public_html/
-    - /bin/cp -r ./bin /home/birivcrk/public_html/bin
-    - /bin/cp -r ./svg /home/birivcrk/public_html/svg
-    - /bin/cp -r ./db /home/birivcrk/public_html/db
