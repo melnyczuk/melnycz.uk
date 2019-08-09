@@ -3,14 +3,12 @@ import Link from 'next/link';
 
 import './SiteTitle.scss';
 
-interface SiteTitleVals { title: string }
-interface SiteTitleFuncs { }
-interface SiteTitleProps extends SiteTitleVals, SiteTitleFuncs { }
+export interface Props { title: string }
 
-export default ({ title }: SiteTitleProps) =>
+export default ({ title }: Props) =>
   (
     <Link href='/'>
-      <h1 className='site-title'>
+      <h1 className='site-title site-title--title'>
         {title}
       </h1>
     </Link>

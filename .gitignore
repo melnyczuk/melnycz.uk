@@ -3,9 +3,10 @@ node_modules
 coverage
 bin
 svg
-db
 .next
 src
+__snapshots__
+dist
 
 # Node / npm:
 npm-debug.log
@@ -24,7 +25,7 @@ npm-debug.log
 *.txt
 *.wg
 
-!dist/**
+# !dist/**
 # Files:
 .DS_Store
 

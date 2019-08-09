@@ -8,7 +8,6 @@
     "module": "esnext",
     "target": "es2017",
     "jsx": "preserve",
-    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["dom","dom.iterable","esnext"],
@@ -17,8 +16,9 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "moduleResolution": "node",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "resolveJsonModule": true,
   },
-  "include": ["pages"],
+  "include": ["pages","components"],
   "exclude": ["src","node_modules"]
 }
