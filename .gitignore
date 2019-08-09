@@ -1,13 +1,11 @@
-
 # Folders:
-build/
 node_modules
-__pycache__/
 coverage
 bin
 svg
 db
 .next
+src
 
 # Node / npm:
 npm-debug.log

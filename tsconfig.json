@@ -11,11 +11,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom","dom.iterable","esnext"],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -23,11 +19,6 @@
     "moduleResolution": "node",
     "isolatedModules": true
   },
-  "include": [
-    "pages"
-  ],
-  "exclude": [
-    "src",
-    "node_modules"
-  ]
+  "include": ["pages"],
+  "exclude": ["src","node_modules"]
 }
