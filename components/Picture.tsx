@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './Picture.scss';
+import '../styles/Picture.scss';
 
-import { ImageType } from '../types';
-import { buildSrc } from '../utils';
+import { ImageType } from './types';
+import { buildSrc } from './utils';
 
 export interface Props {
   image: ImageType;

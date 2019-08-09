@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import './Nav.scss';
+import '../styles/Nav.scss';
 
 export interface Props {
   active: string;

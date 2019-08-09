@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 
-import SiteTitle from '../SiteTitle';
-import Nav from '../Nav';
+import SiteTitle from './SiteTitle';
+import Nav from './Nav';
 
-import { works } from '../../db/works.json';
+import { works } from '../db/works.json';
 
 export interface Props {
   page: string;
