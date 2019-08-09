@@ -1,5 +1,3 @@
-import React from 'react';
+import SiteTitle from '../components/SiteTitle';
 
-const HelloWorld = () => (<div>'hello world'</div>);
-
-export default HelloWorld;
+export default () => (<SiteTitle title='Howard Melnyczuk' />);
