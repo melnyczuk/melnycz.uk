@@ -9,13 +9,11 @@ describe('Nav', () => {
   );
 
   it('is a nav tag', () => {
-    const navTag = nav.find('nav');
-    expect(navTag).toHaveLength(1);
+    expect(nav.name()).toEqual('nav');
   });
 
   it('has a class of .nav', () => {
-    const c = nav.find('.nav');
-    expect(c).toHaveLength(1);
+    expect(nav.hasClass('nav')).toBeTruthy();
   });
 
   describe('Nav Buttons', () => {

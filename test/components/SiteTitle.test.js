@@ -6,14 +6,29 @@ import SiteTitle from '../../components/SiteTitle';
 describe('SiteTitle', () => {
   const title = shallow(<SiteTitle title='test' />);
 
-  it('has a h1 tag', () => {
-    const h1Tag = title.find('h1');
-    expect(h1Tag).toHaveLength(1);
-    expect(h1Tag.text()).toEqual('test');
+  describe('Link', () => {
+    it('is a Next link component', () => {
+      expect(title.name('Link')).toBeTruthy();
+    });
+
+    it('has a href attribute that links back to the root path', () => {
+      expect(title.prop('href')).toEqual('/');
+    });
   });
 
-  it('has a class of .site-title', () => {
-    const c = title.find('.site-title');
-    expect(c).toHaveLength(1);
+  describe('h1 tag', () => {
+    const h1 = title.find('h1');
+
+    it('has a single h1 element', () => {
+      expect(h1).toHaveLength(1);
+    });
+    
+    it('has a h1 tag with the correct text', () => {
+      expect(h1.text()).toEqual('test');
+    });
+
+    it('has a class of .site-title', () => {
+      expect(h1.hasClass('site-title')).toBeTruthy();
+    });
   });
 });

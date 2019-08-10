@@ -9,6 +9,7 @@
     "lint": "eslint -c .eslintrc.js . --ext .ts --ext .tsx",
     "start": "next start",
     "test": "jest",
+    "test:coverage": "jest --coverage && rm -r ./coverage",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },

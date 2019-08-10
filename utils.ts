@@ -3,7 +3,7 @@ import { MediaItemType, WorkType, AVType, ImageType } from './types';
 
 const buildSrc =
   ({ type, baseUrl, namespace, index, ext }: MediaItemType) =>
-    (size: number = null): string =>
+    (size: number): string =>
       `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
 const filterMedia =
