@@ -6,11 +6,15 @@ const buildSrc =
     (size: number): string =>
       `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
-const filterMedia =
+const filterMediaByNamespace =
+  (namespace: string) =>
+    (media: MediaItemType): boolean =>
+      (media.namespace === namespace);
+
+const filterMediaByIndices =
   (indices: number[]) =>
-    (namespace: string) =>
-      (media: MediaItemType): boolean =>
-        ((media.namespace === namespace) && (indices.includes(media.index)));
+    (media: MediaItemType): boolean =>
+      (indices.includes(media.index));
 
 const filterWorks =
   (works: WorkType[]) =>
@@ -20,8 +24,14 @@ const filterWorks =
 const addBaseUrlAndTypeToPartialMediaItem =
   (baseUrl: string) =>
     (type: string) =>
-      (mediaItem): ImageType | AVType =>
-        ({ ...mediaItem, baseUrl, type });
+      (mediaItem: Partial<MediaItemType>): ImageType | AVType =>
+        ({ ...mediaItem, baseUrl, type } as ImageType | AVType);
 
 
-export { buildSrc, filterMedia, filterWorks, addBaseUrlAndTypeToPartialMediaItem };
+export {
+  buildSrc,
+  filterMediaByNamespace,
+  filterMediaByIndices,
+  filterWorks,
+  addBaseUrlAndTypeToPartialMediaItem
+};

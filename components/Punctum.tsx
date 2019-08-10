@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 
 import Picture from './Picture';
-import Post from './Post';
+import Post, { Props as PostProps } from './Post';
 
 import { ImageType } from '../types';
 
-export interface Props { image: ImageType; namespace: string; }
+export interface Props extends PostProps { punctum: ImageType }
 
-export default ({ image, namespace }: Props) => {
+export default ({ namespace, punctum, images }: Props) => {
   const [visible, setVisible] = useState(false);
-  return (image ? (
+  return (punctum ? (
     <div>
       <div className='punctum' onClick={() => setVisible(!visible)}>
-        <Picture image={image} parent='punctum' max={800} />
+        <Picture image={punctum} parent='punctum' max={800} />
         {/* {title && <Label title={title} parent='punctum' />} */}
       </div>
-      {visible && <Post namespace={namespace} />}
+      {visible && <Post namespace={namespace} images={images} />}
     </div>
-  ) : null);
+    ) : null
+  );
 }
