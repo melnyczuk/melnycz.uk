@@ -15,18 +15,16 @@ afterEach(() => {
 describe('Post Component', () => {
   const post = shallow(<Post />);
 
-  it('is a React Suspense element', () => {
-    expect(post.name()).toEqual('Suspense');
+  it('is an article element', () => {
+    expect(post.name()).toEqual('article');
   });
 
   it('renders an article element', () => {
     expect(post.find('article')).toHaveLength(1);
   });
 
-  it.skip('fetches a description from a yaml file', async () => {
-    // await post.render();
-    console.log(post.html());
-    expect(await post.text()).toEqual('boop beep');
+  it('has a class name of post', () => {
+    expect(post.hasClass('post')).toBeTruthy();
   });
 });
 

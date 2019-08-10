@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import yaml from 'js-yaml';
 
 export interface Props {
@@ -26,14 +26,12 @@ export default ({ namespace }: Props) => {
   });
 
   return (
-    // <Suspense fallback={<article>Loading...</article>}>
-      <article className='post'>
-        {/* {title && <h2 className='post--title'>{title}</h2>} */}
-        {desc && desc.map(buildParagraph)}
-        {/* {images && images.map(buildImages)} */}
-        {/* {children} */}
-      </article>
-    // </Suspense>
+    <article className='post'>
+      {/* {title && <h2 className='post--title'>{title}</h2>} */}
+      {desc && desc.map(buildParagraph)}
+      {/* {images && images.map(buildImages)} */}
+      {/* {children} */}
+    </article>
   )
 };
 
