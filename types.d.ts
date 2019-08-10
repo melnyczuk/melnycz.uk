@@ -31,8 +31,8 @@ export interface MediaItemType {
   index: number;
   ext: string;
   alt: string;
-  type?: string;
-  baseUrl?: string;
+  type: string;
+  baseUrl: string;
   path?: string;
   url?: string;
 }

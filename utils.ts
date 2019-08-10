@@ -4,7 +4,7 @@ import { MediaItemType, WorkType, AVType, ImageType } from './types';
 const buildSrc =
   ({ type, baseUrl, namespace, index, ext }: MediaItemType) =>
     (size: number = null): string =>
-      `${baseUrl}/${type}${size && `/${size}`}/${namespace}-${index}.${ext}`;
+      `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
 const filterMedia =
   (indices: number[]) =>
@@ -17,11 +17,11 @@ const filterWorks =
     (label: string): WorkType[] =>
       works.filter(({ area }) => area === label);
 
-const getBaseUrlAppender =
+const addBaseUrlAndTypeToPartialMediaItem =
   (baseUrl: string) =>
     (type: string) =>
       (mediaItem): ImageType | AVType =>
         ({ ...mediaItem, baseUrl, type });
 
 
-export { buildSrc, filterMedia, filterWorks, getBaseUrlAppender };
+export { buildSrc, filterMedia, filterWorks, addBaseUrlAndTypeToPartialMediaItem };

@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
   },
-  "include": ["pages","components"],
+  "include": ["pages","components", "utils.ts"],
   "exclude": ["src","node_modules"]
 }

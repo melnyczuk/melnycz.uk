@@ -2,13 +2,20 @@ import Layout from '../components/Layout';
 import Picture from '../components/Picture';
 
 import { media } from '../db/media.json';
-import { ImageType } from '../components/types';
+import { ImageType } from '../types';
 
-const image: ImageType = 
-  media.images[Math.floor(Math.random() * media.images.length)];
+const { images, baseUrl } = media;
 
-export default () => (
-  <Layout page='home'>
-    <Picture image={image} parent='home' max={640} />
-  </Layout>
-);
+export default () => {
+  const image: ImageType = {
+    ...images[Math.floor(Math.random() * images.length)],
+    baseUrl,
+    type: 'images',
+  }
+
+  return (
+    <Layout page='home'>
+      <Picture image={image} parent='home' max={640} />
+    </Layout>
+  );
+}
