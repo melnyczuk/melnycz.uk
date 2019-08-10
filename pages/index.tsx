@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 import Picture from '../components/Picture';
 
-import { media } from '../db/media.json';
+import { media } from '../static/db/media.json';
 import { ImageType } from '../types';
 
 const { images, baseUrl } = media;

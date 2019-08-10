@@ -1,6 +1,6 @@
 {
   "media": {
-    "baseUrl": "../bin",
+    "baseUrl": "/static",
     "images": [
       {
         "namespace": "rrosetta",

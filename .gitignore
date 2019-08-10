@@ -1,12 +1,9 @@
 # Folders:
 node_modules
 coverage
-bin
-svg
 .next
 src
 __snapshots__
-dist
 
 # Node / npm:
 npm-debug.log
