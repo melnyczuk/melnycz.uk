@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import SiteTitle from './SiteTitle';
 import Nav from './Nav';
 
-import { works } from '../static/db/works.json';
-import { sitetitle } from '../static/db/info.json';
+import { works } from '../../static/db/works.json';
+import { sitetitle } from '../../static/db/info.json';
 
 export interface Props {
   page: string;

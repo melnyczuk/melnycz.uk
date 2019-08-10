@@ -1,5 +1,5 @@
-import Layout from '../components/Layout';
-import Works from '../components/Works';
+import Layout from '../src/components/Layout';
+import Works from '../src/components/Works';
 
 export default () => (
   <Layout page='about'>

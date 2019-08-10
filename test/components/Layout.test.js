@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Layout from '../../components/Layout';
+import Layout from '../../src/components/Layout';
 
 describe('Layout', () => {
   const component = mount(<Layout />);

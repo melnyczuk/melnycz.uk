@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 
-import Picture, { getClassByParent, getSourcesByMax } from '../../components/Picture';
+import Picture, { getClassByParent, getSourcesByMax } from '../../src/components/Picture';
 
 describe('Picture', () => {
   const img = {

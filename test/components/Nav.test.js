@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Nav, { getClassName, capitaliseLabel } from '../../components/Nav';
+import Nav, { getClassName, capitaliseLabel } from '../../src/components/Nav';
 
 describe('Nav', () => {
   const nav = shallow(

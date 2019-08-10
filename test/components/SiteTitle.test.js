@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SiteTitle from '../../components/SiteTitle';
+import SiteTitle from '../../src/components/SiteTitle';
 
 describe('SiteTitle', () => {
   const title = shallow(<SiteTitle title='test' />);

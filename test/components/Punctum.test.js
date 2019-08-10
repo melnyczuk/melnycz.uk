@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 
-import Punctum from '../../components/Punctum';
+import Punctum from '../../src/components/Punctum';
 
 describe('Punctum Component', () => {
   const img = {
@@ -10,9 +10,14 @@ describe('Punctum Component', () => {
     ext: "jpg",
     sizes: [69, 420]
   };
-  
-  const punct = shallow(<Punctum image={img} />);
-  
+
+  const punct = shallow(<Punctum
+    title='test'
+    namespace='test'
+    punctum={img}
+    images={[img]}
+  />);
+
   it('has a Picture component', () => {
     expect(punct.render().find('picture')).toHaveLength(1);
   });
@@ -29,7 +34,7 @@ describe('Punctum Component', () => {
     punct.find('.punctum').simulate('click');
     const post = punct.render().find('article');
     expect(punct.render().find('article')).toHaveLength(1);
-    shallow(<post/>).simulate('click');
+    shallow(<post />).simulate('click');
     expect(post).toHaveLength(1);
     punct.find('.punctum').simulate('click');
     expect(punct.render().find('article')).toHaveLength(0);

@@ -2,7 +2,7 @@ import { mount, shallow } from 'enzyme';
 
 import yaml from 'js-yaml';
 
-import Post, { fetchDescription } from '../../components/Post';
+import Post, { fetchDescription } from '../../src/components/Post';
 
 beforeEach(() => {
   yaml.load = jest.fn().mockResolvedValue({ description: ['boop', 'beep'] });

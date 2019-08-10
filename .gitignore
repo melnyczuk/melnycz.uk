@@ -2,7 +2,6 @@
 node_modules
 coverage
 .next
-src
 __snapshots__
 
 # Node / npm:

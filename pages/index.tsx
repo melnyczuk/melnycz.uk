@@ -1,8 +1,8 @@
-import Layout from '../components/Layout';
-import Picture from '../components/Picture';
+import Layout from '../src/components/Layout';
+import Picture from '../src/components/Picture';
 
 import { media } from '../static/db/media.json';
-import { ImageType } from '../types';
+import { ImageType } from '../src/types';
 
 const { images, baseUrl } = media;
 

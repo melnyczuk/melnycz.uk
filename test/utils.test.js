@@ -4,7 +4,7 @@ import {
   filterMediaByIndices,
   filterWorks,
   addBaseUrlAndTypeToPartialMediaItem
-} from '../utils';
+} from '../src/utils';
 
 describe('buildSrc', () => {
   const mediaItem = {

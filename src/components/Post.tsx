@@ -6,6 +6,7 @@ import Picture from './Picture';
 
 export interface Props {
   namespace: string;
+  title: string;
   images: ImageType[];
 }
 
@@ -32,7 +33,7 @@ const fetchDescription = (namespace): Promise<string[]> =>
     .then(yaml.load)
     .then(({ description }: any) => description);
 
-export default ({ namespace, images }: Props) => {
+export default ({ namespace, title, images }: Props) => {
   const [desc, setDesc] = useState([]);
 
   useEffect(() => {
@@ -41,10 +42,9 @@ export default ({ namespace, images }: Props) => {
 
   return (
     <article className='post'>
-      {/* {title && <h2 className='post--title'>{title}</h2>} */}
+      {title && <h2 className='post--title'>{title}</h2>}
       {desc && desc.map(buildParagraph)}
       {images && images.map(buildImages)}
-      {/* {children} */}
     </article>
   )
 };
