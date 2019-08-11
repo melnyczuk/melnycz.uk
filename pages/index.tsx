@@ -1,6 +1,5 @@
 import Layout from '../src/components/Layout';
 import Picture from '../src/components/Picture';
-
 import { media } from '../static/db/media.json';
 import { ImageType } from '../src/types';
 

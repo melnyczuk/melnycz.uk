@@ -1,9 +1,6 @@
-import React, { useMemo } from 'react';
-
+import { useMemo } from 'react';
 import Punctum from './Punctum';
-
 import { WorkType, ImageType } from '../types';
-
 import { works as worksDb } from '../../static/db/works.json';
 import { media } from '../../static/db/media.json';
 import {
@@ -24,13 +21,13 @@ export default ({ area }: Props) => {
   return (
     <main>
       {
-        works.map(({ namespace, title, media: { punctum: index, images: indices } }: WorkType) => {
+        works.map(({ namespace, title, media: { punctum: punctIndicies, images: imgIndicies } }: WorkType) => {
           const namespaceImages = images
             .map(imageTypeCompletionFunc)
             .filter(filterMediaByNamespace(namespace)) as ImageType[];
 
-          const imgs = namespaceImages.filter(filterMediaByIndices(indices));
-          const punctum = namespaceImages.filter(filterMediaByIndices([index]))[0];
+          const imgs = namespaceImages.filter(filterMediaByIndices(imgIndicies));
+          const punctum = namespaceImages.filter(filterMediaByIndices(punctIndicies))[0];
 
           return (
             <Punctum
@@ -42,7 +39,7 @@ export default ({ area }: Props) => {
             />
           );
         })
-      };
+      }
     </main>
   );
 }

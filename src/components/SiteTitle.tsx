@@ -1,6 +1,4 @@
-import React from 'react';
 import Link from 'next/link';
-
 import '../styles/SiteTitle.scss';
 
 export interface Props { title: string }
@@ -13,4 +11,3 @@ export default ({ title }: Props) =>
       </h1>
     </Link>
   );
-

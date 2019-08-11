@@ -3,6 +3,7 @@ node_modules
 coverage
 .next
 __snapshots__
+out
 
 # Node / npm:
 npm-debug.log

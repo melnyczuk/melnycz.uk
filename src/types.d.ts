@@ -20,7 +20,7 @@ export interface MediaStoreType {
 }
 
 export interface MediaIndexType {
-  punctum: number;
+  punctum: number[];
   images: number[];
   videos: number[];
   audios: number[];

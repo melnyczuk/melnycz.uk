@@ -1,8 +1,6 @@
-import React, { useMemo } from 'react';
-
+import { useMemo } from 'react';
 import SiteTitle from './SiteTitle';
 import Nav from './Nav';
-
 import { works } from '../../static/db/works.json';
 import { sitetitle } from '../../static/db/info.json';
 
@@ -27,4 +25,3 @@ export default ({ page, children }: Props) => {
     </>
   );
 }
-

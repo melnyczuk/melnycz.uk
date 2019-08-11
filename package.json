@@ -6,8 +6,11 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
+    "export": "next export",
     "lint": "eslint -c .eslintrc.js . --ext .ts --ext .tsx",
+    "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
     "start": "next start",
+    "serve": "serve -p 8080 out",
     "test": "jest",
     "test:coverage": "jest --coverage && rm -r ./coverage",
     "type-check": "tsc --noEmit",
@@ -34,6 +37,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "node-sass": "^4.12.0",
+    "sass": "^1.22.9",
+    "serve": "^11.1.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },

@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-
+import { useState } from 'react';
 import Picture from './Picture';
 import Post, { Props as PostProps } from './Post';
-
 import { ImageType } from '../types';
 
 export interface Props extends PostProps { punctum: ImageType }

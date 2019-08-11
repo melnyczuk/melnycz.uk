@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import yaml from 'js-yaml';
-import { ImageType } from '../types';
-
 import Picture from './Picture';
+import { ImageType } from '../types';
 
 export interface Props {
   namespace: string;
@@ -11,10 +10,10 @@ export interface Props {
 }
 
 const buildParagraph = (text: string, i: number): JSX.Element => (
-  <React.Fragment key={`desc-${i}`}>
+  <Fragment key={`desc-${i}`}>
     <p className='post post--desc'>{text}</p>
     <br />
-  </React.Fragment>
+  </Fragment>
 );
 
 const buildImages =

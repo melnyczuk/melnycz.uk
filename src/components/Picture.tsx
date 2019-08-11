@@ -1,7 +1,4 @@
-import React from 'react';
-
 import '../styles/Picture.scss';
-
 import { ImageType } from '../types';
 import { buildSrc } from '../utils';
 
