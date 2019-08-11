@@ -1,12 +1,9 @@
-
 # Folders:
-build/
 node_modules
-__pycache__/
 coverage
-bin
-svg
-db
+.next
+__snapshots__
+out
 
 # Node / npm:
 npm-debug.log
@@ -25,7 +22,7 @@ npm-debug.log
 *.txt
 *.wg
 
-!dist/**
+# !dist/**
 # Files:
 .DS_Store
 

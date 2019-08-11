@@ -1,27 +1,37 @@
-import { MediaItemType, WorkType, AVType, ImageType } from './types';
+import { MediaItemType, WorkType, AVType, ImageType, DBMediaItemType } from './types';
 
 
 const buildSrc =
   ({ type, baseUrl, namespace, index, ext }: MediaItemType) =>
-    (size: number = null): string =>
-      `${baseUrl}/${type}${size && `/${size}`}/${namespace}-${index}.${ext}`;
+    (size: number): string =>
+      `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
-const filterMedia =
+const filterMediaByNamespace =
+  (namespace: string) =>
+    (media: MediaItemType): boolean =>
+      (media.namespace === namespace);
+
+const filterMediaByIndices =
   (indices: number[]) =>
-    (namespace: string) =>
-      (media: MediaItemType): boolean =>
-        ((media.namespace === namespace) && (indices.includes(media.index)));
+    (media: MediaItemType): boolean =>
+      (indices.includes(media.index));
 
 const filterWorks =
   (works: WorkType[]) =>
     (label: string): WorkType[] =>
       works.filter(({ area }) => area === label);
 
-const getBaseUrlAppender =
+const addBaseUrlAndTypeToPartialMediaItem =
   (baseUrl: string) =>
     (type: string) =>
-      (mediaItem): ImageType | AVType =>
+      (mediaItem: DBMediaItemType): ImageType | AVType =>
         ({ ...mediaItem, baseUrl, type });
 
 
-export { buildSrc, filterMedia, filterWorks, getBaseUrlAppender };
+export {
+  buildSrc,
+  filterMediaByNamespace,
+  filterMediaByIndices,
+  filterWorks,
+  addBaseUrlAndTypeToPartialMediaItem,
+};

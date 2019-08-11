@@ -1,0 +1,55 @@
+@import './root';
+
+.nav {
+  fill: white;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+
+  @media (min-width: $desktop) {
+    display: inline-block;
+  }
+
+  &--button {
+    border: $label-border;
+    width: fixed;
+    background: none;
+    fill: white;
+    flex: auto;
+    justify-content: space-evenly;
+    height: $bar-button-height_m;
+    line-height: $bar-button-height_m;
+    margin: $mobile-margin;
+    padding: $mobile-padding;
+
+    @media (min-width: $desktop) {
+      display: block;
+      justify-content: left;
+      height: $bar-button-height;
+      line-height: $bar-button-height;
+      margin: $desktop-margin;
+      padding: $desktop-padding;
+    }
+
+    &--label {
+      text-align: left;
+      vertical-align: middle;
+      font-size: 14px;
+      padding: 0 $mobile-padding;
+      height: $bar-button-height_m;
+      line-height: $bar-button-height_m;
+
+      @media (min-width: $desktop) {
+        font-size: 18px;
+        padding: 0 $desktop-padding;
+        height: $bar-button-height;
+        line-height: $bar-button-height;
+      }
+
+      &__active {
+        font-style: oblique;
+      }
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "media": {
+    "baseUrl": "/static",
+    "images": [
+      {
+        "namespace": "rrosetta",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 6,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "rrosetta",
+        "index": 9,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "objperma",
+        "index": 1,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "objperma",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "objperma",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "objperma",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 0,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 1,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 5,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 6,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 7,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 8,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 9,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "otsmiasm",
+        "index": 10,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 0,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 1,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 2,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 3,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 4,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 5,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      },
+      {
+        "namespace": "texcache",
+        "index": 6,
+        "alt": "",
+        "ext": "jpg",
+        "sizes": [160,320,640,960,1280,1600,1920,2560]
+      }
+    ],
+    "videos": [
+      {
+        "namespace": "aboutbio",
+        "index": 0,
+        "alt": "",
+        "ext": null,
+        "url": "https://vimeo.com/239667082"
+      }
+    ],
+    "audios": []
+  }
+}
