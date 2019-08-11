@@ -6,7 +6,7 @@
       "title": "About Howard Melnyczuk",
       "year": [],
       "media": {
-        "punctum": 0,
+        "punctum": [0],
         "images": [],
         "videos": [],
         "audios": []
@@ -21,7 +21,7 @@
         2018
       ],
       "media": {
-        "punctum": 3,
+        "punctum": [3],
         "images": [
           1,
           2,
@@ -62,7 +62,7 @@
         "found text"
       ],
       "media": {
-        "punctum": 9,
+        "punctum": [9],
         "images": [
           2,
           3,
@@ -168,8 +168,8 @@
         2016
       ],
       "media": {
-        "punctum": null,
-        "images": [],
+        "punctum": [0],
+        "images": [0,1,2,3,4,5,6],
         "videos": [],
         "audios": []
       },
@@ -237,8 +237,8 @@
         2016
       ],
       "media": {
-        "punctum": null,
-        "images": [],
+        "punctum": [0],
+        "images": [0,1,2,3,4,5,6,7,8,9,10],
         "videos": [],
         "audios": []
       },
