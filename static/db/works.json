@@ -11,7 +11,8 @@
         "videos": [],
         "audios": []
       },
-      "tags": []
+      "tags": [],
+      "live": true
     },
     {
       "area": "portfolio",
@@ -43,7 +44,8 @@
         "found text",
         "found audio",
         "archival content"
-      ]
+      ],
+      "live": true
     },
     {
       "area": "portfolio",
@@ -64,15 +66,16 @@
       "media": {
         "punctum": [9],
         "images": [
+          6,
           2,
           3,
           4,
-          6,
           9
         ],
         "videos": [0],
         "audios": []
-      }
+      },
+      "live": true
     },
     {
       "area": "portfolio",
@@ -89,7 +92,8 @@
       },
       "tags": [
         "website"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -106,7 +110,8 @@
         "images": [],
         "videos": [],
         "audios": []
-      }
+      },
+      "live": false
     },
     {
       "area": "portfolio",
@@ -123,7 +128,8 @@
         "images": [],
         "videos": [],
         "audios": []
-      }
+      },
+      "live": false
     },
     {
       "area": "portfolio",
@@ -141,7 +147,8 @@
       "tags": [
         "website",
         "pdf"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -158,7 +165,8 @@
       },
       "tags": [
         "website"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -168,7 +176,7 @@
         2016
       ],
       "media": {
-        "punctum": [0],
+        "punctum": [1],
         "images": [0,1,2,3,4,5,6],
         "videos": [],
         "audios": []
@@ -176,7 +184,8 @@
       "tags": [
         "website",
         "rendering"
-      ]
+      ],
+      "live": true
     },
     {
       "area": "portfolio",
@@ -193,7 +202,8 @@
       },
       "tags": [
         "pdf"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -210,7 +220,8 @@
       },
       "tags": [
         "pdf"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -227,7 +238,8 @@
       },
       "tags": [
         "video"
-      ]
+      ],
+      "live": false
     },
     {
       "area": "portfolio",
@@ -244,7 +256,8 @@
       },
       "tags": [
         "video"
-      ]
+      ],
+      "live": true
     }
   ]
 }

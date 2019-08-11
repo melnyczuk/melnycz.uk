@@ -26,26 +26,22 @@ export interface MediaIndexType {
   audios: number[];
 }
 
-export interface MediaItemType extends DBMediaItemType {
-  type: string;
-  baseUrl: string;
-}
-
-export interface DBMediaItemType {
+export interface MediaDBItemType {
   namespace: string;
   index: number;
   ext: string;
   alt: string;
   path?: string;
   url?: string;
+  sizes?: number[];
 }
 
-export interface ImageType extends MediaItemType {
-  sizes: number[];
-  caption?: string;
+export interface ImageType extends MediaDBItemType {
+  type: string;
+  baseUrl: string;
 }
 
-export interface AVType extends MediaItemType {
+export interface AVType extends ImageType {
   duration?: number;
   description?: string[];
 }
@@ -69,6 +65,5 @@ export interface WorkType {
   year: number[];
   media: MediaIndexType;
   tags: string[];
-  description?: string[];
-  visible?: boolean;
+  live: boolean;
 }
