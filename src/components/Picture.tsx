@@ -1,6 +1,7 @@
 import '../styles/Picture.scss';
 import { ImageType } from '../types';
 import { buildSrc } from '../utils';
+import '../styles/Picture.scss';
 
 export interface Props {
   image: ImageType;
@@ -8,39 +9,30 @@ export interface Props {
   parent: string;
 }
 
-const getSourcesByMax =
-  (max: number) =>
-    (srcBuilder: (n: number | null) => string) =>
-      (size: number, i: number) =>
-        (
-          <source
-            key={`source-${i}`}
-            media={`(max-width: ${Math.min(size * 0.8, max)}px)`}
-            srcSet={srcBuilder(size)}
-          />
-        );
-
-const getClassByParent =
-  (parent: string) =>
-    (elm: string): string =>
-      (elm === 'picture'
-        ? `picture ${parent}--picture`
-        : `picture--${elm} ${parent}--${elm}`);
 
 export default ({ image, max, parent }: Props) => {
-  const getClassForElm = getClassByParent(parent);
   const sourceBuilder = buildSrc(image);
-  const getSources = getSourcesByMax(max);
+  const getSources = (size: number, i: number) => {
+    const sourceProps = {
+      key: `source-${i}`,
+      media: `(max-width: ${Math.min(size * 0.8, max)}px)`,
+      srcSet: sourceBuilder(size),
+      className: `picture--source ${parent}--source`,
+    }
+
+    return (
+      <source {...sourceProps} />
+    )
+  }
+
   return (
-    <picture className={getClassForElm('picture')}>
-      {image.sizes.map(getSources(sourceBuilder))}
+    <picture className={`picture ${parent}--picture`}>
+      {image.sizes.map(getSources)}
       <img
         src={sourceBuilder(640)}
         alt={image.alt}
-        className={getClassForElm('image')}
+        className={`picture--image ${parent}--image`}
       />
     </picture>
   );
 };
-
-export { getSourcesByMax, getClassByParent };

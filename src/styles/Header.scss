@@ -1,0 +1,13 @@
+@import 'root';
+
+.header {
+	text-align: center;
+
+	@media (min-width: $desktop) {
+		float: left;
+		margin: 0;
+		width: 25%;
+		text-align: left;
+		overflow: hidden;
+	}
+}

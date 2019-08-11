@@ -1,0 +1,30 @@
+@import './index.scss';
+
+.app {
+	@include fadein;
+	margin: 8px;
+	padding: 16px;
+	height: 100vh;
+	color: black;
+	background: white;
+}
+
+.home {
+	display: inline-block;
+	position: float;
+	margin: 4px;
+	border: 0;
+
+	@media (min-width: $desktop) {
+		margin: 8px;
+	}
+
+	&--image {
+		@include fadein;
+
+		display: block;
+		object-fit: cover;
+		height: 60vw;
+		width: 100%;
+	}
+}

@@ -1,55 +1,38 @@
-@import './root';
+@import 'root';
+
+$spacing: 4px 0;
 
 .nav {
-  fill: white;
-  width: 100%;
-  overflow: hidden;
+	@include text;
+	fill: white;
+	width: 100%;
+	overflow: hidden;
+	height: auto;
+	display: flex;
+  margin: $spacing;
+  flex-wrap: wrap;
+  
+	&--button {
+    @include text;
+		background: none;
+		fill: white;
+		flex: auto;
+		justify-content: space-evenly;
+		height: auto;
+		padding: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
 
-  display: flex;
+		&--label {
+      @include text;
+			border-top: 4px solid white;
+			width: fit-content;
+			text-align: left;
+			padding: $spacing;
 
-  @media (min-width: $desktop) {
-    display: inline-block;
-  }
-
-  &--button {
-    border: $label-border;
-    width: fixed;
-    background: none;
-    fill: white;
-    flex: auto;
-    justify-content: space-evenly;
-    height: $bar-button-height_m;
-    line-height: $bar-button-height_m;
-    margin: $mobile-margin;
-    padding: $mobile-padding;
-
-    @media (min-width: $desktop) {
-      display: block;
-      justify-content: left;
-      height: $bar-button-height;
-      line-height: $bar-button-height;
-      margin: $desktop-margin;
-      padding: $desktop-padding;
-    }
-
-    &--label {
-      text-align: left;
-      vertical-align: middle;
-      font-size: 14px;
-      padding: 0 $mobile-padding;
-      height: $bar-button-height_m;
-      line-height: $bar-button-height_m;
-
-      @media (min-width: $desktop) {
-        font-size: 18px;
-        padding: 0 $desktop-padding;
-        height: $bar-button-height;
-        line-height: $bar-button-height;
-      }
-
-      &__active {
-        font-style: oblique;
-      }
-    }
-  }
+			&__active {
+				border-top: $random-border;
+			}
+		}
+	}
 }

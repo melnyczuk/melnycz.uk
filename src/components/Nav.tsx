@@ -8,8 +8,8 @@ export interface Props {
 
 const getClassName = (active: boolean): string =>
   active
-    ? 'nav--button--label nav--button--label__active'
-    : 'nav--button--label';
+    ? 'nav--button nav--button--label nav--button--label__active'
+    : 'nav--button nav--button--label';
 
 const capitaliseLabel = (label: string): string =>
   label.replace(/[a-z]/, t => t.toUpperCase());
