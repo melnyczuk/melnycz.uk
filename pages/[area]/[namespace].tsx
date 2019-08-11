@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../src/components/Layout';
+import App from '../../src/components/App';
 import Post from '../../src/components/Post';
 import {
   filterWorks,
@@ -35,8 +35,8 @@ export default () => {
   );
 
   return (
-    <Layout page={area}>
+    <App page={area}>
       <Post namespace={namespace} title={work.title} images={imgs} />
-    </Layout>
+    </App>
   )
 };

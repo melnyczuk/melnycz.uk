@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Layout from '../src/components/Layout';
+import App from '../src/components/App';
 import Works from '../src/components/Works';
 
 export default () => {
@@ -8,8 +8,8 @@ export default () => {
   if(!area) return null;
 
   return (
-    <Layout page={area}>
+    <App page={area}>
       <Works area={area}/>
-    </Layout>
+    </App>
   )
 };
