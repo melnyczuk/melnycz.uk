@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import Punctum from './Punctum';
 import { WorkType, ImageType } from '../types';
 import { works as worksDb } from '../../static/db/works.json';
-import { media } from '../../static/db/media.json';
+import { media as mediaDb } from '../../static/db/media.json';
 import {
   filterMediaByIndices,
   filterMediaByNamespace,
@@ -10,24 +10,29 @@ import {
   filterWorks,
 } from '../utils';
 
-const { baseUrl, images } = media;
+const { baseUrl, images } = mediaDb;
 
-export interface Props { area: string; };
+export interface Props { area: string }
 
 export default ({ area }: Props) => {
   const mediaTypeCompletionFunc = addBaseUrlAndTypeToPartialMediaItem(baseUrl);
   const imageTypeCompletionFunc = mediaTypeCompletionFunc('images');
-  const works = useMemo(() => filterWorks(worksDb)(area), [worksDb, area]) as WorkType[];
+  const works = useMemo(() => filterWorks(worksDb)(area), [worksDb, area]);
   return (
     <main>
       {
-        works.map(({ namespace, title, media: { punctum: punctIndicies, images: imgIndicies } }: WorkType) => {
+        works.map(({ namespace, title, media }: WorkType) => {
           const namespaceImages = images
             .map(imageTypeCompletionFunc)
             .filter(filterMediaByNamespace(namespace)) as ImageType[];
 
-          const imgs = namespaceImages.filter(filterMediaByIndices(imgIndicies));
-          const punctum = namespaceImages.filter(filterMediaByIndices(punctIndicies))[0];
+          const imgs = namespaceImages.filter(
+            filterMediaByIndices(media.images),
+          );
+
+          const punctum = namespaceImages.filter(
+            filterMediaByIndices(media.punctum),
+          )[0];
 
           return (
             <Punctum
@@ -42,4 +47,4 @@ export default ({ area }: Props) => {
       }
     </main>
   );
-}
+};

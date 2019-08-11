@@ -1,4 +1,4 @@
-import { MediaItemType, WorkType, AVType, ImageType } from './types';
+import { MediaItemType, WorkType, AVType, ImageType, DBMediaItemType } from './types';
 
 
 const buildSrc =
@@ -24,8 +24,8 @@ const filterWorks =
 const addBaseUrlAndTypeToPartialMediaItem =
   (baseUrl: string) =>
     (type: string) =>
-      (mediaItem: Partial<MediaItemType>): ImageType | AVType =>
-        ({ ...mediaItem, baseUrl, type } as ImageType | AVType);
+      (mediaItem: DBMediaItemType): ImageType | AVType =>
+        ({ ...mediaItem, baseUrl, type });
 
 
 export {
@@ -33,5 +33,5 @@ export {
   filterMediaByNamespace,
   filterMediaByIndices,
   filterWorks,
-  addBaseUrlAndTypeToPartialMediaItem
+  addBaseUrlAndTypeToPartialMediaItem,
 };

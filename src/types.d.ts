@@ -26,13 +26,16 @@ export interface MediaIndexType {
   audios: number[];
 }
 
-export interface MediaItemType {
+export interface MediaItemType extends DBMediaItemType {
+  type: string;
+  baseUrl: string;
+}
+
+export interface DBMediaItemType {
   namespace: string;
   index: number;
   ext: string;
   alt: string;
-  type: string;
-  baseUrl: string;
   path?: string;
   url?: string;
 }

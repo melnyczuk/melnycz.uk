@@ -6,13 +6,13 @@ import { sitetitle } from '../../static/db/info.json';
 
 export interface Props {
   page: string;
-  children: Array<JSX.Element> | JSX.Element;
+  children: JSX.Element[] | JSX.Element;
 }
 
 export default ({ page, children }: Props) => {
   const labels = useMemo(
     () => [...new Set(works.map(({ area }): string => area))] as string[],
-    works
+    works,
   );
 
   return (
@@ -24,4 +24,4 @@ export default ({ page, children }: Props) => {
       {children}
     </>
   );
-}
+};

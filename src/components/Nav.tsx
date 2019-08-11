@@ -21,16 +21,16 @@ export default ({ labels, active }) =>
         labels && labels.map(label =>
           (
             <Link key={label} href={`/${label}`}>
-              <button className='nav--button'>
+              <button type='button' className='nav--button'>
                 <h4 className={getClassName(active === label)}>
                   {capitaliseLabel(label)}
                 </h4>
               </button>
             </Link>
-          )
+          ),
         )
       }
     </nav>
   );
 
-export { getClassName, capitaliseLabel }
+export { getClassName, capitaliseLabel };

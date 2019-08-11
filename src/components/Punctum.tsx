@@ -19,4 +19,4 @@ export default ({ namespace, title, punctum, images }: Props) => {
       {visible && <Post title={title} namespace={namespace} images={images} />}
     </div>
   );
-}
+};

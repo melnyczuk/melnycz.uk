@@ -45,7 +45,7 @@ export default ({ namespace, title, images }: Props) => {
       {desc && desc.map(buildParagraph)}
       {images && images.map(buildImages)}
     </article>
-  )
+  );
 };
 
 export { fetchDescription, buildParagraph };

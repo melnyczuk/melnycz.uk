@@ -10,11 +10,11 @@ export default () => {
     ...images[Math.floor(Math.random() * images.length)],
     baseUrl,
     type: 'images',
-  }
+  };
 
   return (
     <Layout page='home'>
       <Picture image={image} parent='home' max={640} />
     </Layout>
   );
-}
+};

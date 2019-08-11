@@ -10,7 +10,7 @@ export interface Props {
 
 const getSourcesByMax =
   (max: number) =>
-    (srcBuilder: (n: number | null) => string, ) =>
+    (srcBuilder: (n: number | null) => string) =>
       (size: number, i: number) =>
         (
           <source
@@ -43,4 +43,4 @@ export default ({ image, max, parent }: Props) => {
   );
 };
 
-export { getSourcesByMax, getClassByParent }
+export { getSourcesByMax, getClassByParent };

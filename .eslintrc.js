@@ -66,6 +66,9 @@ module.exports = {
         '@typescript-eslint/no-empty-interface': 0,
         'react/prop-types': 0,
         'jsx-a11y/no-noninteractive-element-interactions': 0,
+        'react/react-in-jsx-scope': 0,
+        'no-confusing-arrow': 0,
+        'function-paren-newline': 0,
       },
     },
   ]
