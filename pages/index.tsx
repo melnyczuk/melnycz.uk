@@ -8,15 +8,20 @@ import '../src/styles/App.scss';
 const { images, baseUrl } = media;
 
 const getRandomImageIndexGenerator =
-  (len) =>
-    () =>
+  (len: number) =>
+    (): number =>
       Math.floor(Math.random() * len);
 
-export default () => {
+export default (): JSX.Element => {
   const generateRandomImageIndex = getRandomImageIndexGenerator(images.length);
-  const [i, setI] = useState(generateRandomImageIndex());
-  setInterval(() => setI(generateRandomImageIndex), 3000);
-  const image: ImageType = { ...images[i], baseUrl, type: 'images' };
+
+  const [index, setIndex]:
+  [number, (i: number) => void]
+    = useState(generateRandomImageIndex());
+
+  setInterval(() => setIndex(generateRandomImageIndex()), 3000);
+
+  const image: ImageType = { ...images[index], baseUrl, type: 'images' };
 
   return (
     <App page='home'>

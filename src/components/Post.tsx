@@ -10,7 +10,7 @@ export interface Props {
   images: ImageType[];
 }
 
-const Description = ({ description }: { description: string[] }) =>
+const Description = ({ description }: { description: string[] }): JSX.Element =>
   (
     <div className='post post--desc'>
       {
@@ -33,20 +33,20 @@ const buildImages = (image: ImageType) =>
     />
   );
 
-const triggerFetch =
-  (namespace, setDesc) =>
-    () => {
-      (async () => await fetchDescription(namespace).then(setDesc))()
-    };
-
 const fetchDescription = (namespace): Promise<string[]> =>
   fetch(`../static/copy/${namespace}.yaml`)
-    .then(resp => resp.text())
+    .then((resp: Response): Promise<string> => resp.text())
     .then(yaml.load)
-    .then(({ description }: any) => description);
+    .then(({ description }: any): string[] => description);
+
+const triggerFetch =
+  (namespace, setDesc) =>
+    (): void => {
+      (async () => await fetchDescription(namespace).then(setDesc))();
+    };
 
 export default ({ namespace, title, images }: Props) => {
-  const [desc, setDesc] = useState([]);
+  const [desc, setDesc]: [string[], (d: string[]) => void] = useState([]);
 
   useEffect(triggerFetch(namespace, setDesc));
 

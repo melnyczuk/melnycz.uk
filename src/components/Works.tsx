@@ -13,24 +13,33 @@ const { baseUrl, images } = mediaDb;
 
 export interface Props { area: string }
 
-const mediaTypeCompletionFunc = addBaseUrlAndTypeToMediaItem(baseUrl);
-const imageTypeCompletionFunc = mediaTypeCompletionFunc('images');
+const mediaTypeCompletionFunc:
+(type: string) => (image: Partial<ImageType>) => ImageType
+  = addBaseUrlAndTypeToMediaItem(baseUrl);
 
-export default ({ area }: Props) => {
-  const works = useMemo(() => filterWorks(worksDb)(area), [worksDb, area]);
+const imageTypeCompletionFunc:
+(image: Partial<ImageType>) => ImageType
+  = mediaTypeCompletionFunc('images');
+
+export default ({ area }: Props): JSX.Element => {
+  const works: WorkType[] = useMemo(
+    () => filterWorks(worksDb)(area),
+    [worksDb, area],
+  );
+
   return (
     <>
       {
-        works.filter(({ live }) => live)
-          .map(({ namespace, title, media }: WorkType) => {
-            const namespaceImages = images
+        works.filter(({ live }): boolean => live)
+          .map(({ namespace, title, media }: WorkType): JSX.Element => {
+            const namespaceImages: ImageType[] = images
               .map(imageTypeCompletionFunc)
               .filter(filterMediaByNamespace(namespace));
 
-            const punctum = media.punctum && media.punctum
+            const punctum: ImageType = media.punctum && media.punctum
               .map(p => namespaceImages
                 .filter(({ index }) => index === p)[0],
-              )[0] as ImageType;
+              )[0];
 
             return (
               <Punctum
@@ -46,4 +55,4 @@ export default ({ area }: Props) => {
   );
 };
 
-export { mediaTypeCompletionFunc, imageTypeCompletionFunc }
+export { mediaTypeCompletionFunc, imageTypeCompletionFunc };

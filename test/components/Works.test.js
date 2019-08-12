@@ -13,7 +13,7 @@ describe('Works Component', () => {
 
   it('renders a punctum for every live work in an area', () => {
     const punctums = component.find('.punctum');
-    expect(punctums).toBeHaveLength(1);
+    expect(punctums).toHaveLength(1);
   });
 
 });
