@@ -15,12 +15,12 @@
 	&--image {
 		display: block;
 		object-fit: cover;
-		height: 67vw;
+		height: 100vw;
 		width: 100%;
 
 		@media (min-width: $desktop-bp) {
 			width: $desktop-bp;
-			height: ($desktop-bp * 0.67);
+			height: $desktop-bp;
 		}
 	}
 

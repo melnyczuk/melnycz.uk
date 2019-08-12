@@ -47,6 +47,7 @@ export default ({ area }: Props): JSX.Element => {
                 area={area}
                 image={punctum}
                 namespace={namespace}
+                title={title}
               />
             );
           })
