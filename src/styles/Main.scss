@@ -3,8 +3,8 @@
 .main {
 	width: 100%;
 
-	@media (min-width: $desktop) {
+	@media (min-width: $desktop-bp) {
 		float: left;
-		width: 60%;
+		width: $desktop-bp;
 	}
 }

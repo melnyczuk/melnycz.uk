@@ -2,4 +2,13 @@
 
 .picture {
 	height: 0;
+
+	&--image {
+    object-fit: cover;
+
+		@media (min-width: $desktop-bp) {
+			width: $desktop-bp;
+			height: $desktop-bp;
+		}
+	}
 }

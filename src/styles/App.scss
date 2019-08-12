@@ -6,25 +6,10 @@
 	padding: 16px;
 	height: 100vh;
 	color: black;
-	background: white;
-}
-
-.home {
-	display: inline-block;
-	position: float;
-	margin: 4px;
-	border: 0;
-
-	@media (min-width: $desktop) {
-		margin: 8px;
-	}
-
-	&--image {
-		@include fadein;
-
-		display: block;
-		object-fit: cover;
-		height: 60vw;
-		width: 100%;
-	}
+  background: white;
+  
+  @media (min-width: $desktop-bp) {
+    width: $desktop-bp;
+    margin: 8px auto;
+  }
 }

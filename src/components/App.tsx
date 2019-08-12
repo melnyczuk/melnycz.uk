@@ -1,7 +1,12 @@
 import Head from 'next/head';
 import SiteTitle from './SiteTitle';
 import Nav from './Nav';
-import { sitetitle, metatitle, metadescription, navlabels } from '../../static/db/info.json';
+import { 
+  sitetitle, 
+  metatitle, 
+  metadescription, 
+  navlabels 
+} from '../../static/db/info.json';
 import '../styles/App.scss'
 import '../styles/Header.scss'
 import '../styles/Main.scss'

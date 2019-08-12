@@ -9,30 +9,30 @@ $spacing: 4px 0;
 	overflow: hidden;
 	height: auto;
 	display: flex;
-  margin: $spacing;
+	margin: $spacing;
   flex-wrap: wrap;
-  
+
 	&--button {
-    @include text;
+		@include text;
 		background: none;
 		fill: white;
 		flex: auto;
 		justify-content: space-evenly;
 		height: auto;
 		padding: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
+		flex-grow: 1;
+		flex-shrink: 1;
+  }
 
-		&--label {
-      @include text;
-			border-top: 4px solid white;
-			width: fit-content;
-			text-align: left;
-			padding: $spacing;
-
-			&__active {
-				border-top: $random-border;
-			}
-		}
+	&--label {
+		@include text;
+		border-top: 4px solid white;
+		width: fit-content;
+		text-align: left;
+    padding: $spacing;
+     
+    &__active {
+      border-top: $random-border;
+    }
 	}
 }

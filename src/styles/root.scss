@@ -1,7 +1,8 @@
 @import 'reset';
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
-$desktop: 768px;
+$desktop-bp: 640px;
+$nav-width: 350px;
 $random-border: 4px solid black;
 $site-title-font-size: 48px;
 $heading-font-size: 40px;
