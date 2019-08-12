@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 
-import Picture, { getClassByParent, getSourcesByMax } from '../../src/components/Picture';
+import Picture, { getSourceComponent } from '../../src/components/Picture';
 
 describe('Picture', () => {
   const img = {
@@ -19,28 +19,19 @@ describe('Picture', () => {
   });
 });
 
-describe('getClassByParent', () => {
-  it('get\'s the correct class for a parent and a picture element', () => {
-    const className = getClassByParent('test')('picture');
-    expect(className).toEqual('picture test--picture');
-  });
-
-  it('get\'s the correct class for a parent and any other element', () => {
-    const className = getClassByParent('toast')('image');
-    expect(className).toEqual('picture--image toast--image');
-  });
-});
-
-
-describe('getSourcesByMax', () => {
+describe('getSourceTags', () => {
+  const sourceBuilder = jest.fn().mockReturnValue('./here/videos/420/test-0.mov');
   const max = 69;
   const size = 420;
-  const i = 4;
-  const sourceBuilder = jest.fn().mockReturnValue('./here/videos/420/test-0.mov');
+
+  const Source = getSourceComponent(sourceBuilder, max);
   
+  it('returns a React Functional Component', () => {
+    expect(typeof Source).toEqual('function');
+  });
+
   it('returns a source tag with the correct attributes', () => {
-    const source = getSourcesByMax(max)(sourceBuilder)(size, i);
-    const expectedSource = shallow(source);
+    const expectedSource = shallow(<Source size={size} />);
     const testSource = <source media="(max-width: 69px)" srcSet="./here/videos/420/test-0.mov"/>;
     expect(expectedSource.matchesElement(testSource)).toBeTruthy();
   });
