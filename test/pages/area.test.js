@@ -24,4 +24,11 @@ describe('About Page', () => {
     expect(nav).toHaveLength(1);
     expect(nav.hasClass('nav')).toBeTruthy();
   });
+
+  it('renders nothing if no area prop is provided', () => {
+    nextRouter.useRouter = jest.fn()
+      .mockImplementation(() => ({ query: {}}));
+    const nullpage = shallow(<AreaPage />);
+    expect(nullpage.html()).toBeNull();
+  });
 });

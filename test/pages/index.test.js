@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import IndexPage from '../../pages/index.tsx';
+import IndexPage, { getRandomImageIndexGenerator } from '../../pages/index.tsx';
 
 import { sitetitle } from '../../static/db/info.json';
 
@@ -23,5 +23,14 @@ describe('Index', () => {
   it('renders a picture', () => {
     const pic = page.find('.picture');
     expect(pic).toHaveLength(1);
+  });
+});
+
+describe('getRandomImageIndexGenerator', () => {
+  it('generates a random number from all the numbers', () => {
+    const numbers = [...Array(500).keys()];
+    const generatorRandomNumber = getRandomImageIndexGenerator(500);
+    const randomnumber = generatorRandomNumber();
+    expect(numbers.includes(randomnumber)).toBeTruthy();
   });
 });

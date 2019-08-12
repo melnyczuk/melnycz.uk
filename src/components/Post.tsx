@@ -10,20 +10,21 @@ export interface Props {
   images: ImageType[];
 }
 
-const buildDescription = (description: string[]) => (
-  <div className='post post--desc'>
-    {description.map(
-      (text, t) => (
-        <p className='post--desc--paragraph' key={`desc-${t}`}>
-          {text}
-        </p>
-      )
-    )}
-  </div>
-)
+const Description = ({ description }: { description: string[] }) =>
+  (
+    <div className='post post--desc'>
+      {
+        description.map(text => (
+          <p className='post--desc--paragraph' key={`desc-${text}`}>
+            {text}
+          </p>
+        ))
+      }
+    </div>
+  );
 
-const buildImages =
-  (image: ImageType) => (
+const buildImages = (image: ImageType) =>
+  (
     <Picture
       key={`${image.namespace}-${image.index}`}
       image={image}
@@ -31,6 +32,12 @@ const buildImages =
       max={640}
     />
   );
+
+const triggerFetch =
+  (namespace, setDesc) =>
+    () => {
+      (async () => await fetchDescription(namespace).then(setDesc))()
+    };
 
 const fetchDescription = (namespace): Promise<string[]> =>
   fetch(`../static/copy/${namespace}.yaml`)
@@ -41,17 +48,15 @@ const fetchDescription = (namespace): Promise<string[]> =>
 export default ({ namespace, title, images }: Props) => {
   const [desc, setDesc] = useState([]);
 
-  useEffect(() => {
-    (async () => await fetchDescription(namespace).then(setDesc))();
-  });
+  useEffect(triggerFetch(namespace, setDesc));
 
   return (
     <article className='post'>
       {title && <h2 className='post--title'>{title}</h2>}
-      {desc && buildDescription(desc)}
+      {desc && <Description description={desc} />}
       {images && images.map(buildImages)}
     </article>
   );
 };
 
-export { fetchDescription, buildDescription };
+export { fetchDescription, triggerFetch, buildImages, Description };

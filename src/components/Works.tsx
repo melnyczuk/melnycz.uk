@@ -13,9 +13,10 @@ const { baseUrl, images } = mediaDb;
 
 export interface Props { area: string }
 
+const mediaTypeCompletionFunc = addBaseUrlAndTypeToMediaItem(baseUrl);
+const imageTypeCompletionFunc = mediaTypeCompletionFunc('images');
+
 export default ({ area }: Props) => {
-  const mediaTypeCompletionFunc = addBaseUrlAndTypeToMediaItem(baseUrl);
-  const imageTypeCompletionFunc = mediaTypeCompletionFunc('images');
   const works = useMemo(() => filterWorks(worksDb)(area), [worksDb, area]);
   return (
     <>
@@ -28,7 +29,7 @@ export default ({ area }: Props) => {
 
             const punctum = media.punctum && media.punctum
               .map(p => namespaceImages
-                .filter(({ index }) => index === p)[0]
+                .filter(({ index }) => index === p)[0],
               )[0] as ImageType;
 
             return (
@@ -44,3 +45,5 @@ export default ({ area }: Props) => {
     </>
   );
 };
+
+export { mediaTypeCompletionFunc, imageTypeCompletionFunc }

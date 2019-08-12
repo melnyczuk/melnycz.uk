@@ -8,7 +8,7 @@ describe('SiteTitle', () => {
 
   describe('Link', () => {
     it('is a Next link component', () => {
-      expect(title.name('Link')).toBeTruthy();
+      expect(title.name()).toEqual('Link');
     });
 
     it('has a href attribute that links back to the root path', () => {

@@ -5,7 +5,7 @@ import '../styles/Punctum.scss';
 
 export interface Props {
   area: string;
-  image: ImageType
+  image: ImageType;
   namespace: string;
 }
 
@@ -14,8 +14,8 @@ export default ({ area, image, namespace }: Props) => {
 
   return (
     <section className='punctum'>
-      <Link href="/[area]/[namespace]" as={`/${area}/${namespace}`}>
-        <button className='punctum--button'>
+      <Link href='/[area]/[namespace]' as={`/${area}/${namespace}`}>
+        <button type='button' className='punctum--button'>
           <Picture image={image} parent='punctum' max={800} />
           {/* {title && <Label title={title} parent='punctum' />} */}
         </button>

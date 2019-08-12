@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Picture, { getSourceComponent } from '../../src/components/Picture';
 
@@ -9,8 +9,7 @@ describe('Picture', () => {
   const pic = shallow(<Picture image={img} max={640} parent='test' />);
 
   it('is a picture tag', () => {
-    const picTag = pic.find('picture');
-    expect(picTag).toHaveLength(1);
+    expect(pic.type()).toEqual('picture');
   });
 
   it('has a class of .picture', () => {
@@ -23,8 +22,9 @@ describe('getSourceTags', () => {
   const sourceBuilder = jest.fn().mockReturnValue('./here/videos/420/test-0.mov');
   const max = 69;
   const size = 420;
+  const parent = 'test'
 
-  const Source = getSourceComponent(sourceBuilder, max);
+  const Source = getSourceComponent(sourceBuilder, parent, max);
   
   it('returns a React Functional Component', () => {
     expect(typeof Source).toEqual('function');
@@ -32,7 +32,7 @@ describe('getSourceTags', () => {
 
   it('returns a source tag with the correct attributes', () => {
     const expectedSource = shallow(<Source size={size} />);
-    const testSource = <source media="(max-width: 69px)" srcSet="./here/videos/420/test-0.mov"/>;
+    const testSource = <source className='picture--source test--source' media='(max-width: 69px)' srcSet='./here/videos/420/test-0.mov'/>;
     expect(expectedSource.matchesElement(testSource)).toBeTruthy();
   });
 });

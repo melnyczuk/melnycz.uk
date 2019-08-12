@@ -16,8 +16,8 @@ export default ({ labels, active }) =>
   (
     <nav className='nav'>
       {
-        labels && labels.map(label => {
-          const labelClassName = getClassName(active === label)
+        labels && labels.map((label) => {
+          const labelClassName = getClassName(active === label);
           return (
             <Link key={label} href={`/${label}`}>
               <button type='button' className='nav--button'>

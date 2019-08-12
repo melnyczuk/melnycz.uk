@@ -7,11 +7,15 @@ import '../src/styles/App.scss';
 
 const { images, baseUrl } = media;
 
-const randomImageIndex = () => Math.floor(Math.random() * images.length);
+const getRandomImageIndexGenerator =
+  (len) =>
+    () =>
+      Math.floor(Math.random() * len);
 
 export default () => {
-  const [i, setI] = useState(randomImageIndex)
-  setInterval(() => setI(randomImageIndex), 3000)
+  const generateRandomImageIndex = getRandomImageIndexGenerator(images.length);
+  const [i, setI] = useState(generateRandomImageIndex());
+  setInterval(() => setI(generateRandomImageIndex), 3000);
   const image: ImageType = { ...images[i], baseUrl, type: 'images' };
 
   return (
@@ -20,3 +24,5 @@ export default () => {
     </App>
   );
 };
+
+export { getRandomImageIndexGenerator };

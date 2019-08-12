@@ -9,7 +9,7 @@ describe('Nav', () => {
   );
 
   it('is a nav tag', () => {
-    expect(nav.name()).toEqual('nav');
+    expect(nav.type()).toEqual('nav');
   });
 
   it('has a class of .nav', () => {

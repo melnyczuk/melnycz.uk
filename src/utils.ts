@@ -1,4 +1,4 @@
-import { MediaDBItemType, WorkType, AVType, ImageType } from './types';
+import { MediaDBItemType, WorkType, ImageType } from './types';
 
 
 const buildSrc =
