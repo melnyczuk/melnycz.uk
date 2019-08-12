@@ -1,9 +1,8 @@
 import {
   buildSrc,
   filterMediaByNamespace,
-  filterMediaByIndices,
   filterWorks,
-  addBaseUrlAndTypeToPartialMediaItem
+  addBaseUrlAndTypeToMediaItem,
 } from '../src/utils';
 
 describe('buildSrc', () => {
@@ -48,31 +47,6 @@ describe('filterMediaByNamespace', () => {
   });
 });
 
-describe('filterMediaByNamespace', () => {
-  const partialMediaItem = {
-    type: 'videos',
-    baseUrl: './here',
-    ext: 'mov',
-    alt: 'tester',
-  };
-
-  const indicies = [69, 420];
-
-  const mediaFilterer = filterMediaByIndices(indicies);
-
-  it('returns true if the index is in indicies', () => {
-    const mediaItem = { ...partialMediaItem, index: 45 };
-    const result = mediaFilterer(mediaItem);
-    expect(result).toEqual(false);
-  });
-
-  it('returns false if the index is not in indicies', () => {
-    const mediaItem = { ...partialMediaItem, index: 45 };
-    const result = mediaFilterer(mediaItem);
-    expect(result).toEqual(false);
-  });
-});
-
 describe('filterWorks', () => {
   const works = [
     { area: 'test' },
@@ -99,7 +73,7 @@ describe('addBaseUrlAndTypeToPartialMediaItem', () => {
   };
 
   it('returns a function that returns a function that returns a valid MediaItem', () => {
-    const validMediaItem = addBaseUrlAndTypeToPartialMediaItem(baseUrl)(type)(partialMediaItem);
+    const validMediaItem = addBaseUrlAndTypeToMediaItem(baseUrl)(type)(partialMediaItem);
     expect(validMediaItem).toEqual({
       namespace: 'test',
       index: 0,

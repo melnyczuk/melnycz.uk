@@ -43,24 +43,24 @@ describe('Nav', () => {
 });
 
 describe('getClassName', () => {
-  it('adds the nav--button--label regardless of active status', () => {
+  it('adds the nav--label regardless of active status', () => {
     const activeClassName = getClassName(true);
     const inactiveClassName = getClassName(false);
     expect((
-      activeClassName.includes('nav--button--label') &&
-      inactiveClassName.includes('nav--button--label')
+      activeClassName.includes('nav--label') &&
+      inactiveClassName.includes('nav--label')
     )).toBeTruthy();
   });
 
   it('adds the active modifier if the nav button is active', () => {
     const activeClassName = getClassName(true);
-    expect(activeClassName.includes('nav--button--label__active'))
+    expect(activeClassName.includes('nav--label__active'))
       .toBeTruthy();
   });
 
   it('does not add the active modifier if the nav button is not active', () => {
     const inactiveClassName = getClassName(false);
-    expect(inactiveClassName.includes('nav--button--label__active'))
+    expect(inactiveClassName.includes('nav--label__active'))
       .toBeFalsy();
   });
 });

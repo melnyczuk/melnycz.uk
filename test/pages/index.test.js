@@ -1,16 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Index from '../../pages/index.tsx';
+import IndexPage from '../../pages/index.tsx';
 
 import { sitetitle } from '../../static/db/info.json';
 
 describe('Index', () => {
-  const page = mount(<Index/>);
+  const page = mount(<IndexPage/>);
 
   it('renders a site title', () => {
-    const title = page.find('.site-title');
+    const title = page.find('h1'); 
     expect(title).toHaveLength(1);
+    expect(title.hasClass('site-title')).toBeTruthy();
     expect(title.text()).toEqual(sitetitle);
   });
 
