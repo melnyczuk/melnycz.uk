@@ -16,7 +16,7 @@ export default ({ area, image, namespace }: Props) => {
     <section className='punctum'>
       <Link href='/[area]/[namespace]' as={`/${area}/${namespace}`}>
         <button type='button' className='punctum--button'>
-          <Picture image={image} parent='punctum' max={800} />
+          <Picture image={image} parent='punctum' />
           {/* {title && <Label title={title} parent='punctum' />} */}
         </button>
       </Link>

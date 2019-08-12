@@ -123,7 +123,6 @@ describe('buildImages', () => {
       .toEqual('./test/images/640/test-2.jpg');
     expect(pic.key).toEqual('test-2');
     expect(pic.props.parent).toEqual('post');
-    expect(pic.props.max).toEqual(640);
   });
 });
 

@@ -5,24 +5,23 @@ import { buildSrc } from '../utils';
 
 export interface Props {
   image: ImageType;
-  max: number;
   parent: string;
 }
 
 const getSourceComponent =
-  (sourceBuilder: Function, parent: string, max: number):
+  (sourceBuilder: Function, parent: string):
   React.FunctionComponent<{ size: number }> =>
     ({ size }): JSX.Element => (
       <source
-        media={`(max-width: ${Math.min(size * 0.8, max)}px)`}
+        media={`(max-width: ${size * 0.8}px)`}
         srcSet={sourceBuilder(size)}
         className={`picture--source ${parent}--source`}
       />
     );
 
-export default ({ image, max, parent }: Props) => {
+export default ({ image, parent }: Props) => {
   const sourceBuilder = buildSrc(image);
-  const Source = getSourceComponent(sourceBuilder, parent, max);
+  const Source = getSourceComponent(sourceBuilder, parent);
 
   return (
     <picture className={`picture ${parent}--picture`}>

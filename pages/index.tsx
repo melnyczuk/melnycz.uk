@@ -19,13 +19,16 @@ export default (): JSX.Element => {
   [number, (i: number) => void]
     = useState(generateRandomImageIndex());
 
-  setInterval(() => setIndex(generateRandomImageIndex()), 3000);
+  const interval = setInterval(() => {
+    setIndex(generateRandomImageIndex());
+    clearInterval(interval);
+  }, 3000);
 
   const image: ImageType = { ...images[index], baseUrl, type: 'images' };
 
   return (
     <App page='home'>
-      <Picture image={image} parent='home' max={640} />
+      <Picture image={image} parent='home' />
     </App>
   );
 };
