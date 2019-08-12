@@ -7,9 +7,7 @@ export interface Props {
 }
 
 const getClassName = (active: boolean): string =>
-  active
-    ? 'nav--button nav--button--label nav--button--label__active'
-    : 'nav--button nav--button--label';
+  active ? 'nav--label nav--label__active' : 'nav--label';
 
 const capitaliseLabel = (label: string): string =>
   label.replace(/[a-z]/, t => t.toUpperCase());
@@ -18,17 +16,18 @@ export default ({ labels, active }) =>
   (
     <nav className='nav'>
       {
-        labels && labels.map(label =>
-          (
+        labels && labels.map(label => {
+          const labelClassName = getClassName(active === label)
+          return (
             <Link key={label} href={`/${label}`}>
               <button type='button' className='nav--button'>
-                <h4 className={getClassName(active === label)}>
+                <h4 className={labelClassName}>
                   {capitaliseLabel(label)}
                 </h4>
               </button>
             </Link>
-          ),
-        )
+          );
+        })
       }
     </nav>
   );
