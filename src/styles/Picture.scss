@@ -4,7 +4,9 @@
 	height: 0;
 
 	&--image {
-    object-fit: cover;
+		object-fit: cover;
+		height: 100vw;
+		width: 100%;
 
 		@media (min-width: $desktop-bp) {
 			width: $desktop-bp;

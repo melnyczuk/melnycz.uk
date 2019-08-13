@@ -14,14 +14,6 @@
 
 	&--image {
 		display: block;
-		object-fit: cover;
-		height: 100vw;
-		width: 100%;
-
-		@media (min-width: $desktop-bp) {
-			width: $desktop-bp;
-			height: $desktop-bp;
-		}
 	}
 
 	&--label {
