@@ -1,0 +1,10 @@
+@import 'root';
+
+.main {
+	width: 100%;
+
+	@media (min-width: $desktop-bp) {
+		float: left;
+		width: $desktop-bp;
+	}
+}

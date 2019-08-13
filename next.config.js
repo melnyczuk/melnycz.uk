@@ -1,12 +1,23 @@
 const withSass = require('@zeit/next-sass');
+const { navlabels } = require('./static/db/info.json');
+const { works } = require('./static/db/works.json');
 
 module.exports = withSass({
-  exportPathMap: function() {
-    return {
-      '/': { page: '/' },
-      '/about': { page: '/about' },
-      '/portfolio': { page: '/portfolio' }
-    };
+  exportPathMap: function () {
+    let paths = { '/': { page: '/' } };
+
+    navlabels.forEach(area => {
+      paths[`/${area}`] = { page: '/[area]', query: { area } }
+    });
+
+    works.filter(({ live }) => live)
+      .forEach(({ namespace, area }) => {
+        paths[`/${area}/${namespace}`] = {
+          page: '/[area]/[namespace]', query: { area, namespace }
+        }
+      });
+
+    return paths;
   },
   webpack(config, options) { return config; }
 });

@@ -1,22 +1,36 @@
-import { useState } from 'react';
+import Link from 'next/link';
 import Picture from './Picture';
-import Post, { Props as PostProps } from './Post';
 import { ImageType } from '../types';
+import '../styles/Punctum.scss';
 
-export interface Props extends PostProps { punctum: ImageType }
+export interface Props {
+  area: string;
+  image: ImageType;
+  namespace: string;
+  title: string;
+}
 
-export default ({ namespace, title, punctum, images }: Props) => {
-  if (!punctum) return null;
+const Label = ({ title }: { title: string }): JSX.Element => (
+  <div className='punctum--label'>
+    <h2 className='punctum--title'>
+      {title}
+    </h2>
+  </div>
+);
 
-  const [visible, setVisible] = useState(false);
+export default ({ area, image, title, namespace }: Props) => {
+  if (!image) return null;
 
   return (
-    <div>
-      <div className='punctum' onClick={() => setVisible(!visible)}>
-        <Picture image={punctum} parent='punctum' max={800} />
-        {/* {title && <Label title={title} parent='punctum' />} */}
-      </div>
-      {visible && <Post title={title} namespace={namespace} images={images} />}
-    </div>
+    <section className='punctum'>
+      <Link href='/[area]/[namespace]' as={`/${area}/${namespace}`}>
+        <button type='button' className='punctum--button'>
+          <Picture image={image} parent='punctum' />
+          <Label title={title} />
+        </button>
+      </Link>
+    </section>
   );
 };
+
+export { Label };

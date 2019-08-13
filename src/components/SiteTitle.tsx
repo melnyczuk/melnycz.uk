@@ -6,8 +6,10 @@ export interface Props { title: string }
 export default ({ title }: Props) =>
   (
     <Link href='/'>
-      <h1 className='site-title'>
-        {title}
-      </h1>
+      <button type='button' className='site-title site-title--button'>
+        <h1 className='site-title site-title--heading'>
+          {title}
+        </h1>
+      </button>
     </Link>
   );

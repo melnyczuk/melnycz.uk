@@ -1,0 +1,34 @@
+@import 'root';
+
+.punctum {
+	@include fadein;
+	position: relative;
+	border: 0;
+	padding: 0;
+	margin: 4px 0;
+
+	&--button {
+		border: 0;
+		padding: 0;
+	}
+
+	&--image {
+		display: block;
+	}
+
+	&--label {
+		background-color: white;
+		position: absolute;
+		width: 80%;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		padding: 8px;
+	}
+
+	&--title {
+		@include text;
+		vertical-align: middle;
+		text-align: center;
+	}
+}

@@ -1,5 +1,16 @@
-@import './root';
+@import 'root';
 
 .picture {
-  margin: 0;
+	height: 0;
+
+	&--image {
+		object-fit: cover;
+		height: 100vw;
+		width: 100%;
+
+		@media (min-width: $desktop-bp) {
+			width: $desktop-bp;
+			height: $desktop-bp;
+		}
+	}
 }

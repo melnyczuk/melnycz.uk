@@ -2,45 +2,37 @@ import '../styles/Picture.scss';
 import { ImageType } from '../types';
 import { buildSrc } from '../utils';
 
+
 export interface Props {
   image: ImageType;
-  max: number;
   parent: string;
 }
 
-const getSourcesByMax =
-  (max: number) =>
-    (srcBuilder: (n: number | null) => string) =>
-      (size: number, i: number) =>
-        (
-          <source
-            key={`source-${i}`}
-            media={`(max-width: ${Math.min(size * 0.8, max)}px)`}
-            srcSet={srcBuilder(size)}
-          />
-        );
+const getSourceComponent =
+  (sourceBuilder: Function, parent: string):
+  React.FunctionComponent<{ size: number }> =>
+    ({ size }): JSX.Element => (
+      <source
+        media={`(max-width: ${size * 0.8}px)`}
+        srcSet={sourceBuilder(size)}
+        className={`picture--source ${parent}--source`}
+      />
+    );
 
-const getClassByParent =
-  (parent: string) =>
-    (elm: string): string =>
-      (elm === 'picture'
-        ? `picture ${parent}--picture`
-        : `picture--${elm} ${parent}--${elm}`);
-
-export default ({ image, max, parent }: Props) => {
-  const getClassForElm = getClassByParent(parent);
+export default ({ image, parent }: Props) => {
   const sourceBuilder = buildSrc(image);
-  const getSources = getSourcesByMax(max);
+  const Source = getSourceComponent(sourceBuilder, parent);
+
   return (
-    <picture className={getClassForElm('picture')}>
-      {image.sizes.map(getSources(sourceBuilder))}
+    <picture className={`picture ${parent}--picture`}>
+      {image.sizes.map(size => (<Source key={`source-${size}`} size={size} />))}
       <img
         src={sourceBuilder(640)}
         alt={image.alt}
-        className={getClassForElm('image')}
+        className={`picture--image ${parent}--image`}
       />
     </picture>
   );
 };
 
-export { getSourcesByMax, getClassByParent };
+export { getSourceComponent };

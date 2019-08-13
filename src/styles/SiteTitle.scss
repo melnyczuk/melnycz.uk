@@ -1,18 +1,15 @@
-@import './root';
+@import 'root';
 
 .site-title {
+	@include text;
+  background: none;
+  fill: white;
+  flex: auto;
+  justify-content: space-evenly;
   text-align: left;
-  border: $label-border;
-
-  margin: $mobile-margin;
-  padding: $mobile-padding;
-  font-size: 24px;
-  line-height: $bar-button-height_m;
-
-  @media (min-width: $desktop) {
-    margin: $desktop-margin;
-    padding: $desktop-padding;
-    font-size: 32px;
-    line-height: $bar-button-height;
-  }
+  float: left;
+  height: auto;
+  padding: 0;
+	margin: 0;
+  font-size: $site-title-font-size;
 }
