@@ -3,8 +3,11 @@ const { navlabels } = require('./static/db/info.json');
 const { works } = require('./static/db/works.json');
 
 module.exports = withSass({
-  exportPathMap: function () {
-    let paths = { '/': { page: '/' } };
+    exportPathMap () {
+    let paths = { 
+      '/': { page: '/' }, 
+      'cv': { page: '/cv'} 
+    };
 
     navlabels.forEach(area => {
       paths[`/${area}`] = { page: '/[area]', query: { area } }
@@ -19,5 +22,5 @@ module.exports = withSass({
 
     return paths;
   },
-  webpack(config, options) { return config; }
+    webpack(config, options) { return config; },
 });
