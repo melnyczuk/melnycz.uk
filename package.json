@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
-    "dist":"npm run build && npm run export",
+    "dist": "npm run build && npm run export",
     "export": "next export",
     "lint": "eslint -c .eslintrc.js . --ext .ts --ext .tsx",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
