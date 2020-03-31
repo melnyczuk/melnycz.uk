@@ -1,3 +1,4 @@
+import React, { FC } from 'react';
 import Head from 'next/head';
 import SiteTitle from './SiteTitle';
 import Nav from './Nav';
@@ -17,20 +18,20 @@ export interface Props {
   children: JSX.Element[] | JSX.Element;
 }
 
-export default ({ page, children }: Props) => (
-  <div className='app'>
+const App: FC<Props> = ({ page, children }: Props) => (
+  <div className="app">
     <Head>
       <title>{metatitle}</title>
-      <meta name='description' content={metadescription} />
-      <link rel='stylesheet' href='./index.css' />
+      <meta name="description" content={metadescription} />
+      <link rel="stylesheet" href="./index.css" />
     </Head>
-    <header className='header'>
+    <header className="header">
       <SiteTitle title={sitetitle} />
       <Nav active={page} labels={navlabels} />
     </header>
-    <main className='main'>
-      {children}
-    </main>
+    <main className="main">{children}</main>
     <footer />
   </div>
 );
+
+export default App;
