@@ -1,4 +1,8 @@
-dist
 coverage
+dist
+out
+static
+test
+.vscode
+
 next-env.d.ts
-webpack.config.js
