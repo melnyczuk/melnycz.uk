@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "js-yaml": "^3.13.1",
-    "next": "^9.2.2",
+    "next": "^9.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
