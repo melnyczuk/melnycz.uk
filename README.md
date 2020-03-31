@@ -1,3 +1,5 @@
-# http://melnycz.uk
+# melnycz.uk
 
-This is the repo for the personal website of Howard Melnyczuk
+😘 
+
+this is the repo for the website for the work of the artist that is called howard melnyczuk
