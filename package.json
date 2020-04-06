@@ -12,8 +12,6 @@
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
     "start": "next start",
     "serve": "serve -p 8080 out",
-    "test": "jest",
-    "test:coverage": "jest --coverage && rm -r ./coverage",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },

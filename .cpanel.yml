@@ -1,4 +1,0 @@
----
-deployment:
-  tasks:
-    - /bin/cp -r ./dist/* /home/birivcrk/public_html/
