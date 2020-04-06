@@ -1,28 +1,13 @@
-# Folders:
 node_modules
 coverage
 .next
 __snapshots__
 out
-
-# Node / npm:
 npm-debug.log
-
-# VSCode:
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# Filetypes:
+.vscode
 *.indd
 *.psd
 *.wav
 *.txt
 *.wg
-
-# !dist/**
-# Files:
 .DS_Store
-
