@@ -1,4 +1,7 @@
 {
+  "env": {
+    "jest": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
@@ -6,10 +9,6 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "globals": {
-    "setInterval": "readonly",
-    "clearInterval": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "tsconfig.json",
