@@ -3,7 +3,6 @@ import App from '../src/components/App';
 import Picture from '../src/components/Picture';
 import { media } from '../static/db/media.json';
 import { ImageType } from '../src/types';
-import '../src/styles/App.scss';
 
 const { images, baseUrl } = media;
 
@@ -12,14 +11,13 @@ const getRandomImageIndexGenerator = (len: number) => (): number =>
 
 // eslint-disable-next-line react/display-name
 export default (): JSX.Element => {
-  const generateRandomImageIndex = getRandomImageIndexGenerator(images.length);
+  const rI = getRandomImageIndexGenerator(images.length);
 
-  const [index, setIndex]: [number, (i: number) => void] = useState(
-    generateRandomImageIndex()
-  );
+  const [index, setIndex] = useState<number>(rI());
 
+  // eslint-disable-next-line no-undef
   const interval = setInterval(() => {
-    setIndex(generateRandomImageIndex());
+    setIndex(rI());
     clearInterval(interval);
   }, 3000);
 

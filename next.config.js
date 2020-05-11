@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 const withSass = require('@zeit/next-sass');
-const { navlabels } = require('./static/db/info.json');
 const { works } = require('./static/db/works.json');
 
 module.exports = withSass({
   exportPathMap() {
-    const paths = {
+    const portfolioWorks = works
+      .filter(({ live }) => live)
+      .reduce(
+        (portfolio, { namespace }) => ({
+          ...portfolio,
+          [`/portfolio/${namespace}`]: { page: '/portfolio/[work]' },
+        }),
+        {}
+      );
+
+    return {
       '/': { page: '/' },
       cv: { page: '/cv' },
+      about: { page: '/about' },
+      portfolio: { page: '/portfolio' },
+      ...portfolioWorks,
     };
-
-    navlabels.forEach((area) => {
-      paths[`/${area}`] = { page: '/[area]' };
-    });
-
-    works
-      .filter(({ live }) => live)
-      .forEach(({ namespace, area }) => {
-        paths[`/${area}/${namespace}`] = { page: '/[area]/[namespace]' };
-      });
-
-    return paths;
   },
   webpack(config) {
     return config;

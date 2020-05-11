@@ -1,7 +1,9 @@
 {
   "sitetitle": "Howard Melnyczuk",
-  "metatitle": "The Website of Howard Melnyczuk",
-  "metadescription": "This is the website of the artist and software developer Howard Melnyczuk.",
+  "meta": {
+    "title": "The Website of Howard Melnyczuk",
+    "description": "This is the website of the artist and software developer Howard Melnyczuk."
+  },
   "navlabels": [
     "about",
     "portfolio"
