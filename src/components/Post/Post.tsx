@@ -1,15 +1,11 @@
 import React, { useState, useEffect, FC } from 'react';
 import fetch from 'isomorphic-fetch';
 import YAML from 'yaml';
-import Picture from './Picture';
-import { ImageType } from '../types';
-import '../styles/Post.scss';
 
-export interface Props {
-  namespace: string;
-  title: string;
-  images: ImageType[];
-}
+import Picture from '../Picture';
+import { ImageType } from '../../types';
+
+import './Post.scss';
 
 const Description = ({
   description,
@@ -25,13 +21,7 @@ const Description = ({
   </div>
 );
 
-const buildImages = (image: ImageType) => (
-  <Picture
-    key={`${image.namespace}-${image.index}`}
-    image={image}
-    parent="post"
-  />
-);
+const keyFrom = ({ namespace, index }: ImageType): string => `${namespace}-${index}`;
 
 const fetchDescription = (namespace): Promise<string[]> =>
   fetch(`../static/copy/${namespace}.yaml`)
@@ -39,23 +29,34 @@ const fetchDescription = (namespace): Promise<string[]> =>
     .then(YAML.parse)
     .then(({ description }): Promise<string[]> => description);
 
-const triggerFetch = (namespace, setDesc) => (): void => {
+const triggerFetch = (namespace, setDesc) => {
   (async () => await fetchDescription(namespace).then(setDesc))();
 };
 
-const Post: FC<Props> = ({ namespace, title, images }) => {
-  const [desc, setDesc]: [string[], (d: string[]) => void] = useState([]);
+export interface PostProps {
+  namespace: string;
+  title: string;
+  images: ImageType[];
+}
 
-  useEffect(triggerFetch(namespace, setDesc));
+const Post: FC<PostProps> = ({ namespace, title, images }) => {
+  const [desc, setDesc] = useState<string[]>();
+
+  useEffect(() => triggerFetch(namespace, setDesc));
 
   return (
     <article className="post">
       {title && <h2 className="post--title">{title}</h2>}
       {desc && <Description description={desc} />}
-      {images && images.map(buildImages)}
+      {images && images.map(image => (
+        <Picture
+          key={keyFrom(image)}
+          image={image}
+          parent="post"
+        />
+      ))}
     </article>
   );
 };
 
 export default Post;
-export { fetchDescription, triggerFetch, buildImages, Description };
