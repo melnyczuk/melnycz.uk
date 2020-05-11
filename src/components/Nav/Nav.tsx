@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import '../styles/Nav.scss';
+import './Nav.scss';
 
 export interface Props {
   active: string;
