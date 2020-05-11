@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import '../styles/SiteTitle.scss';
+
+import './SiteTitle.scss';
 
 export interface Props {
   title: string;
