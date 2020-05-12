@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 
-import Label from '../Label';
+import Label from './Label';
 import Picture from '../Picture';
 
 import { ImageType } from '../../types';
