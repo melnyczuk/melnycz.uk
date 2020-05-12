@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
 
-import './cv.scss';
+import './CV.scss';
 
 const CV: FC = () => (
   <>

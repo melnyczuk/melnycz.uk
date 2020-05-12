@@ -3,27 +3,26 @@
 const withSass = require('@zeit/next-sass');
 const { works } = require('./static/db/works.json');
 
-module.exports = withSass({
-  exportPathMap() {
-    const portfolioWorks = works
-      .filter(({ live }) => live)
-      .reduce(
-        (portfolio, { namespace }) => ({
-          ...portfolio,
-          [`/portfolio/${namespace}`]: { page: '/portfolio/[work]' },
-        }),
-        {}
-      );
+const about = { about: { page: '/about' } };
 
-    return {
-      '/': { page: '/' },
-      cv: { page: '/cv' },
-      about: { page: '/about' },
-      portfolio: { page: '/portfolio' },
-      ...portfolioWorks,
-    };
-  },
-  webpack(config) {
-    return config;
-  },
+const cv = { cv: { page: '/cv' } };
+
+const portfolio = works
+  .filter(({ live }) => live)
+  .reduce(
+    (folio, { namespace }) => ({
+      ...folio,
+      [`/portfolio/${namespace}`]: { page: '/portfolio/[work]' },
+    }),
+    { portfolio: { page: '/portfolio' } }
+  );
+
+module.exports = withSass({
+  webpack: (config) => config,
+  exportPathMap: () => ({
+    '/': { page: '/' },
+    ...cv,
+    ...about,
+    ...portfolio,
+  }),
 });

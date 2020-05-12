@@ -1,1 +1,1 @@
-export { default } from './cv';
+export { default } from '../../src/pages/CV';
