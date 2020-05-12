@@ -1,23 +1,37 @@
 import { MediaDBItemType, WorkType, ImageType } from './types';
 
-const buildSrc = ({ type, baseUrl, namespace, index, ext }: ImageType) => (
-  size: number
-): string => `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
+import { media as mediaDb } from '../static/db/media.json';
 
-const filterMediaByNamespace = (namespace: string) => (
-  media: MediaDBItemType
-): boolean => media.namespace === namespace;
+const { baseUrl } = mediaDb;
 
-const filterWorks = (works: WorkType[]) => (label: string): WorkType[] =>
-  works.filter(({ area }) => area === label);
+const buildSrc: (i: ImageType) => (s: number) => string = ({
+  type,
+  baseUrl,
+  namespace,
+  index,
+  ext,
+}) => (size) => `${baseUrl}/${type}/${size}/${namespace}-${index}.${ext}`;
 
-const addBaseUrlAndTypeToMediaItem = (baseUrl: string) => (type: string) => (
-  mediaItem: MediaDBItemType
-): ImageType => ({ ...mediaItem, baseUrl, type });
+const filterMediaByNamespace: (n: string) => (m: MediaDBItemType) => boolean = (
+  namespace
+) => (media) => media.namespace === namespace;
+
+const filterWorks: (w: WorkType[]) => (l: string) => WorkType[] = (works) => (
+  label
+) => works.filter(({ area }) => area === label);
+
+const addBaseUrlAndTypeToMediaItem: (
+  b: string
+) => (t: string) => (m: MediaDBItemType) => ImageType = (baseUrl) => (type) => (
+  mediaItem
+) => ({ ...mediaItem, baseUrl, type });
+
+const imageTypeCompletionFunc = addBaseUrlAndTypeToMediaItem(baseUrl)('images');
 
 export {
+  addBaseUrlAndTypeToMediaItem,
   buildSrc,
   filterMediaByNamespace,
   filterWorks,
-  addBaseUrlAndTypeToMediaItem,
+  imageTypeCompletionFunc,
 };
