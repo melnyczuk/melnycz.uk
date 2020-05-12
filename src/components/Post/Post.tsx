@@ -21,7 +21,8 @@ const Description = ({
   </div>
 );
 
-const keyFrom = ({ namespace, index }: ImageType): string => `${namespace}-${index}`;
+const keyFrom = ({ namespace, index }: ImageType): string =>
+  `${namespace}-${index}`;
 
 const fetchDescription = (namespace): Promise<string[]> =>
   fetch(`../static/copy/${namespace}.yaml`)
@@ -48,13 +49,10 @@ const Post: FC<PostProps> = ({ namespace, title, images }) => {
     <article className="post">
       {title && <h2 className="post--title">{title}</h2>}
       {desc && <Description description={desc} />}
-      {images && images.map(image => (
-        <Picture
-          key={keyFrom(image)}
-          image={image}
-          parent="post"
-        />
-      ))}
+      {images &&
+        images.map((image) => (
+          <Picture key={keyFrom(image)} image={image} parent="post" />
+        ))}
     </article>
   );
 };

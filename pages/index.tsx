@@ -11,13 +11,14 @@ const getRandomImageIndexGenerator = (len: number) => (): number =>
 
 // eslint-disable-next-line react/display-name
 export default (): JSX.Element => {
-  const rI = getRandomImageIndexGenerator(images.length);
+  const randImgIndex = getRandomImageIndexGenerator(images.length);
 
-  const [index, setIndex] = useState<number>(rI());
+  const [index, setIndex] = useState<number>(randImgIndex());
 
   // eslint-disable-next-line no-undef
   const interval = setInterval(() => {
-    setIndex(rI());
+    setIndex(randImgIndex());
+    // eslint-disable-next-line no-undef
     clearInterval(interval);
   }, 3000);
 

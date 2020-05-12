@@ -1,14 +1,10 @@
-import React, { FC, ComponentProps } from "react";
-import Head from "next/head";
+import React, { FC, ComponentProps } from 'react';
+import Head from 'next/head';
 
 import Nav from '../Nav';
-import SiteTitle from "../SiteTitle";
+import SiteTitle from '../SiteTitle';
 
-import {
-  meta,
-  navlabels,
-  sitetitle,
-} from '../../../static/db/info.json';
+import { meta, navlabels, sitetitle } from '../../../static/db/info.json';
 
 import './Header.scss';
 
