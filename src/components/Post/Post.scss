@@ -5,7 +5,7 @@
   @include fadein;
   padding: 0;
 
-  &--title {
+  &__title {
     @include text;
     @include fadein;
     vertical-align: middle;
@@ -19,7 +19,7 @@
     padding: 4px 16px 4px 0;
   }
 
-  &--desc {
+  &__description {
     @include fadein;
     height: fit-content;
     float: left;
@@ -27,16 +27,16 @@
     border-right: $random-border;
     border-left: $random-border;
     border-bottom: $random-border;
+    width: 100%;
 
-
-    &--paragraph {
+    &__paragraph {
       @include text;
       font-size: $text-font-size;
       margin: 16px;
     }
   }
 
-  &--image {
+  &__image {
     @include fadein;
     width: 100%;
     height: auto;

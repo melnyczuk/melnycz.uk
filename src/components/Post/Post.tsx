@@ -1,58 +1,43 @@
-import React, { useState, useEffect, FC } from 'react';
-import fetch from 'isomorphic-fetch';
-import YAML from 'yaml';
+import React, { FC } from 'react';
 
-import Picture from '../Picture';
+import { media as mediaDb } from '../../../static/db/media.json';
+
 import { ImageType } from '../../types';
 
-import './Post.scss';
+import {
+  filterMediaByNamespace,
+  imageTypeCompletionFunc,
+} from '../../../src/utils';
 
-const Description = ({
-  description,
-}: {
-  description: string[];
-}): JSX.Element => (
-  <div className="post post--desc">
-    {description.map((text) => (
-      <p className="post--desc--paragraph" key={`desc-${text}`}>
-        {text}
-      </p>
-    ))}
-  </div>
-);
+import Description from './Description';
+import Picture from '../Picture';
+
+import './Post.scss';
 
 const keyFrom = ({ namespace, index }: ImageType): string =>
   `${namespace}-${index}`;
 
-const fetchDescription = (namespace): Promise<string[]> =>
-  fetch(`../static/copy/${namespace}.yaml`)
-    .then((resp: Response): Promise<string> => resp.text())
-    .then(YAML.parse)
-    .then(({ description }): Promise<string[]> => description);
-
-const triggerFetch = (namespace, setDesc) => {
-  (async () => await fetchDescription(namespace).then(setDesc))();
-};
-
-export interface PostProps {
+interface PostProps {
   namespace: string;
   title: string;
-  images: ImageType[];
+  imgs: number[];
 }
 
-const Post: FC<PostProps> = ({ namespace, title, images }) => {
-  const [desc, setDesc] = useState<string[]>();
-
-  useEffect(() => triggerFetch(namespace, setDesc));
+const Post: FC<PostProps> = ({ namespace, title, imgs }) => {
+  const images = imgs.map((i) =>
+    mediaDb.images
+      .map(imageTypeCompletionFunc)
+      .filter(filterMediaByNamespace(namespace))
+      .find(({ index }) => index === i)
+  );
 
   return (
     <article className="post">
-      {title && <h2 className="post--title">{title}</h2>}
-      {desc && <Description description={desc} />}
-      {images &&
-        images.map((image) => (
-          <Picture key={keyFrom(image)} image={image} parent="post" />
-        ))}
+      <h2 className="post__title">{title}</h2>
+      <Description namespace={namespace} />
+      {images?.map((image) => (
+        <Picture key={keyFrom(image)} image={image} parent="post" />
+      ))}
     </article>
   );
 };
