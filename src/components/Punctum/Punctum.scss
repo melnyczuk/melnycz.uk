@@ -1,4 +1,4 @@
-@import 'root';
+@import '../root';
 
 .punctum {
 	@include fadein;
@@ -7,16 +7,16 @@
 	padding: 0;
 	margin: 4px 0;
 
-	&--button {
+	&__button {
 		border: 0;
 		padding: 0;
 	}
 
-	&--image {
+	&__image {
 		display: block;
 	}
 
-	&--label {
+	&__label {
 		background-color: white;
 		position: absolute;
 		width: 80%;
@@ -26,7 +26,7 @@
 		padding: 8px;
 	}
 
-	&--title {
+	&__title {
 		@include text;
 		vertical-align: middle;
 		text-align: center;
