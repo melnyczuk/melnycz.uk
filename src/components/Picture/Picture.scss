@@ -1,9 +1,9 @@
-@import 'root';
+@import '../root';
 
 .picture {
 	height: 0;
 
-	&--image {
+	&__image {
 		object-fit: cover;
 		height: 100vw;
 		width: 100%;
