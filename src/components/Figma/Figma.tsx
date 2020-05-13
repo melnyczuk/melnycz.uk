@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 
 import './Figma.scss';
 
+function validateFigmaUrl(url: string): RegExpMatchArray {
+  return url.match(
+    /https:\/\/([\w.-]+\.)?figma.com\/(file|proto)\/([0-9a-zA-Z]{22,128})(?:\/.*)?$/
+  );
+}
+
 interface FigmaProps {
   src: string;
   className?: string | string[];
   height?: number;
   width?: number;
-}
-
-function validateFigmaUrl(url: string): RegExpMatchArray {
-  return url.match(
-    /https:\/\/([\w.-]+\.)?figma.com\/(file|proto)\/([0-9a-zA-Z]{22,128})(?:\/.*)?$/
-  );
 }
 
 const Figma: FC<FigmaProps> = ({
