@@ -12,7 +12,7 @@ $spacing: 4px 0;
 	margin: $spacing;
   flex-wrap: wrap;
 
-	&--button {
+	&__button {
 		@include text;
 		background: none;
 		fill: white;
@@ -24,14 +24,14 @@ $spacing: 4px 0;
 		flex-shrink: 1;
   }
 
-	&--label {
+	&__label {
 		@include text;
 		border-top: 4px solid white;
 		width: fit-content;
 		text-align: left;
     padding: $spacing;
      
-    &__active {
+    &--active {
       border-top: $random-border;
     }
 	}
