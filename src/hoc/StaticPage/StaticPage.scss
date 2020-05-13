@@ -1,29 +1,46 @@
+// @import '../../reset';
 @import '../../root';
 
 .app {
 	@include fadein;
-	margin: 8px;
-	padding: 16px;
+	margin: 32px;
 	height: 100vh;
 	color: black;
   background: white;
   
   @media (min-width: $desktop-bp) {
-    width: $desktop-bp;
-    margin: 8px auto;
+		margin: 32px auto;
   }
+}
+
+header {
+	text-align: center;
+	
+	width: 100%;  
+
+	margin: 0 auto;
+
+	@media (min-width: $desktop-bp) {
+		width: $desktop-bp;
+	}
+
+	@media print {
+		display: none !important;
+	}
 }
 
 main {
 	width: 100%;
+	margin: 0 auto;
 
 	@media (min-width: $desktop-bp) {
-		float: left;
 		width: $desktop-bp;
+		float: center;
 	}
 }
 
 footer {
+	width: 100%;
 	height: 20px;
 }
 
