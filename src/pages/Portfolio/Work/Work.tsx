@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import { works as worksDb } from '../../../static/db/works.json';
+import { works as worksDb } from '../../../../static/db/works.json';
 
-import { filterWorks } from '../../utils';
+import { filterWorks } from '../../../utils';
 
-import Post from '../../components/Post';
+import Post from '../../../components/Post';
 
 interface WorkProps {
   namespace: string;
