@@ -10,6 +10,7 @@ import {
 } from '../../../src/utils';
 
 import Description from './Description';
+import PageTitle from '../PageTitle';
 import Picture from '../Picture';
 
 import './Post.scss';
@@ -33,7 +34,7 @@ const Post: FC<PostProps> = ({ namespace, title, imgs }) => {
 
   return (
     <article className="post">
-      <h2 className="post__title">{title}</h2>
+      <PageTitle>{title}</PageTitle>
       <Description namespace={namespace} />
       {images?.map((image) => (
         <Picture key={keyFrom(image)} image={image} parent="post" />

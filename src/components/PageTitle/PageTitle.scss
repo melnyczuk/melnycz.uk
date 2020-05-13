@@ -1,0 +1,15 @@
+@import '../../root.scss';
+
+.page-title {
+  @include text;
+  @include fadein;
+  vertical-align: middle;
+  width: fit-content;
+  float: left;
+  width: auto;
+  margin: 0 auto;
+  border-top: $random-border;
+  border-right: $random-border;
+  border-bottom: $random-border;
+  padding: 4px 16px 4px 0;
+}
