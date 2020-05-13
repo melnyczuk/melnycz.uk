@@ -1,25 +1,14 @@
 import React, { ComponentProps } from 'react';
-import Head from 'next/head';
 
-import Nav from '../../components/Nav';
-import SiteTitle from '../../components/SiteTitle';
-
-import { meta, navlabels, sitetitle } from '../../../static/db/info.json';
+import Header from './Header';
 
 import './StaticPage.scss';
 
-type Active = ComponentProps<typeof Nav>['active'];
+type Active = ComponentProps<typeof Header>['active'];
 
 const StaticPage = (active: Active) => (content) => (props = {}) => (
   <div className="app">
-    <Head>
-      <title>{meta.title}</title>
-      <meta name="description" content={meta.description} />
-    </Head>
-    <header>
-      <SiteTitle title={sitetitle} />
-      <Nav active={active} labels={navlabels} />
-    </header>
+    <Header active={active} />
     <main>{content(props)}</main>
     <footer />
   </div>
