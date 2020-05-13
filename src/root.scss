@@ -1,4 +1,3 @@
-@import 'reset';
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
 $desktop-bp: 640px;
@@ -26,7 +25,11 @@ $fade_vel: 0.4s;
 }
 
 * {
-  border: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
 }
 
 a {
