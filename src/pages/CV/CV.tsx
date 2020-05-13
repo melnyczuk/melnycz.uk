@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import Head from 'next/head';
 
 import './CV.scss';
+import App from '../../hoc/StaticPage';
 
 const CV: FC = () => (
   <>

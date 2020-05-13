@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
-
 import { works } from '../../../static/db/works.json';
 
-import App from '../../components/App';
-import PortfolioItem from '../../components/PortfolioItem';
+import PortfolioItem from './PortfolioItem';
 
-const Portfolio: FC = () => (
-  <App page="portfolio">{works.map(PortfolioItem)}</App>
-);
+const Portfolio: FC = () => (<>{works.map(PortfolioItem)}</>);
 
 export default Portfolio;
