@@ -1,3 +1,5 @@
+@import '../../root';
+
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +13,8 @@
 body {
   width: 100vw;
   padding: 16px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
   overflow: visible;
 }
@@ -35,25 +37,42 @@ body {
   }
 }
 
-header {
+.app {
+  margin: 0;
+}
+
+.cv__header {
   width: 100%;
   display: inline-block;
   padding: 0 4px;
+  margin: 0;
+
+  @media screen {
+    display: none !important;
+  }
 }
 
-main {
+.cv__main {
   width: 100%;
   display: inline-block;
   overflow: visible;
+
+  @media screen {
+    @include text;
+  }
 }
 
-footer {
+.cv__footer {
   width: 100%;
   position: relative;
   bottom: 0;
   height: auto;
+
+  @media screen {
+    display: none !important;
+  }
 }
-footer p {
+.cv__footer p {
   width: 100%;
   padding: 4px;
   font-size: 18px;
@@ -188,7 +207,7 @@ li {
 }
 .subheading--vocation {
   font-size: 40px;
-  margin: 8px 0 0;
+  margin: 8px 0 0 32px;
 }
 @media print {
   .subheading--vocation {
@@ -198,6 +217,7 @@ li {
 .subheading--age {
   margin: 8px 0 0;
   font-size: 18px;
+  text-align: right;
 }
 
 .contact {

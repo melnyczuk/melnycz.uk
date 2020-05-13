@@ -1,22 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { FC } from 'react';
-import Head from 'next/head';
 
 import './CV.scss';
-import App from '../../hoc/StaticPage';
 
 const CV: FC = () => (
   <>
-    <Head>
-      <meta charSet="utf-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <title>Howard Melnyczuk CV</title>
-      <meta
-        name="description"
-        content="this is the curriculum vitae of Howard P Melnyczuk"
-      />
-    </Head>
-    <header>
+    <section className="cv__header">
       <div className="heading">
         <h1 className="heading--name">Howard Melnyczuk</h1>
       </div>
@@ -30,8 +19,8 @@ const CV: FC = () => (
         <p className="contact--item contact--website">melnycz.uk</p>
         <p className="contact--item contact--github">github.com/melnyczuk</p>
       </article>
-    </header>
-    <main>
+    </section>
+    <section className="cv__main">
       <div className="col col--left">
         <article className="tech col--left--item">
           <h2 className="tech--title sect--heading">Tech</h2>
@@ -429,12 +418,10 @@ const CV: FC = () => (
           </article>
         </div>
       </div>
-    </main>
-    <footer>
-      <div className="col col--right">
-        <p>References Available on Request</p>
-      </div>
-    </footer>
+    </section>
+    <section className="cv__footer col col--right">
+      <p>References Available on Request</p>
+    </section>
   </>
 );
 
