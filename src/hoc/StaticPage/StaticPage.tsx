@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
-import Header from '../../components/Header';
+import Header from './Header';
 
 import './StaticPage.scss';
 
-export interface AppProps {
-  page: string;
-  children: JSX.Element;
-}
+type Active = ComponentProps<typeof Header>['active'];
 
-const StaticPage = (title) => (content) => (props = {}) => (
+const StaticPage = (active: Active) => (content) => (props = {}) => (
   <div className="app">
-    <Header page={title} />
+    <Header active={active} />
     <main>{content(props)}</main>
     <footer />
   </div>

@@ -88,7 +88,7 @@
     "serve": "serve -p 8080 out",
     "test": "jest --detectOpenHandles --colors",
     "test:coverage": "jest --coverage && rm -r ./coverage",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "yarn type-check -- --watch"
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "yarn type-check -- --watch"
   }
 }

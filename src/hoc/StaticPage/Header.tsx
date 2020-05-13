@@ -1,18 +1,16 @@
 import React, { FC, ComponentProps } from 'react';
 import Head from 'next/head';
 
-import Nav from '../Nav';
-import SiteTitle from '../SiteTitle';
-
 import { meta, navlabels, sitetitle } from '../../../static/db/info.json';
 
-import './Header.scss';
+import Nav from '../../components/Nav';
+import SiteTitle from '../../components/SiteTitle';
 
 interface HeaderProps {
-  page: ComponentProps<typeof Nav>['active'];
+  active: ComponentProps<typeof Nav>['active'];
 }
 
-const Header: FC<HeaderProps> = ({ page }) => (
+const Header: FC<HeaderProps> = ({ active }) => (
   <>
     <Head>
       <title>{meta.title}</title>
@@ -20,7 +18,7 @@ const Header: FC<HeaderProps> = ({ page }) => (
     </Head>
     <header>
       <SiteTitle title={sitetitle} />
-      <Nav active={page} labels={navlabels} />
+      <Nav active={active} labels={navlabels} />
     </header>
   </>
 );
