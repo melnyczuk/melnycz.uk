@@ -1,0 +1,45 @@
+@import '../../root';
+
+.post {
+  @include text;
+  @include fadein;
+  padding: 0;
+
+  &__title {
+    @include text;
+    @include fadein;
+    vertical-align: middle;
+    width: fit-content;
+    float: left;
+    width: auto;
+    margin: 0 auto;
+    border-top: $random-border;
+    border-right: $random-border;
+    border-bottom: $random-border;
+    padding: 4px 16px 4px 0;
+  }
+
+  &__description {
+    @include fadein;
+    height: fit-content;
+    float: left;
+    padding: 0;
+    border-right: $random-border;
+    border-left: $random-border;
+    border-bottom: $random-border;
+    width: 100%;
+
+    &__paragraph {
+      @include text;
+      font-size: $text-font-size;
+      margin: 16px;
+    }
+  }
+
+  &__image {
+    @include fadein;
+    width: 100%;
+    height: auto;
+    margin: 16px 0 0 0;
+  }
+}

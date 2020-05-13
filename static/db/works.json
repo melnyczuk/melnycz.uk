@@ -1,20 +1,6 @@
 {
   "works": [
     {
-      "area": "about",
-      "namespace": "aboutbio",
-      "title": "About Howard Melnyczuk",
-      "year": [],
-      "media": {
-        "punctum": [0],
-        "images": [],
-        "videos": [],
-        "audios": []
-      },
-      "tags": [],
-      "live": true
-    },
-    {
       "area": "portfolio",
       "namespace": "objperma",
       "title": "Object Permanence",

@@ -1,0 +1,29 @@
+@import '../../root';
+
+.app {
+	@include fadein;
+	margin: 8px;
+	padding: 16px;
+	height: 100vh;
+	color: black;
+  background: white;
+  
+  @media (min-width: $desktop-bp) {
+    width: $desktop-bp;
+    margin: 8px auto;
+  }
+}
+
+main {
+	width: 100%;
+
+	@media (min-width: $desktop-bp) {
+		float: left;
+		width: $desktop-bp;
+	}
+}
+
+footer {
+	height: 20px;
+}
+

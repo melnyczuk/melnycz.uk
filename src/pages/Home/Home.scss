@@ -1,0 +1,16 @@
+@import '../../root';
+
+.home {
+	display: inline-block;
+	position: float;
+	margin: 4px;
+	border: 0;
+
+	&--image {
+		@include fadein;
+		display: block;
+		object-fit: cover;
+		height: 60vw;
+		width: 100%;
+	}
+}
