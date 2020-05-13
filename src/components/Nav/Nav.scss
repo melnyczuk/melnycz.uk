@@ -14,14 +14,20 @@ $spacing: 4px 0;
 
 	&__button {
 		@include text;
+
+		outline:0;
 		background: none;
 		fill: white;
-		flex: auto;
+		
 		justify-content: space-evenly;
-		height: auto;
-		padding: 0;
+
+		flex: auto;
 		flex-grow: 1;
 		flex-shrink: 1;
+
+		height: auto;
+		
+		padding: 0;
   }
 
 	&__label {
@@ -33,6 +39,10 @@ $spacing: 4px 0;
      
     &--active {
       border-top: $random-border;
-    }
+		}
+		
+		&:focus {
+			background: red;
+		}
 	}
 }
