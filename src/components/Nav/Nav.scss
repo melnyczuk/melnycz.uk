@@ -18,7 +18,7 @@ $spacing: 4px 0;
 		outline:0;
 		background: none;
 		fill: white;
-		
+
 		justify-content: space-evenly;
 
 		flex: auto;
@@ -26,7 +26,7 @@ $spacing: 4px 0;
 		flex-shrink: 1;
 
 		height: auto;
-		
+
 		padding: 0;
   }
 
@@ -36,13 +36,9 @@ $spacing: 4px 0;
 		width: fit-content;
 		text-align: left;
     padding: $spacing;
-     
+
     &--active {
       border-top: $random-border;
-		}
-		
-		&:focus {
-			background: red;
 		}
 	}
 }
