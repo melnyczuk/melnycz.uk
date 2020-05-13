@@ -7,24 +7,21 @@ import { filterMediaByNamespace, imageTypeCompletionFunc } from '../../utils';
 
 import Punctum from '../../components/Punctum';
 
-const { images } = mediaDb;
-
 const PortfolioItem: FC<WorkType> = ({ live, namespace, title, media }) => {
-  const namespaceImages = images
+  const namespaceImages = mediaDb
+    .images
     .map(imageTypeCompletionFunc)
     .filter(filterMediaByNamespace(namespace));
 
   const punctum =
-    media.punctum &&
-    media.punctum.map(
+    media.punctum?.map(
       (p) => namespaceImages.filter(({ index }) => index === p)[0]
     )[0];
 
   return !live ? null : (
     <Punctum
-      area="portfolio"
+      href={`portfolio/${namespace}`}
       image={punctum}
-      namespace={namespace}
       title={title}
     />
   );

@@ -9,19 +9,18 @@ import { ImageType } from '../../types';
 import './Punctum.scss';
 
 interface Props {
-  area: string;
+  href: string;
   image: ImageType;
-  namespace: string;
   title: string;
 }
 
-const Punctum: FC<Props> = ({ area, image, title, namespace }) =>
+const Punctum: FC<Props> = ({ href, image, title }) =>
   !image ? null : (
     <section className="punctum">
-      <Link href="/[area]/[namespace]" as={`/${area}/${namespace}`}>
+      <Link href={href} as={href}>
         <button type="button" className="punctum__button">
           <Picture image={image} parent="punctum" />
-          <Label title={title} />
+          <Label>{title}</Label>
         </button>
       </Link>
     </section>

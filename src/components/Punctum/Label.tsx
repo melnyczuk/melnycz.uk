@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
 interface LabelProps {
-  title: string;
+  children: string;
 }
 
-const Label: FC<LabelProps> = ({ title }) => (
+const Label: FC<LabelProps> = ({ children }) => (
   <div className="punctum__label">
-    <h2 className="punctum__title">{title}</h2>
+    <h2 className="punctum__title">{children}</h2>
   </div>
 );
 
