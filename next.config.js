@@ -17,6 +17,8 @@ const portfolio = works
     { portfolio: { page: '/portfolio' } }
   );
 
+const shaders = { shaders: { page: '/shaders' } };
+
 const systems = { systems: { page: '/systems' } };
 
 module.exports = withSass({
@@ -26,6 +28,7 @@ module.exports = withSass({
     ...cv,
     ...about,
     ...portfolio,
+    ...shaders,
     ...systems,
   }),
 });
