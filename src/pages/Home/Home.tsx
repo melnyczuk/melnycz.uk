@@ -4,7 +4,8 @@ import { imageTypeCompletionFunc } from '../../utils';
 import Picture from '../../components/Picture';
 import './Home.scss';
 
-const randImgIndex = (): number => Math.floor(Math.random() * mediaDb.images.length);
+const randImgIndex = (): number =>
+  Math.floor(Math.random() * mediaDb.images.length);
 
 const Home: FC = (): JSX.Element => {
   const [index, setIndex] = useState<number>(randImgIndex());
@@ -17,7 +18,10 @@ const Home: FC = (): JSX.Element => {
   }, 3000);
 
   return (
-    <Picture parent="home" image={imageTypeCompletionFunc(mediaDb.images[index])} />
+    <Picture
+      parent="home"
+      image={imageTypeCompletionFunc(mediaDb.images[index])}
+    />
   );
 };
 

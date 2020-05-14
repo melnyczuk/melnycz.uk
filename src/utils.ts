@@ -16,9 +16,12 @@ const filterMediaByNamespace: (n: string) => (m: MediaDBItemType) => boolean = (
   namespace
 ) => (media) => media.namespace === namespace;
 
-const filterWorks: (w: WorkType[]) => (l: string) => (n: string) => WorkType = (works) => (
-  label
-) => (n) => works.filter(({ area }) => area === label).find(({ namespace }) => namespace === n);
+const filterWorks: (w: WorkType[]) => (l: string) => (n: string) => WorkType = (
+  works
+) => (label) => (n) =>
+  works
+    .filter(({ area }) => area === label)
+    .find(({ namespace }) => namespace === n);
 
 const addBaseUrlAndTypeToMediaItem: (
   b: string

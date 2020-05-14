@@ -17,6 +17,8 @@ const portfolio = works
     { portfolio: { page: '/portfolio' } }
   );
 
+const systems = { systems: { page: '/systems' } };
+
 module.exports = withSass({
   webpack: (config) => config,
   exportPathMap: () => ({
@@ -24,5 +26,6 @@ module.exports = withSass({
     ...cv,
     ...about,
     ...portfolio,
+    ...systems,
   }),
 });

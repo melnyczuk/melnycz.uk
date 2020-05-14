@@ -18,7 +18,9 @@ const Nav: FC<NavProps> = ({ active, labels }) => (
     {labels?.map((label) => (
       <Link key={label} href={`/${label}`}>
         <button type="button" className="nav__button">
-          <h4 className={getClassName(active === label)}>{capitaliseLabel(label)}</h4>
+          <h4 className={getClassName(active === label)}>
+            {capitaliseLabel(label)}
+          </h4>
         </button>
       </Link>
     ))}

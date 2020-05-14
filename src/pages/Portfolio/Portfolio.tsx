@@ -10,25 +10,19 @@ import { WorkType } from '../../types';
 import Punctum from '../../components/Punctum';
 
 const PortfolioItem: FC<WorkType> = ({ live, namespace, title, media }) => {
-  const namespaceImages = mediaDb
-    .images
+  const namespaceImages = mediaDb.images
     .map(imageTypeCompletionFunc)
     .filter(filterMediaByNamespace(namespace));
 
-  const punctum =
-    media.punctum?.map(
-      (p) => namespaceImages.filter(({ index }) => index === p)[0]
-    )[0];
+  const punctum = media.punctum?.map(
+    (p) => namespaceImages.filter(({ index }) => index === p)[0]
+  )[0];
 
   return !live ? null : (
-    <Punctum
-      href={`portfolio/${namespace}`}
-      image={punctum}
-      title={title}
-    />
+    <Punctum href={`portfolio/${namespace}`} image={punctum} title={title} />
   );
 };
 
-const Portfolio: FC = () => (<>{works.map(PortfolioItem)}</>);
+const Portfolio: FC = () => <>{works.map(PortfolioItem)}</>;
 
 export default Portfolio;
