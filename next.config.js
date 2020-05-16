@@ -21,8 +21,7 @@ const portfolio = works
   .reduce(pageReducer('portfolio'), { portfolio: { page: '/portfolio' } });
 
 const shaders = fs
-  .readdirSync('./static/shaders')
-  .filter((filename) => filename !== 'v.c')
+  .readdirSync('./static/shaders/fragment')
   .map((filename) => filename.split('.')[0])
   .reduce(pageReducer('shaders'), { shaders: { page: '/shaders' } });
 

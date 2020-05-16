@@ -1,4 +1,4 @@
-/*global Float32Array console */
+/* global Float32Array console */
 import { mat4 } from 'gl-matrix';
 import { Uniform } from './models';
 
