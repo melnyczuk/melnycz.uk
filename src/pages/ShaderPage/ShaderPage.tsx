@@ -15,7 +15,7 @@ const ShaderPage: FC<DynamicPageProps> = ({ namespace }) => {
 
   useEffect(() => {
     fetchShader('/static/shaders/vertex.c').then(setVert);
-    fetchShader(`/static/shaders/fragment/${namespace}.c`).then(setFrag);
+    fetchShader(`/static/shaders/${namespace}.c`).then(setFrag);
   }, [namespace]);
 
   return (
