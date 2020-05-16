@@ -1,6 +1,5 @@
+/* global fetch */
 import React, { FC, useState, useEffect } from 'react';
-
-import fetch from 'isomorphic-fetch';
 import YAML from 'yaml';
 
 const fetchDescription = (namespace): Promise<string[]> =>

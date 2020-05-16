@@ -2,9 +2,13 @@ import { useRouter } from 'next/router';
 
 import StaticPage from '../StaticPage';
 
-export default (dynamic) => (component) => () => {
+export interface DynamicPageProps {
+  namespace: string;
+}
+
+export default (component) => () => {
   const {
-    query: { [dynamic]: namespace },
+    query: { page: namespace },
   } = useRouter();
 
   return typeof namespace !== 'string'
