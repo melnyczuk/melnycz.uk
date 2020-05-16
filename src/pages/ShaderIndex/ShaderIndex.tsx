@@ -1,4 +1,4 @@
-/* global document fetch Promise */
+/* global fetch Promise */
 import React, { FC, useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -8,24 +8,12 @@ import './ShaderIndex.scss';
 
 const SHADERS_ROUTE = '/shaders';
 
-async function parseShaderDirHtmlResponse(text: string): Promise<string[]> {
-  const html = document.createElement('html');
-  html.innerHTML = text;
-
-  return Array.prototype.slice
-    .call(html.getElementsByTagName('li'))
-    .map((li) => li.innerText.trim())
-    .filter((n) => n !== '..')
-    .map((f) => f.split('.')[0]);
-}
-
 const ShaderIndex: FC = () => {
   const [shaderNames, setShaderNames] = useState<string[]>();
 
   useEffect(() => {
-    fetch('/static/shaders/fragment')
-      .then((resp: Response): Promise<string> => resp.text())
-      .then(parseShaderDirHtmlResponse)
+    fetch('/static/shaders/index.json')
+      .then((resp: Response): Promise<string[]> => resp.json())
       .then(setShaderNames);
   }, [setShaderNames]);
 
