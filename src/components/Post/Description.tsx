@@ -1,12 +1,11 @@
+/* global fetch */
 import React, { FC, useState, useEffect } from 'react';
-
-import fetch from 'isomorphic-fetch';
-import { parse } from 'yaml';
+import YAML from 'yaml';
 
 const fetchDescription = (namespace): Promise<string[]> =>
   fetch(`../static/copy/${namespace}.yaml`)
     .then((resp: Response): Promise<string> => resp.text())
-    .then(parse)
+    .then(YAML.parse)
     .then(({ description }): Promise<string[]> => description);
 
 interface DescriptionProps {

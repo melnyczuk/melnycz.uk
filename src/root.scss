@@ -8,6 +8,17 @@ $heading-font-size: 40px;
 $text-font-size: 24px;
 $fade_vel: 0.4s;
 
+@mixin desc {
+  @include fadein;
+  height: fit-content;
+  float: left;
+  padding: 0;
+  border-right: $random-border;
+  border-left: $random-border;
+  border-bottom: $random-border;
+  width: 100%;
+}
+
 @mixin text {
 	color: black;
 	text-decoration: none;

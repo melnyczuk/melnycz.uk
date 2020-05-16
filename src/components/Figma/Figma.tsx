@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 
 import './Figma.scss';
 
@@ -8,9 +8,8 @@ function validateFigmaUrl(url: string): RegExpMatchArray {
   );
 }
 
-interface FigmaProps {
+interface FigmaProps extends HTMLAttributes<HTMLIFrameElement> {
   src: string;
-  className?: string | string[];
   height?: number;
   width?: number;
 }
@@ -28,7 +27,7 @@ const Figma: FC<FigmaProps> = ({
 
   return (
     <iframe
-      className={'figma '.concat(...className).trim()}
+      className={`figma ${className}`.trim()}
       height={height}
       width={width}
       src={`https://www.figma.com/embed?embed_host=share&url=${figmaUrl}`}

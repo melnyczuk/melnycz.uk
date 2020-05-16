@@ -1,5 +1,7 @@
 @import '../../root';
 
+
+
 .post {
   @include text;
   @include fadein;
@@ -20,14 +22,7 @@
   }
 
   &__description {
-    @include fadein;
-    height: fit-content;
-    float: left;
-    padding: 0;
-    border-right: $random-border;
-    border-left: $random-border;
-    border-bottom: $random-border;
-    width: 100%;
+    @include desc;
 
     &__paragraph {
       @include text;

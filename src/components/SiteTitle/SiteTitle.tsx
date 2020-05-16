@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import './SiteTitle.scss';
 
-export interface Props {
+export interface SiteTitleProps {
   title: string;
 }
 
-const SiteTitle: FC<Props> = ({ title }) => (
+const SiteTitle: FC<SiteTitleProps> = ({ title }) => (
   <Link href="/">
     <button type="button" className="site-title site-title--button">
       <h1 className="site-title site-title--heading">{title}</h1>
