@@ -125,19 +125,19 @@ function init(gl: WebGLRenderingContext): Init {
   return !gl
     ? null
     : (vert, frag): WebGLProgram => {
-      const vertexShader = loadShader(gl, gl.VERTEX_SHADER, String(vert));
-      const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, String(frag));
-      const shaderProgram = initShaderProgram(
-        gl,
-        vertexShader,
-        fragmentShader
-      );
+        const vertexShader = loadShader(gl, gl.VERTEX_SHADER, String(vert));
+        const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, String(frag));
+        const shaderProgram = initShaderProgram(
+          gl,
+          vertexShader,
+          fragmentShader
+        );
 
-      clear(gl);
-      initCam(gl, shaderProgram);
+        clear(gl);
+        initCam(gl, shaderProgram);
 
-      return shaderProgram;
-    };
+        return shaderProgram;
+      };
 }
 
 type Draw = (s: WebGLShader, u: Uniform<number | number[]>[]) => void;
@@ -145,15 +145,15 @@ function draw(gl: WebGLRenderingContext): Draw {
   return !gl
     ? null
     : (shaderProgram, uniforms) => {
-      const offset = 0;
-      const vertexCount = 4;
-      invokeUniforms(gl, shaderProgram, uniforms);
-      gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+        const offset = 0;
+        const vertexCount = 4;
+        invokeUniforms(gl, shaderProgram, uniforms);
+        gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
 
-      if (gl.getError()) {
-        console.log('error code', gl.getError());
-      }
-    };
+        if (gl.getError()) {
+          console.log('error code', gl.getError());
+        }
+      };
 }
 
 export default function getGL(
