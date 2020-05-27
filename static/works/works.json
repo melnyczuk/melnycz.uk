@@ -1,68 +1,5 @@
 {
-  "works": [
-    {
-      "area": "portfolio",
-      "namespace": "objperma",
-      "title": "Object Permanence",
-      "year": [
-        2018
-      ],
-      "media": {
-        "punctum": [3],
-        "images": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "videos": [],
-        "audios": []
-      },
-      "tags": [
-        "installation",
-        "networks",
-        "computational",
-        "archive",
-        "webserver",
-        "two channel projections",
-        "three channel audio",
-        "found images",
-        "found text",
-        "found audio",
-        "archival content"
-      ],
-      "live": true
-    },
-    {
-      "area": "portfolio",
-      "namespace": "rrosetta",
-      "title": "Rrosetta",
-      "year": [
-        2017
-      ],
-      "tags": [
-        "installation",
-        "webart",
-        "webserver",
-        "commercial printer",
-        "paper",
-        "found images",
-        "found text"
-      ],
-      "media": {
-        "punctum": [9],
-        "images": [
-          6,
-          2,
-          3,
-          4,
-          9
-        ],
-        "videos": [0],
-        "audios": []
-      },
-      "live": true
-    },
+  "works": [   
     {
       "area": "portfolio",
       "namespace": "hiresroc",
@@ -156,25 +93,6 @@
     },
     {
       "area": "portfolio",
-      "namespace": "texcache",
-      "title": "Texture Cache",
-      "year": [
-        2016
-      ],
-      "media": {
-        "punctum": [1],
-        "images": [0,1,2,3,4,5,6],
-        "videos": [],
-        "audios": []
-      },
-      "tags": [
-        "website",
-        "rendering"
-      ],
-      "live": true
-    },
-    {
-      "area": "portfolio",
       "namespace": "body_cam",
       "title": "_bodycam",
       "year": [
@@ -226,24 +144,6 @@
         "video"
       ],
       "live": false
-    },
-    {
-      "area": "portfolio",
-      "namespace": "otsmiasm",
-      "title": "On The Side Of Every Mountain Is Another Smaller Mountain",
-      "year": [
-        2016
-      ],
-      "media": {
-        "punctum": [0],
-        "images": [0,1,2,3,4,5,6,7,8,9,10],
-        "videos": [],
-        "audios": []
-      },
-      "tags": [
-        "video"
-      ],
-      "live": true
     }
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "title": "Texture Cache",
+  "year": [
+    2016
+  ],
+  "punctum": 1,
+  "media": {
+    "images": [{
+      "index": 0,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 1,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 2,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 3,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 4,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 5,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    },
+    {
+      "index": 6,
+      "alt": "Texture Cache",
+      "type": "image/jpeg"
+    }],
+    "videos": []
+  }
+}

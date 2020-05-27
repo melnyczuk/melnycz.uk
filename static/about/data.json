@@ -1,0 +1,18 @@
+{
+  "title": "About How Melnyczuk",
+  "year": [1989],
+  "punctum": 0,
+  "media": {
+    "images": [{
+      "index": 0,
+      "alt": "a How in his natural habitat",
+      "type": "image/jpeg"
+    }],
+    "videos": [{
+      "index": 0,
+      "description": [],
+      "type": null,
+      "url": "https://vimeo.com/239667082"
+    }]
+  }
+}

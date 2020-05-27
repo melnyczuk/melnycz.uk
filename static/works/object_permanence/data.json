@@ -1,0 +1,30 @@
+{
+  "title": "Object Permanence",
+  "year": [2018],
+  "punctum": 3,
+  "media": {
+    "images": [
+      {
+        "index": 1,
+        "alt": "Object Permanence",
+        "type": "image/jpeg"
+      },
+      {
+        "index": 2,
+        "alt": "Object Permanence",
+        "type": "image/jpeg"
+      },
+      {
+        "index": 3,
+        "alt": "Object Permanence",
+        "type": "image/jpeg"
+      },
+      {
+        "index": 4,
+        "alt": "Object Permanence",
+        "type": "image/jpeg"
+      }
+    ],
+    "videos": []
+  }
+}
