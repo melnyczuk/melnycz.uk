@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 const withSass = require('@zeit/next-sass');
-const { works } = require('./static/db/works.json');
-const shadersNames = require('./static/shaders/index.json');
+const { works, shaders } = require('./static/info.json');
 
 function pageReducer(route) {
   return (acc, name) => ({
@@ -15,12 +14,11 @@ const about = { about: { page: '/about' } };
 
 const cv = { cv: { page: '/cv' } };
 
-const portfolio = works
-  .filter(({ live }) => live)
-  .map(({ namespace }) => namespace)
-  .reduce(pageReducer('portfolio'), { portfolio: { page: '/portfolio' } });
+const portfolio = works.reduce(pageReducer('portfolio'), {
+  portfolio: { page: '/portfolio' },
+});
 
-const shaders = shadersNames.reduce(pageReducer('shaders'), {
+const shaderpages = shaders.reduce(pageReducer('shaders'), {
   shaders: { page: '/shaders' },
 });
 
@@ -33,7 +31,7 @@ module.exports = withSass({
     ...cv,
     ...about,
     ...portfolio,
-    ...shaders,
+    ...shaderpages,
     ...systems,
   }),
 });

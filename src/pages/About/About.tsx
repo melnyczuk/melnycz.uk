@@ -1,10 +1,17 @@
 import React, { FC } from 'react';
-import Post from '../../components/Post';
+import { root } from '../../../static/info.json';
+import { image, title } from '../../../static/about/data.json';
 
-import { title, media } from '../../../static/db/about.json';
+import PageTitle from '../../components/PageTitle';
+import Description from '../../components/Post/Description';
+import Picture from '../../components/Picture';
 
 const About: FC = () => (
-  <Post namespace="aboutbio" title={title} imgs={media.punctum} />
+  <article className="post">
+    <PageTitle>{title}</PageTitle>
+    <Description path={`${root}/about`} />
+    <Picture path={`${root}/about`} image={image} parent="post" />
+  </article>
 );
 
 export default About;

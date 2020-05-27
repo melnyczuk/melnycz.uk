@@ -1,15 +1,13 @@
 @import '../../root';
 
-
-
 .post {
   @include text;
-  @include fadein;
+  @include fader;
   padding: 0;
 
   &__title {
     @include text;
-    @include fadein;
+    @include fader;
     vertical-align: middle;
     width: fit-content;
     float: left;
@@ -23,16 +21,17 @@
 
   &__description {
     @include desc;
-
-    &__paragraph {
-      @include text;
-      font-size: $text-font-size;
-      margin: 16px;
-    }
+    @include fader;
   }
 
+  &__paragraph {
+    @include text;
+    font-size: $text-font-size;
+    margin: 16px;
+  }
+  
   &__image {
-    @include fadein;
+    @include fader;
     width: 100%;
     height: auto;
     margin: 16px 0 0 0;

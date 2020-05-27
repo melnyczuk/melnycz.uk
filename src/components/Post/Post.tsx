@@ -1,13 +1,5 @@
 import React, { FC } from 'react';
-
-import { media as mediaDb } from '../../../static/db/media.json';
-
-import { ImageType } from '../../types';
-
-import {
-  filterMediaByNamespace,
-  imageTypeCompletionFunc,
-} from '../../../src/utils';
+import { Image, Work } from '../../models';
 
 import Description from './Description';
 import PageTitle from '../PageTitle';
@@ -15,32 +7,22 @@ import Picture from '../Picture';
 
 import './Post.scss';
 
-const keyFrom = ({ namespace, index }: ImageType): string =>
-  `${namespace}-${index}`;
+const keyFrom = ({ index, alt, type }: Image): string =>
+  `${type}-${alt}-${index}`;
 
 interface PostProps {
-  namespace: string;
-  title: string;
-  imgs: number[];
+  path: string;
+  work: Work;
 }
 
-const Post: FC<PostProps> = ({ namespace, title, imgs }) => {
-  const images = imgs.map((i) =>
-    mediaDb.images
-      .map(imageTypeCompletionFunc)
-      .filter(filterMediaByNamespace(namespace))
-      .find(({ index }) => index === i)
-  );
-
-  return (
-    <article className="post">
-      <PageTitle>{title}</PageTitle>
-      <Description namespace={namespace} />
-      {images?.map((image) => (
-        <Picture key={keyFrom(image)} image={image} parent="post" />
-      ))}
-    </article>
-  );
-};
+const Post: FC<PostProps> = ({ path, work }) => (
+  <article className="post">
+    <PageTitle>{work.title}</PageTitle>
+    <Description path={path} />
+    {work?.media?.images?.map((image) => (
+      <Picture key={keyFrom(image)} path={path} image={image} parent="post" />
+    ))}
+  </article>
+);
 
 export default Post;

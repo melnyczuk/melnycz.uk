@@ -6,17 +6,16 @@ $random-border: 4px solid black;
 $site-title-font-size: 48px;
 $heading-font-size: 40px;
 $text-font-size: 24px;
-$fade_vel: 0.4s;
+$fade-vel: 0.4s;
 
 @mixin desc {
-  @include fadein;
   height: fit-content;
   float: left;
   padding: 0;
-  border-right: $random-border;
-  border-left: $random-border;
-  border-bottom: $random-border;
-  width: 100%;
+	width: 100%;
+	border-right: $random-border;
+	border-left: $random-border;
+	border-bottom: $random-border;
 }
 
 @mixin text {
@@ -27,12 +26,12 @@ $fade_vel: 0.4s;
 	font-weight: bold;
 }
 
-@mixin fadein {
-	-webkit-animation: fadein $fade_vel; /* Safari, Chrome and Opera > 12.1 */
-	-moz-animation: fadein $fade_vel; /* Firefox < 16 */
-	-ms-animation: fadein $fade_vel; /* Internet Explorer */
-	-o-animation: fadein $fade_vel; /* Opera < 12.1 */
-	animation: fadein $fade_vel;
+@mixin fader($vel: $fade-vel) {
+	-webkit-animation: fadein $vel; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein $vel; /* Firefox < 16 */
+	-ms-animation: fadein $vel; /* Internet Explorer */
+	-o-animation: fadein $vel; /* Opera < 12.1 */
+	animation: fadein $vel;
 }
 
 * {

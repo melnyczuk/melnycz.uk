@@ -1,15 +1,22 @@
 import React, { FC } from 'react';
 
+import { root } from '../../../static/info.json';
 import { DynamicPageProps } from '../../hoc/DynamicPage';
-import { works as worksDb } from '../../../static/db/works.json';
+import { Work } from '../../models';
+import { fetchData } from '../../utils';
 
-import { filterWorks } from '../../utils';
-
+import Loader from '../../components/Loader';
 import Post from '../../components/Post';
 
-const Work: FC<DynamicPageProps> = ({ namespace }) => {
-  const { title, media } = filterWorks(worksDb)('portfolio')(namespace);
-  return <Post namespace={namespace} title={title} imgs={media?.images} />;
+const WorkComponent: FC<DynamicPageProps> = ({ namespace }) => {
+  const path = `${root}/works/${namespace}`;
+  const { value } = fetchData<Work>(`${path}/data.json`);
+
+  return (
+    <Loader waitOn={[value]}>
+      <Post path={`${root}/works/${namespace}`} work={value} />
+    </Loader>
+  );
 };
 
-export default Work;
+export default WorkComponent;

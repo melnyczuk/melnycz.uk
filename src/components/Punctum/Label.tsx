@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import './Punctum.scss';
+
 interface LabelProps {
   children: string;
 }

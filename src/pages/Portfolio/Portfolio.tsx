@@ -1,28 +1,33 @@
 import React, { FC } from 'react';
 
-import { media as mediaDb } from '../../../static/db/media.json';
-import { works } from '../../../static/db/works.json';
+import { root, works } from '../../../static/info.json';
 
-import { filterMediaByNamespace, imageTypeCompletionFunc } from '../../utils';
+import { Work } from '../../models';
+import { fetchData } from '../../utils';
 
-import { WorkType } from '../../types';
-
+import Loader from '../../components/Loader';
 import Punctum from '../../components/Punctum';
 
-const PortfolioItem: FC<WorkType> = ({ live, namespace, title, media }) => {
-  const namespaceImages = mediaDb.images
-    .map(imageTypeCompletionFunc)
-    .filter(filterMediaByNamespace(namespace));
+const Portfolio: FC = () => {
+  const worksData = works
+    .map((work) => `${root}/works/${work}`)
+    .map((path) => fetchData<Work>(`${path}/data.json`).value);
 
-  const punctum = media.punctum?.map(
-    (p) => namespaceImages.filter(({ index }) => index === p)[0]
-  )[0];
-
-  return !live ? null : (
-    <Punctum href={`portfolio/${namespace}`} image={punctum} title={title} />
+  return (
+    <Loader waitOn={worksData}>
+      {worksData.map((work, i) => {
+        const namespace = works[i];
+        return (
+          <Punctum
+            key={namespace}
+            href={`portfolio/${namespace}`}
+            path={`${root}/works/${namespace}`}
+            work={work}
+          />
+        );
+      })}
+    </Loader>
   );
 };
-
-const Portfolio: FC = () => <>{works.map(PortfolioItem)}</>;
 
 export default Portfolio;
