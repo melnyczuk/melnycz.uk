@@ -1,7 +1,7 @@
 @import '../../root';
 
 .punctum {
-	@include fadein;
+	@include fader;
 	position: relative;
 	border: 0;
 	padding: 0;

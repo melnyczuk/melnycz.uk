@@ -2,7 +2,7 @@
 
 .page-title {
   @include text;
-  @include fadein;
+  @include fader;
   vertical-align: middle;
   width: fit-content;
   float: left;

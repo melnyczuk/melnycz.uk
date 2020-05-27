@@ -7,7 +7,7 @@
 	border: 0;
 
 	&--image {
-		@include fadein;
+		@include fader;
 		display: block;
 		object-fit: cover;
 		height: 60vw;
