@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "The website of Howard Melnyczuk",
+    "description": "This is the website of the artist and software developer Howard Melnyczuk."
+  },
+  "navlabels": [
+    "about",
+    "portfolio",
+    "shaders",
+    "systems"
+  ],
+  "root": "/static",
+  "shaders": [
+    "aGVsbG8gZ2Vt"
+  ],
+  "sitetitle": "Howard Melnyczuk",
+  "sizes": [160,320,640,960,1280,1600,1920,2560],
+  "works": [
+    "object_permanence",
+    "rrosetta",
+    "texture_cache",
+    "on_the_side_of_every_mountain"
+  ]
+}
