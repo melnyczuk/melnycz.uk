@@ -5,15 +5,13 @@
   },
   "navlabels": [
     "about",
-    "portfolio",
-    "shaders",
-    "systems"
+    "portfolio"
   ],
   "root": "/static",
   "shaders": [
     "aGVsbG8gZ2Vt"
   ],
-  "sitetitle": "Howard Melnyczuk",
+  "sitetitle": "How Melnyczuk",
   "sizes": [160,320,640,960,1280,1600,1920,2560],
   "works": [
     "object_permanence",
