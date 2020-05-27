@@ -1,13 +1,19 @@
 node_modules
 coverage
-.next
-__snapshots__
 out
-npm-debug.log
+.next
 .vscode
+.DS_Store
+npm-debug.log
+__snapshots__
+
+# documentation files
 *.indd
 *.psd
 *.wav
 *.txt
 *.wg
-.DS_Store
+
+# resized images:
+**/image/**/*
+!**/image/*
