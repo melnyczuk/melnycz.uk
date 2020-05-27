@@ -9,7 +9,7 @@
     "shaders",
     "systems"
   ],
-  "root": "/static",
+  "root": "static",
   "shaders": [
     "aGVsbG8gZ2Vt"
   ],
