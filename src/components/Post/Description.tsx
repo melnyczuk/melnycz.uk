@@ -2,27 +2,29 @@
 import React, { FC, useState, useEffect } from 'react';
 import YAML from 'yaml';
 
-const fetchDescription = (namespace): Promise<string[]> =>
-  fetch(`../static/copy/${namespace}.yaml`)
+import './Post.scss';
+
+const fetchDescription = (path): Promise<string[]> =>
+  fetch(`${path}/copy.yaml`)
     .then((resp: Response): Promise<string> => resp.text())
     .then(YAML.parse)
-    .then(({ description }): Promise<string[]> => description);
+    .then(({ copy }): Promise<string[]> => copy);
 
 interface DescriptionProps {
-  namespace: string;
+  path: string;
 }
 
-const Description: FC<DescriptionProps> = ({ namespace }) => {
+const Description: FC<DescriptionProps> = ({ path }) => {
   const [paragraphs, setParagraphs] = useState<string[]>();
 
   useEffect(() => {
-    fetchDescription(namespace).then(setParagraphs);
-  }, [namespace, setParagraphs]);
+    fetchDescription(path).then(setParagraphs);
+  }, [path]);
 
   return (
     <div className="post post__description">
       {paragraphs?.map((text) => (
-        <p className="post__description__paragraph" key={`desc-${text}`}>
+        <p className="post__paragraph" key={`desc-${text}`}>
           {text}
         </p>
       ))}

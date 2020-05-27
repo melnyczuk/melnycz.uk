@@ -1,30 +1,34 @@
 import React, { FC } from 'react';
-import { ImageType } from '../../types';
+
+import { sizes } from '../../../static/info.json';
 import { buildSrc } from '../../utils';
+import { Image } from '../../models';
 
 import './Picture.scss';
 
 interface PictureProps {
-  image: ImageType;
+  image: Image;
   parent: string;
+  path: string;
 }
 
-const Picture: FC<PictureProps> = ({ image, parent }) => {
-  const srcFor = buildSrc(image);
+const Picture: FC<PictureProps> = ({ image, parent, path }) => {
+  const srcFor = buildSrc(path)(image);
 
   return (
     <picture className={`picture ${parent}__picture`}>
-      {image.sizes.map((size) => (
+      {sizes.map((size) => (
         <source
+          className={`picture__source ${parent}__source`}
           key={`source-${size}`}
           media={`(max-width: ${size * 0.8}px)`}
+          sizes={sizes.join(',')}
           srcSet={srcFor(size)}
-          className={`picture__source ${parent}__source`}
         />
       ))}
       <img
-        src={srcFor(128)}
-        alt={image.alt}
+        src={srcFor(Math.min(...sizes))}
+        alt={image?.alt}
         className={`picture__image ${parent}__image`}
       />
     </picture>

@@ -1,27 +1,41 @@
+/* global clearInterval setInterval */
 import React, { FC, useState } from 'react';
-import { media as mediaDb } from '../../../static/db/media.json';
-import { imageTypeCompletionFunc } from '../../utils';
+
+import { root, works } from '../../../static/info.json';
+import { Work } from '../../models';
+import { findPunctumImage, fetchData } from '../../utils';
+
+import Loader from '../../components/Loader';
 import Picture from '../../components/Picture';
 import './Home.scss';
 
-const randImgIndex = (): number =>
-  Math.floor(Math.random() * mediaDb.images.length);
+const paths = works.map(work => `${root}/works/${work}`);
 
-const Home: FC = (): JSX.Element => {
-  const [index, setIndex] = useState<number>(randImgIndex());
+const randIndex = (len: number): number =>
+  Math.floor(Math.random() * len);
 
-  // eslint-disable-next-line no-undef
+const Home: FC = () => {
+  const [i, setIndex] = useState<number>(randIndex(paths.length));
+
+  const images = paths.reduce((acc, path) => ({ 
+    ...acc, 
+    [path]: findPunctumImage(fetchData<Work>(`${path}/data.json`).value) 
+  }), {});
+
+
   const interval = setInterval(() => {
-    setIndex(randImgIndex());
-    // eslint-disable-next-line no-undef
+    setIndex(randIndex(paths.length));
     clearInterval(interval);
   }, 3000);
 
   return (
-    <Picture
-      parent="home"
-      image={imageTypeCompletionFunc(mediaDb.images[index])}
-    />
+    <Loader waitOn={[images]}>
+      {images && <Picture
+        parent="home"
+        path={paths[i]}
+        image={images[paths[i]]}
+      />}
+    </Loader>
   );
 };
 
