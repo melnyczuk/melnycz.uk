@@ -1,0 +1,25 @@
+{
+  "title": "Gail: chatbot for Bureau of Meteoranxiety",
+  "year": [2018],
+  "punctum": 2,
+  "media": {
+    "images": [
+      {
+        "index": 0,
+        "alt": "Gail chatbot user interface",
+        "type": "image/png"
+      },
+      {
+        "index": 1,
+        "alt": "Image courtesy of Olivia Tartaglia & Alex Tate",
+        "type": "image/jpeg"
+      },
+      {
+        "index": 2,
+        "alt": "Image courtesy of Olivia Tartaglia & Alex Tate",
+        "type": "image/jpeg"
+      }
+    ],
+    "videos": []
+  }
+}
