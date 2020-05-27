@@ -1,7 +1,7 @@
 import React, { FC, ComponentProps } from 'react';
 import Head from 'next/head';
 
-import { meta, navlabels, sitetitle } from '../../../static/db/info.json';
+import { meta, navlabels, sitetitle } from '../../../static/info.json';
 
 import Nav from '../../components/Nav';
 import SiteTitle from '../../components/SiteTitle';
