@@ -17,7 +17,7 @@ export interface Image extends Media {
   alt: string;
 }
 
-export interface Video extends Media  {
+export interface Video extends Media {
   url: string;
   description: string[];
 }

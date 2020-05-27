@@ -19,11 +19,9 @@ const Post: FC<PostProps> = ({ path, work }) => (
   <article className="post">
     <PageTitle>{work.title}</PageTitle>
     <Description path={path} />
-    {
-      work?.media?.images?.map((image) => (
-        <Picture key={keyFrom(image)} path={path} image={image} parent="post" />
-      ))
-    }
+    {work?.media?.images?.map((image) => (
+      <Picture key={keyFrom(image)} path={path} image={image} parent="post" />
+    ))}
   </article>
 );
 

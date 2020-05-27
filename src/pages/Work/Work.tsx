@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-
 import { root } from '../../../static/info.json';
 import { DynamicPageProps } from '../../hoc/DynamicPage';
 import { Work } from '../../models';
@@ -17,7 +16,7 @@ const WorkComponent: FC<DynamicPageProps> = ({ namespace }) => {
     <Loader waitOn={[value]}>
       <Post path={`${root}/works/${namespace}`} work={value} />
     </Loader>
-  ); 
+  );
 };
 
 export default WorkComponent;
