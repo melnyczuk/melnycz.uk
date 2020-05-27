@@ -4,7 +4,7 @@ const sharp = require('sharp');
 
 const { root, sizes } = require('./info.json');
 
-glob.sync(`${root}/**/image`).forEach((dir) => {
+glob.sync(`./${root}/**/image`).forEach((dir) => {
   fs.readdirSync(dir)
     .filter((f) => f.match(/[A-z]*.(jpe?g|png)/gi))
     .forEach((img) => {
