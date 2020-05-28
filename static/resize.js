@@ -13,7 +13,7 @@ glob.sync(`./${root}/**/image`).forEach((dir) => {
         if (!fs.existsSync(sizeDir)) {
           fs.mkdirSync(sizeDir);
         }
-        const outFile = `${sizeDir}/${img.split('-')[1]}`;
+        const outFile = `${sizeDir}/${img.split(':')[1]}`;
         sharp(`${dir}/${img}`).resize(size).toFile(outFile);
       });
     });
