@@ -24,13 +24,26 @@
     @include fader;
   }
 
-  &__paragraph {
+  p {
     @include text;
     font-size: $text-font-size;
     margin: 16px;
   }
+
+  a {
+    width: 100%;
+    @include text;
+    text-align: center;
+    font-size: $text-font-size;
+    text-decoration: underline 
+    wavy;
+
+    &:hover{
+      color: blue;
+    }
+  }
   
-  &__image {
+  img {
     @include fader;
     width: 100%;
     height: auto;

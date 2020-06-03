@@ -1,35 +1,25 @@
 /* global fetch */
 import React, { FC, useState, useEffect } from 'react';
-import YAML from 'yaml';
+import ReactMarkdown from 'react-markdown';
 
 import './Post.scss';
 
-const fetchDescription = (path): Promise<string[]> =>
-  fetch(`${path}/copy.yaml`)
-    .then((resp: Response): Promise<string> => resp.text())
-    .then(YAML.parse)
-    .then(({ copy }): Promise<string[]> => copy);
+const fetchDescription = (path): Promise<string> =>
+  fetch(`${path}/copy.md`)
+    .then((resp: Response): Promise<string> => resp.status === 200 && resp.text())
 
 interface DescriptionProps {
   path: string;
 }
 
 const Description: FC<DescriptionProps> = ({ path }) => {
-  const [paragraphs, setParagraphs] = useState<string[]>();
+  const [copy, setCopy] = useState<string>();
 
   useEffect(() => {
-    fetchDescription(path).then(setParagraphs);
+    fetchDescription(path).then(setCopy);
   }, [path]);
 
-  return (
-    <div className="post post__description">
-      {paragraphs?.map((text) => (
-        <p className="post__paragraph" key={`desc-${text}`}>
-          {text}
-        </p>
-      ))}
-    </div>
-  );
+  return !copy ? null : <ReactMarkdown className="post post__description" source={copy} />;
 };
 
 export default Description;
