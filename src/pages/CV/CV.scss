@@ -1,340 +1,51 @@
 @import '../../root';
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
+h3 {
+  font-weight: bold; 
+  font-size: large;
 }
 
-body {
-  width: 100vw;
-  padding: 16px;
-  font-size: 18px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: inline-block;
-  overflow: visible;
-}
-@media (min-width: 768px) {
-  body {
-    display: block;
-    width: calc(100vw - 16px);
-    margin: 0 auto;
-  }
-}
-@media (min-width: 1280px) {
-  body {
-    margin: 0 auto;
-    width: 1280px;
-  }
-}
-@media print {
-  body {
-    font-size: 12px;
-  }
-}
-
-.app {
-  margin: 0;
-}
-
-.cv__header {
-  width: 100%;
-  display: inline-block;
-  padding: 0 4px;
-  margin: 0;
-
-  @media screen {
-    display: none !important;
-  }
-}
-
-.cv__main {
-  width: 100%;
-  display: inline-block;
-  overflow: visible;
-
-  @media screen {
-    @include text;
-  }
-}
-
-.cv__footer {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  height: auto;
-
-  @media screen {
-    display: none !important;
-  }
-}
-.cv__footer p {
-  width: 100%;
-  padding: 4px;
-  font-size: 18px;
-  text-align: left;
-  margin: 16px 0;
+h4 {
+  font-weight: bold; 
 }
 
 ul {
-  list-style-type: none;
-  padding: 2px 0;
+  padding: 0 20px;
+  list-style-type: '—';
 }
 
-li {
-  padding: 2px 0;
-}
+.cv {
+  font-family: $font-family;
 
-.col {
-  clear: both;
-}
-@media (min-width: 768px) {
-  .col {
-    clear: none;
+  @media print {
+    font-family: Arial, Helvetica, sans-serif;
   }
-}
-@media print {
-  .col {
-    padding: 0;
-  }
-}
-.col--left {
-  width: 100%;
-  height: auto;
-}
-.col--left--item {
-  width: 100%;
-  padding: 0 4px;
-}
-.col--left .tech {
-  float: left;
-}
-.col--left .education {
-  float: right;
-}
-@media (min-width: 768px) {
-  .col--left {
-    width: 25%;
-    float: left;
-    clear: none;
-  }
-}
-@media print {
-  .col--left {
-    width: 24%;
-    float: left;
-    clear: none;
-  }
-  .col--left .tech {
-    float: left;
-  }
-  .col--left .education {
-    position: absolute;
-    width: 20%;
-    float: left;
-    padding-right: 4px;
-    top: 100%;
-  }
-}
-.col--right {
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .col--right {
-    width: 75%;
-    float: right;
-    clear: none;
-  }
-}
-@media print {
-  .col--right {
-    width: 75%;
-    float: right;
-    clear: none;
-  }
-}
-.col--right--sub {
-  padding: 0 4px;
-}
-@media (min-width: 768px) {
-  .col--right--sub {
-    width: 50%;
-  }
-}
-@media (min-width: 768px) {
-  .col--right--l {
-    float: left;
-  }
-}
-@media (min-width: 768px) {
-  .col--right--r {
-    float: right;
-  }
-}
-@media print {
-  .col--right--r {
-    position: absolute;
-    width: inherit;
-    margin: inherit;
-    top: 200%;
-    padding-right: 32px;
-  }
-}
 
-.heading--name {
-  font-size: 48px;
-  float: left;
-}
-@media print {
-  .heading--name {
-    font-size: 40px;
+  &__date {
+    font-style: italic;
   }
-}
 
-.subheading {
-  float: left;
-  text-align: left;
-}
-@media (min-width: 768px) {
-  .subheading {
-    float: right;
-    text-align: right;
+  &__title {
+    font-weight: bold; 
   }
-}
-.subheading--vocation {
-  font-size: 40px;
-  margin: 8px 0 0 32px;
-}
-@media print {
-  .subheading--vocation {
-    font-size: 32px;
-  }
-}
-.subheading--age {
-  margin: 8px 0 0;
-  font-size: 18px;
-  text-align: right;
-}
 
-.contact {
-  width: 100%;
-  display: inline-block;
-  float: none;
-  margin: 8px 0 0;
-}
-.contact--item {
-  width: 100%;
-  display: inline-block;
-  font-size: 15px;
-  text-align: left;
-}
-@media (min-width: 768px) {
-  .contact--item {
-    width: 24%;
-    text-align: center;
-  }
-}
-@media print {
-  .contact--item {
-    width: calc(25vw - 16px);
-    text-align: center;
-  }
-}
+  &__info {
+    &__name {
+      font-weight: bold; 
+      font-size: larger;
 
-.sect--heading {
-  font-size: 32px;
-  padding: 16px 0 0;
-}
-@media print {
-  .sect--heading {
-    font-size: 24px;
-  }
-}
+      @media screen {
+        display: none;
+      }
+    }
 
-.pg--break {
-  display: none;
-}
-@media print {
-  .pg--break {
-    display: block;
-    height: 40px;
+    &__born {
+      font-style: italic;
+    }
   }
-}
 
-.education--uni {
-  padding: 16px 0 0;
+  &__tech-list {
+    column-count: 2;
+    column-gap: 32px;
+  }  
 }
-.education--course {
-  font-size: 24px;
-}
-@media print {
-  .education--course {
-    font-size: 18px;
-  }
-}
-.education--institution {
-  font-size: 15px;
-}
-@media print {
-  .education--institution {
-    font-size: 14px;
-  }
-}
-.education--dates {
-  font-size: 12px;
-}
-
-.work {
-  padding: 16px 0 0;
-}
-.work--title {
-  font-size: 24px;
-}
-.work--role {
-  font-size: 18px;
-  margin: 4px 0;
-}
-.work--dates {
-  font-size: 16px;
-  margin: 4px 0;
-}
-@media print {
-  .work--team {
-    font-size: 18px;
-  }
-}
-.work--desc {
-  font-size: 12px;
-}
-.work--resp {
-  font-size: 12px;
-}
-.work--resp--title {
-  font-size: 16px;
-}
-
-.tech {
-  width: 100%;
-}
-.tech--list {
-  padding: 0;
-}
-@media (min-width: 768px) {
-  .tech--list {
-    padding: 16px 0;
-  }
-}
-.tech--key {
-  font-size: 15px;
-}
-.tech--item {
-  padding-left: 16px;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-/*# sourceMappingURL=cv.css.map */
