@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Howard Melnyczuk",
+    "born": 1989,
+    "nationality": "British",
+    "tel": "+77801759426",
+    "email": "how@melnycz.uk",
+    "website": "melnycz.uk"
+  },
+  "experience": [
+    {
+      "dates": ["10.2019","Present"],
+      "company": "TransferWise",
+      "job": "Full-Stack Developer",
+      "team": null,
+      "description": "TransferWise is one of Europe’s highest valued startups, specialising in cross-currency financial services. I have been focussed on building system-critical microservices that must perform hyper-efficiently, scale effectively, and pass the scrutiny of financial authority standards around the world.",
+      "responsibilities": [
+        "Build and maintain React/Angular front-end apps",
+        "Build and maintain Java Spring microservices",
+        "Review pull requests and provide feedback across domains",
+        "Collaborate in product discussions & decisions",
+        "Improve back-office tooling",
+        "Continuous deployment and monitoring"
+      ]
+    },
+    {
+      "dates": ["03.2019","08.2019"],
+      "company": "BBC",
+      "team": "News Labs",
+      "job": "Full-Stack Developer",
+      "description": "News Labs is a technology-agnostic, project driven innovation incubator based across R&D and News departments, focusing on cutting-edge projects addressing concerns facing modern journalism.",
+      "responsibilities": [
+        "Project ideation & rapid prototyping for greenfield projects",
+        "User-driven research, design and testing",
+        "Led development of a ML/NLP tool for news discovery",
+        "Architecting projects for deployment on cloud infrastructure"
+      ]
+    },
+    {
+      "dates": ["09.2018", "02.2019"],
+      "company": "BBC",
+      "team": "iPlayer Web",
+      "job": "Front-end Developer",
+      "description": "As part of an agile team working on the iPlayer responsive website, I worked to constantly improve one of the UK's most used services. Given the volume of traffic, a strong focus on improving performance across all browsers and operating systems was vital.",
+      "responsibilities": [
+        "Worked collaboratively through pair programming & TDD",
+        "Developed sophisticated A/B tests with insightful metrics",
+        "Work with UX designers to implement new features",
+        "Focused on accessibility and cross-browser support",
+        "Updated REST client to improve caching"
+      ]
+    },
+    {
+      "dates": ["03.2018", "08.2019"],
+      "company": "Spirable",
+      "team": null,
+      "job": "Python Developer",
+      "description": "Spirable is an adtech startup. I worked on the core platform generating contextual, audience specific video content, algorithmically and at scale.",
+      "responsibilities": [
+        "Maintain core product stack",
+        "Implement OpenCV audio-video processing algorithms",
+        "Design and build new scalable features",
+        "Respond to client feedback to meet strict deadlines",
+        "Develop Bash scripts for internal automation",
+        "Support Creative in generating content for pitches",
+        "Deliver client training around the use of the product"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "dates": ["09.2016","09.2017"],
+      "institution": "Goldsmiths College",
+      "university": "University of London",
+      "course": "MA Computational Arts",
+      "grade": "Distinction"
+    },
+    {
+      "dates": ["09.2009","07.2012"],
+      "institution": "Institute for Communication Studies",
+      "university": "University of Leeds",
+      "course": "BA Cinema & Photography",
+      "grade": "2:1"
+    }
+  ],
+  "tech": [
+    [
+      "TypeScript / JavaScript", [
+      "React / Redux",
+      "Angular.js",
+      "Node.js",
+      "WebPack / Babel",
+      "Next.js",
+      "Sass / Less",
+      "WebGL",
+      "Jest / Mocha",
+      "React Testing Library",
+      "Enzyme CucumberJS"
+    ]],
+    ["Python", [ 
+      "Django",
+      "Flask",
+      "OpenCV",
+      "Tensorflow",
+      "SpaCy",
+      "NLTK",
+      "SciPy",
+      "Celery",
+      "Mypy",
+      "Black"
+    ]],
+    ["Java", [
+      "Spring",
+      "Spock / Mockito",
+      "Gradle / Maven", 
+      "Kafka",
+      "Lombok"
+    ]],
+    ["More", [
+      "Ruby on Rails",
+      "FFmpeg",
+      "Docker",
+      "Bash",
+      "Postgres",
+      "SQLite",
+      "Redis",
+      "RabbitMQ",
+      "AWS",
+      "ElasticSearch",
+      "Security & Threat modelling",
+      "TDD / BDD"
+    ]]
+  ]
+}

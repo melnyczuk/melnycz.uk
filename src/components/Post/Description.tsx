@@ -6,7 +6,7 @@ import './Post.scss';
 
 const fetchDescription = (path): Promise<string> =>
   fetch(`${path}/copy.md`)
-    .then((resp: Response): Promise<string> => resp.status === 200 && resp.text())
+    .then((resp: Response): Promise<string> => resp.status === 200 && resp.text());
 
 interface DescriptionProps {
   path: string;
