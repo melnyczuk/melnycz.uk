@@ -1,7 +1,5 @@
 import React, { ComponentProps } from 'react';
-
 import Header from './Header';
-
 import './StaticPage.scss';
 
 type Active = ComponentProps<typeof Header>['active'];

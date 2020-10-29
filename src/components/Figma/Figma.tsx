@@ -12,10 +12,7 @@ interface FigmaProps extends HTMLAttributes<HTMLIFrameElement> {
   src: string;
 }
 
-const Figma: FC<FigmaProps> = ({
-  src,
-  className = '',
-}) => {
+const Figma: FC<FigmaProps> = ({ src, className = '' }) => {
   const figmaUrl =
     validateFigmaUrl(src)?.reduce((validUrl) => validUrl) || null;
 
