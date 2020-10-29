@@ -3,10 +3,11 @@
     "title": "The website of Howard Melnyczuk",
     "description": "This is the website of the artist and software developer Howard Melnyczuk."
   },
-  "navlabels": [
-    "about",
-    "portfolio"
-  ],
+  "navlabels": {
+    "about": "/about",
+    "portfolio": "/portfolio",
+    "sites": "/sites"
+  },
   "root": "/static",
   "shaders": [
     "aGVsbG8gZ2Vt"
