@@ -28,6 +28,7 @@ module.exports = withSass({
   webpack: (config) => config,
   exportPathMap: () => ({
     '/': { page: '/' },
+    '/sites': { page: '/sites' },
     ...cv,
     ...about,
     ...portfolio,
