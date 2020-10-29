@@ -5,8 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import './Post.scss';
 
 const fetchDescription = (path): Promise<string> =>
-  fetch(`${path}/copy.md`)
-    .then((resp: Response): Promise<string> => resp.status === 200 && resp.text());
+  fetch(`${path}/copy.md`).then(
+    (resp: Response): Promise<string> => resp.status === 200 && resp.text()
+  );
 
 interface DescriptionProps {
   path: string;
@@ -19,7 +20,9 @@ const Description: FC<DescriptionProps> = ({ path }) => {
     fetchDescription(path).then(setCopy);
   }, [path]);
 
-  return !copy ? null : <ReactMarkdown className="post post__description" source={copy} />;
+  return !copy ? null : (
+    <ReactMarkdown className="post post__description" source={copy} />
+  );
 };
 
 export default Description;

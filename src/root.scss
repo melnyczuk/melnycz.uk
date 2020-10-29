@@ -47,6 +47,11 @@ a {
 	@include text;
 }
 
+.iframe-wrapper {
+	overflow: hidden;
+	height: 80vh;
+}
+
 @keyframes fadein {
 	from {
 		opacity: 0;

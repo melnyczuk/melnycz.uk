@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
 import './Nav.scss';
 
 const getClassName = (active: boolean): string =>
@@ -10,19 +9,17 @@ const capitaliseLabel = (label: string): string =>
 
 interface NavProps {
   active: string;
-  labels: string[];
+  labels: Record<string, string>;
 }
 
 const Nav: FC<NavProps> = ({ active, labels }) => (
   <nav className="nav">
-    {labels?.map((label) => (
-      <Link key={label} href={`/${label}`}>
-        <button type="button" className="nav__button">
-          <h4 className={getClassName(active === label)}>
-            {capitaliseLabel(label)}
-          </h4>
-        </button>
-      </Link>
+    {Object.keys(labels)?.map((label) => (
+      <a type="button" className="nav__button" key={label} href={labels[label]}>
+        <h4 className={getClassName(active === label)}>
+          {capitaliseLabel(label)}
+        </h4>
+      </a>
     ))}
   </nav>
 );
