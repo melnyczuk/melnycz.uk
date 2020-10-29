@@ -10,15 +10,11 @@ function validateFigmaUrl(url: string): RegExpMatchArray {
 
 interface FigmaProps extends HTMLAttributes<HTMLIFrameElement> {
   src: string;
-  height?: number;
-  width?: number;
 }
 
 const Figma: FC<FigmaProps> = ({
   src,
   className = '',
-  height = 800,
-  width = 800,
 }) => {
   const figmaUrl =
     validateFigmaUrl(src)?.reduce((validUrl) => validUrl) || null;
@@ -26,13 +22,15 @@ const Figma: FC<FigmaProps> = ({
   if (!figmaUrl) return null;
 
   return (
-    <iframe
-      className={`figma ${className}`.trim()}
-      height={height}
-      width={width}
-      src={`https://www.figma.com/embed?embed_host=share&url=${figmaUrl}`}
-      allowFullScreen
-    />
+    <div className="iframe-wrapper">
+      <iframe
+        className={`figma ${className}`.trim()}
+        height="100%"
+        width="100%"
+        src={`https://www.figma.com/embed?embed_host=share&url=${figmaUrl}`}
+        allowFullScreen
+      />
+    </div>
   );
 };
 
