@@ -5,3 +5,6 @@ static
 test
 .vscode
 next-env.d.ts
+node_modules
+public
+.cache
