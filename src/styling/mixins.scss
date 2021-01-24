@@ -1,0 +1,7 @@
+@mixin background($left, $right) {
+  background: linear-gradient(to right, $left 50%, $right 50%);
+}
+
+@mixin text {
+  text-decoration: unset;
+}

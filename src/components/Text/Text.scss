@@ -1,0 +1,25 @@
+@import '../../styling';
+
+.text {
+  // position: absolute;
+  // display: flex;
+  // flex-direction: column;
+  padding: $sizing-s;
+  font-size: $font-size-m;
+
+  & > p {
+    margin-bottom: $sizing-xs;
+  }
+
+  & > a,
+  :any-link {
+    @include text;
+    color: inherit;
+
+    &:hover {
+      &::before {
+        content: '⮕';
+      }
+    }
+  }
+}

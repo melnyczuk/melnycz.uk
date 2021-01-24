@@ -1,0 +1,49 @@
+@import '../../styling';
+
+.project {
+  @include background($colors-blue, $colors-grey);
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  &__title {
+    background: $colors-blue;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+
+    color: white;
+    font-family: serif;
+    font-size: $font-size-xl;
+    line-height: normal;
+
+    padding-left: $sizing-s;
+    z-index: 1;
+  }
+
+  &__text {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+
+    color: white;
+  }
+
+  &__year {
+    background: $colors-grey;
+    color: $colors-blue;
+    font-family: sans-serif;
+    text-align: right;
+
+    padding-right: $sizing-m;
+    margin-top: auto;
+  }
+
+  &__images {
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: -1px;
+}

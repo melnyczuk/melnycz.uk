@@ -1,0 +1,70 @@
+@import '../../styling';
+
+.navigation {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  flex-direction: column;
+
+  @include background($colors-blue, $colors-grey);
+
+  @media screen and (min-width: $bp-m) {
+    flex-direction: row;
+  }
+
+  &__paragraph {
+    color: white;
+
+    width: 100%;
+    padding: $sizing-s;
+    font-size: $font-size-m;
+    font-family: sans-serif;
+
+    @media screen and (min-width: $bp-m) {
+      width: 50%;
+    }
+
+    &--me {
+      font-weight: bold;
+      font-family: serif;
+    }
+  }
+
+  &__links-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: $sizing-s $sizing-m;
+
+    @media screen and (min-width: $bp-m) {
+      width: 50%;
+
+      justify-content: flex-end;
+    }
+  }
+
+  &__link {
+    // margin: 16px;
+    padding: $sizing-xs;
+    border-radius: $sizing-xs * 0.5;
+    height: $sizing-m;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: sans-serif;
+    line-height: normal;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    color: $colors-blue;
+    font-weight: 'inherit';
+    background-color: white;
+
+    &--active {
+      color: white;
+      font-weight: bold;
+      background-color: $colors-blue;
+    }
+  }
+}
