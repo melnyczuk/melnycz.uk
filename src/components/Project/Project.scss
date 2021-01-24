@@ -16,6 +16,7 @@
     font-size: $font-size-xl;
     line-height: normal;
 
+    padding-top: $sizing-s;
     padding-left: $sizing-s;
     z-index: 1;
   }
@@ -25,15 +26,18 @@
     grid-row: 2 / 2;
 
     color: white;
+    font-family: sans-serif;
   }
 
   &__year {
     background: $colors-grey;
     color: $colors-blue;
     font-family: sans-serif;
+    font-size: $font-size-s;
     text-align: right;
 
-    padding-right: $sizing-m;
+    padding-top: $sizing-s;
+    padding-right: $sizing-s;
     margin-top: auto;
   }
 

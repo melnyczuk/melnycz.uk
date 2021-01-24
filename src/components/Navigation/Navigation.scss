@@ -47,7 +47,8 @@
     // margin: 16px;
     padding: $sizing-xs;
     border-radius: $sizing-xs * 0.5;
-    height: $sizing-m;
+    font-size: $font-size-s;
+    height: min-content;
     vertical-align: middle;
     text-decoration: none;
     font-family: sans-serif;
@@ -60,6 +61,7 @@
     color: $colors-blue;
     font-weight: 'inherit';
     background-color: white;
+    border: 1px solid $colors-blue;
 
     &--active {
       color: white;

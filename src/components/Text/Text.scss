@@ -1,9 +1,6 @@
 @import '../../styling';
 
 .text {
-  // position: absolute;
-  // display: flex;
-  // flex-direction: column;
   padding: $sizing-s;
   font-size: $font-size-m;
 
@@ -16,9 +13,12 @@
     @include text;
     color: inherit;
 
+    &::before {
+      content: '⮕';
+    }
     &:hover {
       &::before {
-        content: '⮕';
+        content: '⇨';
       }
     }
   }
