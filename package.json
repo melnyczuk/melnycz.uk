@@ -88,18 +88,11 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "dev": "gatsby develop",
-    "dist": "yarn build && yarn resize && yarn export",
-    "export": "next export",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
-    "resize": "node ./static/resize.js",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
-    "start": "gatsby develop",
     "serve": "gatsby serve",
-    "test": "jest --detectOpenHandles --colors",
-    "test:coverage": "jest --coverage && rm -r ./coverage",
-    "typecheck": "tsc --noEmit",
-    "typecheck:watch": "yarn type-check -- --watch"
+    "typecheck": "tsc --noEmit"
   }
 }

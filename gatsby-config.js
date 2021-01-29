@@ -2,6 +2,7 @@
 module.exports = {
   siteMetadata: {
     title: 'melnycz.uk',
+    siteUrl: 'https://melnycz.uk',
   },
   plugins: [
     'gatsby-plugin-offline',
@@ -39,7 +40,7 @@ module.exports = {
       options: {
         typeName: 'FolioSchema',
         fieldName: 'folio',
-        url: 'http://localhost:3000/graphql',
+        url: 'https://melnyczuk-folio.herokuapp.com/graphql',
       },
     },
   ],
