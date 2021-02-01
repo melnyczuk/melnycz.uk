@@ -1,7 +1,24 @@
-@mixin background($left, $right) {
-  background: linear-gradient(to right, $left 50%, $right 50%);
+@import './variables.scss';
+
+@mixin defaults {
+  background: $colors-grey;
+  color: $colors-blue;
 }
 
-@mixin text {
+@mixin paragraph {
   text-decoration: unset;
+  font-family: $font-sans;
+
+  @media (min-width: $bp-s) {
+    font-size: $font-size-p-s;
+  }
+  @media (min-width: $bp-m) {
+    font-size: $font-size-p-m;
+  }
+  @media (min-width: $bp-l) {
+    font-size: $font-size-p-l;
+  }
+  @media (min-width: $bp-xl) {
+    font-size: $font-size-p-xl;
+  }
 }

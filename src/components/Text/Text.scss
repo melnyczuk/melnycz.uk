@@ -1,25 +1,24 @@
 @import '../../styling';
 
 .text {
-  padding: $sizing-s;
-  font-size: $font-size-m;
+  @include paragraph;
 
   & > p {
+    color: inherit;
+    background-color: inherit;
+    vertical-align: baseline;
+
     margin-bottom: $sizing-xs;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   & > a,
   :any-link {
-    @include text;
     color: inherit;
-
-    &::before {
-      content: '⮕';
-    }
-    &:hover {
-      &::before {
-        content: '⇨';
-      }
-    }
+    background-color: $colors-blue-highlight;
+    text-decoration: none;
+    padding: $sizing-xs / 3;
   }
 }

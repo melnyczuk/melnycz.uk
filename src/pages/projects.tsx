@@ -4,6 +4,8 @@ import React, { FC } from 'react';
 import { Navigation, Project } from '../components';
 import { ProjectType } from '../types';
 
+import './pages.scss';
+
 const yearSort = ({ year: a }, { year: b }): number =>
   new Date(b).valueOf() - new Date(a).valueOf();
 
@@ -36,28 +38,24 @@ export const projectPageQuery = graphql`
 
 type ProjectPageProps = PageProps & ProjectPageQueryType;
 
-const ProjectPage: FC<ProjectPageProps> = ({ path, data }) => {
-  console.log('scroll', document.scrollingElement);
-  return (
-    <>
-      <Navigation path={path} />
-      <main className="projects-page">
-        <div className="projects-page__left" />
-        <div className="projects-page__right" />
-        {data.folio.projects
-          .sort(yearSort)
-          .map(({ name, year, images, text }) => (
-            <Project
-              key={name}
-              name={name}
-              year={year}
-              images={images}
-              text={text}
-            />
-          ))}
-      </main>
-    </>
-  );
-};
+const ProjectPage: FC<ProjectPageProps> = ({ data, path }) => (
+  <>
+    <Navigation path={path} />
+    <main className="projects-page">
+      {data.folio.projects
+        .sort(yearSort)
+        .filter(({ text, images }) => text && images)
+        .map(({ name, year, images, text }) => (
+          <Project
+            key={name}
+            name={name}
+            year={year}
+            images={images}
+            text={text}
+          />
+        ))}
+    </main>
+  </>
+);
 
 export default ProjectPage;

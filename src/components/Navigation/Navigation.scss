@@ -1,72 +1,85 @@
 @import '../../styling';
 
 .navigation {
-  display: flex;
-  text-decoration: none;
+  @include defaults;
+
+  display: grid;
   width: 100%;
-  flex-direction: column;
 
-  @include background($colors-blue, $colors-grey);
+  color: $colors-blue;
 
-  @media screen and (min-width: $bp-m) {
-    flex-direction: row;
-  }
+  text-decoration: none;
 
   &__paragraph {
-    color: white;
+    @include paragraph;
+
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
 
     width: 100%;
-    padding: $sizing-s;
-    font-size: $font-size-m;
-    font-family: sans-serif;
+    max-width: $bp-m;
 
-    @media screen and (min-width: $bp-m) {
-      width: 50%;
-    }
+    font-family: $font-sans;
+
+    padding: $sizing-s;
 
     &--me {
       font-weight: bold;
-      font-family: serif;
+      font-family: $font-serif;
     }
   }
 
   &__links-container {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+
     display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding: $sizing-s $sizing-m;
+    flex-direction: row;
+    justify-items: end;
+    align-items: center;
 
-    @media screen and (min-width: $bp-m) {
-      width: 50%;
+    width: fit-content;
 
-      justify-content: flex-end;
+    margin: 0 auto;
+    padding: $sizing-s;
+
+    @media (min-width: $bp-m) {
+      grid-column: 2 / 2;
+      grid-row: 1 / 1;
+
+      margin: 0 0 0 auto;
     }
   }
 
   &__link {
-    // margin: 16px;
-    padding: $sizing-xs;
-    border-radius: $sizing-xs * 0.5;
-    font-size: $font-size-s;
-    height: min-content;
     vertical-align: middle;
-    text-decoration: none;
-    font-family: sans-serif;
-    line-height: normal;
 
-    &:not(:last-child) {
-      margin-right: 8px;
-    }
+    height: min-content;
+    width: 100%;
 
     color: $colors-blue;
-    font-weight: 'inherit';
-    background-color: white;
-    border: 1px solid $colors-blue;
+
+    font-family: $font-sans;
+    font-size: $font-size-p-s;
+    font-weight: inherit;
+    line-height: normal;
+    text-decoration: none;
+
+    padding: $sizing-xs;
+    border: $border;
+    border-radius: $sizing-xs * 0.5;
+
+    &:not(:last-child) {
+      margin-right: $sizing-xs;
+    }
 
     &--active {
-      color: white;
+      color: $colors-grey;
+
       font-weight: bold;
+
       background-color: $colors-blue;
+      border: 1px solid $colors-grey;
     }
   }
 }

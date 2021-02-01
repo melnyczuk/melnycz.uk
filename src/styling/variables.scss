@@ -1,15 +1,8 @@
-// Break-points
-// 360×640
-// 1366×768
-// 1920×1080
-// 375×667
-// 360×720
-// 768×1024
-$bp-xs: 360px;
-$bp-s: 375px;
-$bp-m: 768px;
-$bp-l: 1366px;
-$bp-xl: 1920px;
+$bp-xs: 360px; // 360×640, 360×720
+$bp-s: 375px; // 375×667
+$bp-m: 768px; // 768×1024
+$bp-l: 1366px; // 1366×768
+$bp-xl: 1920px; // 1920×1080
 
 $sizing-xs: 9px;
 $sizing-s: 18px;
@@ -17,11 +10,23 @@ $sizing-m: 36px;
 $sizing-l: 72px;
 $sizing-xl: 144px;
 
-$font-size-xl: 36px;
-$font-size-l: 28px;
-$font-size-m: 20px;
-$font-size-s: 16px;
-$font-size-xs: 14px;
+$font-serif: 'reckless';
+$font-sans: 'roobert';
+
+$font-size-p-xl: 24px;
+$font-size-p-l: 18px;
+$font-size-p-m: 16px;
+$font-size-p-s: 14px;
+$font-size-p-xs: 14px;
+
+$font-size-h-xl: 36px;
+$font-size-h-l: 22px;
+$font-size-h-m: 16px;
+$font-size-h-s: 16px;
+$font-size-h-xs: 14px;
 
 $colors-blue: #00309c;
+$colors-blue-highlight: #bfcdff;
 $colors-grey: #fafafa;
+
+$border: 1px solid $colors-blue;

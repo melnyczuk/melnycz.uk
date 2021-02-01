@@ -1,47 +1,43 @@
 import React, { FC } from 'react';
-import { Link } from 'gatsby';
+import { Link, PageProps } from 'gatsby';
 import classnames from 'classnames';
 import './Navigation.scss';
 
-const HOME_PAGE = '/';
-
-type NavigationProps = {
-  path: string;
-};
+type NavigationProps = Pick<PageProps, 'path'>;
 
 const Navigation: FC<NavigationProps> = ({ path }) => (
   <div className="navigation">
     <p className="navigation__paragraph">
       <span className="navigation__paragraph--me">How Melnyczuk</span> is an
-      artist who uses uses code, video, photography, design, sound, writing and
-      publishing to investigate technology.
+      artist who uses uses code, video, images and text to investigate
+      technology, power and community.
     </p>
     <span className="navigation__links-container">
       <Link
         to="/projects"
         className={classnames('navigation__link', {
           'navigation__link--active':
-            path === '/projects' || path === HOME_PAGE,
+            /\/projects\/?/.test(path) || /\//.test(path),
         })}
       >
         Projects
       </Link>
-      <Link
+      {/* <Link
         to="/updates"
         className={classnames('navigation__link', {
-          'navigation__link--active': path === '/updates',
+          'navigation__link--active': /\/updates\/?/.test(path),
         })}
       >
         Updates
-      </Link>
-      <Link
+      </Link> */}
+      {/* <Link
         to="/about"
         className={classnames('navigation__link', {
-          'navigation__link--active': path === '/about',
+          'navigation__link--active': /\/about\/?/.test(path),
         })}
       >
         About
-      </Link>
+      </Link> */}
     </span>
   </div>
 );
