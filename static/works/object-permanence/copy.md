@@ -1,7 +1,0 @@
-Produced as part of the inaugural Computational Art Residency, in collaboration between the Victoria & Albert Museum and Goldsmiths College, Object Permanence is an investigation into the legacies of colonial atrocity that exist in institutional archives.
-
-By cross-referencing historical dates, names and places against key fields in the V&A’s digital database, the programme was able to draw out documentary images of the physical items that have found their way into the museum’s collection. These objects were all acquired into the collection during three specific acts of British colonial aggression: the putdown of the First Indian War for Independence in 1857, the sacking of the Summer Palace in China during 1860, and the Maqdala expedition into Ethiopia in 1868.
-
-Presented as an installation at the V&A's Digital Design weekend 2018, the work consisted of projections, found audio and a responsive computer programme. At the center, the images of archival objects were projected onto screens made of the same material used to wrap the objects in the V&A's physical archive.
-
-Around this were placed three free standing speakers, each playing audio explaining the history and historical aftermath of the historical events. If an audience member approached one of the speakers to listen, a proximity sensor mounted in the speaker would cause the computer programme to respond by updating the projections with images of objects from that event.

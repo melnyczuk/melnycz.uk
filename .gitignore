@@ -1,19 +1,4 @@
-node_modules
-coverage
-out
-.next
-.vscode
-.DS_Store
-npm-debug.log
-__snapshots__
-
-# documentation files
-*.indd
-*.psd
-*.wav
-*.txt
-*.wg
-
-# resized images:
-**/image/**/*
-!**/image/*
+node_modules/
+.cache/
+public
+yarn-error.log

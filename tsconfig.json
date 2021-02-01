@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
   },
-  "include": ["pages","src"],
+  "include": ["src", "gatsby-browser.js", "gatsby-config.js"],
   "exclude": ["node_modules"]
 }
