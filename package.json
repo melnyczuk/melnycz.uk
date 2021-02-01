@@ -93,6 +93,7 @@
     "prettier": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
     "serve": "gatsby serve",
+    "test": "echo 'no tests'",
     "typecheck": "tsc --noEmit"
   }
 }
