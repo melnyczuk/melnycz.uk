@@ -1,0 +1,24 @@
+@import '../../styling';
+
+.text {
+  @include paragraph;
+
+  & > p {
+    color: inherit;
+    background-color: inherit;
+    vertical-align: baseline;
+
+    margin-bottom: $sizing-xs;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > a,
+  :any-link {
+    color: inherit;
+    background-color: $colors-blue-highlight;
+    text-decoration: none;
+    padding: $sizing-xs / 3;
+  }
+}

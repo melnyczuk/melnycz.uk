@@ -1,17 +1,28 @@
-import * as React from 'react';
+import { graphql } from 'gatsby';
+import React, { ComponentProps, FC } from 'react';
+import ProjectPage from './projects';
 
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
+export const homePageQuery = graphql`
+  query HomePageQuery {
+    folio {
+      projects {
+        name
+        year
+        images {
+          name
+          url
+        }
+        text {
+          name
+          url
+        }
+      }
+    }
+  }
+`;
 
-const IndexPage = () => {
-  return (
-    <main style={pageStyles}>
-      
-    </main>
-  );
-};
+const IndexPage: FC<ComponentProps<typeof ProjectPage>> = (props) => (
+  <ProjectPage {...props} />
+);
 
 export default IndexPage;

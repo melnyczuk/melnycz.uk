@@ -1,0 +1,24 @@
+@import './variables.scss';
+
+@mixin defaults {
+  background: $colors-grey;
+  color: $colors-blue;
+}
+
+@mixin paragraph {
+  text-decoration: unset;
+  font-family: $font-sans;
+
+  @media (min-width: $bp-s) {
+    font-size: $font-size-p-s;
+  }
+  @media (min-width: $bp-m) {
+    font-size: $font-size-p-m;
+  }
+  @media (min-width: $bp-l) {
+    font-size: $font-size-p-l;
+  }
+  @media (min-width: $bp-xl) {
+    font-size: $font-size-p-xl;
+  }
+}

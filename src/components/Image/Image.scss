@@ -1,0 +1,13 @@
+@import '../../styling';
+
+.image {
+  padding: $sizing-xs $sizing-s;
+
+  &:first-child {
+    padding-top: $sizing-s;
+  }
+
+  &:last-child {
+    padding-bottom: $sizing-s;
+  }
+}

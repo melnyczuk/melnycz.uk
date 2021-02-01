@@ -1,8 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Link } from 'gatsby';
 
-import './pages.scss';
-
 const pageStyles: CSSProperties = {
   color: '#232129',
   padding: '96px',
