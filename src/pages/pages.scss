@@ -1,5 +1,77 @@
 @import '../styling';
 
+@mixin border-right {
+  border-right: 0;
+
+  @media (min-width: $bp-m) {
+    border-right: $border;
+  }
+}
+
+body {
+  background-color: $colors-grey;
+}
+
 .projects-page {
   @include defaults;
+}
+
+.about-page {
+  @include defaults;
+
+  height: 100%;
+
+  hr {
+    border: none;
+    border-top: $border;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+.about__text {
+  display: grid;
+  grid-template-columns: 67% 33%;
+  width: 100%;
+
+  background-color: inherit;
+  color: inherit;
+  border-top: $border;
+
+  @media (min-width: $bp-m) {
+    grid-template-columns: 50% 50%;
+  }
+
+  &--bio {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    z-index: 0;
+
+    padding: $sizing-s;
+
+    @media (min-width: $bp-m) {
+      grid-column: 2 / 2;
+
+      align-self: baseline;
+    }
+  }
+
+  &--cv {
+    @include border-right;
+
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+    z-index: 0;
+
+    padding: $sizing-s;
+
+    @media (min-width: $bp-m) {
+      grid-row: 1 / 1;
+
+      align-self: baseline;
+    }
+  }
 }
