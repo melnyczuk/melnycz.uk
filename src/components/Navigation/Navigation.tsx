@@ -3,11 +3,17 @@ import { Link, PageProps } from 'gatsby';
 import classnames from 'classnames';
 import './Navigation.scss';
 
-type NavigationProps = Pick<PageProps, 'path'>;
+type NavigationProps = Pick<PageProps, 'path'> & {
+  hideDescription?: boolean;
+};
 
-const Navigation: FC<NavigationProps> = ({ path }) => (
+const Navigation: FC<NavigationProps> = ({ hideDescription = false, path }) => (
   <div className="navigation">
-    <p className="navigation__paragraph">
+    <p
+      className={classnames('navigation__paragraph', {
+        'navigation__paragraph--hidden': hideDescription,
+      })}
+    >
       <span className="navigation__paragraph--me">How Melnyczuk</span> is an
       artist who uses uses code, video, images and text to investigate
       technology, power and community.
@@ -16,8 +22,7 @@ const Navigation: FC<NavigationProps> = ({ path }) => (
       <Link
         to="/projects"
         className={classnames('navigation__link', {
-          'navigation__link--active':
-            /\/projects\/?/.test(path) || /\//.test(path),
+          'navigation__link--active': /\/projects\/?/.test(path),
         })}
       >
         Projects
@@ -30,14 +35,14 @@ const Navigation: FC<NavigationProps> = ({ path }) => (
       >
         Updates
       </Link> */}
-      {/* <Link
+      <Link
         to="/about"
         className={classnames('navigation__link', {
           'navigation__link--active': /\/about\/?/.test(path),
         })}
       >
         About
-      </Link> */}
+      </Link>
     </span>
   </div>
 );
