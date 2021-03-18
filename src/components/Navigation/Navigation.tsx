@@ -4,18 +4,20 @@ import classnames from 'classnames';
 import './Navigation.scss';
 
 type NavigationProps = Pick<PageProps, 'path'> & {
-  showDescription?: boolean;
+  hideDescription?: boolean;
 };
 
-const Navigation: FC<NavigationProps> = ({ showDescription = false, path }) => (
+const Navigation: FC<NavigationProps> = ({ hideDescription = false, path }) => (
   <div className="navigation">
-    {showDescription && (
-      <p className="navigation__paragraph">
-        <span className="navigation__paragraph--me">How Melnyczuk</span> is an
-        artist who uses uses code, video, images and text to investigate
-        technology, power and community.
-      </p>
-    )}
+    <p
+      className={classnames('navigation__paragraph', {
+        'navigation__paragraph--hidden': hideDescription,
+      })}
+    >
+      <span className="navigation__paragraph--me">How Melnyczuk</span> is an
+      artist who uses uses code, video, images and text to investigate
+      technology, power and community.
+    </p>
     <span className="navigation__links-container">
       <Link
         to="/projects"

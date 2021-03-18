@@ -46,13 +46,14 @@ body {
   }
 
   &--bio {
-    grid-column: 1 / 1;
+    grid-column: 1 / 3;
     grid-row: 1 / 1;
     z-index: 0;
 
     padding: $sizing-s;
 
     @media (min-width: $bp-m) {
+      grid-column: 1 / 1;
       grid-column: 2 / 2;
 
       align-self: baseline;
@@ -62,13 +63,15 @@ body {
   &--cv {
     @include border-right;
 
-    grid-column: 1 / 1;
+    grid-column: 1 / 3;
     grid-row: 2 / 2;
     z-index: 0;
 
     padding: $sizing-s;
 
     @media (min-width: $bp-m) {
+      grid-column: 1 / 1;
+
       grid-row: 1 / 1;
 
       align-self: baseline;

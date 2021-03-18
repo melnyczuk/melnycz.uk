@@ -40,7 +40,7 @@ type ProjectPageProps = PageProps & ProjectPageQueryType;
 
 const ProjectPage: FC<ProjectPageProps> = ({ data, path }) => (
   <>
-    <Navigation showDescription path={path} />
+    <Navigation path={path} />
     <main className="projects-page">
       {data.folio.projects
         .sort(yearSort)
