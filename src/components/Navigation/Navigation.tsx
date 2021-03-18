@@ -7,28 +7,25 @@ type NavigationProps = Pick<PageProps, 'path'> & {
   showDescription?: boolean;
 };
 
-const Navigation: FC<NavigationProps> = ({ showDescription = false, path }) => {
-  console.log('project', /\/projects\/?/.test(path));
-  console.log('about', /\/about\/?/.test(path));
-  return (
-    <div className="navigation">
-      {showDescription && (
-        <p className="navigation__paragraph">
-          <span className="navigation__paragraph--me">How Melnyczuk</span> is an
-          artist who uses uses code, video, images and text to investigate
-          technology, power and community.
-        </p>
-      )}
-      <span className="navigation__links-container">
-        <Link
-          to="/projects"
-          className={classnames('navigation__link', {
-            'navigation__link--active': /\/projects\/?/.test(path),
-          })}
-        >
-          Projects
-        </Link>
-        {/* <Link
+const Navigation: FC<NavigationProps> = ({ showDescription = false, path }) => (
+  <div className="navigation">
+    {showDescription && (
+      <p className="navigation__paragraph">
+        <span className="navigation__paragraph--me">How Melnyczuk</span> is an
+        artist who uses uses code, video, images and text to investigate
+        technology, power and community.
+      </p>
+    )}
+    <span className="navigation__links-container">
+      <Link
+        to="/projects"
+        className={classnames('navigation__link', {
+          'navigation__link--active': /\/projects\/?/.test(path),
+        })}
+      >
+        Projects
+      </Link>
+      {/* <Link
         to="/updates"
         className={classnames('navigation__link', {
           'navigation__link--active': /\/updates\/?/.test(path),
@@ -36,17 +33,16 @@ const Navigation: FC<NavigationProps> = ({ showDescription = false, path }) => {
       >
         Updates
       </Link> */}
-        <Link
-          to="/about"
-          className={classnames('navigation__link', {
-            'navigation__link--active': /\/about\/?/.test(path),
-          })}
-        >
-          About
-        </Link>
-      </span>
-    </div>
-  );
-};
+      <Link
+        to="/about"
+        className={classnames('navigation__link', {
+          'navigation__link--active': /\/about\/?/.test(path),
+        })}
+      >
+        About
+      </Link>
+    </span>
+  </div>
+);
 
 export default Navigation;
