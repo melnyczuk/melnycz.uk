@@ -27,10 +27,6 @@
       font-weight: bold;
       font-family: $font-serif;
     }
-
-    &--hidden {
-      visibility: hidden;
-    }
   }
 
   &__links-container {
@@ -40,18 +36,17 @@
     display: flex;
     flex-direction: row;
     justify-items: end;
-    align-items: center;
+    align-items: left;
 
     width: fit-content;
-
-    margin: 0 auto;
-    padding: $sizing-s;
+    padding: 0 $sizing-s $sizing-s;
 
     @media (min-width: $bp-m) {
       grid-column: 2 / 2;
       grid-row: 1 / 1;
 
       margin: 0 0 0 auto;
+      padding: $sizing-s;
     }
   }
 

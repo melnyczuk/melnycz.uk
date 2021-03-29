@@ -50,13 +50,14 @@ body {
     grid-row: 1 / 1;
     z-index: 0;
 
-    padding: $sizing-s;
+    padding: $sizing-s $sizing-s 0;
 
     @media (min-width: $bp-m) {
       grid-column: 1 / 1;
       grid-column: 2 / 2;
 
       align-self: baseline;
+      padding: $sizing-s;
     }
   }
 
@@ -67,7 +68,7 @@ body {
     grid-row: 2 / 2;
     z-index: 0;
 
-    padding: $sizing-s;
+    padding: 0 $sizing-s $sizing-s;
 
     @media (min-width: $bp-m) {
       grid-column: 1 / 1;
@@ -75,6 +76,7 @@ body {
       grid-row: 1 / 1;
 
       align-self: baseline;
+      padding: $sizing-s;
     }
   }
 }
