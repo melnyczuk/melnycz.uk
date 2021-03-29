@@ -3,20 +3,14 @@ import { Link, PageProps } from 'gatsby';
 import classnames from 'classnames';
 import './Navigation.scss';
 
-type NavigationProps = Pick<PageProps, 'path'> & {
-  hideDescription?: boolean;
-};
+type NavigationProps = Pick<PageProps, 'path'>;
 
-const Navigation: FC<NavigationProps> = ({ hideDescription = false, path }) => (
+const Navigation: FC<NavigationProps> = ({ path }) => (
   <div className="navigation">
-    <p
-      className={classnames('navigation__paragraph', {
-        'navigation__paragraph--hidden': hideDescription,
-      })}
-    >
-      <span className="navigation__paragraph--me">How Melnyczuk</span> is an
-      artist who uses uses code, video, images and text to investigate
-      technology, power and community.
+    <p className="navigation__paragraph">
+      <span className="navigation__paragraph--me">Howard Melnyczuk</span>
+      is an artist investigating technology as the site in which political
+      structures are built and maintained.
     </p>
     <span className="navigation__links-container">
       <Link
