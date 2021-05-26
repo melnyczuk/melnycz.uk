@@ -38,7 +38,7 @@ module.exports = {
       options: {
         typeName: 'FolioSchema',
         fieldName: 'folio',
-        url: 'https://melnyczuk-folio.herokuapp.com/graphql',
+        url: 'https://foliomelnyczuk.herokuapp.com/graphql',
       },
     },
   ],
