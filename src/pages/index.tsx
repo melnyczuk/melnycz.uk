@@ -2,6 +2,10 @@ import { graphql } from 'gatsby';
 import React, { ComponentProps, FC } from 'react';
 import ProjectPage from './projects';
 
+const IndexPage: FC<ComponentProps<typeof ProjectPage>> = (props) => (
+  <ProjectPage {...props} />
+);
+
 export const homePageQuery = graphql`
   query HomePageQuery {
     folio {
@@ -12,7 +16,7 @@ export const homePageQuery = graphql`
           name
           url
         }
-        text {
+        texts {
           name
           url
         }
@@ -20,9 +24,5 @@ export const homePageQuery = graphql`
     }
   }
 `;
-
-const IndexPage: FC<ComponentProps<typeof ProjectPage>> = (props) => (
-  <ProjectPage {...props} />
-);
 
 export default IndexPage;

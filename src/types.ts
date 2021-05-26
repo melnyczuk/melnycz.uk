@@ -16,7 +16,7 @@ export type ProjectType = {
   name: string;
   year: string | Date;
   images: ImageType[];
-  text: TextType;
+  texts: TextType[];
 };
 
 export type ClassAndStyle = {
