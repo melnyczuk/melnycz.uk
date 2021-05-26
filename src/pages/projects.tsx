@@ -6,29 +6,13 @@ import { ProjectType } from '../types';
 
 import './pages.scss';
 
-const yearSort = ({ year: a }, { year: b }): number =>
-  new Date(b).valueOf() - new Date(a).valueOf();
-
-type ProjectPageQueryType = {
+type ProjectPageProps = PageProps & {
   data: {
     folio: {
       projects: ProjectType[];
     };
   };
 };
-
-type ProjectPageProps = PageProps & ProjectPageQueryType;
-
-const ProjectPage: FC<ProjectPageProps> = ({ data, path }) => (
-  <>
-    <Navigation path={path} />
-    <main className="projects-page">
-      {data.folio.projects.sort(yearSort).map(({ name, ...props }) => (
-        <Project key={name} name={name} {...props} />
-      ))}
-    </main>
-  </>
-);
 
 export const projectPageQuery = graphql`
   query ProjectPageQuery {
@@ -49,5 +33,19 @@ export const projectPageQuery = graphql`
     }
   }
 `;
+
+const yearSort = ({ year: a }, { year: b }): number =>
+  new Date(b).valueOf() - new Date(a).valueOf();
+
+const ProjectPage: FC<ProjectPageProps> = ({ data, path }) => (
+  <>
+    <Navigation path={path} />
+    <main className="projects-page">
+      {data.folio.projects.sort(yearSort).map(({ name, ...props }) => (
+        <Project key={name} name={name} {...props} />
+      ))}
+    </main>
+  </>
+);
 
 export default ProjectPage;
