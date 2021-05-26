@@ -12,6 +12,7 @@ export const homePageQuery = graphql`
       projects {
         name
         year
+        hide
         images {
           name
           url
