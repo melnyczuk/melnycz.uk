@@ -12,6 +12,25 @@ body {
   background-color: $colors-grey;
 }
 
+.page-404 {
+  @include defaults;
+
+  color: #232129;
+  padding: 96px;
+  font-family: -apple-system, Roboto, sans-serif, serif;
+
+  p {
+    margin-bottom: none;
+    font-size: 50px;
+    text-align: center;
+    border: solid 1 black;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 .projects-page {
   @include defaults;
 }
