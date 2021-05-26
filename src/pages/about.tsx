@@ -1,20 +1,48 @@
-import { PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React, { FC } from 'react';
 import { Navigation, Text } from '../components';
 
-type AboutPageProps = PageProps;
+type AboutPageProps = PageProps & {
+  data: {
+    folio: {
+      project: {
+        texts: [
+          {
+            url: string;
+            name: string;
+          }
+        ];
+      };
+    };
+  };
+};
 
-const BIO_URL = 'https://dl.dropbox.com/s/pe6s9zkk93wjco6/bio.md';
-const CV_URL = 'https://dl.dropbox.com/s/hpg0tuq7n1cyhgj/cv.md';
+export const projectPageQuery = graphql`
+  query AboutPageQuery {
+    folio {
+      project(name: "about") {
+        texts {
+          name
+          url
+        }
+      }
+    }
+  }
+`;
 
-const AboutPage: FC<AboutPageProps> = ({ path }) => {
+const AboutPage: FC<AboutPageProps> = ({ data, path }) => {
+  const urls = data.folio.project.texts.reduce(
+    (acc, { name, url }) => ({ ...acc, [name]: url }),
+    {}
+  );
+
   return (
     <>
       <Navigation path={path} />
       <main className="about-page">
         <div className="about__text">
-          <Text className="about__text--bio" name="bio" url={BIO_URL} />
-          <Text className="about__text--cv" name="cv" url={CV_URL} />
+          <Text className="about__text--bio" name="bio" url={urls['bio.md']} />
+          <Text className="about__text--cv" name="cv" url={urls['cv.md']} />
         </div>
       </main>
     </>
