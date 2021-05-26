@@ -23,9 +23,18 @@ const ProjectPage: FC<ProjectPageProps> = ({ data, path }) => (
   <>
     <Navigation path={path} />
     <main className="projects-page">
-      {data.folio.projects.sort(yearSort).map(({ name, ...props }) => (
-        <Project key={name} name={name} {...props} />
-      ))}
+      {data.folio.projects
+        .sort(yearSort)
+        .filter(({ texts, images }) => texts && images)
+        .map(({ name, year, images, texts }) => (
+          <Project
+            key={name}
+            name={name}
+            year={year}
+            images={images}
+            texts={texts}
+          />
+        ))}
     </main>
   </>
 );
@@ -36,7 +45,6 @@ export const projectPageQuery = graphql`
       projects {
         name
         year
-        hide
         images {
           name
           url
