@@ -19,6 +19,13 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
   },
-  "include": ["gatsby-browser.js","src/**/*.ts", "src/**/*.tsx", "gatsby-browser.jsx", "gatsby-config.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "gatsby-browser.js", 
+    "gatsby-config.js",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
 }
