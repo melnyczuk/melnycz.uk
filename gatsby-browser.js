@@ -1,1 +1,1 @@
-import 'modern-css-reset';
+export * from './src/pages/_browser';
