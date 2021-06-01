@@ -1,0 +1,19 @@
+@import '../styling';
+
+.page-404 {
+  @include defaults;
+
+  color: $colors-blue;
+  padding: 96px;
+  font-family: -apple-system, Roboto, sans-serif, serif;
+
+  a {
+    display: block;
+    margin-bottom: none;
+    font-size: 50px;
+    text-align: center;
+    border: solid 1 black;
+    text-decoration: none;
+    margin: 0 auto;
+  }
+}

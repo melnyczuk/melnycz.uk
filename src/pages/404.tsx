@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
 import { Link, PageProps } from 'gatsby';
-import './pages.scss';
+import './404.scss';
 
-const NotFoundPage: FC<PageProps> = ({ path }) => (
+const NotFoundPage: FC<PageProps> = () => (
   <main className="page-404">
     <title>Not found</title>
-    <p>
-      <p>{path}</p>
-      <Link to="/">¯\_(ツ)_/¯</Link>
-    </p>
+    <Link to="/">¯\_(ツ)_/¯</Link>
   </main>
 );
 
