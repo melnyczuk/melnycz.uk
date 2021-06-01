@@ -1,9 +1,19 @@
-import React, { FC } from 'react';
-import { ImageType } from '../../types';
+import classNames from 'classnames';
+import React from 'react';
+import { FCWithClassAndStyle, ImageType } from '../../types';
 import './Image.scss';
 
-const Image: FC<ImageType> = ({ name, url, description }) => (
-  <img className="image" alt={description || name} src={url} />
+const Image: FCWithClassAndStyle<Omit<ImageType, 'id'>> = ({
+  className,
+  name,
+  url,
+  description,
+}) => (
+  <img
+    className={classNames('image', className)}
+    alt={description || name}
+    src={url}
+  />
 );
 
 export default Image;

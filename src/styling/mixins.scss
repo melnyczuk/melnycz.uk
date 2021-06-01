@@ -1,5 +1,13 @@
 @import './variables.scss';
 
+@mixin border-right {
+  border-right: 0;
+
+  @media (min-width: $bp-m) {
+    border-right: $border;
+  }
+}
+
 @mixin defaults {
   background: $colors-grey;
   color: $colors-blue;
@@ -8,6 +16,25 @@
 @mixin paragraph {
   text-decoration: unset;
   font-family: $font-sans;
+
+  & > p {
+    background-color: inherit;
+    vertical-align: baseline;
+
+    margin-bottom: $sizing-xs;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > a,
+  :any-link {
+    color: inherit;
+    background-color: $colors-blue-highlight;
+    text-decoration: none;
+    padding: $sizing-xxs;
+    border-radius: $sizing-xxs;
+  }
 
   @media (min-width: $bp-s) {
     font-size: $font-size-p-s;

@@ -4,14 +4,15 @@ $bp-m: 768px; // 768×1024
 $bp-l: 1366px; // 1366×768
 $bp-xl: 1920px; // 1920×1080
 
+$sizing-xxs: 3px;
 $sizing-xs: 9px;
 $sizing-s: 18px;
 $sizing-m: 36px;
 $sizing-l: 72px;
 $sizing-xl: 144px;
 
-$font-serif: 'reckless';
-$font-sans: 'roobert';
+$font-serif: 'reckless', serif;
+$font-sans: 'roobert', sans-serif;
 
 $font-size-p-xl: 24px;
 $font-size-p-l: 18px;
