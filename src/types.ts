@@ -33,6 +33,7 @@ export type ImageType = {
   name: string;
   url: string;
   parent: ProjectType;
+  caption?: string;
 };
 
 export type JobType = {
@@ -53,6 +54,7 @@ export type ProjectType = {
   name: string;
   year: string;
   hide: boolean;
+  description: string;
   imageSet: ImageType[];
   textSet: TextType[];
   videoSet: VideoType[];
@@ -88,13 +90,6 @@ export type TechnologyType = {
   parent: SkillType;
   jobs: JobType[];
   projects: ProjectType[];
-};
-
-export type TextType = {
-  id: string;
-  name: string;
-  url: string;
-  parent: ProjectType;
 };
 
 export type VideoType = {

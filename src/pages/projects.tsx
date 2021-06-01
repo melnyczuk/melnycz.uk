@@ -1,8 +1,7 @@
-import { graphql, PageProps } from 'gatsby';
 import React, { FC } from 'react';
+import { graphql, PageProps } from 'gatsby';
 
-import { Image, Text } from '../components';
-import { sortChronologicallyBy } from '../utils';
+import { Image, Markdown } from '../components';
 import { ProjectType } from '../types';
 
 import './projects.scss';
@@ -23,11 +22,9 @@ export const projectPageQuery = graphql`
         name
         year
         hide
+        description
         imageSet {
           name
-          url
-        }
-        textSet {
           url
         }
       }
@@ -38,13 +35,12 @@ export const projectPageQuery = graphql`
 const ProjectPage: FC<ProjectPageProps> = ({ data }) => (
   <main className="projects">
     {data.folio.projects
-      .sort(sortChronologicallyBy('year'))
-      .filter(({ hide, imageSet, textSet }) => !hide && textSet && imageSet)
-      .map(({ id, name, imageSet, textSet, year }) => (
+      .filter(({ hide }) => !hide)
+      .map(({ id, name, imageSet, description, year }) => (
         <div key={id} className="project">
           <h2 className="project__title">{name}</h2>
           <h3 className="project__year">{new Date(year).getFullYear()}</h3>
-          <Text className="project__text" url={textSet[0].url} />
+          <Markdown className="project__text" content={description} />
           <Image
             className="project__image"
             name={imageSet[0].name}

@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
-import remarkReact from 'remark-react';
-import remark from 'remark';
 
-import { ClipboardCopyButton } from '../components';
+import { ClipboardCopyButton, Markdown } from '../components';
 import {
   BioType,
   EducationType,
@@ -11,7 +9,7 @@ import {
   JobType,
   ResidencyType,
 } from '../types';
-import { sortChronologicallyBy, formatMonthRange } from '../utils';
+import { formatMonthRange } from '../utils';
 
 import './about.scss';
 
@@ -100,47 +98,39 @@ const AboutPage: FC<AboutPageProps> = ({ data }) => {
         </ul>
         <div className="text about__item">
           <h2>About</h2>
-          <div className="text">
-            {remark().use(remarkReact).processSync(bio.long).result}
-          </div>
+          <Markdown className="text" content={bio.long} />
         </div>
       </div>
       <div className="about__cv">
         <div className="about__item">
           <h2>Exhibitions</h2>
           <ul>
-            {exhibitions
-              .sort(sortChronologicallyBy('startDate'))
-              .map(({ id, space, location, startDate }) => (
-                <li key={id}>
-                  {new Date(startDate).getFullYear()}&emsp;{space}, {location}
-                </li>
-              ))}
+            {exhibitions.map(({ id, space, location, startDate }) => (
+              <li key={id}>
+                {new Date(startDate).getFullYear()}&emsp;{space}, {location}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="about__item">
           <h2>Residencies</h2>
           <ul>
-            {residencies
-              .sort(sortChronologicallyBy('startDate'))
-              .map(({ id, name, location, startDate }) => (
-                <li key={id}>
-                  {new Date(startDate).getFullYear()}&emsp;{name}, {location}
-                </li>
-              ))}
+            {residencies.map(({ id, name, location, startDate }) => (
+              <li key={id}>
+                {new Date(startDate).getFullYear()}&emsp;{name}, {location}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="about__item">
           <h2>Dev Work</h2>
           <ul>
-            {jobs
-              .sort(sortChronologicallyBy('startDate'))
-              .map(({ id, team, company, startDate, endDate }) => (
-                <li key={id}>
-                  {formatMonthRange(startDate, endDate)}&emsp;{company}
-                  {!!team && ` (${team})`}
-                </li>
-              ))}
+            {jobs.map(({ id, team, company, startDate, endDate }) => (
+              <li key={id}>
+                {formatMonthRange(startDate, endDate)}&emsp;{company}
+                {!!team && ` (${team})`}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="about__item">
