@@ -11,13 +11,10 @@ export const homePageQuery = graphql`
         year
         hide
         imageSet {
-          id
           name
           url
         }
         textSet {
-          id
-          name
           url
         }
       }

@@ -28,7 +28,6 @@ export const projectPageQuery = graphql`
           url
         }
         textSet {
-          name
           url
         }
       }
