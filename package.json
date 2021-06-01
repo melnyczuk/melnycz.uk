@@ -13,7 +13,7 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.9.0",
@@ -73,9 +73,9 @@
     "verbose": false
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "yarn lint:fix",
-      "yarn prettier",
+      "yarn format",
       "git add"
     ]
   },
@@ -86,10 +86,11 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "predev": "yarn clean",
     "dev": "gatsby develop",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
+    "format": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
     "serve": "gatsby serve",
     "test": "echo 'no tests'",

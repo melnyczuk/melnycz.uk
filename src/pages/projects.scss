@@ -1,4 +1,4 @@
-@import '../../styling';
+@import '../styling';
 
 @mixin border-right {
   border-right: 0;
@@ -6,6 +6,10 @@
   @media (min-width: $bp-m) {
     border-right: $border;
   }
+}
+
+.projects {
+  @include defaults;
 }
 
 .project {
@@ -91,7 +95,7 @@
     }
   }
 
-  &__images {
+  &__image {
     grid-column: 1 / 3;
     grid-row: 3 / 3;
     z-index: 0;
@@ -100,7 +104,9 @@
       grid-column: 2 / 2;
       grid-row: 2 / 4;
 
-      margin-top: none;
+      margin-top: auto;
+      bottom: 0;
+      align-self: baseline;
     }
   }
 }

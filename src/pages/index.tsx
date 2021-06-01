@@ -6,15 +6,15 @@ export const homePageQuery = graphql`
   query HomePageQuery {
     folio {
       projects {
+        id
         name
         year
         hide
-        images {
+        imageSet {
           name
           url
         }
-        texts {
-          name
+        textSet {
           url
         }
       }

@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
+import classNames from 'classnames';
 import { ImageType } from '../../types';
 import './Image.scss';
 
-const Image: FC<ImageType> = ({ name, url, description }) => (
-  <img className="image" alt={description || name} src={url} />
+type ImageProps = HTMLAttributes<HTMLImageElement> &
+  Pick<ImageType, 'name' | 'url'>;
+
+const Image: FC<ImageProps> = ({ className, name, url }) => (
+  <img className={classNames('image', className)} alt={name} src={url} />
 );
 
 export default Image;

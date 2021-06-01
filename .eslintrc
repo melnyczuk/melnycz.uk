@@ -26,7 +26,7 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/prefer-nullish-coalescing":2,
     "import/imports-first": ["error", "absolute-first"],
