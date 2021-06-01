@@ -8,13 +8,14 @@ const Contact: FCWithClassAndStyle<{ content: string }> = ({
   children,
   content,
 }) => {
-  const [didCopy, setDidCopy] = useState(false);
+  const [didCopy, setDidCopy] = useState<boolean>(null);
   return (
     <button
       className={classNames(
         'clipboard-copy__button',
         {
-          'clipboard-copy__button--copied': didCopy,
+          'clipboard-copy__button--copied': didCopy === true,
+          'clipboard-copy__button--copy-failed': didCopy === false,
         },
         className
       )}
@@ -22,8 +23,8 @@ const Contact: FCWithClassAndStyle<{ content: string }> = ({
         navigator.clipboard
           .writeText(content)
           .then(() => setDidCopy(true))
-          .then(() => setTimeout(() => setDidCopy(false), 50))
-          .catch(() => false)
+          .catch(() => setDidCopy(false))
+          .finally(() => setTimeout(() => setDidCopy(null), 50))
       }
     >
       {children}
