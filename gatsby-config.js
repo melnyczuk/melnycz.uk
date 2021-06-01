@@ -1,8 +1,11 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   siteMetadata: {
+    description: 'The portfolio website of Howard Melnyczuk',
+    image: 'src/images/icon.png',
     title: 'melnycz.uk',
-    siteUrl: 'https://melnycz.uk',
+    twitterUsername: '@melnyczuk',
+    url: 'https://melnycz.uk',
   },
   plugins: [
     'gatsby-plugin-offline',
