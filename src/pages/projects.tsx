@@ -45,8 +45,12 @@ const ProjectPage: FC<ProjectPageProps> = ({ data }) => (
         <div key={id} className="project">
           <h2 className="project__title">{name}</h2>
           <h3 className="project__year">{new Date(year).getFullYear()}</h3>
-          <Text className="project__text" {...textSet[0]} />
-          <Image className="project__image" {...imageSet[0]} />
+          <Text className="project__text" url={textSet[0].url} />
+          <Image
+            className="project__image"
+            name={imageSet[0].name}
+            url={imageSet[0].url}
+          />
         </div>
       ))}
   </main>

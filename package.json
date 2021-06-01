@@ -75,7 +75,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "yarn lint:fix",
-      "yarn prettier",
+      "yarn format",
       "git add"
     ]
   },
@@ -90,7 +90,7 @@
     "dev": "gatsby develop",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
+    "format": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
     "serve": "gatsby serve",
     "test": "echo 'no tests'",

@@ -1,4 +1,7 @@
-import { CSSProperties, FC } from 'react';
+enum VideoHost {
+  DROPBOX = 'DROPBOX',
+  YOUTUBE = 'YOUTUBE',
+}
 
 export type BioType = {
   id: string;
@@ -29,7 +32,7 @@ export type ImageType = {
   id: string;
   name: string;
   url: string;
-  description?: string;
+  parent: ProjectType;
 };
 
 export type JobType = {
@@ -52,6 +55,11 @@ export type ProjectType = {
   hide: boolean;
   imageSet: ImageType[];
   textSet: TextType[];
+  videoSet: VideoType[];
+  exhibitionSet: ExhibitionType[];
+  residencySet: ResidencyType[];
+  skillSet: SkillType[];
+  technologySet: TechnologyType[];
 };
 
 export type ResidencyType = {
@@ -64,20 +72,35 @@ export type ResidencyType = {
   endDate: string;
 };
 
-export type SkillType = unknown;
+export type SkillType = {
+  id: string;
+  name: string;
+  yearsExp: number;
+  jobs: JobType[];
+  projects: ProjectType[];
+  technologySet: TechnologyType[];
+};
 
-export type TechnologyType = unknown;
+export type TechnologyType = {
+  id: string;
+  name: string;
+  yearsExp: number;
+  parent: SkillType;
+  jobs: JobType[];
+  projects: ProjectType[];
+};
 
 export type TextType = {
   id: string;
   name: string;
   url: string;
-  description?: string;
+  parent: ProjectType;
 };
 
-export type ClassAndStyle = {
-  className?: string;
-  style?: CSSProperties;
+export type VideoType = {
+  id: string;
+  name: string;
+  url: string;
+  parent: ProjectType;
+  host: VideoHost;
 };
-
-export type FCWithClassAndStyle<T> = FC<T & ClassAndStyle>;

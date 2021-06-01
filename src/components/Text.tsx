@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import remark from 'remark';
 import remarkReact from 'remark-react';
 import classnames from 'classnames';
 import { useTextFile } from '../hooks';
-import { FCWithClassAndStyle, TextType } from '../types';
+import { TextType } from '../types';
 
-const Text: FCWithClassAndStyle<Omit<TextType, 'id'>> = ({
-  className,
-  url,
-}) => {
+type TextProps = HTMLAttributes<HTMLDivElement> & Pick<TextType, 'url'>;
+
+const Text: FC<TextProps> = ({ className, url }) => {
   const file = useTextFile(url);
 
   return (

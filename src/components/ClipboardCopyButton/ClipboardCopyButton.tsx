@@ -1,9 +1,12 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
-import { FCWithClassAndStyle } from '../../types';
+import React, { FC, HTMLAttributes, useState } from 'react';
 import './ClipboardCopyButton.scss';
 
-const Contact: FCWithClassAndStyle<{ content: string }> = ({
+type ClipboardCopyButtonProps = HTMLAttributes<HTMLButtonElement> & {
+  content: string;
+};
+
+const ClipboardCopyButton: FC<ClipboardCopyButtonProps> = ({
   className,
   children,
   content,
@@ -32,4 +35,4 @@ const Contact: FCWithClassAndStyle<{ content: string }> = ({
   );
 };
 
-export default Contact;
+export default ClipboardCopyButton;
