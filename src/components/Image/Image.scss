@@ -1,7 +1,14 @@
 @import '../../styling';
 
 .image {
-  padding: $sizing-xs $sizing-s;
+  padding: $sizing-s;
+  height: auto;
+  // width: 100%;
+  // overflow: hidden;
+
+  &--thumbnail {
+    filter: url(#monochrome);
+  }
 
   &:first-child {
     padding-top: $sizing-s;
@@ -10,4 +17,9 @@
   &:last-child {
     padding-bottom: $sizing-s;
   }
+}
+
+.monochrome {
+  visibility: hidden;
+  height: 0;
 }

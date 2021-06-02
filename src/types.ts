@@ -33,6 +33,11 @@ export type ImageType = {
   name: string;
   url: string;
   parent: ProjectType;
+  hide: boolean;
+  hero: boolean;
+  width: number;
+  height: number;
+  thumbnail: string;
   caption?: string;
 };
 
@@ -56,7 +61,6 @@ export type ProjectType = {
   hide: boolean;
   description: string;
   imageSet: ImageType[];
-  textSet: TextType[];
   videoSet: VideoType[];
   exhibitionSet: ExhibitionType[];
   residencySet: ResidencyType[];

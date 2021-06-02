@@ -25,29 +25,45 @@ export const projectPageQuery = graphql`
         description
         imageSet {
           name
+          hero
+          hide
           url
+          thumbnail
+          width
+          height
         }
       }
     }
   }
 `;
 
+const sortHeroImagesToFront = ({ hero: a }, { hero: b }) =>
+  (a && -1) || (b && 1) || 0;
+
 const ProjectPage: FC<ProjectPageProps> = ({ data }) => (
   <main className="projects">
     {data.folio.projects
       .filter(({ hide }) => !hide)
-      .map(({ id, name, imageSet, description, year }) => (
-        <div key={id} className="project">
-          <h2 className="project__title">{name}</h2>
-          <h3 className="project__year">{new Date(year).getFullYear()}</h3>
-          <Markdown className="project__text" content={description} />
-          <Image
-            className="project__image"
-            name={imageSet[0].name}
-            url={imageSet[0].url}
-          />
-        </div>
-      ))}
+      .map(({ id, name, imageSet, description, year }) => {
+        const [
+          { name: imgName, thumbnail, url, width, height },
+        ] = imageSet.filter(({ hide }) => !hide).sort(sortHeroImagesToFront);
+        return (
+          <div key={id} className="project">
+            <h2 className="project__title">{name}</h2>
+            <h3 className="project__year">{new Date(year).getFullYear()}</h3>
+            <Markdown className="project__text" content={description} />
+            <Image
+              className="project__image"
+              name={imgName}
+              url={url}
+              width={width}
+              height={height}
+              thumbnail={thumbnail}
+            />
+          </div>
+        );
+      })}
   </main>
 );
 
