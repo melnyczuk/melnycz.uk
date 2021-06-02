@@ -11,7 +11,7 @@ import {
 } from '../types';
 import { formatMonthRange } from '../utils';
 
-import './about.scss';
+import './page-styles/about.scss';
 
 type AboutPageProps = PageProps & {
   data: {
@@ -84,11 +84,7 @@ const AboutPage: FC<AboutPageProps> = ({ data, path }) => {
               Email:{' '}
               <a href={'mailto:h.melnyczuk@gmail.com'}>h.melnyczuk@gmail.com</a>{' '}
               <ClipboardCopyButton content="h.melnyczuk@gmail.com">
-                <span
-                  className="emoji"
-                  aria-label="copy to clipboard"
-                  role="img"
-                >
+                <span aria-label="copy to clipboard" role="img">
                   📋
                 </span>
               </ClipboardCopyButton>

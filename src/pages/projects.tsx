@@ -4,7 +4,7 @@ import { graphql, PageProps } from 'gatsby';
 import { Image, Layout, Markdown } from '../components';
 import { ProjectType } from '../types';
 
-import './projects.scss';
+import './page-styles/projects.scss';
 
 type ProjectPageProps = PageProps & {
   data: {
