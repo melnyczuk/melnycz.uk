@@ -10,12 +10,15 @@ export const homePageQuery = graphql`
         name
         year
         hide
+        description
         imageSet {
           name
           url
-        }
-        textSet {
-          url
+          hero
+          hide
+          thumbnail
+          width
+          height
         }
       }
     }

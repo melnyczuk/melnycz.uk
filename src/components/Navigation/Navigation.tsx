@@ -37,10 +37,10 @@ const Navigation: FC<NavigationProps> = ({ path }) => {
 
   return (
     <div className="navigation">
-      <p className="navigation__paragraph">
+      <h1 className="navigation__paragraph">
         <span className="navigation__paragraph--me">Howard Melnyczuk</span>
         {data.folio.bio.short.replace('Howard Melnyczuk', '')}
-      </p>
+      </h1>
       <span className="navigation__links-container">
         {links.map(({ to, regex, label }) => (
           <Link
