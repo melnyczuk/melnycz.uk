@@ -12,6 +12,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "engines": {
+    "node": ">=0.12"
+  },
   "dependencies": {
     "classnames": "^2.3.1",
     "eslint-plugin-react-hooks": "^4.2.0",
