@@ -7,7 +7,7 @@
   // overflow: hidden;
 
   &--thumbnail {
-    filter: url(#monochrome);
+    filter: brightness(0.8) invert(1) url(#monochrome);
   }
 
   &:first-child {
