@@ -1,8 +1,6 @@
-import 'modern-css-reset';
 import React, { FC } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import { GatsbyBrowser, graphql, useStaticQuery } from 'gatsby';
-import { Navigation } from '../components';
 
 const seoQuery = graphql`
   query SEO {
@@ -53,13 +51,4 @@ const SEO: FC = () => {
   );
 };
 
-export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
-  element,
-  props,
-}) => (
-  <>
-    <SEO />
-    <Navigation path={props.path} />
-    {element}
-  </>
-);
+export default SEO;
