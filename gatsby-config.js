@@ -9,9 +9,9 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-offline',
+    'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-typescript',
     'gatsby-transformer-remark',
     {

@@ -56,13 +56,10 @@ const SEO: FC = () => {
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
   element,
   props,
-}) => {
-  console.log('props', props);
-  return (
-    <>
-      <SEO />
-      <Navigation path={props.path} />
-      {element}
-    </>
-  );
-};
+}) => (
+  <>
+    <SEO />
+    <Navigation path={props.path} />
+    {element}
+  </>
+);
