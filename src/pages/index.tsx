@@ -1,32 +1,5 @@
-import { graphql } from 'gatsby';
-import React, { ComponentProps, FC } from 'react';
-import ProjectPage from './projects';
+import React, { FC } from 'react';
 
-export const homePageQuery = graphql`
-  query HomePageQuery {
-    folio {
-      projects {
-        id
-        name
-        year
-        hide
-        description
-        imageSet {
-          name
-          url
-          hero
-          hide
-          thumbnail
-          width
-          height
-        }
-      }
-    }
-  }
-`;
+const Home: FC = () => <>Fucking render</>;
 
-const IndexPage: FC<ComponentProps<typeof ProjectPage>> = (props) => (
-  <ProjectPage {...props} />
-);
-
-export default IndexPage;
+export default Home;

@@ -13,6 +13,8 @@
 }
 
 .project {
+  @include paragraph;
+
   display: grid;
   grid-template-columns: 67% 33%;
   width: 100%;

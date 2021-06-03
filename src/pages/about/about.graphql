@@ -1,0 +1,39 @@
+query AboutPageQuery {
+  bio {
+    short
+    long
+  }
+  links {
+    id
+    name
+    url
+  }
+  educations {
+    id
+    course
+    institution
+    startDate
+    endDate
+  }
+  exhibitions {
+    id
+    location
+    space
+    startDate
+  }
+  residencies {
+    id
+    name
+    location
+    description
+    startDate
+    endDate
+  }
+  jobs {
+    id
+    team
+    company
+    startDate
+    endDate
+  }
+}

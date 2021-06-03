@@ -1,0 +1,21 @@
+query ProjectPageQuery {
+  bio {
+    short
+  }
+  projects {
+    id
+    name
+    year
+    hide
+    description
+    imageSet {
+      name
+      hero
+      hide
+      url
+      thumbnail
+      width
+      height
+    }
+  }
+}
