@@ -1,61 +1,51 @@
 import React, { FC } from 'react';
-import { graphql, Link, PageProps, useStaticQuery } from 'gatsby';
+import Link from 'next/link';
+import { Router } from 'next/router';
 import classnames from 'classnames';
-import './Navigation.scss';
+
 import { BioType } from '../../types';
 
+import styles from './Navigation.module.scss';
+
 type NavLink = {
-  to: string;
+  href: string;
   regex: RegExp;
   label: string;
 };
 
 const links: NavLink[] = [
-  { to: '/about', regex: /\/about\/?/, label: 'About' },
-  { to: '/projects', regex: /\/projects\/?/, label: 'Projects' },
+  { href: '/about', regex: /\/about\/?/, label: 'About' },
+  { href: '/projects', regex: /\/projects\/?/, label: 'Projects' },
 ];
 
-type NavigationProps = Pick<PageProps, 'path'>;
-type NavigationQuery = {
-  folio: {
-    bio: BioType;
-  };
+type NavigationProps = {
+  bio: BioType;
+  router: Router;
 };
 
-const navigationQuery = graphql`
-  query NavigationQuery {
-    folio {
-      bio {
-        short
-      }
-    }
-  }
-`;
-
-const Navigation: FC<NavigationProps> = ({ path }) => {
-  const data: NavigationQuery = useStaticQuery(navigationQuery);
-
-  return (
-    <div className="navigation">
-      <h1 className="navigation__paragraph">
-        <span className="navigation__paragraph--me">Howard Melnyczuk</span>
-        {data.folio.bio.short.replace('Howard Melnyczuk', '')}
-      </h1>
-      <span className="navigation__links-container">
-        {links.map(({ to, regex, label }) => (
-          <Link
-            key={to}
-            to={to}
-            className={classnames('navigation__link', {
-              'navigation__link--active': regex.test(path),
+const Navigation: FC<NavigationProps> = ({ bio, router }) => (
+  <div className={styles['navigation']}>
+    <h1 className={styles['navigation__paragraph']}>
+      <span className={styles['navigation__paragraph--me']}>
+        Howard Melnyczuk
+      </span>
+      {bio?.short?.replace('Howard Melnyczuk', '')}
+    </h1>
+    <span className={styles['navigation__links-container']}>
+      {links.map(({ href, regex, label }) => (
+        <Link key={href} href={href}>
+          <a
+            href={href}
+            className={classnames(styles['navigation__link'], {
+              [styles['navigation__link--active']]: regex.test(router.pathname),
             })}
           >
             {label}
-          </Link>
-        ))}
-      </span>
-    </div>
-  );
-};
+          </a>
+        </Link>
+      ))}
+    </span>
+  </div>
+);
 
 export default Navigation;

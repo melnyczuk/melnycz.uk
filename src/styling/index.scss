@@ -1,11 +1,3 @@
 @import './mixins.scss';
 @import './variables.scss';
 @import './fonts.scss';
-
-body {
-  background-color: $colors-grey;
-}
-
-.text {
-  @include paragraph;
-}

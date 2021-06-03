@@ -3,13 +3,13 @@ import ProgressiveImage from 'react-progressive-image';
 import classNames from 'classnames';
 
 import { ImageType } from '../../types';
-import './Image.scss';
+import styles from './Image.module.scss';
 
 type ImageProps = HTMLAttributes<HTMLImageElement> &
   Pick<ImageType, 'name' | 'url' | 'thumbnail' | 'width' | 'height'>;
 
-const Monochrome = () => (
-  <svg className="monochrome">
+const Monochrome: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ className }) => (
+  <svg className={className}>
     <filter
       id="monochrome"
       colorInterpolationFilters="sRGB"
@@ -40,11 +40,11 @@ const Image: FC<ImageProps> = ({
   <ProgressiveImage src={url} placeholder={thumbnail}>
     {(src) => (
       <>
-        <Monochrome />
+        <Monochrome className={styles['monochrome']} />
         <img
           className={classNames(
-            'image',
-            { 'image--thumbnail': src === thumbnail },
+            styles['image'],
+            { [styles['image--thumbnail']]: src === thumbnail },
             className
           )}
           width={width}
