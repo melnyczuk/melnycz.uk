@@ -82,6 +82,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "dist": "yarn build && yarn export",
     "export": "next export",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",
