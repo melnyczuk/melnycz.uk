@@ -10,6 +10,7 @@
 
 .about {
   @include defaults;
+  @include paragraph;
 
   display: grid;
   grid-template-columns: 67% 33%;
