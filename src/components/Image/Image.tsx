@@ -18,11 +18,12 @@ const Monochrome: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ className }) => (
       height="100%"
       width="100%"
     >
+      {/* #00309c as rgb percentages is r: 0%, g: 18.8%, b: 61.2% */}
       <feColorMatrix
         type="matrix"
-        values="0 0 0 0 0
-                0 0 0 0 0.025
-                0 0 0 0 0.305
+        values="0 0 0 0 0.000
+                0 0 0 0 0.188
+                0 0 0 0 0.612 
                 1 0 0 0 0"
       />
     </filter>
