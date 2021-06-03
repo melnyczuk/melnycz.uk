@@ -45,7 +45,7 @@ const AboutPage: FC<AboutPageProps> = ({
 }) => (
   <main className={styles['about']}>
     <div className={styles['about__bio']}>
-      <div className={(styles['text'], styles['about__item'])}>
+      <div className={styles['about__item']}>
         <h2>Contact</h2>
         <p>@melnyczuk</p>
         <p>
@@ -58,16 +58,16 @@ const AboutPage: FC<AboutPageProps> = ({
           </ClipboardCopyButton>
         </p>
       </div>
-      <ul className={(styles['text'], styles['about__item'])}>
+      <ul className={styles['about__item']}>
         {links.map(({ id, name, url }) => (
           <li className={styles['link-list']} key={id}>
             <a href={url}>{name}</a>
           </li>
         ))}
       </ul>
-      <div className={(styles['text'], styles['about__item'])}>
+      <div className={styles['about__item']}>
         <h2>About</h2>
-        <Markdown className={styles['text']} content={bio.long} />
+        <Markdown content={bio.long} />
       </div>
     </div>
     <div className={styles['about__cv']}>
