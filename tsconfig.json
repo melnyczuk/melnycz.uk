@@ -22,7 +22,8 @@
   "include": [
     "src/**/*.ts", 
     "src/**/*.tsx", 
-    "gatsby-config.js",
+    "global.d.ts",
+    "next.config.js",
   ],
   "exclude": [
     "node_modules",

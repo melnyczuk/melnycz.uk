@@ -1,4 +1,4 @@
-node_modules/
-.cache/
-public
+.next
+node_modules
+out
 yarn-error.log
