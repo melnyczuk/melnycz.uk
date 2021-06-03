@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-const GRAPHQL_ENDPOINT = 'http://localhost:5000/graphql';
+const GRAPHQL_ENDPOINT = 'https://foliomelnyczuk.herokuapp.com/graphql';
 
 const apollo = new ApolloClient({
   uri: GRAPHQL_ENDPOINT,
