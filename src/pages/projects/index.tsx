@@ -32,7 +32,9 @@ const ProjectPage: FC<ProjectPageProps> = ({ projects }) => (
       .map(({ id, name, imageSet, description, year }) => {
         const [
           { name: imgName, thumbnail, url, width, height },
-        ] = imageSet.filter(({ hide }) => !hide).sort(sortHeroImagesToFront);
+        ] = imageSet
+          .filter(({ hide, url }) => !hide && url)
+          .sort(sortHeroImagesToFront);
 
         return (
           <div key={id} className={styles['project']}>

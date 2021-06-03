@@ -88,7 +88,7 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",
     "sass": "sass ./src/styles/index.scss ./out/index.css && rm ./out/index.css.map",
-    "serve": "serve out",
+    "serve": "serve out -p 3000",
     "test": "echo 'no tests'",
     "typecheck": "tsc --noEmit"
   }
