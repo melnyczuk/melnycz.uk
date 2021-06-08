@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-import { GetStaticProps } from 'next';
-import { gql } from '@apollo/client';
+import React, { ComponentProps, FC } from 'react';
+import classNames from 'classnames';
 
-import apollo from '../../apollo';
+import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';
 import {
   BioType,
@@ -13,10 +12,10 @@ import {
 } from '../../types';
 import { formatMonthRange } from '../../utils';
 
-import aboutPageQuery from './about.graphql';
+import query from './about.graphql';
 import styles from './about.module.scss';
 
-type AboutPageProps = {
+type AboutProps = {
   bio: BioType;
   links: Record<'id' | 'name' | 'url', string>[];
   contact: Record<string, string>;
@@ -26,16 +25,11 @@ type AboutPageProps = {
   residencies: ResidencyType[];
 };
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
-  const { data } = await apollo.query({
-    query: gql`
-      ${aboutPageQuery}
-    `,
-  });
-  return { props: data };
-};
+export const getStaticProps = getGetStaticProps<ComponentProps<typeof About>>(
+  query
+);
 
-const AboutPage: FC<AboutPageProps> = ({
+const About: FC<AboutProps> = ({
   bio,
   links,
   educations,
@@ -75,8 +69,19 @@ const AboutPage: FC<AboutPageProps> = ({
         <h2>Exhibitions</h2>
         <ul>
           {exhibitions.map(({ id, space, location, startDate }) => (
-            <li key={id}>
-              {new Date(startDate).getFullYear()}&emsp;{space}, {location}
+            <li
+              key={id}
+              className={classNames(
+                styles['about__row'],
+                styles['about__row__exhibitions']
+              )}
+            >
+              <span className={styles['about__row--left']}>
+                {new Date(startDate).getFullYear()}
+              </span>
+              <span className={styles['about__row--right']}>
+                {space}, {location}
+              </span>
             </li>
           ))}
         </ul>
@@ -85,19 +90,41 @@ const AboutPage: FC<AboutPageProps> = ({
         <h2>Residencies</h2>
         <ul>
           {residencies.map(({ id, name, location, startDate }) => (
-            <li key={id}>
-              {new Date(startDate).getFullYear()}&emsp;{name}, {location}
+            <li
+              key={id}
+              className={classNames(
+                styles['about__row'],
+                styles['about__row__residencies']
+              )}
+            >
+              <span className={styles['about__row--left']}>
+                {new Date(startDate).getFullYear()}
+              </span>
+              <span className={styles['about__row--right']}>
+                {name}, {location}
+              </span>
             </li>
           ))}
         </ul>
       </div>
       <div className={styles['about__item']}>
-        <h2>Dev Work</h2>
+        <h2>Development Work</h2>
         <ul>
           {jobs.map(({ id, team, company, startDate, endDate }) => (
-            <li key={id}>
-              {formatMonthRange(startDate, endDate)}&emsp;{company}
-              {!!team && ` (${team})`}
+            <li
+              className={classNames(
+                styles['about__row'],
+                styles['about__row__jobs']
+              )}
+              key={id}
+            >
+              <span className={styles['about__row--left']}>
+                {formatMonthRange(startDate, endDate)}
+              </span>
+              <span className={styles['about__row--right']}>
+                {company}
+                {!!team && ` (${team})`}
+              </span>
             </li>
           ))}
         </ul>
@@ -116,4 +143,4 @@ const AboutPage: FC<AboutPageProps> = ({
   </main>
 );
 
-export default AboutPage;
+export default About;

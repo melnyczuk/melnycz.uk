@@ -74,4 +74,34 @@
       padding: $sizing-s;
     }
   }
+
+  &__row {
+    display: grid;
+
+    &__exhibitions {
+      grid-template-columns: 10% auto;
+    }
+
+    &__residencies {
+      grid-template-columns: 10% auto;
+    }
+
+    &__jobs {
+      grid-template-columns: 34% auto;
+    }
+
+    &--left {
+      padding: 0;
+      padding-right: $sizing-xs;
+      grid-column: 1 / 1;
+      grid-row: 1 / 1;
+    }
+
+    &--right {
+      padding: 0;
+      padding-left: $sizing-xs;
+      grid-column: 2 / 2;
+      grid-row: 1 / 1;
+    }
+  }
 }
