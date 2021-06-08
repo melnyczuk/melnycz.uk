@@ -24,9 +24,7 @@ Produced during a residency at the Victoria & Albert Museum, Object Permanence i
 
 ---
 
-### 2018 &emsp; Gail, (commission for the Bureau of Meteoranxiety)
-
-#### _JavaScript, Python_
+### 2018 &emsp; Gail, (commission for the Bureau of Meteoranxiety) &emsp; _JavaScript, Python_
 
 Gail is a chatbot that was developed as part of The Bureau of Meteoranxiety, an immersive theatre experience for Next Wave festival, Melbourne in 2018. It comprised a React client and a flask app written in Python.
 
