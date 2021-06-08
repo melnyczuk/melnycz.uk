@@ -1,5 +1,5 @@
-import React, { ComponentProps, FC } from 'react';
 import classNames from 'classnames';
+import React, { ComponentProps, FC, Fragment } from 'react';
 
 import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';
@@ -54,7 +54,7 @@ const About: FC<AboutProps> = ({
       </div>
       <ul className={styles['about__item']}>
         {links.map(({ id, name, url }) => (
-          <li className={styles['link-list']} key={id}>
+          <li key={id} className={styles['link-list']}>
             <a href={url}>{name}</a>
           </li>
         ))}
@@ -65,69 +65,60 @@ const About: FC<AboutProps> = ({
       </div>
     </div>
     <div className={styles['about__cv']}>
-      <div className={styles['about__item']}>
-        <h2>Exhibitions</h2>
-        <ul>
-          {exhibitions.map(({ id, space, location, startDate }) => (
-            <li
-              key={id}
-              className={classNames(
-                styles['about__row'],
-                styles['about__row__exhibitions']
-              )}
-            >
-              <span className={styles['about__row--left']}>
-                {new Date(startDate).getFullYear()}
-              </span>
-              <span className={styles['about__row--right']}>
-                {space}, {location}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Exhibitions</h2>
+        {exhibitions.map(({ id, space, location, startDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {new Date(startDate).getFullYear()}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {space}, {location}
+            </span>
+          </Fragment>
+        ))}
       </div>
-      <div className={styles['about__item']}>
-        <h2>Residencies</h2>
-        <ul>
-          {residencies.map(({ id, name, location, startDate }) => (
-            <li
-              key={id}
-              className={classNames(
-                styles['about__row'],
-                styles['about__row__residencies']
-              )}
-            >
-              <span className={styles['about__row--left']}>
-                {new Date(startDate).getFullYear()}
-              </span>
-              <span className={styles['about__row--right']}>
-                {name}, {location}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Residencies</h2>
+        {residencies.map(({ id, name, location, startDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {new Date(startDate).getFullYear()}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {name}, {location}
+            </span>
+          </Fragment>
+        ))}
       </div>
-      <div className={styles['about__item']}>
-        <h2>Development Work</h2>
-        <ul>
-          {jobs.map(({ id, team, company, startDate, endDate }) => (
-            <li
-              className={classNames(
-                styles['about__row'],
-                styles['about__row__jobs']
-              )}
-              key={id}
-            >
-              <span className={styles['about__row--left']}>
-                {formatMonthRange(startDate, endDate)}
-              </span>
-              <span className={styles['about__row--right']}>
-                {company}
-                {!!team && ` (${team})`}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Development Work</h2>
+        {jobs.map(({ id, team, company, startDate, endDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {formatMonthRange(startDate, endDate)}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {company}
+              {!!team && ` (${team})`}
+            </span>
+          </Fragment>
+        ))}
       </div>
       <div className={styles['about__item']}>
         <h2>Education</h2>
