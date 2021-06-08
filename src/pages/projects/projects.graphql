@@ -1,7 +1,4 @@
 query ProjectPageQuery {
-  bio {
-    short
-  }
   projects {
     id
     name

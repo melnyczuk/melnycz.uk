@@ -45,7 +45,8 @@
       grid-column: 2 / 2;
       grid-row: 1 / 1;
 
-      margin: 0 0 0 auto;
+      margin: auto;
+      margin-right: 0;
       padding: $sizing-s;
     }
   }
