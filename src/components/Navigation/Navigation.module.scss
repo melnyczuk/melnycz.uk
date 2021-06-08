@@ -10,6 +10,11 @@
 
   text-decoration: none;
 
+  @media print {
+    visibility: hidden;
+    height: 0;
+  }
+
   &__paragraph {
     @include paragraph;
 
