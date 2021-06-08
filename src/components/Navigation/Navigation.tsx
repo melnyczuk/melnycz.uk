@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { Router } from 'next/router';
 import classnames from 'classnames';
 
-import { BioType } from '../../types';
-
 import styles from './Navigation.module.scss';
 
 type NavLink = {
@@ -19,17 +17,17 @@ const links: NavLink[] = [
 ];
 
 type NavigationProps = {
-  bio: BioType;
+  description: string;
   router: Router;
 };
 
-const Navigation: FC<NavigationProps> = ({ bio, router }) => (
+const Navigation: FC<NavigationProps> = ({ description, router }) => (
   <div className={styles['navigation']}>
     <h1 className={styles['navigation__paragraph']}>
       <span className={styles['navigation__paragraph--me']}>
         Howard Melnyczuk
       </span>
-      {bio?.short?.replace('Howard Melnyczuk', '')}
+      {description.replace('Howard Melnyczuk', '')}
     </h1>
     <span className={styles['navigation__links-container']}>
       {links.map(({ href, regex, label }) => (

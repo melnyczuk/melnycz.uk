@@ -1,31 +1,22 @@
 import React, { FC } from 'react';
-import { GetStaticProps } from 'next';
-import { gql } from '@apollo/client';
 
-import apollo from '../../apollo';
+import { getGetStaticProps } from '../../apollo';
 import { Image, Markdown } from '../../components';
 import { ProjectType } from '../../types';
 
-import projectsPageQuery from './projects.graphql';
+import query from './projects.graphql';
 import styles from './projects.module.scss';
 
-type ProjectPageProps = {
+type ProjectsProps = {
   projects: ProjectType[];
 };
 
-export const getStaticProps: GetStaticProps<ProjectPageProps> = async () => {
-  const { data } = await apollo.query({
-    query: gql`
-      ${projectsPageQuery}
-    `,
-  });
-  return { props: data };
-};
+export const getStaticProps = getGetStaticProps<ProjectsProps>(query);
 
 const sortHeroImagesToFront = ({ hero: a }, { hero: b }) =>
   (a && -1) || (b && 1) || 0;
 
-const ProjectPage: FC<ProjectPageProps> = ({ projects }) => (
+const Projects: FC<ProjectsProps> = ({ projects }) => (
   <main className={styles['projects']}>
     {projects
       .filter(({ hide }) => !hide)
@@ -60,4 +51,4 @@ const ProjectPage: FC<ProjectPageProps> = ({ projects }) => (
   </main>
 );
 
-export default ProjectPage;
+export default Projects;

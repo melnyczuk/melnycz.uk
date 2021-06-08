@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-import { GetStaticProps } from 'next';
-import { gql } from '@apollo/client';
+import React, { FC, Fragment } from 'react';
+import classNames from 'classnames';
 
-import apollo from '../../apollo';
+import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';
 import {
   BioType,
@@ -13,10 +12,10 @@ import {
 } from '../../types';
 import { formatMonthRange } from '../../utils';
 
-import aboutPageQuery from './about.graphql';
+import query from './about.graphql';
 import styles from './about.module.scss';
 
-type AboutPageProps = {
+type AboutProps = {
   bio: BioType;
   links: Record<'id' | 'name' | 'url', string>[];
   contact: Record<string, string>;
@@ -26,16 +25,9 @@ type AboutPageProps = {
   residencies: ResidencyType[];
 };
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
-  const { data } = await apollo.query({
-    query: gql`
-      ${aboutPageQuery}
-    `,
-  });
-  return { props: data };
-};
+export const getStaticProps = getGetStaticProps<AboutProps>(query);
 
-const AboutPage: FC<AboutPageProps> = ({
+const About: FC<AboutProps> = ({
   bio,
   links,
   educations,
@@ -60,7 +52,7 @@ const AboutPage: FC<AboutPageProps> = ({
       </div>
       <ul className={styles['about__item']}>
         {links.map(({ id, name, url }) => (
-          <li className={styles['link-list']} key={id}>
+          <li key={id} className={styles['link-list']}>
             <a href={url}>{name}</a>
           </li>
         ))}
@@ -71,36 +63,60 @@ const AboutPage: FC<AboutPageProps> = ({
       </div>
     </div>
     <div className={styles['about__cv']}>
-      <div className={styles['about__item']}>
-        <h2>Exhibitions</h2>
-        <ul>
-          {exhibitions.map(({ id, space, location, startDate }) => (
-            <li key={id}>
-              {new Date(startDate).getFullYear()}&emsp;{space}, {location}
-            </li>
-          ))}
-        </ul>
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Exhibitions</h2>
+        {exhibitions.map(({ id, space, location, startDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {new Date(startDate).getFullYear()}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {space}, {location}
+            </span>
+          </Fragment>
+        ))}
       </div>
-      <div className={styles['about__item']}>
-        <h2>Residencies</h2>
-        <ul>
-          {residencies.map(({ id, name, location, startDate }) => (
-            <li key={id}>
-              {new Date(startDate).getFullYear()}&emsp;{name}, {location}
-            </li>
-          ))}
-        </ul>
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Residencies</h2>
+        {residencies.map(({ id, name, location, startDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {new Date(startDate).getFullYear()}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {name}, {location}
+            </span>
+          </Fragment>
+        ))}
       </div>
-      <div className={styles['about__item']}>
-        <h2>Dev Work</h2>
-        <ul>
-          {jobs.map(({ id, team, company, startDate, endDate }) => (
-            <li key={id}>
-              {formatMonthRange(startDate, endDate)}&emsp;{company}
+      <div
+        className={classNames(
+          styles['about__item'],
+          styles['about__item__list']
+        )}
+      >
+        <h2 className={styles['about__item__list--full']}>Development Work</h2>
+        {jobs.map(({ id, team, company, startDate, endDate }) => (
+          <Fragment key={id}>
+            <span className={styles['about__item__list--left']}>
+              {formatMonthRange(startDate, endDate)}
+            </span>
+            <span className={styles['about__item__list--right']}>
+              {company}
               {!!team && ` (${team})`}
-            </li>
-          ))}
-        </ul>
+            </span>
+          </Fragment>
+        ))}
       </div>
       <div className={styles['about__item']}>
         <h2>Education</h2>
@@ -116,4 +132,4 @@ const AboutPage: FC<AboutPageProps> = ({
   </main>
 );
 
-export default AboutPage;
+export default About;
