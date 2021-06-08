@@ -1,5 +1,5 @@
+import React, { FC, Fragment } from 'react';
 import classNames from 'classnames';
-import React, { ComponentProps, FC, Fragment } from 'react';
 
 import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';
@@ -25,9 +25,7 @@ type AboutProps = {
   residencies: ResidencyType[];
 };
 
-export const getStaticProps = getGetStaticProps<ComponentProps<typeof About>>(
-  query
-);
+export const getStaticProps = getGetStaticProps<AboutProps>(query);
 
 const About: FC<AboutProps> = ({
   bio,

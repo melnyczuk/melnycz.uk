@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { FC } from 'react';
 
 import { getGetStaticProps } from '../../apollo';
 import { Image, Markdown } from '../../components';
@@ -11,9 +11,7 @@ type ProjectsProps = {
   projects: ProjectType[];
 };
 
-export const getStaticProps = getGetStaticProps<
-  ComponentProps<typeof Projects>
->(query);
+export const getStaticProps = getGetStaticProps<ProjectsProps>(query);
 
 const sortHeroImagesToFront = ({ hero: a }, { hero: b }) =>
   (a && -1) || (b && 1) || 0;
