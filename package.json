@@ -72,9 +72,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint:fix",
       "yarn format",
-      "git add"
+      "yarn lint:fix"
     ]
   },
   "resolutions": {
@@ -84,8 +83,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "preexport": "yarn build",
     "export": "next export",
+    "dist": "yarn build && yarn export",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --single-quote --trailing-comma es5 --write './src/**/*.{js,ts,tsx}'",

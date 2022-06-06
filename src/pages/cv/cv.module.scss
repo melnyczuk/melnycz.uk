@@ -82,6 +82,20 @@
     margin-left: $sizing-s;
   }
 
+  &__cover {
+    font-size: 18px;
+    @media print {
+      font-size: 20px;
+    }
+
+    grid-column: 1 / 4;
+    grid-row: 1 / 1;
+    margin: $sizing-s $sizing-m;
+    & > p {
+      margin: $sizing-s;
+    }
+  }
+
   &__projects {
     grid-column: 1 / 4;
     grid-row: 5 / 5;

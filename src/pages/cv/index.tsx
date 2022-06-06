@@ -9,7 +9,7 @@ import {
   jobs,
   projects,
   skills,
-} from '../../cv-data';
+} from '../../content/cv';
 
 import styles from './cv.module.scss';
 
