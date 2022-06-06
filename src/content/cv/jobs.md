@@ -6,9 +6,9 @@
 
 #### Backend Developer _Typescript & Python_
 
-Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, served by the REST api layer using an Express. The app is architected with strong design principles that prioritise modularity, loosely co-opting the Domain Driven Design philosophy.
+Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, served by the REST API layer using Express. Architected with strong design principles that prioritise loosely-coupled domain-specific modules that are intuitive to build, iterate and test.
 
-In addition to this main service, I built a data-processing microservice in Python to ingest and process health data from user generated photographs of printed medical documents. The two services communicate using Celery to provide an asynchronous worker queue that is fast, scalable and secure within the private network.
+In addition to this main service, I built a data-processing microservice in Python to ingest and process health data from user-generated photographs of printed medical documents. The two services communicate using Celery to provide an asynchronous worker queue that is fast, scalable and secure within the private network.
 
 - Produced performant REST api server to support rapidly changing product needs
 - Engineered a data-processing pipeline to extract printed text into a comprehensive relational data structure
@@ -21,7 +21,7 @@ In addition to this main service, I built a data-processing microservice in Pyth
 
 #### Full-stack Developer _Typescript_
 
-During this contract, I undertook a greenfield project to design, prototype, and build a VR real estate app and SDK using React, Express, & GraphQL. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
+During this contract, I undertook a greenfield project to design, prototype, and build a VR real estate web-app and SDK using React, Express, & GraphQL. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
 
 - Engineered an Express server with a GraphQL api to support a SAAS business platform
 - Produced an SDK of React components to facilitate access to core intellectual property

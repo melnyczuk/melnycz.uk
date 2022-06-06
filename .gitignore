@@ -6,3 +6,6 @@ yarn-error.log
 
 src/content/invoice/*.ts
 !src/content/invoice/index.ts
+
+src/content/cover_letter
+src/pages/cover_letter.tsx
