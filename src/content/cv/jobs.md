@@ -2,7 +2,7 @@
 
 ### Aware
 
-08.2021-present
+08.2021–present
 
 #### Backend Developer _Typescript & Python_
 
