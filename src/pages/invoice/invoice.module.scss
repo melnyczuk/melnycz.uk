@@ -1,0 +1,184 @@
+@import '../../styling/';
+
+$font-size: 18px;
+
+.main {
+  @include defaults;
+  @include paragraph;
+
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
+  width: 100%;
+
+  @page {
+    margin: 0;
+    size: A4;
+    size: portrait;
+  }
+
+  @media print {
+    background-color: white;
+  }
+}
+
+.header {
+  grid-row: 1;
+  grid-column: 1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin: 0 $sizing-m;
+
+  font-size: $font-size;
+}
+
+.intro {
+  grid-row: 2;
+  grid-column: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $sizing-xs;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.address {
+  grid-row: auto;
+  grid-column: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: $sizing-xs;
+
+  text-align: right;
+}
+
+.footer {
+  grid-row: 3 / 3;
+  grid-column: 1;
+
+  display: grid;
+  grid-template-columns: 7fr 6fr;
+
+  margin: 0 $sizing-m;
+
+  font-size: $font-size;
+}
+
+.bank-details {
+  grid-row: 1;
+  grid-column: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: $sizing-xs;
+
+  &__title {
+    padding: $sizing-xs 0;
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  &__item {
+    &:nth-child(odd){
+      grid-column: 1;
+      text-align: left;
+      border-right: $border;
+
+    }
+    
+    &:nth-child(even){
+      grid-column: 2;
+      padding: 0 $sizing-xs;
+      text-align: left;
+    }
+  }
+}
+
+.total {
+  grid-column: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: $sizing-xs;
+
+  font-size: $font-size;
+  
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  &__item {
+    padding: 0 $sizing-xs;
+    
+    &:nth-child(odd){
+      grid-column: 1;
+      text-align: right;
+      border-right: $border;
+    }
+    &:nth-child(even){
+      grid-column: 2;
+      text-align: left;
+    }
+  }
+}
+
+.disclaimer {
+  grid-column: 1 / 3;
+  padding: $sizing-xs;
+  font-size: 14px;
+}
+
+.content {
+  grid-row: 2;
+  grid-column: 1;
+  
+  margin: 0 $sizing-m;
+  padding: $sizing-m 0;
+  
+  & table {
+    width: 100%;
+    margin: 0 auto;
+    border: $border;
+    border-radius: 5px;
+    border-collapse: collapse;
+  }
+
+
+  
+  & td, th {
+    width: min-content;
+    margin: 0;
+    padding: $sizing-xs;
+
+    text-align: left;
+
+    border: $border;
+  }
+}
+
+.reverse-charge {
+  font-size: 12px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+  word-wrap: normal;
+  word-break: keep-all;
+}
