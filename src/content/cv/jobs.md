@@ -15,6 +15,8 @@ In addition to this main service, I built a data-processing microservice in Pyth
 - Produced a well-normalised database table structure to intuitively model domain specific records
 - Deployed cloud infrastructure to support hexagonal micro-services
 
+---
+
 ### Off World Live
 
 09.2020–03.2021
