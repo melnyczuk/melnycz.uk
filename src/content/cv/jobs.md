@@ -1,5 +1,20 @@
 ## Relevant Experience
 
+### Aware
+
+08.2021-present
+
+#### Backend Developer _Typescript & Python_
+
+Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, served by the REST api layer using an Express. The app is architected with strong design principles that prioritise modularity, loosely co-opting the Domain Driven Design philosophy.
+
+In addition to this main service, I built a data-processing microservice in Python to ingest and process health data from user generated photographs of printed medical documents. The two services communicate using Celery to provide an asynchronous worker queue that is fast, scalable and secure within the private network.
+
+- Produced performant REST api server to support rapidly changing product needs
+- Engineered a data-processing pipeline to extract printed text into a comprehensive relational data structure
+- Produced a well-normalised database table structure to intuitively model domain specific records
+- Deployed cloud infrastructure to support hexagonal micro-services
+
 ### Off World Live
 
 09.2020–03.2021
@@ -8,8 +23,9 @@
 
 During this contract, I undertook a greenfield project to design, prototype, and build a VR real estate app and SDK using React, Express, & GraphQL. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
 
-- Built React component SDK to provide client access to core intellectual property
-- Built Node services to automate orchestration & monitor usage
+- Engineered an Express server with a GraphQL api to support a SAAS business platform
+- Produced an SDK of React components to facilitate access to core intellectual property
+- Built CI tooling to automate orchestration & monitor usage
 - Facilitated real-time multi-user access using WebSockets
 - Deployed services to AWS & GCE
 
@@ -23,8 +39,8 @@ During this contract, I undertook a greenfield project to design, prototype, and
 
 As a full-stack developer in the Receive team at TransferWise, I worked to improve the user experience when receiving international transfers and setting up direct debits. I worked to make complex user journeys into smooth seamless experiences using React and Angular, and I worked on system-critical Java Spring Boot microservices that adhere to the standards of financial authorities worldwide.
 
-- Built and maintained Java microservices & Typescript frontend apps
-- Code reviews providing feedback across domains
+- Built & maintained Java micro-services using the Spring framework
+- Developed Typescript React apps and contributed to front-end guild tooling
 - Collaborate in product discussions & input on product decisions
 - Continuous deployment and inspection on AWS
 
