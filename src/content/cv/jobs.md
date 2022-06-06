@@ -6,9 +6,9 @@
 
 #### Backend Developer _Typescript & Python_
 
-Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, served by the REST API layer using Express. The application architecture consists of loosely-coupled hexagonal domain-specific modules that are intuitive to build, iterate and test.
+Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, wrapped by a thin Express REST API layer. The application architecture consists of loosely-coupled, domain-specific modules that are intuitive to build, iterate and test.
 
-In addition to this main service, I built a data-processing microservice in Python to ingest and process health data from user-generated photographs of printed medical documents. The two services communicate using Celery to provide an asynchronous worker queue that is fast, scalable and secure within the private network.
+In addition to this main service, I built a data-processing microservice in Python that uses OCR & OpenCV to analyse health data from user-generated photographs of printed medical documents. The two services communicate using Celery to provide an asynchronous worker queue that is fast, scalable and secure within the private network.
 
 - Produced performant REST api server to support rapidly changing product needs
 - Engineered a data-processing pipeline to extract printed text into a comprehensive relational data structure
