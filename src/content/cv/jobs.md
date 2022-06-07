@@ -4,7 +4,7 @@
 
 08.2021–present
 
-#### Backend Developer _Typescript & Python_
+#### Backend Developer _Typescript, Python_
 
 Contracted to prototype and architect the initial backend services for a Berlin based health-tech start-up. This consists primarily of a TypeScript application using Prisma with Postgres, wrapped by a thin Express REST API layer. The application architecture consists of loosely-coupled, domain-specific modules that are intuitive to build, iterate and test.
 
