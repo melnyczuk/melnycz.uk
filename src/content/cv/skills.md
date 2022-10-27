@@ -16,14 +16,8 @@ Python, Typescript, Kotlin, Java, Ruby, Bash
 
 ---
 
-### DevOps
-
-Git, UNIX, Docker, CircleCI, Apache Kafka, RabbitMQ, AWS, GCE, Fly.io, Heroku, ElasticSearch, Kibana, Grafana
-
----
-
 ### Best Practices
 
-Functional Programming, Object-Oriented Programming, Agile & Scrum, OWASP & threat modelling, Test-Driven Design, Domain-Driven Design
+Git, UNIX, Docker, FP & OOP, Agile & Scrum, AWS, GCE, OWASP & threat modelling, Test-Driven Design, Domain-Driven Design, Behaviour-driven design
 
 ---
