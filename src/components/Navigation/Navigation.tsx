@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import classnames from 'classnames';
 import Link from 'next/link';
 import { Router } from 'next/router';
-import classnames from 'classnames';
+import { FC } from 'react';
 
 import styles from './Navigation.module.scss';
 

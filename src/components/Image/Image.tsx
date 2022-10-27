@@ -1,6 +1,6 @@
-import React, { FC, HTMLAttributes } from 'react';
-import ProgressiveImage from 'react-progressive-image';
 import classNames from 'classnames';
+import { FC, HTMLAttributes } from 'react';
+import ProgressiveImage from 'react-progressive-image';
 
 import { ImageType } from '../../types';
 import styles from './Image.module.scss';

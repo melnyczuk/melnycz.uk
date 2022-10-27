@@ -1,7 +1,7 @@
-import React, { FC, HTMLAttributes } from 'react';
+import classnames from 'classnames';
+import { FC, HTMLAttributes } from 'react';
 import remark from 'remark';
 import remarkReact from 'remark-react';
-import classnames from 'classnames';
 
 import styles from './Markdown.module.scss';
 
