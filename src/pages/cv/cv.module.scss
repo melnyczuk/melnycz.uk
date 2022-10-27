@@ -16,6 +16,10 @@
 
   @media print {
     background-color: white;
+
+    & * {
+      break-inside: avoid;
+    }
   }
 
   hr {
@@ -125,4 +129,6 @@
       list-style-position: outside;
     }
   }
+
+
 }
