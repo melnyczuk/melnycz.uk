@@ -1,6 +1,6 @@
 import 'modern-css-reset';
-import React, { ComponentProps, FC } from 'react';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
+import { ComponentProps, FC } from 'react';
 
 import { ApolloProvider } from '../../apollo';
 import { Navigation, SEO } from '../../components';

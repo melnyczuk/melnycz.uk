@@ -36,6 +36,7 @@
     "no-underscore-dangle": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
     "semi": 2,
     "quotes": ["error", "single"]
   },

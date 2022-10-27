@@ -1,5 +1,5 @@
-import React, { FC, Fragment } from 'react';
 import classNames from 'classnames';
+import { FC, Fragment } from 'react';
 
 import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';

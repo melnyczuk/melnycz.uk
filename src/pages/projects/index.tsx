@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { getGetStaticProps } from '../../apollo';
 import { Image, Markdown } from '../../components';

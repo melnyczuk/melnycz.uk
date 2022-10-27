@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC, HTMLAttributes, useState } from 'react';
+import { FC, HTMLAttributes, useState } from 'react';
 import './ClipboardCopyButton.module.scss';
 
 type ClipboardCopyButtonProps = HTMLAttributes<HTMLButtonElement> & {
