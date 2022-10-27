@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { FC, Fragment, useMemo } from 'react';
-import content from '../../content/invoice/invoice';
+// import content from '../../content/invoice/invoice';
+import content from '../../content/invoice';
 import styles from './invoice.module.scss';
 
 type BankDetailsProps = {
