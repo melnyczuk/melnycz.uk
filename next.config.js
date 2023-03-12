@@ -6,11 +6,6 @@ module.exports = {
       rules: [
         ...config.module.rules,
         {
-          test: /\.(graphql|gql)$/,
-          exclude: /node_modules/,
-          loader: 'graphql-tag/loader',
-        },
-        {
           test: /\.md$/,
           exclude: /node_modules/,
           loader: 'raw-loader',
