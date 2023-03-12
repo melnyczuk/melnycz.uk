@@ -6,8 +6,6 @@ import { ClipboardCopyButton, Markdown } from '../../components';
 import content, { AboutType } from '../../content/about';
 import styles from './about.module.scss';
 
-console.log('link', styles.link);
-
 type AboutProps = AboutType;
 
 export const getStaticProps: GetStaticProps<AboutProps> = async () => {
