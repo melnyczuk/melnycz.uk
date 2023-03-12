@@ -4,14 +4,21 @@ import { FC } from 'react';
 
 import { ClipboardCopyButton, Markdown } from '../../components';
 import content, { AboutType } from '../../content/about';
+import { RemoteContentType } from '../../types';
 import styles from './about.module.scss';
 
-type AboutProps = AboutType;
+type AboutProps = Omit<AboutType, 'bio'> & {
+  bio: RemoteContentType;
+};
 
 export const getStaticProps: GetStaticProps<AboutProps> = async () => {
   const resp = await fetch(content.bio);
-  const bio = await resp.text();
-  return { props: { ...content, bio } };
+  return {
+    props: {
+      ...content,
+      bio: { content: await resp.text(), url: content.bio },
+    },
+  };
 };
 
 const About: FC<AboutProps> = ({
@@ -46,7 +53,7 @@ const About: FC<AboutProps> = ({
         ))}
       </div>
       <div className={styles['about__item']}>
-        <Markdown content={bio} />
+        <Markdown content={bio.content} remote={bio.url} />
       </div>
     </div>
     <div className={styles['about__cv']}>

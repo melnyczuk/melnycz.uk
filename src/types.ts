@@ -1,3 +1,8 @@
+export type RemoteContentType = {
+  content: string;
+  url: string;
+};
+
 export type ProjectType = {
   name: string;
   year: number;
