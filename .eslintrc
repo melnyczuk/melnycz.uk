@@ -23,13 +23,13 @@
     }
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "simple-import-sort"
   ],
   "rules": {
     "@typescript-eslint/indent": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/prefer-nullish-coalescing":2,
-    "import/imports-first": ["error", "absolute-first"],
+    "@typescript-eslint/prefer-nullish-coalescing": 2,
     "import/newline-after-import": 2,
     "import/prefer-default-export": 0,
     "import/no-unresolved": 2,
@@ -38,6 +38,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
     "semi": 2,
+    "simple-import-sort/imports": "error",
     "quotes": ["error", "single"]
   },
   "settings": {

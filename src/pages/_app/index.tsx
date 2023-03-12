@@ -1,11 +1,10 @@
 import 'modern-css-reset';
+import './_app.scss';
+
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { ComponentProps, FC } from 'react';
 
-import { ApolloProvider } from '../../apollo';
 import { Navigation, SEO } from '../../components';
-
-import './_app.scss';
 
 const metadata: ComponentProps<typeof SEO> = {
   description:
@@ -17,11 +16,11 @@ const metadata: ComponentProps<typeof SEO> = {
 };
 
 const App: FC<AppProps> = ({ Component, pageProps, router }) => (
-  <ApolloProvider>
+  <>
     <SEO {...metadata} />
     <Navigation router={router} description={metadata.description} />
     <Component {...pageProps} />
-  </ApolloProvider>
+  </>
 );
 
 export default App;
