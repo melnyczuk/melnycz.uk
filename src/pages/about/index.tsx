@@ -1,31 +1,20 @@
 import classNames from 'classnames';
-import { FC, Fragment } from 'react';
+import { GetStaticProps } from 'next';
+import { FC } from 'react';
 
-import { getGetStaticProps } from '../../apollo';
 import { ClipboardCopyButton, Markdown } from '../../components';
-import {
-  BioType,
-  EducationType,
-  ExhibitionType,
-  JobType,
-  ResidencyType,
-} from '../../types';
-import { formatMonthRange } from '../../utils';
-
-import query from './about.graphql';
+import content, { AboutType } from '../../content/about';
 import styles from './about.module.scss';
 
-type AboutProps = {
-  bio: BioType;
-  links: Record<'id' | 'name' | 'url', string>[];
-  contact: Record<string, string>;
-  educations: EducationType[];
-  exhibitions: ExhibitionType[];
-  jobs: JobType[];
-  residencies: ResidencyType[];
-};
+console.log('link', styles.link);
 
-export const getStaticProps = getGetStaticProps<AboutProps>(query);
+type AboutProps = AboutType;
+
+export const getStaticProps: GetStaticProps<AboutProps> = async () => {
+  const resp = await fetch(content.bio);
+  const bio = await resp.text();
+  return { props: { ...content, bio } };
+};
 
 const About: FC<AboutProps> = ({
   bio,
@@ -33,16 +22,17 @@ const About: FC<AboutProps> = ({
   educations,
   exhibitions,
   residencies,
-  jobs,
 }) => (
   <main className={styles['about']}>
     <div className={styles['about__bio']}>
       <div className={styles['about__item']}>
         <h2>Contact</h2>
         <p>@melnyczuk</p>
-        <p>
-          Email:{' '}
-          <a href={'mailto:h.melnyczuk@gmail.com'}>h.melnyczuk@gmail.com</a>{' '}
+        <p className={styles['flex']}>
+          Email:
+          <a className={styles['link']} href={'mailto:h.melnyczuk@gmail.com'}>
+            h.melnyczuk@gmail.com
+          </a>
           <ClipboardCopyButton content="h.melnyczuk@gmail.com">
             <span aria-label="copy to clipboard" role="img">
               📋
@@ -50,16 +40,15 @@ const About: FC<AboutProps> = ({
           </ClipboardCopyButton>
         </p>
       </div>
-      <ul className={styles['about__item']}>
-        {links.map(({ id, name, url }) => (
-          <li key={id} className={styles['link-list']}>
-            <a href={url}>{name}</a>
-          </li>
+      <div className={classNames(styles['about__item'], styles['flex'])}>
+        {links.map(({ name, url }) => (
+          <a key={name} className={styles['link']} href={url}>
+            {name}
+          </a>
         ))}
-      </ul>
+      </div>
       <div className={styles['about__item']}>
-        <h2>About</h2>
-        <Markdown content={bio.long} />
+        <Markdown content={bio} />
       </div>
     </div>
     <div className={styles['about__cv']}>
@@ -70,16 +59,14 @@ const About: FC<AboutProps> = ({
         )}
       >
         <h2 className={styles['about__item__list--full']}>Exhibitions</h2>
-        {exhibitions.map(({ id, space, location, startDate }) => (
-          <Fragment key={id}>
-            <span className={styles['about__item__list--left']}>
-              {new Date(startDate).getFullYear()}
-            </span>
-            <span className={styles['about__item__list--right']}>
-              {space}, {location}
-            </span>
-          </Fragment>
-        ))}
+        <ul className={styles.list}>
+          {exhibitions.map(([year, name]) => (
+            <li key={name.replaceAll(' ', '_').replaceAll(',', '')}>
+              <span className={styles['about__item__list--left']}>{year}</span>
+              <span className={styles['about__item__list--right']}>{name}</span>
+            </li>
+          ))}
+        </ul>
       </div>
       <div
         className={classNames(
@@ -88,16 +75,14 @@ const About: FC<AboutProps> = ({
         )}
       >
         <h2 className={styles['about__item__list--full']}>Residencies</h2>
-        {residencies.map(({ id, name, location, startDate }) => (
-          <Fragment key={id}>
-            <span className={styles['about__item__list--left']}>
-              {new Date(startDate).getFullYear()}
-            </span>
-            <span className={styles['about__item__list--right']}>
-              {name}, {location}
-            </span>
-          </Fragment>
-        ))}
+        <ul className={styles.list}>
+          {residencies.map(([year, name]) => (
+            <li key={name}>
+              <span className={styles['about__item__list--left']}>{year}</span>
+              <span className={styles['about__item__list--right']}>{name}</span>
+            </li>
+          ))}
+        </ul>
       </div>
       <div
         className={classNames(
@@ -105,28 +90,17 @@ const About: FC<AboutProps> = ({
           styles['about__item__list']
         )}
       >
-        <h2 className={styles['about__item__list--full']}>Development Work</h2>
-        {jobs.map(({ id, team, company, startDate, endDate }) => (
-          <Fragment key={id}>
-            <span className={styles['about__item__list--left']}>
-              {formatMonthRange(startDate, endDate)}
-            </span>
-            <span className={styles['about__item__list--right']}>
-              {company}
-              {!!team && ` (${team})`}
-            </span>
-          </Fragment>
-        ))}
-      </div>
-      <div className={styles['about__item']}>
-        <h2>Education</h2>
-        {educations.map(({ id, course, institution, startDate, endDate }) => (
-          <div key={id} className={styles['education']}>
-            <p>{course}</p>
-            <p>{institution}</p>
-            <p>{formatMonthRange(startDate, endDate)}</p>
-          </div>
-        ))}
+        <h2 className={styles['about__item__list--full']}>Education</h2>
+        <ul className={styles.list}>
+          {educations.map(([year, course, institution]) => (
+            <li key={course}>
+              <span className={styles['about__item__list--left']}>{year}</span>
+              <span className={styles['about__item__list--right']}>
+                {course}, {institution}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </main>

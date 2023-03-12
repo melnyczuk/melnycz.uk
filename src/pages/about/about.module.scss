@@ -4,8 +4,15 @@
   margin-bottom: $sizing-s;
 }
 
-.link-list {
-  margin: $sizing-xxs 0;
+.list {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  gap: $sizing-xxs;
+  line-height: initial;
+  align-items: center;
 }
 
 .about {
@@ -53,6 +60,7 @@
       &--left {
         grid-column: 1 / 1;
         padding-right: $sizing-s;
+        min-width: 36px;
       }
 
       &--right {
