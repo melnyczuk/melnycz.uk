@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { FC, Fragment, useMemo } from 'react';
-// import content from '../../content/invoice/invoice';
+
 import content from '../../content/invoice';
 import styles from './invoice.module.scss';
 
@@ -12,7 +12,9 @@ type BankDetailsProps = {
 const useTotal = () =>
   useMemo(
     () =>
-      content.services.reduce((acc, { days, rate }) => acc + days * rate, 0),
+      content.services
+        .reduce((acc, { days, rate }) => acc + days * rate, 0)
+        .toFixed(2),
     []
   );
 
@@ -70,7 +72,7 @@ const Invoice: FC = () => {
             <th>Services</th>
             <th>Day rate</th>
             <th>Unit (Days)</th>
-            <th>VAT (20%)</th>
+            {content.showVatDisclaimer && <th>VAT (20%)</th>}
             <th>Total</th>
           </thead>
           <tbody>
@@ -86,13 +88,15 @@ const Invoice: FC = () => {
                 <td>
                   <span className={classnames(styles['no-wrap'])}>{days}</span>
                 </td>
-                <td className={classnames(styles['reverse-charge'])}>
-                  * reverse charge applies
-                </td>
+                {content.showVatDisclaimer && (
+                  <td className={classnames(styles['reverse-charge'])}>
+                    * reverse charge applies
+                  </td>
+                )}
                 <td>
                   <span className={classnames(styles['no-wrap'])}>
                     {content.currencySymbol[content.currency]}
-                    {days * rate}
+                    {(days * rate).toFixed(2)}
                   </span>
                 </td>
               </tr>
@@ -100,7 +104,7 @@ const Invoice: FC = () => {
             <tr>
               <td></td>
               <td></td>
-              <td></td>
+              {content.showVatDisclaimer && <td></td>}
               <td>Final Total</td>
               <td>
                 {content.currencySymbol[content.currency]}

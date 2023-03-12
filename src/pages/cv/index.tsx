@@ -10,7 +10,6 @@ import {
   projects,
   skills,
 } from '../../content/cv';
-
 import styles from './cv.module.scss';
 
 const CV: FC = () => (

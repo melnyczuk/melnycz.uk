@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { FC, HTMLAttributes, useState } from 'react';
-import './ClipboardCopyButton.module.scss';
+
+import styles from './ClipboardCopyButton.module.scss';
 
 type ClipboardCopyButtonProps = HTMLAttributes<HTMLButtonElement> & {
   content: string;
@@ -15,10 +16,10 @@ const ClipboardCopyButton: FC<ClipboardCopyButtonProps> = ({
   return (
     <button
       className={classNames(
-        'clipboard-copy__button',
+        styles['clipboard-copy__button'],
         {
-          'clipboard-copy__button--copied': didCopy === true,
-          'clipboard-copy__button--copy-failed': didCopy === false,
+          [styles['clipboard-copy__button--copied']]: didCopy === true,
+          [styles['clipboard-copy__button--copy-failed']]: didCopy === false,
         },
         className
       )}
