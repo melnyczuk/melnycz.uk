@@ -4,7 +4,10 @@ const projects: ProjectType[] = [
   {
     name: 'Wool-gather',
     year: 2021,
-    description: 'https://dl.dropbox.com/s/yvf5b69uwqs5oa9/wool-gather.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/yvf5b69uwqs5oa9/wool-gather.md',
+    },
     image: {
       name: 'wool-gather-9.jpg',
       width: 1900,
@@ -17,7 +20,10 @@ const projects: ProjectType[] = [
   {
     name: 'Silver Coord',
     year: 2021,
-    description: 'https://dl.dropbox.com/s/za1nxpudmno19kj/silver-coord.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/za1nxpudmno19kj/silver-coord.md',
+    },
     image: {
       name: 'silver-coord-2.jpg',
       width: 1900,
@@ -30,7 +36,10 @@ const projects: ProjectType[] = [
   {
     name: 'Cone of Power',
     year: 2021,
-    description: 'https://dl.dropbox.com/s/d42j52e2h1l8aka/cone-of-power.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/d42j52e2h1l8aka/cone-of-power.md',
+    },
     image: {
       name: 'cone-of-power-1.jpg',
       width: 6955,
@@ -43,7 +52,10 @@ const projects: ProjectType[] = [
   {
     name: 'Supercollager',
     year: 2020,
-    description: 'https://dl.dropbox.com/s/m9f2s54w7vszb6t/supercollager.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/m9f2s54w7vszb6t/supercollager.md',
+    },
     image: {
       name: 'supercollager-krakow.jpg',
       width: 2587,
@@ -56,8 +68,11 @@ const projects: ProjectType[] = [
   {
     name: 'A Tree Grew Through My Window',
     year: 2019,
-    description:
-      'https://dl.dropbox.com/s/6bede848uuv68v4/a-tree-grew-through-my-window.md',
+    description: {
+      local: null,
+      url:
+        'https://dl.dropbox.com/s/6bede848uuv68v4/a-tree-grew-through-my-window.md',
+    },
     image: {
       name: 'a-tree-grew-through-my-window-1.jpg',
       width: 1500,
@@ -71,8 +86,10 @@ const projects: ProjectType[] = [
   {
     name: 'Object Permanence',
     year: 2018,
-    description:
-      'https://dl.dropbox.com/s/9w1km0sylms5pqf/object-permanence.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/9w1km0sylms5pqf/object-permanence.md',
+    },
     image: {
       name: 'object-permanence-7.jpg',
       width: 7360,
@@ -85,8 +102,10 @@ const projects: ProjectType[] = [
   {
     name: 'Gail, for the Bureau of Meteoranxiety',
     year: 2018,
-    description:
-      'https://dl.dropbox.com/s/x3zlk2a7jqseqoj/gail-the-bomachat.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/x3zlk2a7jqseqoj/gail-the-bomachat.md',
+    },
     image: {
       name: 'gail-the-bomachat-3.jpg',
       width: 2036,
@@ -99,7 +118,10 @@ const projects: ProjectType[] = [
   {
     name: 'Rrosetta',
     year: 2017,
-    description: 'https://dl.dropbox.com/s/1rikewwdaq141dn/rrosetta.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/1rikewwdaq141dn/rrosetta.md',
+    },
     image: {
       name: 'rrosetta-3.jpg',
       width: 1080,
@@ -112,8 +134,11 @@ const projects: ProjectType[] = [
   {
     name: 'On The Side of Every Mountain Is Another, Smaller Mountain',
     year: 2016,
-    description:
-      'https://dl.dropbox.com/s/tk09276h4aiow4g/on-the-side-of-every-mountain-is-another-smaller-mountain.md',
+    description: {
+      local: null,
+      url:
+        'https://dl.dropbox.com/s/tk09276h4aiow4g/on-the-side-of-every-mountain-is-another-smaller-mountain.md',
+    },
     image: {
       name: 'on-the-side-of-every-mountain-is-another-smaller-mountain-6.jpg',
       width: 1340,
@@ -127,7 +152,10 @@ const projects: ProjectType[] = [
   {
     name: 'Texture Cache',
     year: 2016,
-    description: 'https://dl.dropbox.com/s/tj8hg2p3azuln42/texture-cache.md',
+    description: {
+      local: null,
+      url: 'https://dl.dropbox.com/s/tj8hg2p3azuln42/texture-cache.md',
+    },
     image: {
       name: 'texture-cache-2.jpg',
       width: 1340,

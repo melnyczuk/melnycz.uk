@@ -1,32 +1,29 @@
 import classnames from 'classnames';
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, ReactElement, useMemo } from 'react';
 import { useAsync } from 'react-use';
 import remark from 'remark';
 import remarkReact from 'remark-react';
 
+import { RemoteContentType } from '../../types';
+import { fetchRemoteContent } from '../../utils';
 import styles from './Markdown.module.scss';
 
-type MarkdownProps = HTMLAttributes<HTMLDivElement> & {
-  content: string;
-  remote?: string;
-};
+type MarkdownProps = HTMLAttributes<HTMLDivElement> & RemoteContentType;
 
-const Markdown: FC<MarkdownProps> = ({ className, content, remote }) => {
-  const remoteContent = useAsync<string | null>(async () => {
-    if (!remote) {
-      return content;
-    }
-    const resp = await fetch(remote);
-    return await resp.text();
-  }, [content, remote]);
+const { processSync } = remark().use(remarkReact);
 
-  const _content = remoteContent.loading ? content : remoteContent.value;
-
-  return (
-    <div className={classnames(styles['text'], className)}>
-      {remark().use(remarkReact).processSync(_content).result}
-    </div>
+const Markdown: FC<MarkdownProps> = ({ className, local, url }) => {
+  const { value, loading } = useAsync<string | null>(
+    async () => await fetchRemoteContent(url),
+    [url]
   );
+
+  const content = useMemo(
+    () => processSync((loading ? local : value) ?? '').result as ReactElement,
+    [loading, value, local]
+  );
+
+  return <div className={classnames(styles['text'], className)}>{content}</div>;
 };
 
 export default Markdown;

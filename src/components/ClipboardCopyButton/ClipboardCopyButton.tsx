@@ -12,7 +12,7 @@ const ClipboardCopyButton: FC<ClipboardCopyButtonProps> = ({
   children,
   content,
 }) => {
-  const [didCopy, setDidCopy] = useState<boolean>(null);
+  const [didCopy, setDidCopy] = useState<boolean | null>(null);
   return (
     <button
       className={classNames(
