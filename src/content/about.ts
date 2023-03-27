@@ -1,10 +1,4 @@
-export type AboutType = {
-  bio: string;
-  links: Record<'name' | 'url', string>[];
-  educations: [number, string, string][];
-  exhibitions: [number, string][];
-  residencies: [number, string][];
-};
+import { AboutType } from '../types';
 
 const about: AboutType = {
   bio: 'https://dl.dropbox.com/s/ob7tppg6b0yyd6q/bio.md',

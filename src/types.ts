@@ -1,5 +1,13 @@
+export type AboutType = {
+  bio: string;
+  links: Record<'name' | 'url', string>[];
+  educations: [number, string, string][];
+  exhibitions: [number, string][];
+  residencies: [number, string][];
+};
+
 export type RemoteContentType = {
-  content: string;
+  raw: string;
   url: string;
 };
 

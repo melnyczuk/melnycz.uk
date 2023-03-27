@@ -3,8 +3,8 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { ClipboardCopyButton, Markdown } from '../../components';
-import content, { AboutType } from '../../content/about';
-import { RemoteContentType } from '../../types';
+import content from '../../content/about';
+import { AboutType, RemoteContentType } from '../../types';
 import styles from './about.module.scss';
 
 type AboutProps = Omit<AboutType, 'bio'> & {
