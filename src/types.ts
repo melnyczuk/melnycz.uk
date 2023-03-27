@@ -1,20 +1,20 @@
+export type RemoteContentType = {
+  local: string | null;
+  url: string;
+};
+
 export type AboutType = {
-  bio: string;
+  bio: RemoteContentType;
   links: Record<'name' | 'url', string>[];
   educations: [number, string, string][];
   exhibitions: [number, string][];
   residencies: [number, string][];
 };
 
-export type RemoteContentType = {
-  raw: string;
-  url: string;
-};
-
 export type ProjectType = {
   name: string;
   year: number;
-  description: string;
+  description: RemoteContentType;
   image: ImageType;
 };
 

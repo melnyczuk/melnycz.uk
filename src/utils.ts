@@ -7,3 +7,8 @@ const formatDateWithMonth = (date: string): string => {
 
 export const formatMonthRange = (startDate: string, endDate: string): string =>
   `${formatDateWithMonth(startDate)}–${formatDateWithMonth(endDate)}`;
+
+export const fetchRemoteContent = async (url: string): Promise<string> => {
+  const resp = await fetch(url);
+  return await resp.text();
+};

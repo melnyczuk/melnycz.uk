@@ -5,21 +5,20 @@ import { FC } from 'react';
 import { ClipboardCopyButton, Markdown } from '../../components';
 import content from '../../content/about';
 import { AboutType, RemoteContentType } from '../../types';
+import { fetchRemoteContent } from '../../utils';
 import styles from './about.module.scss';
 
-type AboutProps = Omit<AboutType, 'bio'> & {
-  bio: RemoteContentType;
-};
+type AboutProps = Omit<AboutType, 'bio'> & { bio: RemoteContentType };
 
-export const getStaticProps: GetStaticProps<AboutProps> = async () => {
-  const resp = await fetch(content.bio);
-  return {
-    props: {
-      ...content,
-      bio: { content: await resp.text(), url: content.bio },
+export const getStaticProps: GetStaticProps<AboutProps> = async () => ({
+  props: {
+    ...content,
+    bio: {
+      local: await fetchRemoteContent(content.bio.url),
+      url: content.bio.url,
     },
-  };
-};
+  },
+});
 
 const About: FC<AboutProps> = ({
   bio,
@@ -53,7 +52,7 @@ const About: FC<AboutProps> = ({
         ))}
       </div>
       <div className={styles['about__item']}>
-        <Markdown content={bio.content} remote={bio.url} />
+        <Markdown {...bio} />
       </div>
     </div>
     <div className={styles['about__cv']}>

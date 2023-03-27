@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Image, Markdown } from '../../components';
 import content from '../../content/projects';
 import { ProjectType, RemoteContentType } from '../../types';
+import { fetchRemoteContent } from '../../utils';
 import styles from './projects.module.scss';
 
 type ProjectsProps = {
@@ -15,11 +16,11 @@ type ProjectsProps = {
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => ({
   props: {
     projects: await Promise.all(
-      content.map(async ({ description: url, name, ...rest }) => {
-        const resp = await fetch(url);
-        const content = await resp.text();
-        return { ...rest, name, description: { content, url } };
-      })
+      content.map(async ({ description: { local, url }, name, ...rest }) => ({
+        ...rest,
+        name,
+        description: { url, local: await fetchRemoteContent(url) },
+      }))
     ),
   },
 });
@@ -30,11 +31,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => (
       <div key={name} className={styles['project']}>
         <h2 className={styles['project__title']}>{name}</h2>
         <h3 className={styles['project__year']}>{year}</h3>
-        <Markdown
-          className={styles['project__text']}
-          content={description.content}
-          remote={description.url}
-        />
+        <Markdown className={styles['project__text']} {...description} />
         <Image
           className={styles['project__image']}
           name={image.name}

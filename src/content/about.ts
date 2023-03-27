@@ -1,7 +1,7 @@
 import { AboutType } from '../types';
 
 const about: AboutType = {
-  bio: 'https://dl.dropbox.com/s/ob7tppg6b0yyd6q/bio.md',
+  bio: { url: 'https://dl.dropbox.com/s/ob7tppg6b0yyd6q/bio.md', local: null },
   links: [
     { name: 'Instagram', url: 'https://www.instagram.com/melnyczuk' },
     { name: 'Twitter', url: 'https://twitter.com/melnyczuk' },
