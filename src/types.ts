@@ -20,7 +20,7 @@ export type ProjectType = {
 
 export type ImageType = {
   name: string;
-  url: string;
+  src: string;
   width: number;
   height: number;
   thumbnail: string;
