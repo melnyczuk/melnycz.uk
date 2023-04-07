@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import imageSize from 'image-size';
 import { FC, HTMLAttributes } from 'react';
 import ProgressiveImage from 'react-progressive-image';
 
@@ -6,7 +7,7 @@ import { ImageType } from '../../types';
 import styles from './Image.module.scss';
 
 type ImageProps = HTMLAttributes<HTMLImageElement> &
-  Pick<ImageType, 'name' | 'url' | 'thumbnail' | 'width' | 'height'>;
+  Pick<ImageType, 'name' | 'src' | 'thumbnail' | 'width' | 'height'>;
 
 const Monochrome: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ className }) => (
   <svg className={className}>
@@ -32,13 +33,13 @@ const Monochrome: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ className }) => (
 
 const Image: FC<ImageProps> = ({
   className,
-  url,
+  src,
   thumbnail,
   name,
   width,
   height,
 }) => (
-  <ProgressiveImage src={url} placeholder={thumbnail}>
+  <ProgressiveImage src={src} placeholder={thumbnail}>
     {(src) => (
       <>
         <Monochrome className={styles['monochrome']} />
@@ -60,3 +61,13 @@ const Image: FC<ImageProps> = ({
 );
 
 export default Image;
+
+export const getImageType = async (src: string): Promise<ImageType> => {
+  const name = new URL(src).pathname.split('/').reverse()[0];
+  const resp = await fetch(src);
+  const arrayBuffer = await resp.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const { width = 0, height = 0 } = imageSize(buffer);
+  const thumbnail = `data:image/jpeg;base64,${buffer.toString('base64')}`;
+  return { width, height, src, name, thumbnail };
+};

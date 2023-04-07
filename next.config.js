@@ -1,4 +1,5 @@
 module.exports = {
+  future: { webpack5: true },
   rewrites: async () => [
     {
       source: '/rss',
@@ -7,6 +8,14 @@ module.exports = {
   ],
   webpack: (config) => ({
     ...config,
+    resolve: {
+      ...config.resolve,
+      fallback: {
+        fs: false,
+        os: false,
+        path: false,
+      },
+    },
     module: {
       ...config.module,
       rules: [
