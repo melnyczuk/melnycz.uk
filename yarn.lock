@@ -773,13 +773,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/imagemagick@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@types/imagemagick/-/imagemagick-0.0.31.tgz#781fda8d55eb5de3a9ab38749686539cfe1037b4"
-  integrity sha512-TT7Jd8YAWqHKM7tl5lnVMaTd+Pl6m6DrqFyyQ1SUVTBu6YqYcYabaELIFTEjmkC10ATpcpiscG8pNxB/0AeA9A==
-  dependencies:
-    "@types/node" "*"
-
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"

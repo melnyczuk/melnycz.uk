@@ -62,16 +62,24 @@ const Image: FC<ImageProps> = ({
 
 export default Image;
 
-type Features = magick.Features & { ['base filename']: string };
+type Features = {
+  width: number;
+  height: number;
+  format: string;
+  ['base filename']: string;
+};
 
 export const getImageType = async (src: string): Promise<ImageType> => {
+  const resp = await fetch(src);
+  const arrayBuffer = await resp.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
   const {
     width = 0,
     height = 0,
     format = 'image/jpeg',
     ['base filename']: name = new URL(src).pathname.split('/').reverse()[0],
   } = await new Promise<Features>((resolve, reject) =>
-    magick.identify(src, (err, res) => {
+    magick.identify({ data: buffer }, (err, res) => {
       if (err) reject(err);
       if (res) resolve(res as Features);
     })
@@ -79,7 +87,7 @@ export const getImageType = async (src: string): Promise<ImageType> => {
   const thumbnail = await new Promise<string>((resolve, reject) =>
     magick.resize(
       {
-        srcPath: src,
+        srcData: buffer,
         width: Math.floor(width * 0.01),
         height: Math.floor(height * 0.01),
         format,
