@@ -3,24 +3,32 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { Markdown } from '../../components';
-import content from '../../content/cv';
-import { RemoteContentType } from '../../types';
+import Dropbox from '../../dropbox';
 import { fetchRemoteContent } from '../../utils';
 import styles from './cv.module.scss';
 
-type CVPropsKey = keyof typeof content;
-type CVProps = Record<CVPropsKey, RemoteContentType>;
+type CVProps = {
+  about: string;
+  contact: string;
+  education: string;
+  jobs: string;
+  projects: string;
+  skills: string;
+};
 
-export const getStaticProps: GetStaticProps<CVProps> = async () => ({
-  props: Object.fromEntries(
-    await Promise.all(
-      Object.keys(content).map(async (key) => [
-        key,
-        { url: content[key], local: await fetchRemoteContent(content[key]) },
-      ])
-    )
-  ),
-});
+export const getStaticProps: GetStaticProps<CVProps> = async () => {
+  const dropbox = new Dropbox();
+  const entries = await dropbox.listDir('/content/cv');
+  const files = dropbox.filterFiles(entries, '.md');
+  const content = await Promise.all(
+    files.map<Promise<[string, string]>>(async ({ name, path_lower = '' }) => [
+      name.split('.md')[0],
+      await dropbox.fetch(path_lower),
+    ])
+  );
+  const props = Object.fromEntries(content) as CVProps;
+  return { props };
+};
 
 const CV: FC<CVProps> = ({
   about,
@@ -33,27 +41,27 @@ const CV: FC<CVProps> = ({
   <main className={styles['cv']}>
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__about'])}
-      {...about}
+      content={about}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__contact'])}
-      {...contact}
+      content={contact}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__education'])}
-      {...education}
+      content={education}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__jobs'])}
-      {...jobs}
+      content={jobs}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__projects'])}
-      {...projects}
+      content={projects}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__skills'])}
-      {...skills}
+      content={skills}
     />
   </main>
 );

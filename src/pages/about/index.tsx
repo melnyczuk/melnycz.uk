@@ -3,22 +3,27 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { ClipboardCopyButton, Markdown } from '../../components';
-import content from '../../content/about';
-import { AboutType, RemoteContentType } from '../../types';
-import { fetchRemoteContent } from '../../utils';
+import Dropbox from '../../dropbox';
+import { AboutType } from '../../types';
 import styles from './about.module.scss';
 
-type AboutProps = Omit<AboutType, 'bio'> & { bio: RemoteContentType };
+type AboutProps = AboutType;
 
-export const getStaticProps: GetStaticProps<AboutProps> = async () => ({
-  props: {
-    ...content,
-    bio: {
-      local: await fetchRemoteContent(content.bio.url),
-      url: content.bio.url,
-    },
-  },
-});
+export const getStaticProps: GetStaticProps<AboutProps> = async () => {
+  const dropbox = new Dropbox();
+  const entries = await dropbox.listDir('/content/about');
+
+  const [infoJson] = dropbox.filterFiles(entries, '.json');
+  if (!infoJson.path_lower) throw new Error('About page info is missing');
+  const str = await dropbox.fetch(infoJson.path_lower);
+  const info = JSON.parse(str);
+
+  const [bioJson] = dropbox.filterFiles(entries, 'bio.md');
+  if (!bioJson.path_lower) throw new Error('About page bio is missing');
+  const bio = await dropbox.fetch(bioJson.path_lower);
+
+  return { props: { ...info, bio } };
+};
 
 const About: FC<AboutProps> = ({
   bio,
@@ -52,7 +57,7 @@ const About: FC<AboutProps> = ({
         ))}
       </div>
       <div className={styles['about__item']}>
-        <Markdown {...bio} />
+        <Markdown content={bio} />
       </div>
     </div>
     <div className={styles['about__cv']}>
