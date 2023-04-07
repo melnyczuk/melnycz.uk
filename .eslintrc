@@ -44,7 +44,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".ts", ".tsx", ".d.ts"],
+        "extensions": [".js", ".ts", ".tsx", ".d.ts"],
         "paths": ["src"]
       }
     },

@@ -4,7 +4,6 @@ import { FC } from 'react';
 
 import { Markdown } from '../../components';
 import Dropbox from '../../dropbox';
-import { fetchRemoteContent } from '../../utils';
 import styles from './cv.module.scss';
 
 type CVProps = {
