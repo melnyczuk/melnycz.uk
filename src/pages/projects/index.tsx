@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
-import { Image, Markdown } from '../../components';
+import { getImageType, Image, Markdown } from '../../components';
 import content from '../../content/projects';
 import { ProjectType, RemoteContentType } from '../../types';
 import { fetchRemoteContent } from '../../utils';
@@ -16,11 +16,14 @@ type ProjectsProps = {
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => ({
   props: {
     projects: await Promise.all(
-      content.map(async ({ description: { local, url }, name, ...rest }) => ({
-        ...rest,
-        name,
-        description: { url, local: await fetchRemoteContent(url) },
-      }))
+      content.map(
+        async ({ description: { local, url }, name, image, ...rest }) => ({
+          ...rest,
+          name,
+          description: { url, local: await fetchRemoteContent(url) },
+          image: await getImageType(image.src),
+        })
+      )
     ),
   },
 });
@@ -35,7 +38,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => (
         <Image
           className={styles['project__image']}
           name={image.name}
-          url={image.url}
+          src={image.src}
           width={image.width}
           height={image.height}
           thumbnail={image.thumbnail}
