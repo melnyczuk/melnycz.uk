@@ -89,6 +89,10 @@
   & p {
     font-size: larger;
     width: 100%;
+
+    & img {
+      width: 100%;
+    }
   }
 
   & blockquote {
