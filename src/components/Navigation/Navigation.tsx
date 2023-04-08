@@ -14,6 +14,7 @@ type NavLink = {
 const links: NavLink[] = [
   { href: '/about', regex: /\/about\/?/, label: 'About' },
   { href: '/projects', regex: /\/projects\/?/, label: 'Projects' },
+  { href: '/writing', regex: /\/writing\/?/, label: 'Writing' },
 ];
 
 type NavigationProps = {

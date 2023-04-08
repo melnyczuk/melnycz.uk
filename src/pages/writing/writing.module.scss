@@ -1,0 +1,129 @@
+@import '../../styling';
+
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: $bp-m) {
+    flex-direction: row;
+  }
+}
+
+.a {
+  text-decoration: none;
+  color: unset;
+}
+
+.writing_index {
+  @include defaults;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.writing_post_list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: $sizing-xxs;
+  margin: 0;
+  padding: 0;
+  border-bottom: $border;
+  cursor: pointer;
+
+  &__item {
+    border-top: $border;
+    display: flex;
+    flex-direction: row;
+    font-size: xx-large;
+    padding: 0;
+    // border: $border;
+    width: 100%;
+
+    &__date {
+      @include paragraph;
+      @include mono;
+      @include inverts;
+
+      padding: $sizing-xxs $sizing-xs;
+      align-self: start;
+      min-width: fit-content;
+      width: 100%;
+      // font-size: large;
+
+      @media (min-width: $bp-m) {
+        // font-size: unset;
+        width: unset;
+      }
+    }
+
+    &__link {
+      @include heading;
+      width: 100%;
+      padding: $sizing-s;
+
+      text-align: left;
+
+      @media (max-width: $bp-m) {
+        text-align: center;
+        font-size: larger;
+      }
+    }
+  }
+}
+
+.writing_post {
+  @include defaults;
+  @include paragraph;
+
+  border-top: $border;
+
+  & h2 {
+    @include heading;
+    margin-bottom: $sizing-xs;
+    align-self: start;
+  }
+
+  & p {
+    font-size: larger;
+    width: 100%;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & blockquote {
+    border-left: $border;
+    border-width: $sizing-xxs;
+    padding-left: $sizing-xs;
+    font-style: italic;
+    margin-bottom: $sizing-xs;
+  }
+
+  &__body {
+    @include border-right;
+    padding: $sizing-s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $bp-m) {
+      max-width: 50%;
+    }
+  }
+
+  &__date {
+    @include paragraph;
+    @include mono;
+    @include inverts;
+
+    padding: $sizing-xxs $sizing-s;
+
+    @media (min-width: $bp-m) {
+      max-width: 50%;
+    }
+  }
+}

@@ -13,6 +13,11 @@
   color: $colors-blue;
 }
 
+@mixin inverts {
+  background: $colors-blue;
+  color: $colors-grey;
+}
+
 @mixin paragraph {
   text-decoration: unset;
   font-family: $font-sans;
@@ -55,4 +60,8 @@
   font-size: $font-size-h-xl;
   line-height: normal;
   letter-spacing: -0.5px;
+}
+
+@mixin mono {
+  font-family: $font-mono;
 }

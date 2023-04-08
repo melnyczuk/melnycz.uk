@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps<CvType> = async () => {
   return { props: cv };
 };
 
-const CV: FC<CvType> = ({
+const CvPage: FC<CvType> = ({
   about,
   contact,
   education,
@@ -47,4 +47,4 @@ const CV: FC<CvType> = ({
   </main>
 );
 
-export default CV;
+export default CvPage;

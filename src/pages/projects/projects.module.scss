@@ -96,6 +96,8 @@
     grid-column: 1 / 3;
     grid-row: 3 / 3;
 
+    padding: $sizing-s;
+
     @media (min-width: $bp-m) {
       grid-column: 2 / 2;
       grid-row: 2 / 2;
@@ -103,6 +105,14 @@
       margin-top: auto;
       bottom: 0;
       align-self: baseline;
+    }
+
+    &:first-child {
+      padding-top: $sizing-s;
+    }
+  
+    &:last-child {
+      padding-bottom: $sizing-s;
     }
   }
 }

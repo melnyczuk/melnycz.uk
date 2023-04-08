@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps<AboutType> = async () => {
   return { props: about };
 };
 
-const About: FC<AboutType> = ({
+const AboutPage: FC<AboutType> = ({
   bio,
   links,
   educations,
@@ -101,4 +101,4 @@ const About: FC<AboutType> = ({
   </main>
 );
 
-export default About;
+export default AboutPage;
