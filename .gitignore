@@ -6,3 +6,4 @@ out
 yarn-error.log
 
 src/pages/cover_letter.tsx
+generate.ts

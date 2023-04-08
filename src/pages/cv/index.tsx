@@ -3,40 +3,22 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { Markdown } from '../../components';
-import Dropbox from '../../dropbox';
+import { cv } from '../../content/cv';
+import { CvType } from '../../types';
 import styles from './cv.module.scss';
 
-type CVProps = {
-  about: string;
-  contact: string;
-  education: string;
-  jobs: string;
-  projects: string;
-  skills: string;
+export const getStaticProps: GetStaticProps<CvType> = async () => {
+  return { props: cv };
 };
 
-export const getStaticProps: GetStaticProps<CVProps> = async () => {
-  const dropbox = new Dropbox();
-  const entries = await dropbox.listDir('/content/cv');
-  const files = dropbox.filterFiles(entries, '.md');
-  const content = await Promise.all(
-    files.map<Promise<[string, string]>>(async ({ name, path_lower = '' }) => [
-      name.split('.md')[0],
-      await dropbox.fetch(path_lower),
-    ])
-  );
-  const props = Object.fromEntries(content) as CVProps;
-  return { props };
-};
-
-const CV: FC<CVProps> = ({
+const CV: FC<CvType> = ({
   about,
   contact,
   education,
   jobs,
   projects,
   skills,
-}: CVProps) => (
+}) => (
   <main className={styles['cv']}>
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__about'])}

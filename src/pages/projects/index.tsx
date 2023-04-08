@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { getImageType, Image, Markdown } from '../../components';
-import Dropbox from '../../dropbox';
+import { projects } from '../../content/projects';
 import { ProjectType } from '../../types';
 import styles from './projects.module.scss';
 
@@ -10,82 +10,21 @@ type ProjectsProps = {
   projects: ProjectType[];
 };
 
-type ProjectInfo = {
-  slug: string;
-  name: string;
-  year: number;
-  hide: boolean;
-  hero: string;
-};
-
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const dropbox = new Dropbox();
-  const entries = await dropbox.listDir('/content/projects');
-  const dirs = entries.filter((e) => e['.tag'] === 'folder');
-  const infoFile = dropbox.filterFiles(entries, 'info.json')[0];
-  if (!infoFile.path_lower) throw new Error('Project info json is missing');
-  const infoJson = await dropbox.fetch(infoFile.path_lower);
-  const info: { projects: ProjectInfo[] } = JSON.parse(infoJson);
-  const files = dropbox.filterFiles(entries);
-
-  const projects = await Promise.all(
-    info.projects.reduce<Array<Promise<ProjectType>>>(
-      (acc, { name, year, slug, hero, hide }) => {
-        if (hide) {
-          return acc;
-        }
-
-        const [{ path_lower: dirPath }] = dirs.filter(
-          (dir) => dir.name === slug
-        );
-
-        if (!dirPath) {
-          return acc;
-        }
-
-        const projectFiles = files.filter(
-          (e) =>
-            e['.tag'] === 'file' &&
-            e.path_lower &&
-            e.path_lower.includes(dirPath)
-        );
-
-        const [{ path_lower: descPath }] = projectFiles.filter((e) =>
-          e.name.includes('.md')
-        );
-
-        if (!descPath) {
-          return acc;
-        }
-
-        const images = projectFiles.filter(
-          (e) => !e.name.includes('.md') && !e.name.includes('.json')
-        );
-
-        const [{ path_lower: heroPath }] = images.filter((img) =>
-          img.name.includes(hero)
-        );
-
-        if (!heroPath) {
-          return acc;
-        }
-
-        return [
-          ...acc,
-          new Promise<ProjectType>((resolve) =>
-            dropbox.fetch(descPath).then(async (description) => {
-              const imgUrl = await dropbox.getLink(heroPath);
-              const image = await getImageType(imgUrl);
-              resolve({ name, description, image, year });
-            })
-          ),
-        ];
-      },
-      []
-    )
-  );
-
-  return { props: { projects } };
+  return {
+    props: {
+      projects: await Promise.all(
+        projects
+          .filter(({ hide }) => !hide)
+          .map(async ({ name, year, hero, description }) => ({
+            name,
+            year,
+            description,
+            image: await getImageType(hero),
+          }))
+      ),
+    },
+  };
 };
 
 const Projects: FC<ProjectsProps> = ({ projects }) => (

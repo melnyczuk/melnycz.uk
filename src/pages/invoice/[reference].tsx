@@ -2,16 +2,16 @@ import classnames from 'classnames';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FC, Fragment, useCallback, useMemo } from 'react';
 
-import Dropbox from '../../dropbox';
-import { BankDetailsType, Currency, ServicesType } from '../../types';
+import { Currency, InvoiceType } from '../../types';
 import styles from './invoice.module.scss';
 
 type BankDetailsProps = {
-  details: BankDetailsType[Currency];
+  details: InvoiceType['bankDetails'][Currency];
   reference: string;
 };
 
 const ONE_MONTH = 30 * 24 * 60 * 60 * 1000;
+const invoices = [];
 
 const BankDetails: FC<BankDetailsProps> = ({ details, reference }) => (
   <div className={classnames(styles['bank-details'])}>
@@ -37,16 +37,7 @@ const BankDetails: FC<BankDetailsProps> = ({ details, reference }) => (
   </div>
 );
 
-type InvoiceProps = {
-  address: string[];
-  bankDetails: BankDetailsType;
-  client: string[];
-  currency: Currency;
-  locale: string;
-  reference: string;
-  showVatDisclaimer: boolean;
-  services: ServicesType;
-};
+type InvoiceProps = InvoiceType;
 
 const Invoice: FC<InvoiceProps> = ({
   address,
@@ -157,31 +148,29 @@ const Invoice: FC<InvoiceProps> = ({
 export default Invoice;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const dropbox = new Dropbox();
-  const entries = await dropbox.listDir('/invoice');
-  const paths = dropbox
-    .filterFiles(entries, '.json')
-    .map(({ name }) => `/invoice/${name.split('.json')[0]}`);
+  const paths = Object.keys(invoices);
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps<
   InvoiceProps,
-  { slug: string }
+  { reference: string }
 > = async ({ params }) => {
   if (!params) throw new Error('Params not found');
-  const reference = params.slug.toUpperCase();
-  const link = await Dropbox.load().getLink(`/invoice/${reference}.json`);
-  const resp = await fetch(link);
-  const data = await resp.json();
+  const reference = params.reference.toUpperCase();
+  const data = invoices[reference];
   return { props: { ...data, reference } };
 };
 
 function formatDate(date: Date, locale: string) {
-  return new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(date);
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
 }
 
-function useTotal(items: ServicesType['items']): number {
+function useTotal(items: InvoiceType['services']['items']): number {
   return useMemo(
     (): number =>
       items.reduce((acc, { quantity, rate }) => acc + quantity * rate, 0),
