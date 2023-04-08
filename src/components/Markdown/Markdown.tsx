@@ -13,7 +13,11 @@ const { processSync } = remark().use(remarkReact);
 
 const Markdown: FC<MarkdownProps> = ({ className, content }) => {
   const md = useMemo(() => processSync(content).result, [content]);
-  return <div className={classnames(styles['text'], className)}>{md}</div>;
+  return (
+    <div className={classnames(styles['text'], className)}>
+      <>{md}</>
+    </div>
+  );
 };
 
 export default Markdown;
