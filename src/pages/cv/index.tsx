@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { Markdown } from '../../components';
-import { cv } from '../../content/cv';
+import { cv } from '../../content';
 import { CvType } from '../../types';
 import styles from './cv.module.scss';
 

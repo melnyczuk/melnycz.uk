@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { ClipboardCopyButton, Markdown } from '../../components';
-import { about } from '../../content/about';
+import { about } from '../../content';
 import { AboutType } from '../../types';
 import styles from './about.module.scss';
 
