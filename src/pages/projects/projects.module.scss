@@ -28,6 +28,7 @@
   }
 
   &__title {
+    @include heading;
     @include border-right;
 
     grid-column: 1 / 1;
@@ -35,12 +36,6 @@
     z-index: 1;
 
     background-color: inherit;
-
-    font-family: $font-serif;
-    font-size: $font-size-h-xl;
-    line-height: normal;
-    letter-spacing: -0.5px;
-
     padding: $sizing-xs $sizing-s;
 
     @media (min-width: $bp-m) {

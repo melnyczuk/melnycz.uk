@@ -49,3 +49,10 @@
     font-size: $font-size-p-xl;
   }
 }
+
+@mixin heading {
+  font-family: $font-serif;
+  font-size: $font-size-h-xl;
+  line-height: normal;
+  letter-spacing: -0.5px;
+}

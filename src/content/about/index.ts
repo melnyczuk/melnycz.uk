@@ -1,7 +1,8 @@
-import { AboutType } from '../types';
+import { AboutType } from '../../types';
+import bio from './bio.md';
 
-const about: AboutType = {
-  bio: { url: 'https://dl.dropbox.com/s/ob7tppg6b0yyd6q/bio.md', local: null },
+export const about: AboutType = {
+  bio,
   links: [
     { name: 'Instagram', url: 'https://www.instagram.com/melnyczuk' },
     { name: 'Twitter', url: 'https://twitter.com/melnyczuk' },
@@ -28,5 +29,3 @@ const about: AboutType = {
     [2018, 'Perth Festival Lab, Perth, Australia'],
   ],
 };
-
-export default about;

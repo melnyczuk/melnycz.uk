@@ -3,24 +3,15 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { ClipboardCopyButton, Markdown } from '../../components';
-import content from '../../content/about';
-import { AboutType, RemoteContentType } from '../../types';
-import { fetchRemoteContent } from '../../utils';
+import { about } from '../../content/about';
+import { AboutType } from '../../types';
 import styles from './about.module.scss';
 
-type AboutProps = Omit<AboutType, 'bio'> & { bio: RemoteContentType };
+export const getStaticProps: GetStaticProps<AboutType> = async () => {
+  return { props: about };
+};
 
-export const getStaticProps: GetStaticProps<AboutProps> = async () => ({
-  props: {
-    ...content,
-    bio: {
-      local: await fetchRemoteContent(content.bio.url),
-      url: content.bio.url,
-    },
-  },
-});
-
-const About: FC<AboutProps> = ({
+const About: FC<AboutType> = ({
   bio,
   links,
   educations,
@@ -52,7 +43,7 @@ const About: FC<AboutProps> = ({
         ))}
       </div>
       <div className={styles['about__item']}>
-        <Markdown {...bio} />
+        <Markdown content={bio} />
       </div>
     </div>
     <div className={styles['about__cv']}>

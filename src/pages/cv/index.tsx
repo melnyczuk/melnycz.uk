@@ -3,57 +3,46 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { Markdown } from '../../components';
-import content from '../../content/cv';
-import { RemoteContentType } from '../../types';
-import { fetchRemoteContent } from '../../utils';
+import { cv } from '../../content/cv';
+import { CvType } from '../../types';
 import styles from './cv.module.scss';
 
-type CVPropsKey = keyof typeof content;
-type CVProps = Record<CVPropsKey, RemoteContentType>;
+export const getStaticProps: GetStaticProps<CvType> = async () => {
+  return { props: cv };
+};
 
-export const getStaticProps: GetStaticProps<CVProps> = async () => ({
-  props: Object.fromEntries(
-    await Promise.all(
-      Object.keys(content).map(async (key) => [
-        key,
-        { url: content[key], local: await fetchRemoteContent(content[key]) },
-      ])
-    )
-  ),
-});
-
-const CV: FC<CVProps> = ({
+const CV: FC<CvType> = ({
   about,
   contact,
   education,
   jobs,
   projects,
   skills,
-}: CVProps) => (
+}) => (
   <main className={styles['cv']}>
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__about'])}
-      {...about}
+      content={about}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__contact'])}
-      {...contact}
+      content={contact}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__education'])}
-      {...education}
+      content={education}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__jobs'])}
-      {...jobs}
+      content={jobs}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__projects'])}
-      {...projects}
+      content={projects}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__skills'])}
-      {...skills}
+      content={skills}
     />
   </main>
 );
