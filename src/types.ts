@@ -21,6 +21,15 @@ export type CvType = {
   skills: string;
 };
 
+export type ImageType = {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+  thumbnail: string;
+  caption?: string;
+};
+
 export type InvoiceType = {
   address: string[];
   bankDetails: Record<Currency, Array<Record<'key' | 'value', string>>>;
@@ -42,11 +51,9 @@ export type ProjectType = {
   image: ImageType;
 };
 
-export type ImageType = {
-  name: string;
-  src: string;
-  width: number;
-  height: number;
-  thumbnail: string;
-  caption?: string;
+export type WritingPostType = {
+  slug: string;
+  title: string;
+  date: string;
+  content: string;
 };
