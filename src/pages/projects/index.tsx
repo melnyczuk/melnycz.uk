@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
   };
 };
 
-const Projects: FC<ProjectsProps> = ({ projects }) => (
+const ProjectsPage: FC<ProjectsProps> = ({ projects }) => (
   <main className={styles['projects']}>
     {projects.map(({ name, image, description, year }) => (
       <div key={name} className={styles['project']}>
@@ -47,4 +47,4 @@ const Projects: FC<ProjectsProps> = ({ projects }) => (
   </main>
 );
 
-export default Projects;
+export default ProjectsPage;

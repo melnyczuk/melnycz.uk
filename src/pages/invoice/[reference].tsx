@@ -39,7 +39,7 @@ const BankDetails: FC<BankDetailsProps> = ({ details, reference }) => (
 
 type InvoiceProps = InvoiceType;
 
-const Invoice: FC<InvoiceProps> = ({
+const InvoicePage: FC<InvoiceProps> = ({
   address,
   bankDetails,
   locale,
@@ -145,7 +145,7 @@ const Invoice: FC<InvoiceProps> = ({
   );
 };
 
-export default Invoice;
+export default InvoicePage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = Object.keys(invoices);

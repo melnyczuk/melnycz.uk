@@ -15,7 +15,7 @@ const metadata: ComponentProps<typeof SEO> = {
   url: 'https://melnycz.uk',
 };
 
-const App: FC<AppProps> = ({ Component, pageProps, router }) => (
+const Page: FC<AppProps> = ({ Component, pageProps, router }) => (
   <>
     <SEO {...metadata} />
     <Navigation router={router} description={metadata.description} />
@@ -23,4 +23,4 @@ const App: FC<AppProps> = ({ Component, pageProps, router }) => (
   </>
 );
 
-export default App;
+export default Page;

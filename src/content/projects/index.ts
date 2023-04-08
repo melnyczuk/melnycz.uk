@@ -35,5 +35,5 @@ export const projects: ProjectInfo[] = [
   textureCache,
 ].map((project) => {
   const { body, attributes } = fm<Omit<ProjectInfo, 'description'>>(project);
-  return { description: body, ...attributes };
+  return { ...attributes, description: body };
 });

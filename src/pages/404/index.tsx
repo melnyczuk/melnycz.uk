@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import styles from './404.module.scss';
 
-const _404: FC = () => (
+const _404Page: FC = () => (
   <main className={styles['page-404']}>
     <title>Not found</title>
     <Link href="/">¯\_(ツ)_/¯</Link>
@@ -11,4 +11,4 @@ const _404: FC = () => (
   </main>
 );
 
-export default _404;
+export default _404Page;
