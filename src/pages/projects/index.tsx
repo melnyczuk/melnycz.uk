@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
 import { getImageType, Image, Markdown } from '../../components';
-import { projects } from '../../content/projects';
+import { projects } from '../../content';
 import { ProjectType } from '../../types';
 import styles from './projects.module.scss';
 
