@@ -31,10 +31,10 @@ Curiously, now that capitalism has grown to swallow the whole world, a strange i
 
 Thacker poses the question:
 
->What happens to the concept of politics once one confronts the possibility that the world only reveals its hiddenness, in spite of the attempts to render it as a world-for-us, either via theology (sovereign God, sovereign king) or via science (the organismic analogy of the state)?
+> What happens to the concept of politics once one confronts the possibility that the world only reveals its hiddenness, in spite of the attempts to render it as a world-for-us, either via theology (sovereign God, sovereign king) or via science (the organismic analogy of the state)?
 
 I have recently moved to Vilnius to do a residency at Rupert. Here I hope to explore how new folk practices and rituals could form in opposition to the increasingly covert power structures: the automation of bureaucracy, financialisation technology, and big data surveillance. Through the lens of the occult, I'm hoping to see how communal acts of ritual togetherness could empower new dissidence.
 
 To quote Donna Haraway:
 
->The task is to make kin in lines of inventive connection as a practice of learning to live and die well with each other in a thick present. Our task is to make trouble, to stir up potent response to devastating events, as well as to settle troubled waters and rebuild quiet places.
+> The task is to make kin in lines of inventive connection as a practice of learning to live and die well with each other in a thick present. Our task is to make trouble, to stir up potent response to devastating events, as well as to settle troubled waters and rebuild quiet places.

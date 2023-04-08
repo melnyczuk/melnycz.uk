@@ -25,7 +25,7 @@ Politics itself is a performative activity that looks to channel energy into act
 
 In *Postscript on the Societies of Control*, Deleuze (referencing Foucault) terms state and community institutions (prison, hospital, factory, school, family) as "environments of enclosure". Participating in society, in disciplinary societies, brings you inside closed environments. The logic of the disciplinary society is triangular - the singular authority sits at the top above multitudes of subsets each dominating those below. Each institution requires the subjected individual to start a new:
 
->"In the disciplinary societies one was always starting again (from school to the barracks, from the barracks to the factory), while in the societies of control one is never finished with anything"
+> In the disciplinary societies one was always starting again (from school to the barracks, from the barracks to the factory), while in the societies of control one is never finished with anything
 
 The society of control that Deleuze outlines follows instead the endless logic of the circle, the serpent; continued assessment and ongoing learning.
 

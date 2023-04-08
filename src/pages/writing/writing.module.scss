@@ -30,8 +30,8 @@
   gap: $sizing-xxs;
   margin: 0;
   padding: 0;
-  cursor: pointer;
   border-bottom: $border;
+  cursor: pointer;
 
   &__item {
     border-top: $border;
@@ -80,21 +80,35 @@
 
   border-top: $border;
 
-  & > :first-child {
-    @include border-right;
-    padding: $sizing-s;
-
-    @media (min-width: $bp-m) {
-      max-width: 50%;
-    }
-  }
-
   & h2 {
     @include heading;
+    margin-bottom: $sizing-xs;
+    align-self: start;
   }
 
   & p {
     font-size: larger;
+    width: 100%;
+  }
+
+  & blockquote {
+    border-left: $border;
+    border-width: $sizing-xxs;
+    padding-left: $sizing-xs;
+    font-style: italic;
+    margin-bottom: $sizing-xs;
+  }
+
+  &__body {
+    @include border-right;
+    padding: $sizing-s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $bp-m) {
+      max-width: 50%;
+    }
   }
 
   &__date {
