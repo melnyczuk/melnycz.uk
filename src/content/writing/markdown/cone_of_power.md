@@ -5,8 +5,6 @@ date: '2021-04-04'
 image: https://dl.dropbox.com/s/a74nrlzdvpq6obk/cone.gif
 ---
 
-## Cone of Power
-
 ![](https://i.imgur.com/Co4AF1z.gif)
 
 A cone is a shape that combines two shapes. Viewed from above, a cone is a perfect circle, a continuous set of concentric circles imploding to an apex. Viewed from the side, a cone is a triangle: a polygon formed by the smallest number of points possible in a given two-dimensional plane. By contrast, a circle is formed from an infinite collection of points. A single point fewer than infinity would render the circular shape into a high-pointed polygon and no longer in fact a circle. Triangles and circles then form two ends of a spectrum when visualizing the world through Euclidean geometry. Triangles become the most basic, most real component of this visual language; circles the most virtual.

@@ -5,8 +5,6 @@ date: '2021-03-18'
 image: https://dl.dropbox.com/s/8ejheffuear4pr7/7283cc9c-8a2c-4d0d-89e7-addb68f44d72_1000x400.png
 ---
 
-## Eighteen Black Cats
-
 Like the multitude of beliefs and practices it refers to, the occult is a very indeterminate term. Broadly it encompasses activities "involving or relating to mystical, supernatural, or magical powers, practices, or phenomena", but it also means to hide from view, as an eclipse hides the sun. In medicine, an occult illness is one without any visible symptoms, a mysterious illness that eludes prognosis. The occult is a catch-all for forces not seen, activities unsanctioned, powers not formally recognised. Folk practices, ritual magick, radical acts of otherness.
 
 ![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F7283cc9c-8a2c-4d0d-89e7-addb68f44d72_1000x400.gif)
