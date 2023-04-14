@@ -18,6 +18,12 @@
   color: $colors-grey;
 }
 
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  gap: $sizing-xs;
+}
+
 @mixin paragraph {
   text-decoration: unset;
   font-family: $font-sans;
@@ -25,11 +31,6 @@
   & > p {
     background-color: inherit;
     vertical-align: baseline;
-
-    margin-bottom: $sizing-xs;
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   & > a,
@@ -55,9 +56,9 @@
   }
 }
 
-@mixin heading {
+@mixin heading($font-size) {
   font-family: $font-serif;
-  font-size: $font-size-h-xl;
+  font-size: $font-size;
   line-height: normal;
   letter-spacing: -0.5px;
 }

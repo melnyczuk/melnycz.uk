@@ -1,11 +1,9 @@
 ---
 slug: cone-of-power
-title: Cone of power
+title: Cone of Power
 date: '2021-04-04'
 image: https://dl.dropbox.com/s/a74nrlzdvpq6obk/cone.gif
 ---
-
-## Cone of power
 
 ![](https://i.imgur.com/Co4AF1z.gif)
 

@@ -2,8 +2,9 @@
 
 .flex {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+
   width: 100%;
 
   @media (min-width: $bp-m) {
@@ -12,8 +13,8 @@
 }
 
 .a {
-  text-decoration: none;
   color: unset;
+  text-decoration: none;
 }
 
 .writing_index {
@@ -26,49 +27,56 @@
 .writing_post_list {
   display: flex;
   flex-direction: column;
-  list-style-type: none;
   gap: $sizing-xxs;
+
   margin: 0;
   padding: 0;
+
   border-bottom: $border;
+
+  list-style-type: none;
   cursor: pointer;
 
   &__item {
-    border-top: $border;
     display: flex;
     flex-direction: row;
-    font-size: xx-large;
-    padding: 0;
-    // border: $border;
+
     width: 100%;
+    padding: 0;
+
+    font-size: xx-large;
+
+    border-top: $border;
 
     &__date {
       @include paragraph;
       @include mono;
       @include inverts;
 
-      padding: $sizing-xxs $sizing-xs;
       align-self: start;
-      min-width: fit-content;
+
       width: 100%;
-      // font-size: large;
+      min-width: fit-content;
+
+      padding: $sizing-xxs $sizing-xs;
 
       @media (min-width: $bp-m) {
-        // font-size: unset;
         width: unset;
       }
     }
 
     &__link {
-      @include heading;
+      @include heading($font-size-h-xl);
+
       width: 100%;
+
       padding: $sizing-s;
 
       text-align: left;
 
       @media (max-width: $bp-m) {
-        text-align: center;
         font-size: larger;
+        text-align: center;
       }
     }
   }
@@ -80,15 +88,21 @@
 
   border-top: $border;
 
+  & h1 {
+    @include heading($font-size-h-xl);
+
+    align-self: start;
+  }
+
   & h2 {
-    @include heading;
-    margin-bottom: $sizing-xs;
+    @include heading($font-size-h-l);
+
     align-self: start;
   }
 
   & p {
-    font-size: larger;
     width: 100%;
+    font-size: larger;
 
     & img {
       width: 100%;
@@ -96,23 +110,27 @@
   }
 
   & blockquote {
+    padding-left: $sizing-xs;
     border-left: $border;
     border-width: $sizing-xxs;
-    padding-left: $sizing-xs;
     font-style: italic;
-    margin-bottom: $sizing-xs;
   }
 
-  &__body {
+  &__article {
+    @include flex;
     @include border-right;
+
     padding: $sizing-s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: $bp-m) {
       max-width: 50%;
     }
+  }
+
+  &__body {
+    @include flex;
+
+    align-items: center;
   }
 
   &__date {

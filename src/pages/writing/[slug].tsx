@@ -24,10 +24,13 @@ export const getStaticProps: GetStaticProps<
   return { props: post };
 };
 
-const WritingPostPage: FC<WritingPostType> = ({ date, content }) => {
+const WritingPostPage: FC<WritingPostType> = ({ date, title, content }) => {
   return (
     <main className={styles['writing_post']}>
-      <Markdown className={styles['writing_post__body']} content={content} />
+      <article className={styles['writing_post__article']}>
+        <h1 className={styles['writing_post__title']}>{title}</h1>
+        <Markdown className={styles['writing_post__body']} content={content} />
+      </article>
       <div className={styles['writing_post__date']}>{date}</div>
     </main>
   );

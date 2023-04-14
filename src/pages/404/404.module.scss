@@ -2,18 +2,19 @@
 
 .page-404 {
   @include defaults;
+  @include flex;
 
-  color: $colors-blue;
+  align-items: center;
   padding: 96px;
+  color: $colors-blue;
   font-family: -apple-system, Roboto, sans-serif, serif;
 
   a {
     display: block;
-    margin-bottom: none;
+    margin: 0 auto;
     font-size: 50px;
     text-align: center;
-    border: solid 1 black;
     text-decoration: none;
-    margin: 0 auto;
+    border: solid 1 black;
   }
 }
