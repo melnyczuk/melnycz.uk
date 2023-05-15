@@ -1,39 +1,39 @@
 import fm from 'front-matter';
 
-import aTreeGrewThroughMyWindow from './markdown/a-tree-grew-through-my-window.md';
-import coneOfPower from './markdown/cone-of-power.md';
-import gailTheBomachat from './markdown/gail-the-bomachat.md';
-import objectPermanence from './markdown/object-permanence.md';
-import otsoemiasm from './markdown/on-the-side-of-every-mountain-is-another-smaller-mountain.md';
-import ratioClub from './markdown/ratio-club.md';
-import rrosetta from './markdown/rrosetta.md';
-import silverCoord from './markdown/silver-coord.md';
-import supercollager from './markdown/supercollager.md';
-import textureCache from './markdown/texture-cache.md';
-import woolGather from './markdown/wool-gather.md';
+import { ProjectType } from '../../types';
+import * as imageData from './images';
+import * as projectData from './markdown';
 
 type ProjectInfo = {
   slug: string;
   name: string;
-  hero: string;
+  hero: number;
   year: number;
   hide: boolean;
-  description: string;
+  imgs: string[];
 };
 
-export const projects: ProjectInfo[] = [
-  woolGather,
-  silverCoord,
-  coneOfPower,
-  supercollager,
-  aTreeGrewThroughMyWindow,
-  objectPermanence,
-  gailTheBomachat,
-  ratioClub,
-  rrosetta,
-  otsoemiasm,
-  textureCache,
-].map((project) => {
-  const { body, attributes } = fm<Omit<ProjectInfo, 'description'>>(project);
-  return { ...attributes, description: body };
-});
+const ordering: (keyof typeof projectData)[] = [
+  'woolGather',
+  'silverCoord',
+  'coneOfPower',
+  'supercollager',
+  'aTreeGrewThroughMyWindow',
+  'objectPermanence',
+  'gailTheBomachat',
+  'ratioClub',
+  'rrosetta',
+  'otsoemiasm',
+  'textureCache',
+];
+
+export const projects: ProjectType[] = ordering
+  .map((key) => {
+    const project = projectData[key];
+    const image = imageData[key];
+    const { body, attributes } = fm<ProjectInfo>(project);
+    const images = attributes.imgs.map((src) => image[src]);
+    const hero = images[attributes.hero];
+    return { ...attributes, description: body, images, hero };
+  })
+  .filter(({ hide }) => !hide);

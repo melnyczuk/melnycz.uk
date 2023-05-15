@@ -48,7 +48,8 @@ export type ProjectType = {
   name: string;
   year: number;
   description: string;
-  image: ImageType;
+  hero: ImageType;
+  images: ImageType[];
 };
 
 export type WritingPostType = {
