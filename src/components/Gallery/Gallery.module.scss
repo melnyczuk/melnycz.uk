@@ -1,0 +1,29 @@
+@import '../../styling';
+
+.gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow-y: scroll;
+  background-color: rgba($color: $colors-blue-lowlight, $alpha: 0.9);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: $sizing-xs;
+
+  padding: $sizing-m;
+
+  &__image {
+    max-height: 90vh;
+    object-fit: contain;
+
+    @media (min-width: $bp-m) {
+      width: 70%;
+    }
+  }
+}

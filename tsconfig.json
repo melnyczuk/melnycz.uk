@@ -30,6 +30,7 @@
     "next.config.js"
   ],
   "exclude": [
+    "scripts",
     "node_modules"
   ]
 }

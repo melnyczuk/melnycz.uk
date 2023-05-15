@@ -1,9 +1,13 @@
 ---
 slug: gail-the-bomachat
 name: Gail, for the Bureau of Meteoranxiety
-hero: https://dl.dropbox.com/s/s6pavzbqfeg1oxx/gail-the-bomachat-1.png
+hero: 0
 year: 2018
 hide: false
+imgs: 
+- https://dl.dropbox.com/s/s6pavzbqfeg1oxx/gail-the-bomachat-1.png
+- https://dl.dropbox.com/s/r67lkcand61ouxa/gail-the-bomachat-2.jpg
+- https://dl.dropbox.com/s/7bk8zjujh9oixaz/gail-the-bomachat-3.jpg
 ---
 
 Gail is a chatbot that was developed as part of The Bureau of Meteoranxiety project, in collaboration with Olivia Tartaglia and Alex Tate. It was exhibited as part of Next Wave festival at the Blindside Gallery, Melbourne in 2018.

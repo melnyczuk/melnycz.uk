@@ -1,9 +1,14 @@
 ---
 slug: supercollager
 name: Supercollager
-hero: https://dl.dropbox.com/s/6zyqp80obmosehg/supercollager-krakow.jpg
+hero: 2
 year: 2020
 hide: false
+imgs:
+- https://dl.dropbox.com/s/6zyqp80obmosehg/supercollager-krakow.jpg
+- https://dl.dropbox.com/s/gpx4o8eem0j6stg/supercollager-madrid.jpg
+- https://dl.dropbox.com/s/w22ohenoe0xy6zl/supercollager-porto.jpg
+- https://dl.dropbox.com/s/qsh6he0283txrbm/supercollager-tokyo.jpg
 ---
 
 Supercollager is an ongoing project exploring photography and image-making in dialogue with machine learning and computer vision.

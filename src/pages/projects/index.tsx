@@ -1,50 +1,60 @@
 import { GetStaticProps } from 'next';
-import { FC } from 'react';
+import { FC, useMemo, useState } from 'react';
 
-import { getImageType, Image, Markdown } from '../../components';
+import { Gallery, Image, Markdown } from '../../components';
 import { projects } from '../../content';
 import { ProjectType } from '../../types';
 import styles from './projects.module.scss';
 
-type ProjectsProps = {
-  projects: ProjectType[];
-};
+type ProjectsProps = { projects: ProjectType[] };
 
-export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  return {
-    props: {
-      projects: await Promise.all(
-        projects
-          .filter(({ hide }) => !hide)
-          .map(async ({ name, year, hero, description }) => ({
-            name,
-            year,
-            description,
-            image: await getImageType(hero),
-          }))
-      ),
-    },
-  };
-};
+export const getStaticProps: GetStaticProps<ProjectsProps> = async () => ({
+  props: { projects },
+});
 
-const ProjectsPage: FC<ProjectsProps> = ({ projects }) => (
-  <main className={styles['projects']}>
-    {projects.map(({ name, image, description, year }) => (
-      <div key={name} className={styles['project']}>
-        <h2 className={styles['project__title']}>{name}</h2>
-        <h3 className={styles['project__year']}>{year}</h3>
-        <Markdown className={styles['project__text']} content={description} />
-        <Image
-          className={styles['project__image']}
-          name={image.name}
-          src={image.src}
-          width={image.width}
-          height={image.height}
-          thumbnail={image.thumbnail}
-        />
-      </div>
-    ))}
-  </main>
-);
+const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
+  const [openGallery, setOpenGallery] = useState<string | null>(null);
+
+  const galleryImages = useMemo(() => {
+    if (openGallery === null) {
+      return null;
+    }
+    const [{ images = [] } = { images: [] }] = projects.filter(
+      ({ name }) => name === openGallery
+    );
+    return images;
+  }, [projects, openGallery]);
+
+  return (
+    <main className={styles['projects']}>
+      {projects.map(({ name, hero, description, year }) => (
+        <div key={name} className={styles['project']}>
+          <h2 className={styles['project__title']}>{name}</h2>
+          <h3 className={styles['project__year']}>{year}</h3>
+          <Markdown className={styles['project__text']} content={description} />
+          <div
+            tabIndex={0}
+            role="button"
+            aria-label="open image gallery"
+            onKeyDown={() => setOpenGallery(name)}
+            onClick={() => setOpenGallery(name)}
+          >
+            <Image
+              className={styles['project__image']}
+              name={hero.name}
+              src={hero.src}
+              width={hero.width}
+              height={hero.height}
+              thumbnail={hero.thumbnail}
+            />
+          </div>
+        </div>
+      ))}
+      {galleryImages !== null && (
+        <Gallery images={galleryImages} onClose={() => setOpenGallery(null)} />
+      )}
+    </main>
+  );
+};
 
 export default ProjectsPage;

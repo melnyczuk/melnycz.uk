@@ -23,7 +23,7 @@ type NavigationProps = {
 };
 
 const Navigation: FC<NavigationProps> = ({ description, router }) => (
-  <div className={styles['navigation']}>
+  <nav className={styles['navigation']}>
     <h1 className={styles['navigation__paragraph']}>
       <span className={styles['navigation__paragraph--me']}>
         Howard Melnyczuk
@@ -44,7 +44,7 @@ const Navigation: FC<NavigationProps> = ({ description, router }) => (
         </Link>
       ))}
     </span>
-  </div>
+  </nav>
 );
 
 export default Navigation;
