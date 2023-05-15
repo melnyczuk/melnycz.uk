@@ -1,1 +1,1 @@
-export { default, getImageType } from './Image';
+export { default } from './Image';
