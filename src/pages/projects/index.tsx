@@ -43,22 +43,19 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
                 className={styles['project__text']}
                 content={description}
               />
-              <div
+              <Image
+                className={styles['project__image']}
+                name={hero.name}
+                src={hero.src}
+                width={hero.width}
+                height={hero.height}
+                thumbnail={hero.thumbnail}
                 tabIndex={0}
                 role="button"
                 aria-label="open image gallery"
                 onKeyDown={() => setOpenGallery(name)}
                 onClick={() => setOpenGallery(name)}
-              >
-                <Image
-                  className={styles['project__image']}
-                  name={hero.name}
-                  src={hero.src}
-                  width={hero.width}
-                  height={hero.height}
-                  thumbnail={hero.thumbnail}
-                />
-              </div>
+              />
             </div>
           ))}
         </section>

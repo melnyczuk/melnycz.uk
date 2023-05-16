@@ -1,10 +1,16 @@
 @import '../../styling';
 
 .image {
-  height: auto;
+  width: fit-content;
+  display: inline-grid;
 
-  &--thumbnail {
+  &__thumbnail {
     filter: brightness(0.8) invert(1) url(#monochrome);
+  }
+
+  &__content {
+    height: 100%;
+    object-fit: contain;
   }
 }
 
