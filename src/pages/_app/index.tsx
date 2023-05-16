@@ -2,7 +2,7 @@ import 'modern-css-reset';
 import './_app.scss';
 
 import { AppProps } from 'next/dist/next-server/lib/router/router';
-import { ComponentProps, FC } from 'react';
+import { FC } from 'react';
 
 import { SEO } from '../../components';
 
