@@ -1,5 +1,5 @@
 ---
-image: '/icons/icon.png'
+image: '/favicon.ico'
 title: 'Howard Melnyczuk'
 handle: '@melnyczuk'
 url: 'https://melnycz.uk'

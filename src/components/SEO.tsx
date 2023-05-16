@@ -8,6 +8,7 @@ const SEO: FC = () => (
     <meta charSet="utf-8" />
     <title>{metadata.title}</title>
     <link rel="canonical" href={metadata.url} />
+    <link rel="shortcut icon" href={metadata.image} />
     <meta name="description" content={metadata.description} />
     <meta name="image" content={metadata.image} />
     <meta property="og:url" content={metadata.url} />
