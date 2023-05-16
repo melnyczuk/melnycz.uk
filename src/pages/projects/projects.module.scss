@@ -8,9 +8,14 @@
   }
 }
 
+@mixin blur {
+  filter: blur($sizing-xxs);
+  transition: filter 0.2s ease-out;
+}
+
 .nav {
   &--blur {
-    filter: blur($sizing-xxs);
+    @include blur;
   }
 }
 
@@ -19,7 +24,7 @@
 
   &__list {
     &--blur {
-      filter: blur($sizing-xxs);
+      @include blur;
     }
   }
 
