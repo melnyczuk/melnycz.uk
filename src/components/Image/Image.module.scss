@@ -2,7 +2,6 @@
 
 .image {
   width: fit-content;
-  display: inline-grid;
 
   &__thumbnail {
     filter: brightness(0.8) invert(1) url(#monochrome);
