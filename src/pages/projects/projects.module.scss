@@ -8,8 +8,26 @@
   }
 }
 
+.nav {
+  &--blur {
+    filter: blur($sizing-xxs);
+  }
+}
+
 .projects {
   @include defaults;
+
+  &__list {
+    &--blur {
+      filter: blur($sizing-xxs);
+    }
+  }
+
+  &__gallery {
+    &:hover {
+      cursor: zoom-out;
+    }
+  }
 }
 
 .project {
@@ -95,7 +113,7 @@
     }
 
     &:hover {
-      cursor: pointer;
+      cursor: zoom-in;
     }
   }
 }
