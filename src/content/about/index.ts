@@ -1,11 +1,11 @@
 import fm from 'front-matter';
 
 import { AboutType } from '../../types';
-import bio from './markdown/bio.md';
+import markdown from './markdown/bio.md';
 
-const aboutData = fm<Omit<AboutType, 'bio'>>(bio);
+const parsed = fm<Omit<AboutType, 'bio'>>(markdown);
 
 export const about: AboutType = {
-  ...aboutData.attributes,
-  bio: aboutData.body,
+  ...parsed.attributes,
+  bio: parsed.body,
 };

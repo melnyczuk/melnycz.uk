@@ -1,8 +1,9 @@
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Router } from 'next/router';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 
+import { metadata } from '../../content';
 import styles from './Navigation.module.scss';
 
 type NavLink = {
@@ -18,33 +19,38 @@ const links: NavLink[] = [
 ];
 
 type NavigationProps = {
-  description: string;
-  router: Router;
+  className?: string;
 };
 
-const Navigation: FC<NavigationProps> = ({ description, router }) => (
-  <nav className={styles['navigation']}>
-    <h1 className={styles['navigation__paragraph']}>
-      <span className={styles['navigation__paragraph--me']}>
-        Howard Melnyczuk
+const Navigation: FC<NavigationProps> = ({ className }) => {
+  const router = useRouter();
+
+  return (
+    <nav className={classnames(styles['navigation'], className)}>
+      <h1 className={styles['navigation__paragraph']}>
+        <span className={styles['navigation__paragraph--me']}>
+          {metadata.title}
+        </span>
+        {metadata.description.replace('Howard Melnyczuk', '')}
+      </h1>
+      <span className={styles['navigation__links-container']}>
+        {links.map(({ href, regex, label }) => (
+          <Link key={href} href={href}>
+            <a
+              href={href}
+              className={classnames(styles['navigation__link'], {
+                [styles['navigation__link--active']]: regex.test(
+                  router.pathname
+                ),
+              })}
+            >
+              {label}
+            </a>
+          </Link>
+        ))}
       </span>
-      {description.replace('Howard Melnyczuk', '')}
-    </h1>
-    <span className={styles['navigation__links-container']}>
-      {links.map(({ href, regex, label }) => (
-        <Link key={href} href={href}>
-          <a
-            href={href}
-            className={classnames(styles['navigation__link'], {
-              [styles['navigation__link--active']]: regex.test(router.pathname),
-            })}
-          >
-            {label}
-          </a>
-        </Link>
-      ))}
-    </span>
-  </nav>
-);
+    </nav>
+  );
+};
 
 export default Navigation;

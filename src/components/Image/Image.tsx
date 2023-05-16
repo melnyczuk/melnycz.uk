@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { FC, HTMLAttributes } from 'react';
 import ProgressiveImage from 'react-progressive-image';
 
@@ -43,7 +43,7 @@ const Image: FC<ImageProps> = ({
       <>
         <Monochrome className={styles['monochrome']} />
         <img
-          className={classNames(
+          className={classnames(
             styles['image'],
             { [styles['image--thumbnail']]: src === thumbnail },
             className
