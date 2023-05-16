@@ -8,8 +8,31 @@
   }
 }
 
+@mixin blur {
+  filter: blur($sizing-xxs);
+  transition: filter 0.1s ease-out;
+}
+
+.nav {
+  &--blur {
+    @include blur;
+  }
+}
+
 .projects {
   @include defaults;
+
+  &__list {
+    &--blur {
+      @include blur;
+    }
+  }
+
+  &__gallery {
+    &:hover {
+      cursor: zoom-out;
+    }
+  }
 }
 
 .project {
@@ -95,7 +118,7 @@
     }
 
     &:hover {
-      cursor: pointer;
+      cursor: zoom-in;
     }
   }
 }

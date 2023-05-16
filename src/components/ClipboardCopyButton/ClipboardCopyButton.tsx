@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { FC, HTMLAttributes, useState } from 'react';
 
 import styles from './ClipboardCopyButton.module.scss';
@@ -15,7 +15,7 @@ const ClipboardCopyButton: FC<ClipboardCopyButtonProps> = ({
   const [didCopy, setDidCopy] = useState<boolean | null>(null);
   return (
     <button
-      className={classNames(
+      className={classnames(
         styles['clipboard-copy__button'],
         {
           [styles['clipboard-copy__button--copied']]: didCopy === true,

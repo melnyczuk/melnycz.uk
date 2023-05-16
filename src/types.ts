@@ -44,6 +44,14 @@ export type InvoiceType = {
   };
 };
 
+export type MetadataType = {
+  description: string;
+  image: string;
+  title: string;
+  handle: string;
+  url: string;
+};
+
 export type ProjectType = {
   name: string;
   year: number;
