@@ -6,9 +6,7 @@ import { ImageType } from '../../types';
 import styles from './Image.module.scss';
 
 type ImageProps = HTMLAttributes<HTMLImageElement> &
-  Pick<ImageType, 'name' | 'src' | 'thumbnail' | 'width' | 'height'> & {
-    onClick?: () => void;
-  };
+  Pick<ImageType, 'name' | 'src' | 'thumbnail' | 'width' | 'height'>;
 
 const Monochrome: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ className }) => (
   <svg className={className}>
@@ -39,23 +37,16 @@ const Image: FC<ImageProps> = ({
   name,
   width,
   height,
-  onClick,
 }) => (
   <ProgressiveImage src={src} placeholder={thumbnail}>
     {(src) => (
-      <div
-        className={classnames(styles['image'], className)}
-        tabIndex={0}
-        role="button"
-        aria-label="open image gallery"
-        onKeyDown={onClick}
-        onClick={onClick}
-      >
+      <>
         <Monochrome className={styles['monochrome']} />
         <img
           className={classnames(
-            styles['image__content'],
-            src === thumbnail && styles['image__thumbnail']
+            styles['image'],
+            src === thumbnail && styles['image__thumbnail'],
+            className
           )}
           width={width}
           height={height}
@@ -63,7 +54,7 @@ const Image: FC<ImageProps> = ({
           alt={name}
           loading="lazy"
         />
-      </div>
+      </>
     )}
   </ProgressiveImage>
 );
