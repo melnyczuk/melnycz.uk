@@ -5,9 +5,8 @@
   object-fit: contain;
 
   &__thumbnail {
-    height: auto;
+    width: 50000%;
     filter: brightness(0.8) invert(1) url(#monochrome);
-    object-fit: cover;
   }
 }
 
