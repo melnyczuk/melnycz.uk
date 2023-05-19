@@ -37,6 +37,7 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
         >
           {projects.map(({ name, hero, description, year }) => (
             <div key={name} className={styles['project']}>
+              <div className={styles['project__top']} />
               <h2 className={styles['project__title']}>{name}</h2>
               <h3 className={styles['project__year']}>{year}</h3>
               <Markdown
