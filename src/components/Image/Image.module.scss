@@ -1,9 +1,11 @@
 @import '../../styling';
 
 .image {
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 
-  &--thumbnail {
+  &__thumbnail {
+    width: 50000%;
     filter: brightness(0.8) invert(1) url(#monochrome);
   }
 }

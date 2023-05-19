@@ -45,7 +45,7 @@ const Image: FC<ImageProps> = ({
         <img
           className={classnames(
             styles['image'],
-            { [styles['image--thumbnail']]: src === thumbnail },
+            src === thumbnail && styles['image__thumbnail'],
             className
           )}
           width={width}

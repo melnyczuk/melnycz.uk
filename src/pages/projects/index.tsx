@@ -44,6 +44,7 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
                 content={description}
               />
               <div
+                className={styles['project__gallery_button']}
                 tabIndex={0}
                 role="button"
                 aria-label="open image gallery"
