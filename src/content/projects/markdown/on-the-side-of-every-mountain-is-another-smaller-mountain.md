@@ -18,4 +18,4 @@ imgs:
 - https://dl.dropbox.com/s/q2yezwnuw9eqd5e/on-the-side-of-every-mountain-is-another-smaller-mountain-11.jpg
 ---
 
-A photo series examining the fractal intricacy of the physical world.
+_On The Side of Every Mountain Is Another, Smaller Mountain_ is a series of photographs presenting contemplative, brooding atmosphere that evokes geological deep time, depicting a set of dark rock protrusions into an ambiguous sky. The photographs were taken at dusk on the side of Cadair Idris in North Wales, where local legend holds that any who sleep on the side of the mountain will awake as either a madman or a poet. The work shows geology as a site of tension, both physically and creatively - with the fine line between inspiration and despair ever-present, just past the precipice.

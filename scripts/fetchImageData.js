@@ -27,19 +27,7 @@ fetch = (url) =>
 
 const root = path.join(__dirname, '../src/content/projects');
 
-const projectData = [
-  './a-tree-grew-through-my-window.md',
-  './cone-of-power.md',
-  './gail-the-bomachat.md',
-  './object-permanence.md',
-  './on-the-side-of-every-mountain-is-another-smaller-mountain.md',
-  './ratio-club.md',
-  './rrosetta.md',
-  './silver-coord.md',
-  './supercollager.md',
-  './texture-cache.md',
-  './wool-gather.md',
-];
+const projectData = ['./suntopia.md'];
 
 const fetchImageData = async (src) => {
   const name = new URL(src).pathname.split('/').reverse()[0];
