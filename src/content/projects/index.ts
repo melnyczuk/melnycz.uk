@@ -14,6 +14,7 @@ type ProjectInfo = {
 };
 
 const ordering: (keyof typeof projectData)[] = [
+  'suntopia',
   'woolGather',
   'silverCoord',
   'coneOfPower',
