@@ -1,5 +1,6 @@
 import classnames from 'classnames';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import fs from 'fs';
+import { GetStaticProps } from 'next';
 import { FC, Fragment, useCallback, useMemo } from 'react';
 
 import { Currency, InvoiceType } from '../../types';
@@ -11,7 +12,7 @@ type BankDetailsProps = {
 };
 
 const ONE_MONTH = 30 * 24 * 60 * 60 * 1000;
-const invoices = [];
+const invoice = '';
 
 const BankDetails: FC<BankDetailsProps> = ({ details, reference }) => (
   <div className={classnames(styles['bank-details'])}>
@@ -147,20 +148,9 @@ const InvoicePage: FC<InvoiceProps> = ({
 
 export default InvoicePage;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.keys(invoices);
-  return { paths, fallback: false };
-};
-
-export const getStaticProps: GetStaticProps<
-  InvoiceProps,
-  { reference: string }
-> = async ({ params }) => {
-  if (!params) throw new Error('Params not found');
-  const reference = params.reference.toUpperCase();
-  const data = invoices[reference];
-  return { props: { ...data, reference } };
-};
+export const getStaticProps: GetStaticProps<InvoiceProps> = async () => ({
+  props: JSON.parse(fs.readFileSync(invoice, 'utf-8')),
+});
 
 function formatDate(date: Date, locale: string) {
   return new Intl.DateTimeFormat(locale, {
