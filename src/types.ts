@@ -47,7 +47,7 @@ export type AboutType = MarkdownType & {
   residencies: [number, string][];
 };
 
-export type MetadataType = MarkdownType & {
+export type WebsiteMetadataType = MarkdownType & {
   image: string;
   title: string;
   handle: string;

@@ -1,5 +1,7 @@
-import { MetadataType } from '../../types';
+import { WebsiteMetadataType } from '../../types';
 import { parse } from '../parse';
-import markdown from './markdown/metadata.md';
+import website from './markdown/website.md';
 
-export const metadata = parse<MetadataType>(markdown);
+export const metadata = {
+  website: parse<WebsiteMetadataType>(website),
+};
