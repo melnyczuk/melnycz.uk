@@ -12,8 +12,7 @@ type BankDetailsProps = {
 };
 
 const ONE_MONTH = 30 * 24 * 60 * 60 * 1000;
-const invoicePath =
-  '/Users/how/Library/CloudStorage/Dropbox/Admin/Tax/2023-24/Invoices/json/CMMN2023070701.json';
+const invoicePath = '';
 
 const BankDetails: FC<BankDetailsProps> = ({ details, reference }) => (
   <div className={classnames(styles['bank-details'])}>
