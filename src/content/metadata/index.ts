@@ -1,5 +1,9 @@
-import { MetadataType } from '../../types';
+import { RssMetadataType, WebsiteMetadataType } from '../../types';
 import { parse } from '../parse';
-import markdown from './markdown/metadata.md';
+import rss from './markdown/rss.md';
+import website from './markdown/website.md';
 
-export const metadata = parse<MetadataType>(markdown);
+export const metadata = {
+  rss: parse<RssMetadataType>(rss),
+  website: parse<WebsiteMetadataType>(website),
+};
