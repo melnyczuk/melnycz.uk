@@ -4,7 +4,6 @@ import RSS from 'rss';
 import { metadata, writing } from './content';
 
 export const generateRss = () => {
-  console.log('rss');
   const feed = new RSS({
     title: metadata.rss.title,
     description: metadata.rss.body,
