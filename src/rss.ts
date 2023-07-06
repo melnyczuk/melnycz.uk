@@ -1,10 +1,10 @@
 import fs from 'fs';
 import RSS from 'rss';
 
-import { metadata, writing } from './content';
+import { feed, metadata, writing } from './content';
 
 export const generateRss = () => {
-  const feed = new RSS({
+  const rss = new RSS({
     title: metadata.rss.title,
     description: metadata.rss.body,
     image_url: metadata.rss.image_url,
@@ -19,10 +19,21 @@ export const generateRss = () => {
     feed_url: 'https://melnycz.uk/rss.xml',
   });
 
-  writing.forEach((post) => {
-    feed.item({
+  feed.forEach((post) => {
+    rss.item({
       title: post.title,
-      description: `${post.body.slice(0, 200).trimEnd()}...`,
+      description: post.body,
+      url: `https://melnycz.uk/feed/${post.date}`,
+      date: new Date(post.date),
+      categories: post.tags,
+      enclosure: { url: post.image },
+    });
+  });
+
+  writing.forEach((post) => {
+    rss.item({
+      title: post.title,
+      description: post.body,
       url: `https://melnycz.uk/writing/${post.slug}`,
       date: new Date(post.date),
       categories: post.tags,
@@ -30,5 +41,7 @@ export const generateRss = () => {
     });
   });
 
-  fs.writeFileSync('./public/rss.xml', feed.xml());
+  rss.items.sort((a, b) => a.date.getTime() - b.date.getTime());
+
+  fs.writeFileSync('./public/rss.xml', rss.xml());
 };

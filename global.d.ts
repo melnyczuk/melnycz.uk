@@ -11,7 +11,7 @@ declare module '*.md' {
 type RssItem = {
   title: string;
   description: string;
-  date: Date | string;
+  date: Date;
   url: string;
   guid?: string;
   categories?: string[];
@@ -47,6 +47,7 @@ type RssOptions = {
 declare module 'rss' {
   class RSS {
     constructor(options: RssOptions): void;
+    items: RssItem[];
     xml(): string;
     item(i: RssItem): void;
   }

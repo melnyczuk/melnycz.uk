@@ -47,6 +47,20 @@ export type AboutType = MarkdownType & {
   residencies: [number, string][];
 };
 
+export type FeedEntryType = MarkdownType & {
+  title: string;
+  date: string;
+  image: string;
+  tags: string[];
+};
+
+export type ProjectType = MarkdownType & {
+  name: string;
+  year: number;
+  hero: ImageType;
+  images: ImageType[];
+};
+
 export type RssMetadataType = MarkdownType & {
   title: string;
   image_url: string;
@@ -62,13 +76,6 @@ export type WebsiteMetadataType = MarkdownType & {
   title: string;
   handle: string;
   url: string;
-};
-
-export type ProjectType = MarkdownType & {
-  name: string;
-  year: number;
-  hero: ImageType;
-  images: ImageType[];
 };
 
 export type WritingPostType = MarkdownType & {
