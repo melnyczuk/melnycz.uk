@@ -3,14 +3,15 @@ import { FC, HTMLAttributes, ReactNode, useMemo } from 'react';
 import remark from 'remark';
 import remarkReact from 'remark-react';
 
+import { MarkdownType } from '../../types';
 import styles from './Markdown.module.scss';
 
-type MarkdownProps = HTMLAttributes<HTMLDivElement> & { content: string };
+type MarkdownProps = HTMLAttributes<HTMLDivElement> & MarkdownType;
 
 const { processSync } = remark().use(remarkReact);
 
-const Markdown: FC<MarkdownProps> = ({ className, content }) => {
-  const md = useMemo<ReactNode>(() => processSync(content).result, [content]);
+const Markdown: FC<MarkdownProps> = ({ className, body }) => {
+  const md = useMemo<ReactNode>(() => processSync(body).result, [body]);
   return <div className={classnames(styles['text'], className)}>{md}</div>;
 };
 

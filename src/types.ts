@@ -4,14 +4,6 @@ export enum Currency {
   AUD = 'AUD',
 }
 
-export type AboutType = {
-  bio: string;
-  links: Record<'name' | 'url', string>[];
-  educations: [number, string, string][];
-  exhibitions: [number, string][];
-  residencies: [number, string][];
-};
-
 export type CvType = {
   about: string;
   contact: string;
@@ -44,25 +36,33 @@ export type InvoiceType = {
   };
 };
 
-export type MetadataType = {
-  description: string;
+export type MarkdownType = {
+  body: string;
+};
+
+export type AboutType = MarkdownType & {
+  links: Record<'name' | 'url', string>[];
+  educations: [number, string, string][];
+  exhibitions: [number, string][];
+  residencies: [number, string][];
+};
+
+export type MetadataType = MarkdownType & {
   image: string;
   title: string;
   handle: string;
   url: string;
 };
 
-export type ProjectType = {
+export type ProjectType = MarkdownType & {
   name: string;
   year: number;
-  description: string;
   hero: ImageType;
   images: ImageType[];
 };
 
-export type WritingPostType = {
+export type WritingPostType = MarkdownType & {
   slug: string;
   title: string;
   date: string;
-  content: string;
 };

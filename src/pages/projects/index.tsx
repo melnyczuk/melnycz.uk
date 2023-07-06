@@ -35,14 +35,11 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
             openGallery && styles['projects__list--blur']
           )}
         >
-          {projects.map(({ name, hero, description, year }) => (
+          {projects.map(({ name, hero, body, year }) => (
             <div key={name} className={styles['project']}>
               <h2 className={styles['project__title']}>{name}</h2>
               <h3 className={styles['project__year']}>{year}</h3>
-              <Markdown
-                className={styles['project__text']}
-                content={description}
-              />
+              <Markdown className={styles['project__text']} body={body} />
               <div
                 className={styles['project__gallery_button']}
                 tabIndex={0}

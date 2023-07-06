@@ -7,9 +7,9 @@ import { cv } from '../../content';
 import { CvType } from '../../types';
 import styles from './cv.module.scss';
 
-export const getStaticProps: GetStaticProps<CvType> = async () => {
-  return { props: cv };
-};
+export const getStaticProps: GetStaticProps<CvType> = async () => ({
+  props: cv,
+});
 
 const CvPage: FC<CvType> = ({
   about,
@@ -22,27 +22,27 @@ const CvPage: FC<CvType> = ({
   <main className={styles['cv']}>
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__about'])}
-      content={about}
+      body={about}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__contact'])}
-      content={contact}
+      body={contact}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__education'])}
-      content={education}
+      body={education}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__jobs'])}
-      content={jobs}
+      body={jobs}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__projects'])}
-      content={projects}
+      body={projects}
     />
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__skills'])}
-      content={skills}
+      body={skills}
     />
   </main>
 );

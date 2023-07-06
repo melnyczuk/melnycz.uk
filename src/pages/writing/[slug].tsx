@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FC } from 'react';
 
-import { Markdown } from '../../components';
+import { Markdown, Navigation } from '../../components';
 import { writing } from '../../content';
 import { WritingPostType } from '../../types';
 import styles from './writing.module.scss';
@@ -24,15 +24,18 @@ export const getStaticProps: GetStaticProps<
   return { props: post };
 };
 
-const WritingPostPage: FC<WritingPostType> = ({ date, title, content }) => {
+const WritingPostPage: FC<WritingPostType> = ({ date, title, body }) => {
   return (
-    <main className={styles['writing_post']}>
-      <article className={styles['writing_post__article']}>
-        <h1 className={styles['writing_post__title']}>{title}</h1>
-        <Markdown className={styles['writing_post__body']} content={content} />
-      </article>
-      <div className={styles['writing_post__date']}>{date}</div>
-    </main>
+    <>
+      <Navigation />
+      <main className={styles['writing_post']}>
+        <article className={styles['writing_post__article']}>
+          <h1 className={styles['writing_post__title']}>{title}</h1>
+          <Markdown className={styles['writing_post__body']} body={body} />
+        </article>
+        <div className={styles['writing_post__date']}>{date}</div>
+      </main>
+    </>
   );
 };
 

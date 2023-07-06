@@ -31,7 +31,7 @@ const Navigation: FC<NavigationProps> = ({ className }) => {
         <span className={styles['navigation__paragraph--me']}>
           {metadata.title}
         </span>
-        {metadata.description.replace('Howard Melnyczuk', '')}
+        {metadata.body.replace('Howard Melnyczuk', '')}
       </h1>
       <span className={styles['navigation__links-container']}>
         {links.map(({ href, regex, label }) => (
