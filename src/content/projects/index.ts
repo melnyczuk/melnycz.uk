@@ -1,6 +1,5 @@
-import fm from 'front-matter';
-
 import { ProjectType } from '../../types';
+import { parse } from '../parse';
 import * as imageData from './images';
 import * as projectData from './markdown';
 
@@ -11,6 +10,7 @@ type ProjectInfo = {
   year: number;
   hide: boolean;
   imgs: string[];
+  body: string;
 };
 
 const ordering: (keyof typeof projectData)[] = [
@@ -30,11 +30,11 @@ const ordering: (keyof typeof projectData)[] = [
 
 export const projects: ProjectType[] = ordering
   .map((key) => {
-    const project = projectData[key];
+    const markdown = projectData[key];
     const image = imageData[key];
-    const { body, attributes } = fm<ProjectInfo>(project);
-    const images = attributes.imgs.map((src) => image[src]);
-    const hero = images[attributes.hero];
-    return { ...attributes, description: body, images, hero };
+    const projectInfo = parse<ProjectInfo>(markdown);
+    const images = projectInfo.imgs.map((src) => image[src]);
+    const hero = images[projectInfo.hero];
+    return { ...projectInfo, images, hero };
   })
   .filter(({ hide }) => !hide);

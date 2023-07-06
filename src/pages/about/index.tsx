@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps<AboutType> = async () => {
 };
 
 const AboutPage: FC<AboutType> = ({
-  bio,
+  body,
   links,
   educations,
   exhibitions,
@@ -45,7 +45,7 @@ const AboutPage: FC<AboutType> = ({
           ))}
         </div>
         <div className={styles['about__item']}>
-          <Markdown content={bio} />
+          <Markdown body={body} />
         </div>
       </div>
       <div className={styles['about__cv']}>
