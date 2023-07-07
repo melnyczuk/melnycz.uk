@@ -1,7 +1,7 @@
 ---
 slug: the-internet-as-a-libidinal-space
 title:  The Internet As A Libidinal Space
-date: '25-06-2019'
+date: '2019-06-25'
 image: https://dl.dropbox.com/s/vbajtb7dhts4puj/semantics-3.jpg
 ---
 
