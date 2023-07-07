@@ -5,9 +5,7 @@ date: '2019-06-25'
 image: https://dl.dropbox.com/s/vbajtb7dhts4puj/semantics-3.jpg
 ---
 
-## The Internet As A Libidinal Space
-
-### 1--Michael Douglas, out the car now
+## 1--Michael Douglas, out the car now
 
 How should we construct our spatial notions of the internet? Primarily, it would seem that the online world is an infinite sprawl, an endless open expanse. But even within that boundless continuum, online space has it's own geography, it's own geometry, and it's own dimensionality. What these are and how they govern our movements is not straight-forward. It's a non-euclidean, largely psychic non-place, akin to a telephone conversation. It can be anonymous and transient, ever-changing: waypoints online are in continuous motion, more like an ocean than solid ground. Rarely is a webpage identical day-to-day, year-on-year. As you keep clicking past memes of cats, embedded video, abandoned shopping carts, pop-up windows, how do you stay orientated? We become carless drivers. How long does it take to walk across America? How long does it take to walk across America on Google Street View?
 
@@ -19,7 +17,7 @@ Contemporary internet discourse would seem at a similar loss, finding it hard to
 
 If the internet is to be viewed as a realm of informatic expanse, we need to focus on the logic that abstracts between two disparate realities: an abstraction that governs any and all translations between physical space, and web presence. Is seeking such a logic an absurd notion? In desperately wanting some spatial context to grasp, the desire may raise more questions that it answers. But cmon, we need to find _some_ framework for critique: to understand the break between our conception of the internet as structured content and the structure itself; between the limitless vastness of this cultural phenomena and the huge, but very much finite, network of hardware that holds it. In short, we'll need to face the dream-logic of our world online head-on.
 
-### 2--Why did you film clouds?
+## 2--Why did you film clouds?
 
 Could we film the internet? Where would we begin? In media res - but where would we stand the lights, position the microphones? The browser both takes care of the mise-en-scene while assuming the leading role. How
 would you structure the narrative? The denouement comes when, after endlessly scrolling Tumblr for 84 minutes, you look up to realise you have missed the credits and that you are just sat in a dark room.
@@ -32,7 +30,7 @@ As Žižek discusses, the diegetic logic of _Solaris_ lies in a very male fantas
 
 Is the internet any different?
 
-### 3--The internet is a self-atomising machine
+## 3--The internet is a self-atomising machine
 
 To approach the internet from an analytical, rational perspective misses something vital. It fails to address why the internet is now so embedded in our lives. To look at it as a series of protocols and operations, to look only to the technology on which it runs will never truly help you to understand the psychological mechanisms which compel Facebook users so readily upload personal data, nor account for the utter lack of public backlash against the ongoing revelations of NSA surveillance. To begin to unpick such a bizarre phenomenon as daily web use, let's consider the web as a libidinal machine. For both users and developers, it is a space of unbridled potential through which desire runs riot. And this provides it with the power it wields to trap us.
 
