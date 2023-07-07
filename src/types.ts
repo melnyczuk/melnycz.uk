@@ -68,7 +68,6 @@ export type RssMetadataType = MarkdownType & {
   categories: string[];
   copyright: string;
   language: string;
-  ttl: number;
 };
 
 export type WebsiteMetadataType = MarkdownType & {
