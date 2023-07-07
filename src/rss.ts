@@ -12,7 +12,6 @@ export const generateRss = () => {
     categories: metadata.rss.categories,
     copyright: metadata.rss.copyright,
     language: metadata.rss.language,
-    ttl: metadata.rss.ttl,
     pubDate: new Date().toISOString(),
     generator: 'https://www.npmjs.com/package/rss',
     site_url: 'https://melnycz.uk',

@@ -6,7 +6,6 @@ image_url: 'https://dl.dropbox.com/scl/fi/0uadrxsqb41r2k0zzm7az/Abstract2048.jpg
 author: 'how@melnycz.uk'
 categories: 
   - unknown
-ttl: 86400000
 ---
 
 A feed of texts, images and half-finished things
