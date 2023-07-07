@@ -5,7 +5,7 @@ date: '2019-06-25'
 image: https://dl.dropbox.com/s/vbajtb7dhts4puj/semantics-3.jpg
 ---
 
-## 1--Michael Douglas, out the car now
+## 1—Michael Douglas, out the car now
 
 How should we construct our spatial notions of the internet? Primarily, it would seem that the online world is an infinite sprawl, an endless open expanse. But even within that boundless continuum, online space has it's own geography, it's own geometry, and it's own dimensionality. What these are and how they govern our movements is not straight-forward. It's a non-euclidean, largely psychic non-place, akin to a telephone conversation. It can be anonymous and transient, ever-changing: waypoints online are in continuous motion, more like an ocean than solid ground. Rarely is a webpage identical day-to-day, year-on-year. As you keep clicking past memes of cats, embedded video, abandoned shopping carts, pop-up windows, how do you stay orientated? We become carless drivers. How long does it take to walk across America? How long does it take to walk across America on Google Street View?
 
@@ -17,7 +17,7 @@ Contemporary internet discourse would seem at a similar loss, finding it hard to
 
 If the internet is to be viewed as a realm of informatic expanse, we need to focus on the logic that abstracts between two disparate realities: an abstraction that governs any and all translations between physical space, and web presence. Is seeking such a logic an absurd notion? In desperately wanting some spatial context to grasp, the desire may raise more questions that it answers. But cmon, we need to find _some_ framework for critique: to understand the break between our conception of the internet as structured content and the structure itself; between the limitless vastness of this cultural phenomena and the huge, but very much finite, network of hardware that holds it. In short, we'll need to face the dream-logic of our world online head-on.
 
-## 2--Why did you film clouds?
+## 2—Why did you film clouds?
 
 Could we film the internet? Where would we begin? In media res - but where would we stand the lights, position the microphones? The browser both takes care of the mise-en-scene while assuming the leading role. How
 would you structure the narrative? The denouement comes when, after endlessly scrolling Tumblr for 84 minutes, you look up to realise you have missed the credits and that you are just sat in a dark room.
@@ -30,7 +30,7 @@ As Žižek discusses, the diegetic logic of _Solaris_ lies in a very male fantas
 
 Is the internet any different?
 
-## 3--The internet is a self-atomising machine
+## 3—The internet is a self-atomising machine
 
 To approach the internet from an analytical, rational perspective misses something vital. It fails to address why the internet is now so embedded in our lives. To look at it as a series of protocols and operations, to look only to the technology on which it runs will never truly help you to understand the psychological mechanisms which compel Facebook users so readily upload personal data, nor account for the utter lack of public backlash against the ongoing revelations of NSA surveillance. To begin to unpick such a bizarre phenomenon as daily web use, let's consider the web as a libidinal machine. For both users and developers, it is a space of unbridled potential through which desire runs riot. And this provides it with the power it wields to trap us.
 
@@ -38,4 +38,4 @@ One need only look to journalism to find the carnage of this trap. For a long ti
 
 There is a sentiment that pervades every hackathon and props up every tech start-up: that through technology, all is possible. That creation is boundless. But this is the sort of facile base of an ideology that births a constant paradox. It both demands the results of ongoing scientific research whilst denying the confines of scientifically verifiable material reality. It requires that scientific discovery continue, but demands that physical reality be inexhaustible and limitlessly new. It posits many claims toward a truly revolutionary ambition, whilst actively maintaining the structures of power - be this through the purchase and implementation of military-funded research, the venture capital funding model of any given start-up, or the destruction of workers rights in the creation of the sharing economy. It is a farce. So much of the tech industry, dominated as it is by white male egos, is a trapped in a fantasy that uses the potentiality of virtual spaces as a proxy for the expansion its own libidinal energy. And in doing so it neutralises any real potential there may be.
 
-As for users, if fears and stories surrounding the rising political significance of the alt-right are to be believed, then the fabled internet troll is going to spill over into the real world just as Steyerl predicted. Gamergate did much to show the violent power of male ego online, and behind every death threat Anita Sarkeesian received, was a real-life sender acting out his violent fantasies with the same impunity with which Kris Kelvin repeatedly murders his wife. The true horror of this online violence is the power with which it reinforces itself, as each attack morphs into a form of Freudian wish-fulfilment to be screencapped and shared on 4chan. The diegetic logic of the internet is one in which Otherness is completely denied any sense of reality, where all lives matter. Except that no lives matter, only the singular our, as any other takes no more agency than a twitter bot. It is a psychic space that lacks repercussion. Online, we are alone with our desire and the looming threat of all others.
+As for users, if fears and stories surrounding the rising political significance of the alt-right are to be believed, then the fabled internet troll is going to spill over into the real world just as Steyerl predicted. Gamergate did much to show the violent power of male ego online, and behind every death threat Anita Sarkeesian received, was a real-life sender acting out his violent fantasies with the same impunity with which Kris Kelvin repeatedly murders his wife. The true horror of this online violence is the power with which it reinforces itself, as each attack morphs into a form of Freudian wish-fulfilment to be screencapped and shared on 4chan. The logic of the internet is that of the virtual, where the reality of otherness disintegrates, leaving only the self - a network of selves, each seeing the other with no more agency than a twitter bot. It is a psychic space that lacks repercussion. Online, we are alone with our desire.
