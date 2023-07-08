@@ -21,94 +21,64 @@ const AboutPage: FC<AboutType> = ({
   <>
     <Navigation />
     <main className={styles['about']}>
-      <div className={styles['about__bio']}>
-        <div className={styles['about__item']}>
-          <h2>Contact</h2>
-          <p>@melnyczuk</p>
-          <p className={styles['flex']}>
-            Email:
-            <a className={styles['link']} href={'mailto:h.melnyczuk@gmail.com'}>
-              h.melnyczuk@gmail.com
-            </a>
-            <ClipboardCopyButton content="h.melnyczuk@gmail.com">
-              <span aria-label="copy to clipboard" role="img">
-                📋
-              </span>
-            </ClipboardCopyButton>
-          </p>
-        </div>
-        <div className={classnames(styles['about__item'], styles['flex'])}>
+      <div className={styles['about__about']}>
+        <h2>About</h2>
+        <Markdown body={body} />
+      </div>
+      <div className={styles['about__contact']}>
+        <h2>Contact</h2>
+        <p>@melnyczuk</p>
+        <p className={styles['flex']}>
+          Email:
+          <a href={'mailto:h.melnyczuk@gmail.com'}>h.melnyczuk@gmail.com</a>
+          <ClipboardCopyButton content="h.melnyczuk@gmail.com">
+            <span aria-label="copy to clipboard" role="img">
+              📋
+            </span>
+          </ClipboardCopyButton>
+        </p>
+        <div className={styles['flex']}>
           {links.map(({ name, url }) => (
-            <a key={name} className={styles['link']} href={url}>
+            <a key={name} href={url}>
               {name}
             </a>
           ))}
         </div>
-        <div className={styles['about__item']}>
-          <Markdown body={body} />
-        </div>
       </div>
-      <div className={styles['about__cv']}>
-        <div
-          className={classnames(
-            styles['about__item'],
-            styles['about__item__list']
-          )}
-        >
-          <h2 className={styles['about__item__list--full']}>Exhibitions</h2>
-          <ul className={styles.list}>
-            {exhibitions.map(([year, name]) => (
-              <li key={name.replaceAll(' ', '_').replaceAll(',', '')}>
-                <span className={styles['about__item__list--left']}>
-                  {year}
-                </span>
-                <span className={styles['about__item__list--right']}>
-                  {name}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div
-          className={classnames(
-            styles['about__item'],
-            styles['about__item__list']
-          )}
-        >
-          <h2 className={styles['about__item__list--full']}>Residencies</h2>
-          <ul className={styles.list}>
-            {residencies.map(([year, name]) => (
-              <li key={name}>
-                <span className={styles['about__item__list--left']}>
-                  {year}
-                </span>
-                <span className={styles['about__item__list--right']}>
-                  {name}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div
-          className={classnames(
-            styles['about__item'],
-            styles['about__item__list']
-          )}
-        >
-          <h2 className={styles['about__item__list--full']}>Education</h2>
-          <ul className={styles.list}>
-            {educations.map(([year, course, institution]) => (
-              <li key={course}>
-                <span className={styles['about__item__list--left']}>
-                  {year}
-                </span>
-                <span className={styles['about__item__list--right']}>
-                  {course}, {institution}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className={styles['about__exhibitions']}>
+        <h2>Exhibitions</h2>
+        <table>
+          {exhibitions.map(([year, name]) => (
+            <tr key={name.replaceAll(' ', '_').replaceAll(',', '')}>
+              <td>{year}</td>
+              <td>{name}</td>
+            </tr>
+          ))}
+        </table>
+      </div>
+      <div className={styles['about__residencies']}>
+        <h2>Residencies</h2>
+        <table>
+          {residencies.map(([year, name]) => (
+            <tr key={name}>
+              <td>{year}</td>
+              <td>{name}</td>
+            </tr>
+          ))}
+        </table>
+      </div>
+      <div className={styles['about__education']}>
+        <h2>Education</h2>
+        <table>
+          {educations.map(([year, course, institution]) => (
+            <tr key={course}>
+              <td>{year}</td>
+              <td>
+                {course}, {institution}
+              </td>
+            </tr>
+          ))}
+        </table>
       </div>
     </main>
   </>
