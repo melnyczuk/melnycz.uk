@@ -2,4 +2,5 @@
 
 .text {
   @include paragraph;
+  @include flex;
 }

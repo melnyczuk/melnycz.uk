@@ -89,7 +89,6 @@
 
   &__text {
     @include border-right;
-    @include flex;
 
     grid-row: 2 / 2;
     grid-column: 1 / 3;
