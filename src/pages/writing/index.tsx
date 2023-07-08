@@ -33,21 +33,14 @@ const WritingIndexPage: FC<WritingIndexProps> = ({ posts }) => {
     <>
       <Navigation />
       <main className={styles['writing_index']}>
-        <ul className={styles['writing_post_list']}>
+        <ul>
           {posts.map(({ slug, title, date }) => (
-            <li key={slug} className={styles['writing_post_list__item']}>
-              <a
-                className={classnames(styles['flex'], styles['a'])}
-                href={`/writing/${slug}`}
-              >
-                <span className={styles['writing_post_list__item__date']}>
-                  {date}
-                </span>
-                <span className={styles['writing_post_list__item__link']}>
-                  {title}
-                </span>
-              </a>
-            </li>
+            <a key={slug} href={`/writing/${slug}`}>
+              <li>
+                <span className={styles['writing_index__date']}>{date}</span>
+                <span className={styles['writing_index__title']}>{title}</span>
+              </li>
+            </a>
           ))}
         </ul>
       </main>
