@@ -35,12 +35,14 @@ const WritingIndexPage: FC<WritingIndexProps> = ({ posts }) => {
       <main className={styles['writing_index']}>
         <ul>
           {posts.map(({ slug, title, date }) => (
-            <a key={slug} href={`/writing/${slug}`}>
-              <li>
-                <span className={styles['writing_index__date']}>{date}</span>
-                <span className={styles['writing_index__title']}>{title}</span>
-              </li>
-            </a>
+            <li key={slug}>
+              <a href={`/writing/${slug}`}>
+                <div className={styles['writing_index__item']}>
+                  <span>{date}</span>
+                  <span>{title}</span>
+                </div>
+              </a>
+            </li>
           ))}
         </ul>
       </main>
