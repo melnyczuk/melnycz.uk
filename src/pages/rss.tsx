@@ -1,9 +1,11 @@
 import fs from 'fs';
+import { GetStaticProps } from 'next';
+import { FC, useEffect } from 'react';
 import RSS from 'rss';
 
-import { feed, metadata, writing } from './content';
+import { feed, metadata, writing } from '../content';
 
-export const generateRss = () => {
+export const generateRss = (): void => {
   const rss = new RSS({
     title: metadata.rss.title,
     description: metadata.rss.body,
@@ -15,7 +17,7 @@ export const generateRss = () => {
     pubDate: new Date().toISOString(),
     generator: 'https://www.npmjs.com/package/rss',
     site_url: 'https://melnycz.uk',
-    feed_url: 'https://melnycz.uk/rss.xml',
+    feed_url: 'https://melnycz.uk/rss',
   });
 
   feed.forEach((post) => {
@@ -44,3 +46,20 @@ export const generateRss = () => {
 
   fs.writeFileSync('./public/rss.xml', rss.xml());
 };
+
+export const getStaticProps: GetStaticProps<
+  Record<string, never>
+> = async () => {
+  generateRss();
+  return { props: {} };
+};
+
+const RssPage: FC = () => {
+  useEffect(() => {
+    window.location = ('/rss.xml' as unknown) as Location;
+  }, []);
+
+  return null;
+};
+
+export default RssPage;

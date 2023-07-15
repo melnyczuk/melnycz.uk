@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import { GetStaticProps } from 'next';
 import { FC } from 'react';
 
