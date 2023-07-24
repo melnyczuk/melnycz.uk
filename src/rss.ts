@@ -15,7 +15,7 @@ export const generateRss = () => {
     pubDate: new Date().toISOString(),
     generator: 'https://www.npmjs.com/package/rss',
     site_url: 'https://melnycz.uk',
-    feed_url: 'https://melnycz.uk/rss.xml',
+    feed_url: 'https://melnycz.uk/rss',
   });
 
   feed.forEach((post) => {
@@ -42,5 +42,8 @@ export const generateRss = () => {
 
   rss.items.sort((a, b) => a.date.getTime() - b.date.getTime());
 
-  fs.writeFileSync('./public/rss.xml', rss.xml());
+  const xml = rss.xml();
+
+  fs.writeFileSync('./public/rss', xml);
+  fs.writeFileSync('./public/rss.xml', xml);
 };
