@@ -44,6 +44,10 @@ residencies:
     - 'Perth Festival Lab, Perth, Australia'
 ---
 
-Howard Melnyczuk is an artist and technologist based in Lisbon, Portugal. Working across video, text, and computation, his critical practice explores the stories we tell about ourselves, and how those stories shape cultural & sociopolitical structures.
+How Melnyczuk is an artist and independent researcher exploring how sociopolitical structures are built and maintained through technology and social narratives.
 
-He is interested in vulnerability as a space of radicality, folk practices as they embody alternative histories, and the way narratives around technology intersect with capitalism and colonialism.
+His transdisciplinary practice uses video, sound, writing and computation to challenge hidden operations of power and control.
+
+His work often incorporates an expanded approach to film that combines the networked moving image with an experimental approach to technology that embodies critical research.
+
+He is interested in vulnerability as a space of radicality, folk practices that embody alternative histories, and the way narratives around technology intersect with capitalism and colonialism.
