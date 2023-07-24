@@ -39,6 +39,10 @@
     text-decoration: none;
   }
 
+  h2 {
+    font-weight: normal;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -51,12 +55,13 @@
     & > :first-child {
       @include paragraph;
 
-      align-self: start;
-      padding: $sizing-xs $sizing-xs 0;
+      align-self: flex-start;
+      padding: $sizing-xs $sizing-s;
+      padding-bottom: 0;
 
       @media (min-width: $bp-m) {
-        width: 130px;
-        padding: $sizing-xs;
+        width: 150px;
+        padding-bottom: $sizing-xs;
       }
     }
 
@@ -79,35 +84,35 @@
 
   border-top: $border;
 
-  & h1 {
+  h1 {
     @include heading($font-size-h-xl);
 
-    align-self: start;
+    align-self: flex-start;
   }
 
-  & h2 {
+  h2 {
     @include heading($font-size-h-l);
 
-    align-self: start;
+    align-self: flex-start;
   }
 
-  & p {
+  p {
     width: 100%;
     font-size: larger;
 
-    & img {
+    img {
       width: 100%;
     }
   }
 
-  & blockquote {
+  blockquote {
     padding-left: $sizing-xs;
     border-left: $border;
     border-width: $sizing-xxs;
     font-style: italic;
   }
 
-  &__article {
+  article {
     @include flex;
     @include border-right;
 
@@ -118,13 +123,7 @@
     }
   }
 
-  &__body {
-    @include flex;
-
-    align-items: center;
-  }
-
-  &__date {
+  time {
     @include paragraph;
     @include mono;
     @include inverts;
@@ -134,5 +133,11 @@
     @media (min-width: $bp-m) {
       max-width: 50%;
     }
+  }
+
+  &__body {
+    @include flex;
+
+    align-items: center;
   }
 }
