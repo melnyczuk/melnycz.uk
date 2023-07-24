@@ -37,7 +37,7 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
         >
           {projects.map(({ name, hero, body, year }) => (
             <div
-              id={name.toLowerCase().replaceAll(' ', '-')}
+              id={name.toLowerCase().replaceAll(' ', '-').replaceAll(',', '')}
               key={name}
               className={styles['project']}
             >
