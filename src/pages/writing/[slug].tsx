@@ -29,11 +29,11 @@ const WritingPostPage: FC<WritingPostType> = ({ date, title, body }) => {
     <>
       <Navigation />
       <main className={styles['writing_post']}>
-        <article className={styles['writing_post__article']}>
-          <h1 className={styles['writing_post__title']}>{title}</h1>
+        <article>
+          <h1>{title}</h1>
           <Markdown className={styles['writing_post__body']} body={body} />
         </article>
-        <div className={styles['writing_post__date']}>{date}</div>
+        <time dateTime={date}>{date}</time>
       </main>
     </>
   );
