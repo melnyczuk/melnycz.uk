@@ -29,9 +29,18 @@ const AboutPage: FC<AboutType> = ({
         <h2>Contact</h2>
         <p>@melnyczuk</p>
         <p className={styles['flex']}>
-          Email:
-          <a href={'mailto:h.melnyczuk@gmail.com'}>h.melnyczuk@gmail.com</a>
-          <ClipboardCopyButton content="h.melnyczuk@gmail.com">
+          Email me:
+          <a href={'mailto:how@melnycz.uk'}>how@melnycz.uk</a>
+          <ClipboardCopyButton content="how@melnycz.uk">
+            <span aria-label="copy to clipboard" role="img">
+              📋
+            </span>
+          </ClipboardCopyButton>
+        </p>
+        <p className={styles['flex']}>
+          Subscribe:
+          <a href="/rss">RSS</a>
+          <ClipboardCopyButton content="https://melnycz.uk/rss">
             <span aria-label="copy to clipboard" role="img">
               📋
             </span>
