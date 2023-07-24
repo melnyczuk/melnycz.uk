@@ -40,4 +40,7 @@ $colors-red: #9e002f;
 $colors-red-hightlight: #ffbdcb;
 $colors-blue-lowlight: #00030a;
 
-$border: 1px solid $colors-blue;
+$border-width: 1px;
+$border-type: solid;
+$border-color: $colors-blue;
+$border: $border-width $border-type $border-color;

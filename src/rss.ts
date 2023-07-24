@@ -22,10 +22,10 @@ export const generateRss = () => {
     rss.item({
       title: post.title,
       description: post.body,
-      url: `https://melnycz.uk/feed/${post.date}`,
+      url: `https://melnycz.uk/feed#${post.date}`,
       date: new Date(post.date),
       categories: post.tags,
-      enclosure: { url: post.image },
+      enclosure: { url: post.image?.src },
     });
   });
 

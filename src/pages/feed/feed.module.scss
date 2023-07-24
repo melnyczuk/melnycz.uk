@@ -1,0 +1,91 @@
+@import '../../styling';
+
+.feed {
+  @include defaults;
+
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border-bottom: $border;
+    list-style-type: none;
+    cursor: pointer;
+  }
+
+  li {
+    font-size: xx-large;
+    border-top: $border;
+
+    display: grid;
+    flex-direction: column;
+
+    @media (min-width: $bp-m) {
+      grid-template-columns: 50% 50%;
+    }
+  }
+
+  &__info {
+    @include border-right;
+
+    padding: $sizing-s;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $bp-m) {
+      grid-column: 1;
+    }
+
+    h2 {
+      @include heading($font-size-h-xl);
+      border-right: none;
+
+      width: 100%;
+      font-weight: normal;
+
+      @media (max-width: $bp-m) {
+        font-size: larger;
+        padding-top: 0;
+      }
+    }
+
+    time {
+      @include paragraph;
+
+      align-self: flex-start;
+
+      @media (min-width: $bp-m) {
+      }
+    }
+
+    img {
+      padding-top: $sizing-xs;
+      padding-bottom: 0;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__body {
+    @include paragraph;
+
+    padding: $sizing-s;
+    padding-top: 0;
+
+    justify-content: flex-end;
+
+    @media (min-width: $bp-m) {
+      padding-top: $sizing-s;
+      grid-column: 2;
+    }
+
+    p:not(:last-child) > img {
+      padding-bottom: $sizing-xs;
+    }
+  }
+}
