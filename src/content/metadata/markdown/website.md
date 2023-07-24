@@ -1,8 +1,8 @@
 ---
 image: '/favicon.ico'
-title: 'Howard Melnyczuk'
+title: 'How Melnyczuk'
 handle: '@melnyczuk'
 url: 'https://melnycz.uk'
 ---
 
-Howard Melnyczuk is an artist investigating technology as the site in which political structures are built and maintained.
+How Melnyczuk is an artist and independent researcher exploring how sociopolitical structures are built and maintained through technology and social narratives.
