@@ -42,5 +42,8 @@ export const generateRss = () => {
 
   rss.items.sort((a, b) => a.date.getTime() - b.date.getTime());
 
-  fs.writeFileSync('./public/rss', rss.xml());
+  const xml = rss.xml();
+
+  fs.writeFileSync('./public/rss', xml);
+  fs.writeFileSync('./public/rss.xml', xml);
 };

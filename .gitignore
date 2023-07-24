@@ -4,5 +4,4 @@ node_modules
 out
 yarn-error.log
 src/pages/cover_letter.tsx
-public/rss.xml
-public/rss
+public/rss*
