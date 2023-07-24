@@ -2,8 +2,6 @@
 links:
   - name: 'Instagram'
     url: 'https://www.instagram.com/melnyczuk'
-  - name: 'Twitter'
-    url: 'https://twitter.com/melnyczuk'
   - name: 'GitHub'
     url: 'https://github.com/melnyczuk'
 
