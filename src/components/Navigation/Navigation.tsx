@@ -14,6 +14,7 @@ type NavLink = {
 
 const links: NavLink[] = [
   { href: '/about', regex: /\/about\/?/, label: 'About' },
+  { href: '/feed', regex: /\/feed\/?/, label: 'Feed' },
   { href: '/projects', regex: /\/projects\/?/, label: 'Projects' },
   { href: '/writing', regex: /\/writing\/?/, label: 'Writing' },
 ];

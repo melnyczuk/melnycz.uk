@@ -36,7 +36,11 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
           )}
         >
           {projects.map(({ name, hero, body, year }) => (
-            <div key={name} className={styles['project']}>
+            <div
+              id={name.toLowerCase().replace(' ', '-')}
+              key={name}
+              className={styles['project']}
+            >
               <h2 className={styles['project__title']}>{name}</h2>
               <h3 className={styles['project__year']}>{year}</h3>
               <Markdown className={styles['project__text']} body={body} />

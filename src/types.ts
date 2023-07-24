@@ -50,8 +50,8 @@ export type AboutType = MarkdownType & {
 export type FeedEntryType = MarkdownType & {
   title: string;
   date: string;
-  image: string;
   tags: string[];
+  image?: Pick<ImageType, 'src' | 'height' | 'width' | 'caption'>;
 };
 
 export type ProjectType = MarkdownType & {
