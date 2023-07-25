@@ -1,4 +1,5 @@
 import fs from 'fs';
+import nmd from 'nano-markdown';
 import RSS from 'rss';
 
 import { feed, metadata, writing } from './content';
@@ -21,7 +22,7 @@ export const generateRss = () => {
   feed.forEach((post) => {
     rss.item({
       title: post.title,
-      description: post.body,
+      description: nmd(post.body),
       url: `https://melnycz.uk/feed#${post.date}`,
       date: new Date(post.date),
       categories: post.tags,
@@ -32,7 +33,7 @@ export const generateRss = () => {
   writing.forEach((post) => {
     rss.item({
       title: post.title,
-      description: post.body,
+      description: nmd(post.body),
       url: `https://melnycz.uk/writing/${post.slug}`,
       date: new Date(post.date),
       categories: post.tags,
