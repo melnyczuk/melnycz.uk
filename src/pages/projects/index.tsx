@@ -36,13 +36,15 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
           )}
         >
           {projects.map(({ name, hero, body, year }) => (
-            <div
+            <article
               id={name.toLowerCase().replaceAll(' ', '-').replaceAll(',', '')}
               key={name}
               className={styles['project']}
             >
-              <h2 className={styles['project__title']}>{name}</h2>
-              <h3 className={styles['project__year']}>{year}</h3>
+              <div className={styles['project__info']}>
+                <time dateTime={`${year}`}>{year}</time>
+                <h2>{name}</h2>
+              </div>
               <Markdown className={styles['project__text']} body={body} />
               <div
                 className={styles['project__gallery_button']}
@@ -61,7 +63,7 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }) => {
                   thumbnail={hero.thumbnail}
                 />
               </div>
-            </div>
+            </article>
           ))}
         </section>
         {galleryImages !== null && (
