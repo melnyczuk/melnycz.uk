@@ -27,6 +27,7 @@
 @mixin paragraph {
   text-decoration: unset;
   font-family: $font-sans;
+  font-size: $font-size-p-xs;
 
   & > p {
     background-color: inherit;
