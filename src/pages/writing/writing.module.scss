@@ -39,24 +39,22 @@
     text-decoration: none;
   }
 
-  h2 {
-    font-weight: normal;
-  }
-
   &__item {
     display: flex;
     flex-direction: column;
+    line-height: normal;
 
     @media (min-width: $bp-m) {
       display: flex;
       flex-direction: row;
     }
 
-    & > :first-child {
+    time {
       @include paragraph;
 
       align-self: flex-start;
-      padding: $sizing-xs $sizing-s;
+      padding: $sizing-s;
+
       padding-bottom: 0;
 
       @media (min-width: $bp-m) {
@@ -65,8 +63,9 @@
       }
     }
 
-    & > :last-child {
+    h2 {
       @include heading($font-size-h-xl);
+
       width: 100%;
       padding: $sizing-s;
 

@@ -17,7 +17,6 @@
   }
 
   li {
-    font-size: xx-large;
     border-top: $border;
 
     display: grid;
@@ -30,6 +29,7 @@
 
   &__info {
     @include border-right;
+    line-height: normal;
 
     padding: $sizing-s;
     height: fit-content;
@@ -43,13 +43,11 @@
 
     h2 {
       @include heading($font-size-h-xl);
-      border-right: none;
 
+      border-right: none;
       width: 100%;
-      font-weight: normal;
 
       @media (max-width: $bp-m) {
-        font-size: larger;
         padding-top: 0;
       }
     }
