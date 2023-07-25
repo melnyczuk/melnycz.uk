@@ -39,18 +39,18 @@ const Image: FC<ImageProps> = ({
   height,
 }) => (
   <ProgressiveImage src={src} placeholder={thumbnail}>
-    {(src) => (
+    {(source, loading) => (
       <>
         <Monochrome className={styles['monochrome']} />
         <img
           className={classnames(
             styles['image'],
-            src === thumbnail && styles['image__thumbnail'],
+            loading && styles['image__thumbnail'],
             className
           )}
           width={width}
           height={height}
-          src={src}
+          src={source}
           alt={name}
           loading="lazy"
         />
