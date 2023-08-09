@@ -52,15 +52,9 @@
     time {
       @include paragraph;
 
+      width: 150px;
       align-self: flex-start;
-      padding: $sizing-s;
-
-      padding-bottom: 0;
-
-      @media (min-width: $bp-m) {
-        width: 150px;
-        padding-bottom: $sizing-xs;
-      }
+      padding: $sizing-s $sizing-s 0;
     }
 
     h2 {
