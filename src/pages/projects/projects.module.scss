@@ -96,9 +96,11 @@
     }
 
     &--sticky {
-      grid-row: 2 / 3;
-      position: sticky;
-      bottom: 0;
+      @media (min-width: $bp-m) {
+        grid-row: 2 / 3;
+        position: sticky;
+        bottom: 0;
+      }
     }
   }
 
