@@ -94,6 +94,14 @@
       align-self: flex-end;
       padding: $sizing-s;
     }
+
+    &--sticky {
+      @media (min-width: $bp-m) {
+        grid-row: 2 / 3;
+        position: sticky;
+        bottom: 0;
+      }
+    }
   }
 
   &__gallery_button {
@@ -116,6 +124,19 @@
 
     &:hover {
       cursor: zoom-in;
+    }
+  }
+
+  &__image_list {
+    display: flex;
+    flex-direction: column;
+    gap: $sizing-s;
+
+    @media (min-width: $bp-m) {
+      grid-row: 1 / 3;
+      grid-column: 2;
+
+      padding: $sizing-s;
     }
   }
 }

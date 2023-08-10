@@ -4,7 +4,7 @@ import RSS from 'rss';
 
 import { feed, metadata, writing } from './content';
 
-export const generateRss = () => {
+export const generateRss = (): void => {
   const rss = new RSS({
     title: metadata.rss.title,
     description: metadata.rss.body,
