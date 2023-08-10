@@ -55,6 +55,7 @@ export type FeedEntryType = MarkdownType & {
 };
 
 export type ProjectType = MarkdownType & {
+  slug: string;
   name: string;
   year: number;
   hero: ImageType;
