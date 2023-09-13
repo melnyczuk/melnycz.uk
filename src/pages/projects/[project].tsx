@@ -11,7 +11,7 @@ type ProjectDetailPageProps = ProjectType;
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: projects.map(({ slug }) => ({ params: { project: slug } })),
-  fallback: 'blocking',
+  fallback: false,
 });
 
 export const getStaticProps: GetStaticProps<ProjectDetailPageProps> = async (
