@@ -3,7 +3,6 @@
 @mixin col-left {
   @include flex;
   @include paragraph;
-  @include border-right;
 
   padding: $sizing-s;
 
@@ -36,17 +35,17 @@
 
 .flex {
   display: flex;
+  flex-direction: column;
   gap: $sizing-xxs;
   line-height: initial;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about {
   @include defaults;
   @include paragraph;
+  @include flex;
 
-  display: flex;
-  flex-direction: column;
   width: 100%;
   border-top: $border;
   z-index: 0;
@@ -78,20 +77,12 @@
   }
 
   &__about {
-    @include col-right;
-
-    @media (min-width: $bp-m) {
-      grid-row: 1 / 1;
-    }
+    @include col-left;
   }
 
   &__contact {
     @include col-right;
     @include border-top;
-
-    @media (min-width: $bp-m) {
-      grid-row: 2 / 2;
-    }
   }
 
   &__exhibitions {

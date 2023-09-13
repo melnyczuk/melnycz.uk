@@ -1,5 +1,9 @@
 ---
 links:
+  - name: 'how@melnycz.uk'
+    url: 'mailto:how@melnycz.uk'
+  - name: 'RSS'
+    url: '/rss'
   - name: 'Instagram'
     url: 'https://www.instagram.com/melnyczuk'
   - name: 'GitHub'
@@ -49,3 +53,5 @@ His transdisciplinary practice uses video, sound, writing and computation to cha
 His work often incorporates an expanded approach to film that combines the networked moving image with an experimental approach to technology that embodies critical research.
 
 He is interested in vulnerability as a space of radicality, folk practices that embody alternative histories, and the way narratives around technology intersect with capitalism and colonialism.
+
+CV available on request.
