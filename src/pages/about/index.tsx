@@ -1,7 +1,8 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { FC } from 'react';
 
-import { ClipboardCopyButton, Markdown, Navigation } from '../../components';
+import { Markdown, Navigation } from '../../components';
 import { about } from '../../content';
 import { AboutType } from '../../types';
 import styles from './about.module.scss';
@@ -22,9 +23,9 @@ const AboutPage: FC<AboutType> = ({ body, links }) => (
         <h2>Contact</h2>
         <div className={styles['flex']}>
           {links.map(({ name, url }) => (
-            <a key={name} href={url}>
+            <Link key={name} href={url}>
               {name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
