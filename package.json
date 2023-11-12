@@ -19,7 +19,7 @@
     "not op_mini all"
   ],
   "engines": {
-    "node": ">=0.12"
+    "node": ">=18.17.0 <=21.0.0"
   },
   "dependencies": {
     "classnames": "^2.3.1",
