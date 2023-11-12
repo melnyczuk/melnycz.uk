@@ -36,17 +36,14 @@ const Navigation: FC<NavigationProps> = ({ className }) => {
       </h1>
       <span className={styles['navigation__links-container']}>
         {links.map(({ href, regex, label }) => (
-          <Link key={href} href={href}>
-            <a
-              href={href}
-              className={classnames(styles['navigation__link'], {
-                [styles['navigation__link--active']]: regex.test(
-                  router.pathname
-                ),
-              })}
-            >
-              {label}
-            </a>
+          <Link
+            key={href}
+            href={href}
+            className={classnames(styles['navigation__link'], {
+              [styles['navigation__link--active']]: regex.test(router.pathname),
+            })}
+          >
+            {label}
           </Link>
         ))}
       </span>

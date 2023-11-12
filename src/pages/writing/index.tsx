@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { Navigation } from '../../components';
@@ -35,13 +36,13 @@ const WritingIndexPage: FC<WritingIndexProps> = ({ posts }) => {
         <ul>
           {posts.map(({ slug, title, date }) => (
             <li key={slug}>
-              <a
+              <Link
                 href={`/writing/${slug}`}
                 className={styles['writing_index__item']}
               >
                 <time dateTime={date}>{date}</time>
                 <h2>{title}</h2>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

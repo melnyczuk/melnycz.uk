@@ -1,5 +1,9 @@
+/**
+ * @type {import('next').NextConfig}
+ */
+
 module.exports = {
-  future: { webpack5: true },
+  output: 'export',
   webpack: (config) => ({
     ...config,
     resolve: {
