@@ -15,7 +15,7 @@ export const generateRss = (): void => {
     pubDate: new Date().toISOString(),
     generator: 'https://www.npmjs.com/package/rss',
     site_url: 'https://melnycz.uk',
-    feed_url: 'https://melnycz.uk/rss',
+    feed_url: 'https://melnycz.uk/rss.xml',
   });
 
   feed.forEach((post) => {
@@ -25,7 +25,7 @@ export const generateRss = (): void => {
       url: `https://melnycz.uk/feed/${post.date}`,
       date: new Date(post.date),
       categories: post.tags,
-      enclosure: { url: post.image?.src },
+      enclosure: { url: post.image?.src, type: 'image/jpeg' },
       author: metadata.rss.author,
     });
   });
@@ -37,7 +37,7 @@ export const generateRss = (): void => {
       url: `https://melnycz.uk/writing/${post.slug}`,
       date: new Date(post.date),
       categories: post.tags,
-      enclosure: { url: post.image },
+      enclosure: { url: post.image, type: 'image/jpeg' },
       author: metadata.rss.author,
     });
   });
@@ -46,6 +46,5 @@ export const generateRss = (): void => {
 
   const xml = rss.xml();
 
-  fs.writeFileSync('./public/rss', xml);
   fs.writeFileSync('./public/rss.xml', xml);
 };
