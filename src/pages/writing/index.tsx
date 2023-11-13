@@ -21,9 +21,7 @@ type WritingIndexProps = {
 export const getStaticProps: GetStaticProps<WritingIndexProps> = async () => {
   return {
     props: {
-      posts: writing.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      ),
+      posts: writing,
     },
   };
 };

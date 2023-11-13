@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { Markdown, Navigation } from '../../components';
@@ -13,9 +14,7 @@ type FeedProps = {
 export const getStaticProps: GetStaticProps<FeedProps> = async () => {
   return {
     props: {
-      entries: feed.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      ),
+      entries: feed,
     },
   };
 };
@@ -25,7 +24,7 @@ const FeedPage: FC<FeedProps> = ({ entries }) => {
     <>
       <Navigation />
       <main className={styles['feed']}>
-        <ul>
+        <ul className={styles['feed__list']}>
           {entries.map(
             ({
               title,
@@ -34,7 +33,7 @@ const FeedPage: FC<FeedProps> = ({ entries }) => {
               image,
               image: { caption } = { caption: '' }, // to appease jsx-a11y/img-redundant-alt
             }) => (
-              <li id={date} key={date}>
+              <li id={date} key={date} className={styles['feed__entry']}>
                 <div className={styles['feed__info']}>
                   <time dateTime={date}>{date}</time>
                   <h2>{title}</h2>
@@ -46,6 +45,7 @@ const FeedPage: FC<FeedProps> = ({ entries }) => {
                       height={image.height}
                     />
                   )}
+                  <Link href={`/feed/${date}`}>Link</Link>
                 </div>
                 <Markdown className={styles['feed__body']} body={body} />
               </li>
