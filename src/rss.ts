@@ -9,7 +9,6 @@ export const generateRss = (): void => {
     title: metadata.rss.title,
     description: metadata.rss.body,
     image_url: metadata.rss.image_url,
-    author: metadata.rss.author,
     categories: metadata.rss.categories,
     copyright: metadata.rss.copyright,
     language: metadata.rss.language,
@@ -23,10 +22,11 @@ export const generateRss = (): void => {
     rss.item({
       title: post.title,
       description: nmd(post.body),
-      url: `https://melnycz.uk/feed#${post.date}`,
+      url: `https://melnycz.uk/feed/${post.date}`,
       date: new Date(post.date),
       categories: post.tags,
       enclosure: { url: post.image?.src },
+      author: metadata.rss.author,
     });
   });
 
@@ -38,6 +38,7 @@ export const generateRss = (): void => {
       date: new Date(post.date),
       categories: post.tags,
       enclosure: { url: post.image },
+      author: metadata.rss.author,
     });
   });
 

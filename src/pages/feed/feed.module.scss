@@ -2,21 +2,21 @@
 
 .feed {
   @include defaults;
+  @include paragraph;
 
   display: flex;
   flex-direction: column;
 
-  ul {
+  &__list {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     border-bottom: $border;
     list-style-type: none;
-    cursor: pointer;
   }
 
-  li {
+  &__entry {
     border-top: $border;
 
     display: grid;
@@ -36,6 +36,7 @@
 
     display: flex;
     flex-direction: column;
+    gap: $sizing-xs;
 
     @media (min-width: $bp-m) {
       grid-column: 1;
@@ -46,10 +47,6 @@
 
       border-right: none;
       width: 100%;
-
-      @media (max-width: $bp-m) {
-        padding-top: 0;
-      }
     }
 
     time {
@@ -62,10 +59,13 @@
     }
 
     img {
-      padding-top: $sizing-xs;
-      padding-bottom: 0;
       object-fit: cover;
       width: 100%;
+      max-height: 500px;
+    }
+
+    a {
+      width: min-content;
     }
   }
 
@@ -73,8 +73,6 @@
     @include paragraph;
 
     padding: $sizing-s;
-    padding-top: 0;
-
     justify-content: flex-end;
 
     @media (min-width: $bp-m) {
