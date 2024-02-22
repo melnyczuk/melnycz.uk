@@ -11,10 +11,8 @@ imgs:
 - https://dl.dropbox.com/s/qsh6he0283txrbm/supercollager-tokyo.jpg
 ---
 
-Supercollager is an ongoing project exploring photography and image-making in dialogue with machine learning and computer vision.
+Supercollager is a reflection on photography and image- making in dialogue with computer vision and machine learning. The work draws on Barthes’ theory of the punctum and studium, alongside Vilém Flusser’s concept of the apparatus and the technological program. It seeks to repurpose a number of computational techniques, converting them from analytical tools into expressive and generative methods that craft new images from the corpus of my own personal photography archive.
 
-The work synthesises new images from multiple inputs using a deep learning model. It builds these from its own understanding of visual objects found in my catalog of personal photographs.
-
-The work draws on Barthes' theory of the punctum and studium, alongside Vilém Flusser's concept of the apparatus and the technological program.
+It plays with the mnemonic temporality of photography, combining fragments of images taken at different instants. Through ongoing iterations of the underlying software, the visual output from this work fluctuates with different aesthetics and visual forms. In this way, the software abstracts a secondary layer of visuality that situates these images in new relationships with one another through its own sense of composition.
 
 [You can see more images from this project in a post I made here](/feed#2023-07-10)

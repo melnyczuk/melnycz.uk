@@ -27,17 +27,20 @@ fetch = (url) =>
 
 const root = path.join(__dirname, '../src/content/projects');
 
-const projectData = ['./suntopia.md'];
+const projectData = process.argv.splice(2);
 
 const fetchImageData = async (src) => {
   const name = new URL(src).pathname.split('/').reverse()[0];
   const resp = await fetch(src);
-  const { width = 0, height = 0, format = 'image/jpeg' } = await new Promise(
-    (resolve, reject) =>
-      magick.identify({ data: resp }, (err, res) => {
-        if (err) reject(err);
-        if (res) resolve(res);
-      })
+  const {
+    width = 0,
+    height = 0,
+    format = 'image/jpeg',
+  } = await new Promise((resolve, reject) =>
+    magick.identify({ data: resp }, (err, res) => {
+      if (err) reject(err);
+      if (res) resolve(res);
+    })
   );
   const thumbnail = await new Promise((resolve, reject) =>
     magick.resize(
