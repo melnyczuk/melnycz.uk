@@ -11,9 +11,9 @@ imgs:
 - https://dl.dropbox.com/s/dq0d10vllsqklyb/a-tree-grew-through-my-window-4.jpg
 ---
 
-Produced in collaboration with writer/curator Alisa Blakeney, the project aimed to re-conceptualize architecture as a model of co-existence. By investigating non-human forms of structure, social organisation, and perception, the work seeks to ask the question: what relations of care can be cultivated to address environmental devastation?
+Produced in collaboration with writer/curator Alisa Blakeney, A Tree Grew Through My Window looks at models of co-existence beyond the human built environment by look at more-than- human forms of architecture. By investigating non-human structures, social organisations, and perceptions, the work seeks to ask the question: what relations of care can be cultivated to address environmental devastation?
 
-Consisting of a single-channel video & a risograph zine, switching between English and Mandarin, the form allowed ideas to be presented via alternative approaches to temporality and cultural particularities.
+Centred within the rich a varied context present on the island of Taiwan, the work features excerpts from a number of texts found while researching Taiwanese culture, history and indigenous cosmology. This textual source material was then combined with found images and video to produce a single- channel video and a risograph zine. Switching between English and Mandarin, the form allows these ideas to be presented in multiple temporalities and through a space of cultural exchange.
 
 The work was exhibited at Taipei Artist Village in September 2019.
 
