@@ -20,6 +20,9 @@ const CvPage: FC<CvType> = ({
   skills,
 }) => (
   <main className={styles['cv']}>
+    <h1 className={classnames(styles['cv__item'], styles['cv__name'])}>
+      Howard Melnyczuk
+    </h1>
     <Markdown
       className={classnames(styles['cv__item'], styles['cv__about'])}
       body={about}
