@@ -10,14 +10,16 @@ Django, Flask, Express, Spring, Prisma, Postgres, MySQL, MongoDB, REST, GraphQL 
 
 React, React Native, Next.js, SwiftUI, JetPack Compose, Redux, Webpack, D3, Three.js, Scss, Less, Emotion, Enzyme, React Testing Library, Netlify
 
+---
+<!-- 
 ### Languages
 
-Python, Typescript, Kotlin, Java, Ruby, Bash
+Typescript & Javascript, Python, Kotlin, Swift, Java, Ruby, Bash
 
----
+--- -->
 
 ### Best Practices
 
-Git, UNIX, Docker, FP & OOP, Agile & Scrum, AWS, GCE, OWASP & threat modelling, Test-Driven Design, Domain-Driven Design, Behaviour-driven design
+Git, UNIX, Docker, FP & OOP, Agile & Scrum, AWS, GCE, OWASP & threat modelling, Testing with TDD & BDD
 
 ---
