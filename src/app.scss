@@ -1,0 +1,5 @@
+@use './lib/styling' as *;
+
+body {
+  background-color: $colors-grey;
+}

@@ -1,0 +1,117 @@
+@use '../../lib/styling' as *;
+
+@mixin col-left {
+  @include flex;
+  @include paragraph;
+
+  padding: $sizing-s;
+
+  @media (min-width: $bp-m) {
+    grid-column: 1 / 1;
+    align-self: baseline;
+    padding: $sizing-s;
+  }
+}
+
+@mixin col-right {
+  @include flex;
+
+  padding: $sizing-s;
+
+  @media (min-width: $bp-m) {
+    grid-column: 2 / 2;
+    align-self: baseline;
+    padding: $sizing-s;
+  }
+}
+
+@mixin border-top {
+  border-top: $border;
+
+  @media (min-width: $bp-m) {
+    border-top: none;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: $sizing-xxs;
+  line-height: initial;
+  align-items: flex-start;
+}
+
+.about {
+  @include defaults;
+  @include paragraph;
+  @include flex;
+
+  width: 100%;
+  border-top: $border;
+  z-index: 0;
+
+  h2 {
+    @include heading($font-size-h-xl);
+  }
+
+  hr {
+    border: none;
+    border-top: $border;
+  }
+
+  table {
+    margin: -2px;
+  }
+
+  td {
+    padding: 0;
+
+    &:first-child {
+      padding-right: $sizing-s;
+    }
+  }
+
+  @media (min-width: $bp-m) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  &__about {
+    @include col-left;
+  }
+
+  &__contact {
+    @include col-right;
+    @include border-top;
+  }
+
+  &__exhibitions {
+    @include col-left;
+    @include border-right;
+    @include border-top;
+
+    @media (min-width: $bp-m) {
+      grid-row: 1 / 1;
+    }
+  }
+
+  &__residencies {
+    @include col-left;
+    @include border-right;
+    @include border-top;
+
+    @media (min-width: $bp-m) {
+      grid-row: 2 / 2;
+    }
+  }
+
+  &__education {
+    @include col-left;
+    @include border-right;
+    @include border-top;
+
+    @media (min-width: $bp-m) {
+      grid-row: 3 / 3;
+    }
+  }
+}
