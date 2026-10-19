@@ -1,6 +1,5 @@
 <script lang="ts">
-  import 'modern-css-reset/dist/reset.min.css';
-  import '../app.scss';
+  import '../app.css';
 
   import type { LayoutProps } from './$types';
 

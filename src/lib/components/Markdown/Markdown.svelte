@@ -3,7 +3,6 @@
 
   import { renderMarkdown } from '../../markdown';
   import type { MarkdownType } from '../../types';
-  import styles from './Markdown.module.scss';
 
   type MarkdownProps = MarkdownType & { class?: ClassValue };
 
@@ -12,7 +11,7 @@
   const html = $derived(renderMarkdown(body));
 </script>
 
-<div class={[styles['text'], className]}>
+<div class={['flex flex-col gap-xs paragraph', className]}>
   <!-- eslint-disable-next-line svelte/no-at-html-tags -- markdown is our own content -->
   {@html html}
 </div>

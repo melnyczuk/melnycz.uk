@@ -3,22 +3,30 @@
   import { resolve } from '$app/paths';
 
   import type { PageProps } from './$types';
-  import styles from './writing.module.scss';
 
   let { data }: PageProps = $props();
 </script>
 
 <Navigation />
-<main class={styles['writing_index']}>
-  <ul>
+<main class="flex flex-col bg-grey text-blue">
+  <ul
+    class="m-0 flex cursor-pointer list-none flex-col border-b border-blue p-0"
+  >
     {#each data.posts as { slug, title, date } (slug)}
-      <li>
+      <li class="border-t border-blue p-0 [font-size:xx-large]">
         <a
           href={resolve('/writing/[slug]', { slug })}
-          class={styles['writing_index__item']}
+          class="flex flex-col leading-[normal] [color:unset] no-underline md:flex-row"
         >
-          <time datetime={date}>{date}</time>
-          <h2>{title}</h2>
+          <time
+            class="w-[150px] self-start paragraph px-s pt-s pb-0"
+            datetime={date}>{date}</time
+          >
+          <h2
+            class="w-full p-s heading-xl [@media(max-width:768px)]:pt-0 [@media(max-width:768px)]:[font-size:larger]"
+          >
+            {title}
+          </h2>
         </a>
       </li>
     {/each}

@@ -2,15 +2,15 @@
   import type { ClassValue } from 'svelte/elements';
 
   import type { ImageType } from '../../types';
-  import styles from './Image.module.scss';
 
   type ImageProps = Pick<
     ImageType,
     'name' | 'src' | 'thumbnail' | 'width' | 'height'
-  > & { class?: ClassValue };
+  > & { class?: ClassValue; fit?: 'contain' | 'cover' };
 
   let {
     class: className,
+    fit = 'contain',
     src,
     thumbnail,
     name,
@@ -30,7 +30,7 @@
   });
 </script>
 
-<svg class={styles['monochrome']}>
+<svg class="invisible hidden h-0">
   <filter
     id="monochrome"
     color-interpolation-filters="sRGB"
@@ -47,7 +47,12 @@
   </filter>
 </svg>
 <img
-  class={[styles['image'], loading && styles['image__thumbnail'], className]}
+  class={[
+    'h-full',
+    fit === 'cover' ? 'object-cover' : 'object-contain',
+    loading && '[filter:brightness(0.8)_invert(1)_url(#monochrome)]',
+    className,
+  ]}
   {width}
   {height}
   src={loading ? thumbnail : src}

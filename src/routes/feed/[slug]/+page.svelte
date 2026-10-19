@@ -1,7 +1,14 @@
 <script lang="ts">
   import { Markdown, Navigation } from '#lib/components';
 
-  import styles from '../feed.module.scss';
+  import {
+    entry,
+    feedBody,
+    info,
+    infoHeading,
+    infoImage,
+    infoTime,
+  } from '../styles';
   import type { PageProps } from './$types';
 
   let { data }: PageProps = $props();
@@ -10,12 +17,13 @@
 </script>
 
 <Navigation />
-<main class={[styles['feed'], styles['feed__entry']]}>
-  <div class={styles['feed__info']}>
-    <time datetime={date}>{date}</time>
-    <h2>{title}</h2>
+<main class={['paragraph bg-grey text-blue', entry]}>
+  <div class={info}>
+    <time class={infoTime} datetime={date}>{date}</time>
+    <h2 class={infoHeading}>{title}</h2>
     {#if image}
       <img
+        class={infoImage}
         src={image.src}
         alt={image.caption ?? ''}
         width={image.width}
@@ -23,5 +31,5 @@
       />
     {/if}
   </div>
-  <Markdown class={styles['feed__body']} {body} />
+  <Markdown class={feedBody} {body} />
 </main>
