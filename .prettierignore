@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+/static/
+/out/
+/.svelte-kit/
+*.md
+*.json

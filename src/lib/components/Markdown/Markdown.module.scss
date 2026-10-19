@@ -1,0 +1,6 @@
+@use '../../styling' as *;
+
+.text {
+  @include paragraph;
+  @include flex;
+}
