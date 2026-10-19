@@ -1,10 +1,20 @@
 ## Selected Relevant Experience
 
+### Iswe Foundation
+
+04.2024-Present
+
+#### Technical Lead
+
+As the technical lead at Iswe, I am responsible for provisioning, supporting and integrating digital tooling for Iswe's projects, including the Global Citizen's Assembly and Assemblis platform. I have supported Iswe to improve their technical procedures, with a key focus on data security, and stream-lining digital operations.
+
+A key focus of my work at Iswe has centred on the Assemblis platform. I have led architecture and development to ensure the platform is scalable, reliable and cost-effective, whilst being accessible to users around the world. This has involved actively developing backend and frontend services with a growing development team, alongside coordinating with stakeholders across product, content, design and operations to drive an effective scaling strategy.
+
 ### Human Health
 
 01.2023–08.2023
 
-#### Frontend Developer _Typescript_
+#### Frontend Developer
 
 As part of a short contract, I aided the core development team in bringing an MVP healthcare application to market during the prelaunch crunch. As a product designed to provide further communication between patients and clinical professionals, the implementation of best practices around data security and user privacy was a top priority. Joining a globally distributed team, this role required excellent asynchronous communication, using agile methodologies to manage my tasks and time effectively.
 
@@ -19,11 +29,11 @@ As part of a short contract, I aided the core development team in bringing an MV
 
 08.2021–01.2023
 
-#### Lead Backend Developer _Typescript, Python_
+#### Lead Backend Developer
 
 As the first engineer on the project, I collaborated closely with a design agency for the initial phase of research & development. This required developing the first iteration of the mobile app using React Native, whilst architecting and building MVP backend services to support functionality. Following this initial contract, I then became a full-time team member to aid the growth of the in-house engineering team.
 
-I researched, prototyped and built a backend ecosystem of hexagonal micro-services using a domain-specific architecture that was intuitive to develop, iterate and test. As a healthcare product, data security and privacy were paramount. 
+I researched, prototyped and built a backend ecosystem of hexagonal micro-services using a domain-specific architecture that was intuitive to develop, iterate and test. As a healthcare product, data security and privacy were paramount.
 
 These services communicate using Redis PubSub to provide an asynchronous worker/broker queue that is fast, scalable and secure within the private network. Each service is containerised for easy deployment to the cloud. These services include:
 
@@ -34,11 +44,11 @@ These services communicate using Redis PubSub to provide an asynchronous worker/
 
 ---
 
-<!-- ### Off-World Live
+### Off-World Live
 
 09.2020–03.2021
 
-#### Full-stack Developer _Typescript_
+#### Full-stack Developer
 
 During this contract, I undertook a greenfield project to design, prototype, and build a VR real estate web app and SDK using React, Express, & GraphQL. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
 
@@ -48,13 +58,13 @@ During this contract, I undertook a greenfield project to design, prototype, and
 - Facilitated real-time multi-user access using WebSockets
 - Deployed services to AWS & GCE
 
---- -->
+---
 
 ### TransferWise
 
 10.2019–08.2020
 
-#### Full-stack Developer _Typescript, Java_
+#### Full-stack Developer
 
 As a full-stack developer in the Receive team at TransferWise, I worked to improve the user experience when receiving international transfers and setting up direct debits. I worked to make complex user journeys into smooth seamless experiences using React and Angular, and I worked on system-critical Java Spring Boot microservices that adhere to the standards of financial authorities worldwide.
 
@@ -69,7 +79,7 @@ As a full-stack developer in the Receive team at TransferWise, I worked to impro
 
 09.2018–08.2019
 
-#### News Labs - Full-stack Developer _Typescript, Python_
+#### News Labs - Full-stack Developer
 
 News Labs is a technology-agnostic, project-driven innovation incubator based across the BBC's R&D and News departments, focusing on cutting-edge projects addressing concerns facing modern journalism. During my time on the team, I developed a News Discovery tool that clustered user feedback to provide topic insights, and I implemented a package intended to improve analytics from user-facing prototypes. I also organized ways of working sessions to promote agile methodologies and attended training on security, threat modelling & test-driven design.
 
@@ -82,7 +92,7 @@ News Labs is a technology-agnostic, project-driven innovation incubator based ac
 
 <!-- ### &nbsp; -->
 
-#### iPlayer - Frontend Developer _Typescript_
+#### iPlayer - Frontend Developer
 
 I worked to improve the multitude of React apps that work to form the BBC iPlayer website, one of the UK's most used services (with up to 21 million requests an hour). As part of a cross-functional agile team, I worked closely with UX designers to implement a rebuild that ensured universal accessibility, Testers to ensure full browser support across all operating systems, and the product owner to design insightful A/B tests.
 
@@ -94,11 +104,11 @@ I worked to improve the multitude of React apps that work to form the BBC iPlaye
 
 ---
 
-<!-- ### Spirable
+### Spirable
 
 03.2018–08.2018
 
-#### Python Developer _Python_
+#### Python Developer
 
 Spirable is an ad-tech startup that provides a platform for generating contextual, audience-specific content dynamically and at scale. Working as a Python developer on a Django stack with an Angular frontend, I was tasked with building and maintaining the video production functionality using technologies such as OpenCV and FFMPEG. This involved R&D, rapid prototyping, and integrating features using test-driven development.
 
@@ -107,4 +117,4 @@ Spirable is an ad-tech startup that provides a platform for generating contextua
 - Developed Bash scripts for internal automation
 - Supported creative team in generating content for pitches
 
---- -->
+---
