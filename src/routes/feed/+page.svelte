@@ -3,30 +3,40 @@
   import { resolve } from '$app/paths';
 
   import type { PageProps } from './$types';
-  import styles from './feed.module.scss';
+  import {
+    entry,
+    feedBody,
+    info,
+    infoHeading,
+    infoImage,
+    infoTime,
+  } from './styles';
 
   let { data }: PageProps = $props();
 </script>
 
 <Navigation />
-<main class={styles['feed']}>
-  <ul class={styles['feed__list']}>
+<main class="flex flex-col paragraph bg-grey text-blue">
+  <ul class="m-0 flex list-none flex-col border-b border-blue p-0">
     {#each data.entries as { title, date, body, image } (date)}
-      <li id={date} class={styles['feed__entry']}>
-        <div class={styles['feed__info']}>
-          <time datetime={date}>{date}</time>
-          <h2>{title}</h2>
+      <li id={date} class={entry}>
+        <div class={info}>
+          <time class={infoTime} datetime={date}>{date}</time>
+          <h2 class={infoHeading}>{title}</h2>
           {#if image}
             <img
+              class={infoImage}
               src={image.src}
               alt={image.caption ?? ''}
               width={image.width}
               height={image.height}
             />
           {/if}
-          <a href={resolve('/feed/[slug]', { slug: date })}>Link</a>
+          <a class="w-min" href={resolve('/feed/[slug]', { slug: date })}
+            >Link</a
+          >
         </div>
-        <Markdown class={styles['feed__body']} {body} />
+        <Markdown class={feedBody} {body} />
       </li>
     {/each}
   </ul>

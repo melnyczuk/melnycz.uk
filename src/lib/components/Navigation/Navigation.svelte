@@ -4,8 +4,6 @@
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
 
-  import styles from './Navigation.module.scss';
-
   type NavLink = {
     href: '/about' | '/feed' | '/projects' | '/writing';
     regex: RegExp;
@@ -24,22 +22,29 @@
   const website = $derived(page.data.website);
 </script>
 
-<nav class={[styles['navigation'], className]}>
-  <h1 class={styles['navigation__paragraph']}>
-    <span class={styles['navigation__paragraph--me']}>
+<nav
+  class={[
+    'grid w-full bg-grey text-blue no-underline print:invisible print:h-0',
+    className,
+  ]}
+>
+  <h1 class="col-[1/1] row-[1/1] w-full max-w-[768px] paragraph p-s font-sans">
+    <span class="font-serif font-bold">
       {website.title}
     </span>
     {website.body.replace('How Melnyczuk', '')}
   </h1>
-  <span class={styles['navigation__links-container']}>
+  <span
+    class="col-[1/1] row-[2/2] flex w-fit flex-row items-start [justify-items:flex-end] gap-xs px-s pt-0 pb-s md:col-[2/2] md:row-[1/1] md:m-auto md:mr-0 md:p-s"
+  >
     {#each links as { href, regex, label } (href)}
       <a
         href={resolve(href)}
         class={[
-          styles['navigation__link'],
-          {
-            [styles['navigation__link--active']]: regex.test(page.url.pathname),
-          },
+          'h-min w-full rounded-xxs border border-blue p-xs align-middle font-sans text-p-s leading-[normal] no-underline',
+          regex.test(page.url.pathname)
+            ? 'bg-blue font-bold text-grey'
+            : '[font-weight:inherit] text-blue',
         ]}
       >
         {label}

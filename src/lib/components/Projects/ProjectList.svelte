@@ -4,7 +4,7 @@
   import Image from '../Image/Image.svelte';
   import Markdown from '../Markdown/Markdown.svelte';
   import Navigation from '../Navigation/Navigation.svelte';
-  import styles from './projects.module.scss';
+  import { blur, project, projectInfo, projectText } from './styles';
 
   let { projects }: { projects: ProjectType[] } = $props();
 
@@ -17,26 +17,21 @@
   );
 </script>
 
-<Navigation class={openGallery ? styles['nav--blur'] : undefined} />
-<main class={styles['projects']}>
-  <section
-    class={[
-      styles['projects__list'],
-      openGallery && styles['projects__list--blur'],
-    ]}
-  >
+<Navigation class={openGallery ? blur : undefined} />
+<main class="bg-grey text-blue">
+  <section class={openGallery && blur}>
     {#each projects as { name, hero, body, year } (name)}
       <article
         id={name.toLowerCase().replaceAll(' ', '-').replaceAll(',', '')}
-        class={styles['project']}
+        class={project}
       >
-        <div class={styles['project__info']}>
-          <time datetime={`${year}`}>{year}</time>
-          <h2>{name}</h2>
+        <div class={projectInfo}>
+          <time class="paragraph" datetime={`${year}`}>{year}</time>
+          <h2 class="heading-xl">{name}</h2>
         </div>
-        <Markdown class={styles['project__text']} {body} />
+        <Markdown class={[projectText, 'md:row-2']} {body} />
         <div
-          class={styles['project__gallery_button']}
+          class="flex h-full flex-col object-cover md:col-2 md:row-[1/3] md:p-s"
           tabindex="0"
           role="button"
           aria-label="open image gallery"
@@ -44,7 +39,8 @@
           onclick={() => (openGallery = name)}
         >
           <Image
-            class={styles['project__image']}
+            class="cursor-zoom-in"
+            fit="cover"
             name={hero.name}
             src={hero.src}
             width={hero.width}
@@ -56,7 +52,7 @@
     {/each}
   </section>
   {#if galleryImages !== null}
-    <section class={styles['projects__gallery']}>
+    <section class="cursor-zoom-out">
       <Gallery images={galleryImages} onClose={() => (openGallery = null)} />
     </section>
   {/if}

@@ -2,8 +2,6 @@
   import type { Snippet } from 'svelte';
   import type { ClassValue } from 'svelte/elements';
 
-  import styles from './ClipboardCopyButton.module.scss';
-
   type ClipboardCopyButtonProps = {
     class?: ClassValue;
     children?: Snippet;
@@ -21,11 +19,12 @@
 
 <button
   class={[
-    styles['clipboard-copy__button'],
-    {
-      [styles['clipboard-copy__button--copied']]: didCopy === true,
-      [styles['clipboard-copy__button--copy-failed']]: didCopy === false,
-    },
+    'rounded-xxs border border-blue px-xs text-center leading-[150%] transition-[background-color] delay-0',
+    didCopy === null
+      ? 'bg-inherit duration-[2s] ease-[ease-out]'
+      : 'duration-0 ease-[step-start]',
+    didCopy === true && 'bg-blue-highlight',
+    didCopy === false && 'bg-red',
     className,
   ]}
   onclick={() =>

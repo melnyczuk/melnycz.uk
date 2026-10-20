@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { ImageType } from '../../types';
   import Image from '../Image/Image.svelte';
-  import styles from './Gallery.module.scss';
 
   type GalleryProps = {
     images: ImageType[];
@@ -12,7 +11,7 @@
 </script>
 
 <div
-  class={styles['gallery']}
+  class="fixed top-0 left-0 z-1 flex h-full w-full flex-col items-center justify-start gap-s overflow-y-scroll p-m"
   tabindex="0"
   role="button"
   aria-label="close"
@@ -21,7 +20,7 @@
 >
   {#each images as image (image.name)}
     <Image
-      class={styles['gallery__image']}
+      class="max-h-[90vh] md:w-[70%]"
       name={image.name}
       src={image.src}
       width={image.width}
