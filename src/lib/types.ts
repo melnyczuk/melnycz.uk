@@ -60,6 +60,7 @@ export type ProjectType = MarkdownType & {
   year: number;
   hero: ImageType;
   images: ImageType[];
+  audio?: string;
 };
 
 export type RssMetadataType = MarkdownType & {

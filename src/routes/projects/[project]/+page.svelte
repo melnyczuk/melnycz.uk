@@ -13,7 +13,7 @@
 
   let { data }: PageProps = $props();
 
-  const { name, body, year, images } = $derived(data.project);
+  const { name, body, year, images, audio } = $derived(data.project);
 
   let openGallery = $state<string | null>(null);
 
@@ -38,6 +38,9 @@
         {body}
       />
       <div class="flex flex-col gap-s md:col-2 md:row-[1/3] md:p-s">
+        {#if audio}
+          <audio class="w-full" controls src={audio}></audio>
+        {/if}
         {#each images as img (img.name)}
           <div
             tabindex="0"
