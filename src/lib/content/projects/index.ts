@@ -9,6 +9,7 @@ type ProjectInfo = {
   year: number;
   hide: boolean;
   imgs: string[];
+  audio?: string;
   body: string;
 };
 
@@ -28,6 +29,8 @@ const imageData = byName(
 );
 
 const ordering = [
+  'thin-circle',
+  'speaking-to-you',
   'season-of-the-orb',
   'drift-compass',
   'suntopia',
