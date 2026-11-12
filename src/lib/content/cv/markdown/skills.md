@@ -1,5 +1,11 @@
 ## Skills
 
+### Leadership
+
+Technology strategy & systems architecture, build vs buy decisions, team recruitment & development, security & data protection (UK GDPR, DPIAs), vendor & partner integration, cross-functional planning
+
+---
+
 ### Backend
 
 Django, Flask, Express, Spring, Prisma, Postgres, MySQL, MongoDB, REST, GraphQL (inc. Apollo), Websockets, Jest, Gunicorn, Redis (inc. PubSub), Celery, SQLAlchemy, NumPy, OpenCV
