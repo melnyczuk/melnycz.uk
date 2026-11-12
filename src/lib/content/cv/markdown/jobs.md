@@ -6,11 +6,10 @@
 
 #### Head of Technology _10.2026–Present_
 
-I am accountable for technology across Iswe Foundation, the organisation behind the Global Citizens' Assembly: the Assemblis platform, organisational infrastructure, and all of Iswe's web platforms, including iswe.org and globalassemblies.org. The role combines management of the engineering team and technology budget with hands-on architecture and development, translating loosely defined organisational needs into practical technical solutions.
+I am accountable for technology across Iswe Foundation, the organisation behind the Global Citizens' Assembly: the Assemblis platform, organisational infrastructure, and all of Iswe's web platforms, including iswe.org and globalassemblies.org. The role combines management of the engineering team with hands-on architecture and development, translating loosely defined organisational needs into practical technical solutions.
 
 - Manage the engineering team, from recruitment and onboarding to performance and development
 - Own technology strategy and systems architecture, including build vs buy vs partner decisions
-- Set and manage the technology budget across platforms, infrastructure and tooling
 - Write and maintain technology policy, and own security and risk management, including data protection, access control and impact assessments for third-party services
 - Set engineering standards across testing, documentation and release management
 - Lead selection and integration of third-party platforms, and the technical side of partnerships with aligned organisations

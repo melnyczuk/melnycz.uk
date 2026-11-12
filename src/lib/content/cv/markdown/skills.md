@@ -2,7 +2,7 @@
 
 ### Leadership
 
-Technology strategy & systems architecture, build vs buy decisions, budget management, team recruitment & development, security & data protection (UK GDPR, DPIAs), vendor & partner integration, cross-functional planning
+Technology strategy & systems architecture, build vs buy decisions, team recruitment & development, security & data protection (UK GDPR, DPIAs), vendor & partner integration, cross-functional planning
 
 ---
 
