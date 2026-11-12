@@ -2,25 +2,38 @@
 
 ### Iswe Foundation
 
-04.2024-Present
+04.2024–Present
 
-#### Technical Lead
+#### Head of Technology _10.2026–Present, part-time_
 
-As the technical lead at Iswe, I am responsible for provisioning, supporting and integrating digital tooling for Iswe's projects, including the Global Citizen's Assembly and Assemblis platform. I have supported Iswe to improve their technical procedures, with a key focus on data security, and stream-lining digital operations.
+I am accountable for technology across Iswe Foundation, the organisation behind the Global Citizens' Assembly: the Assemblis platform, organisational infrastructure, and all of Iswe's web platforms, including iswe.org and globalassemblies.org. The role combines strategic oversight and hands-on technical leadership with budget and people management, working as a full member of the Product and Operations circles to translate organisational needs into technical solutions.
 
-A key focus of my work at Iswe has centred on the Assemblis platform. I have led architecture and development to ensure the platform is scalable, reliable and cost-effective, whilst being accessible to users around the world. This has involved actively developing backend and frontend services with a growing development team, alongside coordinating with stakeholders across product, content, design and operations to drive an effective scaling strategy.
+- Own technology strategy and systems architecture, including build vs buy vs partner decisions
+- Set and manage the technology budget across platforms, infrastructure and tooling
+- Accountable for the reliable, scalable delivery of Assemblis, and for engineering standards across testing, documentation and release management
+- Own security and risk management, including data protection, access control and impact assessments for third-party services
+- Recruit, onboard and develop the engineering team
+- Lead selection and integration of third-party platforms, and the technical side of partnerships with aligned organisations
+
+#### Technical Lead _04.2024–09.2026_
+
+I provisioned, supported and integrated digital tooling for Iswe's projects, including the Global Citizens' Assembly and the Assemblis platform, and improved Iswe's technical procedures with a key focus on data security and streamlining digital operations.
+
+On Assemblis, I led architecture and development to make the platform scalable, reliable and cost-effective, whilst accessible to users around the world. This meant actively developing backend and frontend services with a growing development team, alongside coordinating stakeholders across product, content, design and operations to drive the scaling strategy.
+
+---
 
 ### Human Health
 
 01.2023–08.2023
 
-#### Frontend Developer
+#### Frontend Developer _Contract_
 
-As part of a short contract, I aided the core development team in bringing an MVP healthcare application to market during the prelaunch crunch. As a product designed to provide further communication between patients and clinical professionals, the implementation of best practices around data security and user privacy was a top priority. Joining a globally distributed team, this role required excellent asynchronous communication, using agile methodologies to manage my tasks and time effectively.
+On a short contract, I joined the core development team to bring an MVP healthcare application to market during the prelaunch crunch. As a product connecting patients with clinical professionals, data security and user privacy were top priorities. Working in a globally distributed team, the role called for strong asynchronous communication and agile delivery to land the launch.
 
-- A cross-platform React application bundled for web and mobile distribution.
+- Cross-platform React application bundled for web and mobile distribution
 - Data security & user privacy best practices
-- Best practices for accessibility and internationalisation (EN/ES)
+- Accessibility and internationalisation (EN/ES)
 - Agile & asynchronous working environment
 
 ---
@@ -29,9 +42,9 @@ As part of a short contract, I aided the core development team in bringing an MV
 
 08.2021–01.2023
 
-#### Lead Backend Developer
+#### Founding Engineer & Lead Backend Developer
 
-As the first engineer on the project, I collaborated closely with a design agency for the initial phase of research & development. This required developing the first iteration of the mobile app using React Native, whilst architecting and building MVP backend services to support functionality. Following this initial contract, I then became a full-time team member to aid the growth of the in-house engineering team.
+As the first engineer on the product, I worked closely with a design agency through the initial research & development phase, building the first iteration of the React Native mobile app whilst architecting and building the MVP backend services behind it. Following this initial contract, I joined full-time to help grow the in-house engineering team.
 
 I researched, prototyped and built a backend ecosystem of hexagonal micro-services using a domain-specific architecture that was intuitive to develop, iterate and test. As a healthcare product, data security and privacy were paramount.
 
@@ -48,11 +61,11 @@ These services communicate using Redis PubSub to provide an asynchronous worker/
 
 09.2020–03.2021
 
-#### Full-stack Developer
+#### Full-stack Developer _Contract_
 
-During this contract, I undertook a greenfield project to design, prototype, and build a VR real estate web app and SDK using React, Express, & GraphQL. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
+On a greenfield contract, I designed, prototyped and built a VR real estate web app and SDK using React, Express & GraphQL, taking it from idea to deployed product. The application facilitated real-time guided virtual tours of real estate properties, incorporating conference call functionality through Twilio and multi-user interactivity through WebSockets.
 
-- Engineered an Express server with a GraphQL API to support a SAAS business platform
+- Engineered an Express server with a GraphQL API to support a SaaS business platform
 - Produced an SDK of React components to facilitate access to core intellectual property
 - Built CI tooling to automate orchestration & monitor usage
 - Facilitated real-time multi-user access using WebSockets
@@ -66,11 +79,11 @@ During this contract, I undertook a greenfield project to design, prototype, and
 
 #### Full-stack Developer
 
-As a full-stack developer in the Receive team at TransferWise, I worked to improve the user experience when receiving international transfers and setting up direct debits. I worked to make complex user journeys into smooth seamless experiences using React and Angular, and I worked on system-critical Java Spring Boot microservices that adhere to the standards of financial authorities worldwide.
+In the Receive team at TransferWise, I improved the experience of receiving international transfers and setting up direct debits, turning complex user journeys into smooth, seamless experiences using React and Angular. I also worked on system-critical Java Spring Boot microservices that adhere to the standards of financial authorities worldwide.
 
 - Built & maintained Java micro-services using the Spring framework
-- Developed Typescript React apps and contributed to front-end guild tooling
-- Collaborate in product discussions & input on product decisions
+- Developed TypeScript React apps and contributed to front-end guild tooling
+- Contributed to product discussions & decisions
 - Continuous deployment and inspection on AWS
 
 ---
@@ -81,12 +94,12 @@ As a full-stack developer in the Receive team at TransferWise, I worked to impro
 
 #### News Labs - Full-stack Developer
 
-News Labs is a technology-agnostic, project-driven innovation incubator based across the BBC's R&D and News departments, focusing on cutting-edge projects addressing concerns facing modern journalism. During my time on the team, I developed a News Discovery tool that clustered user feedback to provide topic insights, and I implemented a package intended to improve analytics from user-facing prototypes. I also organized ways of working sessions to promote agile methodologies and attended training on security, threat modelling & test-driven design.
+News Labs is a technology-agnostic, project-driven innovation incubator across the BBC's R&D and News departments, tackling problems facing modern journalism. I led the development of a News Discovery tool that clustered user feedback to provide topic insights, and implemented a package to improve analytics from user-facing prototypes. I also organised ways-of-working sessions to promote agile methodologies, and trained in security, threat modelling & test-driven design.
 
-- Rapid prototyping in React and Python
-- Project ideation for greenfield projects
 - Led the development of an ML/NLP tool for news discovery
 - Architected projects for deployment on cloud infrastructure
+- Project ideation and rapid prototyping in React and Python for greenfield projects
+- Organised ways-of-working sessions for the team
 
 ---
 
@@ -94,7 +107,7 @@ News Labs is a technology-agnostic, project-driven innovation incubator based ac
 
 #### iPlayer - Frontend Developer
 
-I worked to improve the multitude of React apps that work to form the BBC iPlayer website, one of the UK's most used services (with up to 21 million requests an hour). As part of a cross-functional agile team, I worked closely with UX designers to implement a rebuild that ensured universal accessibility, Testers to ensure full browser support across all operating systems, and the product owner to design insightful A/B tests.
+I worked on the React apps that form the BBC iPlayer website, one of the UK's most used services (with up to 21 million requests an hour). As part of a cross-functional agile team, I worked closely with UX designers on a rebuild that ensured universal accessibility, with testers to ensure full browser support across all operating systems, and with the product owner to design insightful A/B tests.
 
 - Built and maintained multiple isomorphic React applications
 - Developed sophisticated A/B tests with insightful metrics
@@ -110,7 +123,7 @@ I worked to improve the multitude of React apps that work to form the BBC iPlaye
 
 #### Python Developer
 
-Spirable is an ad-tech startup that provides a platform for generating contextual, audience-specific content dynamically and at scale. Working as a Python developer on a Django stack with an Angular frontend, I was tasked with building and maintaining the video production functionality using technologies such as OpenCV and FFMPEG. This involved R&D, rapid prototyping, and integrating features using test-driven development.
+Spirable is an ad-tech startup that provides a platform for generating contextual, audience-specific content dynamically and at scale. Working as a Python developer on a Django stack with an Angular frontend, I built and maintained the video production functionality using technologies such as OpenCV and FFMPEG. This involved R&D, rapid prototyping, and integrating features using test-driven development.
 
 - Built new scalable features & maintained core product
 - Implemented OpenCV & machine learning audio-video processing algorithms
