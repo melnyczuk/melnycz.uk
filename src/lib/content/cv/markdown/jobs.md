@@ -4,22 +4,22 @@
 
 04.2024–Present
 
-#### Head of Technology _10.2026–Present, part-time_
+#### Head of Technology _10.2026–Present_
 
-I am accountable for technology across Iswe Foundation, the organisation behind the Global Citizens' Assembly: the Assemblis platform, organisational infrastructure, and all of Iswe's web platforms, including iswe.org and globalassemblies.org. The role combines strategic oversight and hands-on technical leadership with budget and people management, working as a full member of the Product and Operations circles to translate organisational needs into technical solutions.
+I am accountable for technology across Iswe Foundation, the organisation behind the Global Citizens' Assembly: the Assemblis platform, organisational infrastructure, and all of Iswe's web platforms, including iswe.org and globalassemblies.org. The role combines management of the engineering team and technology budget with hands-on architecture and development, translating loosely defined organisational needs into practical technical solutions.
 
+- Manage the engineering team, from recruitment and onboarding to performance and development
 - Own technology strategy and systems architecture, including build vs buy vs partner decisions
 - Set and manage the technology budget across platforms, infrastructure and tooling
-- Accountable for the reliable, scalable delivery of Assemblis, and for engineering standards across testing, documentation and release management
-- Own security and risk management, including data protection, access control and impact assessments for third-party services
-- Recruit, onboard and develop the engineering team
+- Write and maintain technology policy, and own security and risk management, including data protection, access control and impact assessments for third-party services
+- Set engineering standards across testing, documentation and release management
 - Lead selection and integration of third-party platforms, and the technical side of partnerships with aligned organisations
 
 #### Technical Lead _04.2024–09.2026_
 
-I provisioned, supported and integrated digital tooling for Iswe's projects, including the Global Citizens' Assembly and the Assemblis platform, and improved Iswe's technical procedures with a key focus on data security and streamlining digital operations.
+Joining Iswe as its technical lead, I worked through ambiguous and fast-changing requirements to deliver technical solutions, with or without support. On my own initiative, I improved Iswe's technical procedures, writing policy and introducing risk management with a key focus on data security, and streamlined digital operations by provisioning and integrating tooling across Iswe's projects, including the Global Citizens' Assembly.
 
-On Assemblis, I led architecture and development to make the platform scalable, reliable and cost-effective, whilst accessible to users around the world. This meant actively developing backend and frontend services with a growing development team, alongside coordinating stakeholders across product, content, design and operations to drive the scaling strategy.
+On the Assemblis platform, I led architecture and development to keep the platform reliable, cost-effective and accessible to users around the world, building backend and frontend services hands-on while leading a growing development team.
 
 ---
 
