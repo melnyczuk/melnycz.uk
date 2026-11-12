@@ -18,7 +18,7 @@ I am accountable for technology across Iswe Foundation, the organisation behind 
 
 Joining Iswe as its technical lead, I worked through ambiguous and fast-changing requirements to deliver technical solutions, with or without support. On my own initiative, I improved Iswe's technical procedures, writing policy and introducing risk management with a key focus on data security, and streamlined digital operations by provisioning and integrating tooling across Iswe's projects, including the Global Citizens' Assembly.
 
-On the Assemblis platform, I led architecture and development to keep the platform reliable, cost-effective and accessible to users around the world, building backend and frontend services hands-on while leading a growing development team.
+On the Assemblis platform, I led architecture and development to keep the platform reliable, cost-effective and accessible to users around the world. The platform is designed to work in low-tech, low-bandwidth and low-connectivity environments, and across different cultural contexts. I built backend and frontend services hands-on while leading a growing development team.
 
 ---
 
