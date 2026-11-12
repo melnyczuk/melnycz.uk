@@ -1,0 +1,118 @@
+/* Tailwind without Preflight: modern-css-reset is kept as the base reset so
+   markdown content keeps its default heading sizes, margins and lists */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'modern-css-reset/dist/reset.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Markdown content isn't markup, don't scan it for class names */
+@source not './lib/content';
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 360px; /* 360×640, 360×720 */
+  --breakpoint-sm: 375px; /* 375×667 */
+  --breakpoint-md: 768px; /* 768×1024 */
+  --breakpoint-lg: 1366px; /* 1366×768 */
+  --breakpoint-xl: 1920px; /* 1920×1080 */
+
+  --spacing-xxs: 3px;
+  --spacing-xs: 9px;
+  --spacing-s: 18px;
+  --spacing-m: 36px;
+  --spacing-l: 72px;
+  --spacing-xl: 144px;
+
+  --radius-xxs: 3px;
+
+  --font-*: initial;
+  --font-serif: 'reckless', serif;
+  --font-sans: 'roobert', sans-serif;
+  --font-mono: 'space mono', monospace;
+
+  --text-*: initial;
+  --text-p-xl: 32px;
+  --text-p-l: 24px;
+  --text-p-m: 18px;
+  --text-p-s: 16px;
+  --text-p-xs: 16px;
+
+  --text-h-xl: 36px;
+  --text-h-l: 22px;
+  --text-h-m: 16px;
+  --text-h-s: 16px;
+  --text-h-xs: 14px;
+
+  --color-*: initial;
+  --color-blue: #00309c;
+  --color-blue-highlight: #bfcdff;
+  --color-blue-lowlight: #00030a;
+  --color-grey: #fafafa;
+  --color-red: #9e002f;
+  --color-red-highlight: #ffbdcb;
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+@font-face {
+  font-family: 'reckless';
+  src: url('/fonts/Reckless-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'roobert';
+  src: url('/fonts/Roobert-Medium.woff2');
+}
+
+@font-face {
+  font-family: 'space mono';
+  src: url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+}
+
+@layer base {
+  body {
+    background-color: var(--color-grey);
+  }
+}
+
+/* Body text: sans, responsive size, highlighted links */
+@utility paragraph {
+  text-decoration: unset;
+  font-family: var(--font-sans);
+  font-size: var(--text-p-xs);
+
+  & > p {
+    background-color: inherit;
+    vertical-align: baseline;
+  }
+
+  & > a,
+  & :any-link {
+    color: inherit;
+    background-color: var(--color-blue-highlight);
+    text-decoration: none;
+    padding: var(--spacing-xxs);
+    border-radius: var(--radius-xxs);
+  }
+
+  @media (width >= 375px) {
+    font-size: var(--text-p-s);
+  }
+  @media (width >= 768px) {
+    font-size: var(--text-p-m);
+  }
+  @media (width >= 1366px) {
+    font-size: var(--text-p-l);
+  }
+  @media (width >= 1920px) {
+    font-size: var(--text-p-xl);
+  }
+}
+
+/* Serif headings, e.g. `heading-h-xl` */
+@utility heading-* {
+  font-family: var(--font-serif);
+  font-size: --value(--text-h-*);
+  line-height: normal;
+  letter-spacing: -0.5px;
+}

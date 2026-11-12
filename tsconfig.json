@@ -1,39 +1,9 @@
 {
+  "extends": "$app/tsconfig",
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": false,
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "module": "esnext",
-    "target": "ES2022",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "moduleResolution": "node",
-    "isolatedModules": true,
     "resolveJsonModule": true,
-    "incremental": true
+    "types": ["$app/types", "node"]
   },
-  "include": [
-    "src/*.ts",
-    "src/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "global.d.ts",
-    "next.config.js"
-  ],
-  "exclude": [
-    "scripts",
-    "node_modules"
-  ]
+  "include": ["src", "vite.config.ts"]
 }

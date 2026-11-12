@@ -1,7 +1,6 @@
 .DS_Store
-.next
 node_modules
-out
-yarn-error.log
-src/pages/cover_letter.tsx
-public/rss*
+/.svelte-kit
+/out
+*.log
+vite.config.ts.timestamp-*
